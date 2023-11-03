@@ -1,0 +1,23 @@
+name: Build
+on:
+  push:
+    branches:
+      - main # the name of your main branch
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup PHP with composer v2
+      uses: shivammathur/setup-php@v2
+      with:
+         php-version: '8.2'
+         tools: composer:v2
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
