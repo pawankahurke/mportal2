@@ -22,6 +22,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@master
-        env:
+      uses: snyk/actions/php@master
+      env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
