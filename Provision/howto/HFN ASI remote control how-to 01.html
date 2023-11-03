@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20061213;18132012">
+	<META NAME="CHANGED" CONTENT="20070115;10141547">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>Remote control</H3>
+<UL>
+	<LI><P><A HREF="#remotecontrol">How to take remote control of a
+	system where the ASI client is running</A></P>
+	<LI><P><A HREF="HFN%20ASI%20remote%20control%20how-to.txt" TARGET="_blank">ASI
+	remote control operation user instructions</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20remote%20control%20background%20configuration.txt" TARGET="_blank">ASI
+	remote control background configuration notes</A> 
+	</P>
+	<LI><P><A HREF="Remote%20control%20-%20Notes%20on%20starting%20a%20remote%20control%20session.txt" TARGET="_blank">Notes
+	on starting a remote control session</A>  
+	</P>
+	<LI><P><A HREF="Remote%20control%20-%20How%20to%20troubleshoot%20winvnc.exe%20re-start%20problems.txt" TARGET="_blank">How
+	to troubleshoot winvnc.exe re-start problems</A>  
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="remotecontrol"></A>How to take remote control of a
+system where the ASI client is running<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Before you follow the instructions below, please make sure that:</P>
+<P>1) One copy of the Ultr@VNC client process is running in listen
+mode on the remote system(s) (those used to take control of the
+target system(s)). 
+</P>
+<P>2) If you are using the direct remote control session option
+(where the UltraVNC server looks for a specific system to give
+control to) instead of using the intermediate server, and if the
+remote system(s) access the Internet via a gateway device, the port
+configured as the listener port (see below) is open for incoming
+traffic. 
+</P>
+<P>3) If you are using the direct remote control session option
+(where the UltraVNC server looks for a specific system to give
+control to) instead of using the intermediate server, and if the
+remote system(s) access the Internet via a gateway device, traffic
+coming into the listener port, be forwarded to the remote system (the
+system taking control of the target system(s)). 
+</P>
+<P>4) If you are using the direct remote control session option
+(where the UltraVNC server looks for a specific system to give
+control to) instead of using the intermediate server, and if the
+remote system(s) access the Internet via a gateway device, you have
+the public address (IP or domain) either of the remote system itself,
+if it has one or, more likely, of the gateway device used by the
+remote system to access the Internet. 
+</P>
+<P STYLE="font-weight: medium">5) No other remote control software is
+running on either the remote or target systems.</P>
+<P><B>Important &ndash; Please remember that when you activate
+Ultr@VNC based remote control via the ASI server (Method A below),
+the remote control session on the target system(s) will begin the
+next time the ASI client from these system(s) contacts the ASI
+server. This will happen at a frequency determined by the execution
+schedule of Scrip 177. By default, Scrip 177 runs once per hour with
+a 50-minute random interval. To change the Scrip 177 execution
+schedule, you can follow the instructions in the </B><A HREF="#scripschedulechange"><B>How
+to change the frequency with which the ASI client retrieves Scrip
+configuration changes from the ASI server</B></A> <B>section of this
+document.</B></P>
+<H5>Method A - ASI server (to be used if you want to take remote
+control of a system at a customer site)</H5>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>remote control</I> link in the <I>tool</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>4) Follow the on-screen instructions</P>
+<P>Alternatively,</P>
+<P>1) Log onto the ASI server (<A HREF="http://https/asiserverurl/main">https/asiservername/main</A>
+)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>wizard</I> link in the <I>sites</I> navigation bar
+(<A HREF="https://asiserverurl/main/config/index.php?act=wiz">https://asiservername/main/config/index.php?act=wiz</A>
+)</P>
+<P>4) Click on the <I>Configure remote control</I> wizard entry</P>
+<P>5) Follow the on-screen instructions</P>
+<H5>Method B &ndash; User initiated remote control session 
+</H5>
+<P>1) Open a browser window.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>4) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>5) Click on the <I>view machines</I> link for the site of the
+system where you want to enable the end-user initiated remote control
+session function</P>
+<P>6) Click on the <I>configure Scrips</I> link for the system where
+you want to enable the end-user initiated remote control session
+function</P>
+<P>7) Scroll down to the entry for Scrip 236 (<I>On-demand Remote
+Control</I>), and click on the Scrip name 
+</P>
+<P>8) Enable the <I>Place remote support activation icon on desktop</I>
+configuration parameter (check its box), leaving the group selection
+for the configuration parameter set to <B>site &lt;name&gt;</B> if
+you want to enable the end-user initiated remote control session
+function on all systems at the site, or leaving it set to <B>machine
+&lt;name&gt;</B> if you want only the system whose Scrip 236
+configuration page you are viewing to have this function enabled.</P>
+<P>9) If you wish to, enter the text for the remote support
+activation icon in the Remote support icon label (Blank defaults to
+&quot;Start remote support&quot;) configuration parameter, again
+leaving the group selection for the configuration parameter set to
+<B>site &lt;name&gt;</B> if you want to enable the end-user initiated
+remote control session function on all systems at the site, or
+leaving it set to <B>machine &lt;name&gt;</B> if you want only the
+system whose Scrip 236 configuration page you are viewing to have the
+custom remote support activation icon label.</P>
+<P>10) Scroll down to the bottom of the Scrip 236 configuration page,
+and click on the <I>Submit Changes</I> button. The <FONT SIZE=2 STYLE="font-size: 11pt"><FONT FACE="Arial, sans-serif">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P>11) Once the Scrip 236 configuration change described in steps
+1)-10) above has been retrieved by the ASI client on the system(s)
+where you want to enable the end-user initiated remote control
+session function, whenever end-users on systems where this function
+is enabled click on the remote support activation icon on their
+desktop, Scrip 236 will run and initiate a remote control session
+(either direct or via the intermediate server) instantaneously, as
+long as 
+</P>
+<UL>
+	<LI><P>the system whose IP address is entered in the Address of
+	remote computer configuration parameter (if you are using the direct
+	remote control session mode) is running one copy of the UltraVNC
+	viewer, or</P>
+	<LI><P>a system, located anywhere, with access to the intermediate
+	server, is running one copy of the UltraVNC viewer configured with
+	the correct remote control session id.</P>
+</UL>
+<H5>Method C - Direct ASI client access (it can be used on site to
+let a remote system take control of a system where the ASI client is
+running)</H5>
+<P>1) Open a browser window.</P>
+<P>2) In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>3) In the user logon dialog enter <B>&lt;direct access user id&gt;</B>
+/ &lt;<B>direct access password</B>&gt;</P>
+<P>4) Click on the name of the system at the very top of the page.
+The <FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed.</P>
+<P>5) Scroll down to the entry for Scrip 236 (<I>On-demand Remote
+Control</I>), and click on the Scrip name</P>
+<P>6) If you want to activate a remote control session via the
+intermediate server (the preferred approach), ensure that the Use
+intermediate server configuration parameter is enabled (check its
+box). If you wish to use the direct connect remote control session
+function, in the <I>Address of remote computer</I> configuration
+parameter, enter the public address (IP or domain) at the site where
+the remote computer (the one taking control of the target computer)
+is located.</P>
+<P>7) If you want to, enable the <I>Uninstall on shutdown</I>
+configuration parameter 
+</P>
+<P>8) Click on the <I>Install and run now</I> Execute button (it does
+not matter if <A HREF="mailto:Ultr@VNC">Ultr@VNC</A> is already
+installed on the target system which, in this case is the system you
+are working on)</P>
+<H5>Method D - Local ASI user interface (if the local user interface
+is activated, it can be used on site to let a remote system take
+control of a system where the ASI client is running)</H5>
+<P>- Double-click on the ASI client icon in the system tray</P>
+<P>- Click on the <I>Start / Stop Remote Control Support</I> wizard
+entry</P>
+<P><A HREF="#remotecontrol"><SPAN STYLE="text-decoration: none"><FONT COLOR="#000000">-
+Follow the on-screen instructions </FONT></SPAN></A>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

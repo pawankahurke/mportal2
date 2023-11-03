@@ -1,0 +1,61 @@
+How to modify the content of the Scrip 176 "Services to be monitored" configuration parameter
+==============================================================================================
+
+Information reported in the "Services" monitored item group in the ASI Dashboard comes from Scrip 176 (Service Restart) event logs. If you do not want to have the ASI Dashboard report on the availability of certain MS Windows services, you need to modify the configuration of Scrip 176 so that it no longer monitors those services. 
+
+Scrip 176 (Service Restart) monitors Microsoft Windows services, and re-starts them if configured to do so. By default, the Scrip is configured to only monitor the services included in its "Services to be monitored" configuration parameter, and post an event log on the ASI server whenever it detects that one or more services in the "Services to be monitored" configuration parameter are stopped.
+
+Entries in the "Services to be monitored" configuration parameter consist of the "display" names of the services to be monitored.
+
+When Scrip 176 posts an event log notifying you that certain MS Windows services on a system stopped, it reports the "internal" name of the stopped services in the event log (field text1).
+
+One ore more of the services Scrip 176 reports as stopped may be of no interest to you, and you may want Scrip 176 to not monitor these services.
+
+This means that you need to remove the entries for the stopped MS Windows services you are not interested in from the "Services to be monitored" configuration parameter.
+
+In order to do this, you need to be able to match the "internal" name of the stopped services with their "display" name entered in the "Services to be monitored" configuration parameter. The attached "Scrip 176 service display and internal names .xls" spreadsheet lists side by side the "display" and "internal" names of all MS Windows services monitored by default by Scrip 176.
+
+Once you have identified the display name of the MS Windows services whose entry you want to remove from the "Services to be monitored" configuration parameter in Scrip 176, please perform the following steps in order to remove their entries from the "Services to be monitored" configuration parameter:
+
+1) Log onto your ASI server (https://asiservername/main/)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) In the "sites" navigation bar, click on the "configuration" link (https://asiservername/main/config/index.php?act=site)
+
+4) Click on the "view machines" link for the site where you want to modify the Scrip 176 configuration. The "Configuration <site name> Machines" page will be displayed.
+
+5) If you want to modify the configuration for the entire site, click on the "configure Scrips" link for any system in the site's machine list. Otherwise, click on the "configure Scrips" link for the system where you want to change the Scrip 176 configuration. The "Scrip configurator" page for the system whose "configure Scrips" link you clicked on will be displayed.
+
+6) Scroll down to the entry for Scrip 176 (Service Restart), and click on the Scrip name. The Scrip's configuration page will be displayed.
+
+7) Scroll down to the "Services to be monitored" configuration parameter
+
+8) Open the "Scrip 176 service display and internal names.xls" spreadsheet with Microsoft Excel, or any Microsoft Excel compatible application (e.g. Open Office)
+
+9) Use the find function in the spreadsheet application to find the "internal" name of the service you want to remove from the list of services in the "Services to be monitored" configuration parameter.
+
+10) To the left of the service's "internal" name you will see its "display" name. You will also see the category the service belongs to, e.g. "BACKUP EXEC SERVICES" 
+
+11) At this point, you can perform one of two actions:
+i) More error prone
+Scroll down the  list in the "Services to be monitored" configuration parameter until you find the service category you are looking for and the "display" name of the service you want to remove from the list. Once you find it, delete it making sure that you leave one entry per line.
+
+ii) Less error prone
+- Select the content of the "Services to be monitored" configuration parameter (Ctrl+A), and copy it (Ctrl+C)
+- Start-up a text editor, and paste the content of the the "Services to be monitored" configuration parameter in the text editor window (Ctrl+V)
+- Use the text editor's find function to find the "display" name of the service you do not want Scrip 176 to monitor
+- Delete the entry making sure that you leave one entry per line.
+- Select the content in the text editor window (Ctrl+A), and copy it (Ctrl+C)
+- Select the content of the "Services to be monitored" configuration parameter (Ctrl+A), and delete it (Click on "Delete" key)
+- Paste the content of the text editor window in the "Services to be monitored" configuration parameter box (Ctrl+V)
+
+12) If you need to remove more than one entry from the "Services to be monitored" configuration parameter, you can perform the steps in 11) above once for all entries you want to remove from the "Services to be monitored" configuration parameter.
+
+13) After you have made all the changes to the "Services to be monitored" configuration parameter, Click on the "Submit Changes" button
+
+
+
+
+
+

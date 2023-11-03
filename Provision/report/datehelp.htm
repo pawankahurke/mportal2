@@ -1,0 +1,228 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Microsoft Update Management (MUM) Section Date Parameters</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20070414;14080154">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20070417;9144328">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Microsoft Update Management (MUM) Section Date Parameters</H3>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<H4>Definitions</H4>
+<P><B>Scheduler</B> - Lets you define the period covered by a
+section. If it is checked, the section will use any schedule(s) you
+assign to a report containing the section. If the &quot;Scheduler&quot;
+configuration option is unchecked, you will be able to define the
+coverage period for the date type (Detect, Download, Install,
+Removal, Error, Last Change, Next Action) whose &quot;Scheduler&quot;
+configuration option you unchecked. 
+</P>
+<P><B>Restrict</B> - Lets you restrict the coverage period defined to
+a single date type (Detect, Download, Install, Removal, Error, Last
+Change, Next Action). For example, suppose you check the &quot;Restrict&quot;
+configuration parameter for the &ldquo;install date&rdquo; date type
+parameter. The section will report only information about Microsoft
+software updates whose installation dates match the dates defined in
+any schedule assigned to reports using the section, or the date range
+entered via the start and end dates, if the &quot;Scheduler&quot;
+configuration parameter is disabled. 
+</P>
+<P>Consider the following usage of the restrict configuration
+parameter for the &ldquo;install date&rdquo; date type:</P>
+<UL>
+	<LI><P>When defining or editing a section, you check &quot;Restrict&quot;
+	for the &ldquo;install date&rdquo; type. If &quot;Scheduler&quot; is
+	checked, a report using this section will only include status
+	entries with installation date matching the period of any
+	schedule(s) attached to the report. For example, if you assign to a
+	report a schedule that runs daily at 1 AM, the report will only
+	include updates that were installed from yesterday at 1 AM to the
+	current time (1 AM today).</P>
+	<LI><P>When defining or editing a section, you check &quot;Restrict&quot;
+	for the &ldquo;install date&rdquo; type. If &quot;Scheduler&quot; is
+	not checked, a report using this section will only include status
+	entries with installation date matching the period specified. For
+	example, you could enter a start date of 1/1/07 and an end date of
+	2/1/07 to get a list of updates installed in January 2007.</P>
+</UL>
+<P>You can enable the &quot;Restrict&quot; configuration option for
+only one date type (Detect, Download, Install, Removal, Error, Last
+Change, Next Action) at a time. When you do, all other &quot;Scheduler&quot;
+and &quot;Restrict&quot; configuration options are disabled. 
+</P>
+<H5>IMPORTANT NOTE</H5>
+<P>The &ldquo;Status&rdquo; configuration parameter in the
+&ldquo;Add/Copy/Edit a Section&rdquo; pages, lets you retrieve MUM
+update records by their current status on a machine-by-machine basis.</P>
+<P>The &ldquo;date type&rdquo; configuration parameters in the
+&ldquo;Add/Copy/Edit a Section&rdquo; pages (Detect, Download,
+Install, Removal, Error, Last Change, Next Action), let you retrieve
+MUM update records based on the occurrence of update activity of a
+certain type.</P>
+<P>You should be careful about configuring sections where you select
+values for both the &ldquo;Status&rdquo; and &ldquo;date type&rdquo;
+configuration parameters. Most combinations of &ldquo;Status&rdquo;
+and &ldquo;date type&rdquo; configuration parameter values result in
+no MUM update records retrieved.</P>
+<P><U>Example 1</U> &ndash; Restricted section with a defined
+coverage period. Suppose you defined a section as follows:</P>
+<UL>
+	<LI><P>Status &ndash; Detected</P>
+	<LI><P>Install Date &ndash; &ldquo;Restrict&rdquo; checked,
+	&ldquo;Scheduler&rdquo; unchecked, Start Date &ndash; 03/01/07, End
+	Date &ndash; 4/1/07 
+	</P>
+</UL>
+<P>A section defined in this way will retrieve all updates which <SPAN STYLE="text-decoration: none">have
+a detected state and installation activity</SPAN> in March 2007,
+regardless of the schedule assigned to a report using this section.<SPAN STYLE="text-decoration: none">
+This could happen if the disk on a system was replaced, or one or
+more updates were removed.</SPAN></P>
+<P><U>Example 2</U> &ndash; Restricted section with a periodic
+coverage period. Suppose you defined a section as follows:</P>
+<UL>
+	<LI><P>Status &ndash; Installed</P>
+	<LI><P>Detect Date &ndash; &ldquo;Restrict&rdquo; checked,
+	&ldquo;Scheduler&rdquo; checked</P>
+</UL>
+<P STYLE="text-decoration: none">A section defined in this way will
+retrieve all updates which have installed status and detect activity
+during the period covered by the schedule assigned to the report.</P>
+<P><U>Example 3</U> &ndash; Status section. Suppose you defined a
+section as follows:</P>
+<UL>
+	<LI><P>Status &ndash; Installed 
+	</P>
+	<LI><P>Date types &ndash; All scheduler configuration options
+	checked</P>
+</UL>
+<P>When you use this section in a report, the report will include all
+MUM update records with installed status, which had MUM related
+activity during the period covered by the report. Please note that if
+no updates with installed status had any MUM related activity during
+the period covered by the report, the report will be empty.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<H4>Notes</H4>
+<P>If you do not want to specify ranges for date configuration
+parameters on this &quot;Edit a Microsoft Update Management Section&quot;
+page, leave all &quot;Schedules&quot; configuration parameter boxes
+checked. In this way, when this section is included in a report, it
+will use the schedule(s) assigned to the report. 
+</P>
+<P>Please remember that you can enable the &quot;Restrict&quot;
+configuration option for only one date type at a time. When you do
+all other &quot;Scheduler&quot; and &quot;Restrict&quot;
+configuration parameters will be grayed out. 
+</P>
+<P>If you disable the &quot;Scheduler&quot; configuration option for
+more than one date type, the period covered by the section will be a
+period including both coverage periods entered in the start and end
+dates for the date types whose &quot;Scheduler&quot; configuration
+parameter was unchecked. 
+</P>
+<P>For example, suppose you disable the &quot;Scheduler&quot;
+configuration option for &quot;detect&quot; and &quot;install&quot;
+date types, and enter: detected date interval -- Start date - 1/1/07
+and End date - 2/1/07 install date interval -- Start date - 1/15/07
+and End date - 2/15/07 
+</P>
+<P>Also assume that the &quot;Restrict&quot; configuration option is
+not enabled for either &quot;detect&quot; or &quot;install&quot; date
+types, then a report including a section with date types configured
+as described above, will include those MUM status entries where the
+detect date is between 1/1/07 and 2/1/07 OR the install date is
+between 1/15/07 and 2/15/07 (the OR is important). MUM status entries
+not matching either date range will not be included. 
+</P>
+<P>If you want to specify a coverage period for any of the date
+configuration parameters on the &quot;Edit a Microsoft Update
+Management Section&quot; page, you should uncheck the &quot;Schedules&quot;
+box for the corresponding date configuration parameter, and enter the
+start and end dates for the desired coverage period. This entry will
+override for this section, any schedule assigned to a report
+including this section. 
+</P>
+<P>If you want a section to report only MUM events with a date (e.g.
+installation date) falling within a certain period of time, you
+should uncheck the &quot;Scheduler&quot; box for the corresponding
+date configuration parameter, enter the start and end dates for the
+desired coverage period, and check the &quot;Restrict&quot;
+configuration parameter box. This entry will override for this
+section, any schedule assigned to a report including this section,
+and all other date configuration parameter settings on the &quot;Edit
+a Microsoft Update Management Section&quot; page will be ignored. 
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<H4>Examples</H4>
+<P>To clarify the above description of the date type related
+configuration parameters on the &quot;Edit a Microsoft Update
+Management Section&quot; page, before you configure any of the date
+parameters in this &quot;Edit a Microsoft Update Management Section&quot;
+page, please review the configuration examples listed below. 
+</P>
+<P><I>On-demand report for updates with installation date occurring
+during a period of time</I> <BR>- Uncheck the &quot;Scheduler&quot;
+box for &quot;Install date&quot;, <BR>- Check the &quot;Restrict&quot;
+box for &quot;Install date&quot;, and<BR>- Enter period start date in
+the install &quot;Start Date&quot; box, and period end date in the
+install &quot;End Date&quot; box 
+</P>
+<P><I>On-demand report covering MUM activity occurring during a
+period of time</I> <BR>- Do not change the date parameters default
+configuration on the &quot;Add/Copy/Edit a Microsoft Update
+Management Section&quot; pages.<BR>- Assign to the report using this
+section a one-time schedule covering the desired period 
+</P>
+<P><I>Periodic report for updates with installation date occurring
+during the last week (rolling)</I> <BR>- Check the &quot;Restrict&quot;
+box for &quot;Install date&quot;<BR>- Assign to the report using this
+section a weekly periodic schedule. 
+</P>
+<P><I>Periodic report for activity occurring during the last week
+(rolling)</I> <BR>- Do not change the date parameters default
+configuration on the &quot;Add/Copy/Edit a Microsoft Update
+Management Section&quot; pages.<BR>- Assign to the report using this
+section a weekly periodic schedule. 
+</P>
+<P><I>On-demand report for all MUM status (entire table)</I> <BR>- Do
+not change the date parameters default configuration on the
+&quot;Add/Copy/Edit a Microsoft Update Management Section&quot;
+pages. <BR>- In the one-time schedule you assign to the report using
+this section, leave start date and end date boxes blank. 
+</P>
+<P><I>Periodic report for all MUM status (entire table)</I> <BR>-
+Uncheck all &quot;Scheduler&quot; boxes for all date parameters on
+the &quot;Add/Copy/Edit a Microsoft Update Management Section&quot;
+pages.<BR>- Leave all start and end dates on this &quot;Edit a
+Microsoft Update Management Section&quot; page blank. 
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

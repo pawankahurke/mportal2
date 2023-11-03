@@ -1,0 +1,58 @@
+Method A - ASI server (to be used if you are not on site)
+==========================================================
+
+1) Log onto the ASI server (https://asiservername/main )
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) At the upper right-hand corner of any page on the ASI server extended interface, click on the configuration link in the sites navigation bar (https://asiservername/main/config/index.php?act=site )
+
+4) Click on link view machines for the site where the system you want to place the ASI client in safe mode in is located 
+
+5) Click on the configure Scrips link for the system whose ASI client you want to place in safe mode.
+
+6) Scroll down to the entry for Scrip 223 (HandsFree Client Installation and Deployment), and click on the Scrip name. 
+
+7) select "machine <name>" from the Group pull-down list for the "Scrips enabled at start-up" configuration parameter where "machine <name>" is the name of the system whose ASI client you want to place in safe mode. Pay special attention to this step. It is VERY IMPORTANT.
+
+8) In the "Scrips enabled at start-up" configuration parameter past the following string:
+
+22,23,65,93,96,208,231
+
+9) Select "machine <name>" from the Group pull-down list for the "Scrips enabled at start of follow-on phase" configuration parameter. Pay special attention to this step. It is VERY IMPORTANT.
+
+10) In the "Scrips enabled at start of follow-on phase" configuration parameter past the following string:
+
+22,23,65,93,96,208,231
+
+11) Click on the "Submit Changes" button.
+
+
+Method B - Direct ASI client access (can be used if you are on site)
+=====================================================================
+
+1) Open a browser window.
+
+2) In the address box, enter http://localhost:2721/ 
+
+3) In the user logon dialog enter <direct access user id> / <direct access password>
+
+4) Click on the name of the system at the very top of the page. The Scrip Configurator page will be displayed.
+
+5) Scroll down to the entry for Scrip 223 (HandsFree Client Installation and Deployment), and click on the Scrip name.
+
+6) Select "machine <name>" from the Group pull-down list for the "Scrips enabled at start of follow-on phase" configuration parameter. Pay special attention to this step. It is VERY IMPORTANT.
+
+7) In the "Scrips enabled at start-up" configuration parameter past the following string:
+
+22,23,65,93,96,208,231
+
+8) Set the "Scrips enabled at start of follow-on phase" Group parameter to the name of the system where you want to set the ASI client in safe mode by selecting the entry "machine <name>" from the pull-down list to the right of the "Scrips enabled at start of follow-on phase" Group parameter. Pay special attention to this step. It is VERY IMPORTANT.
+
+9) In the "Scrips enabled at start of follow-on phase" configuration parameter past the following string:
+
+22,23,65,93,96,208,231
+
+10) Click on the "Submit Changes" button.
+
+11) Close the browser window.

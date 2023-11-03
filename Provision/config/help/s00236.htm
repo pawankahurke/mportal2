@@ -1,0 +1,687 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 236 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20040405;8401487">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20060908;10254592">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 236 Configuration</H3>
+<H4>Configuration parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Disable tray icon</EM> is
+	disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Run UltraVNC as a service</I>
+	is enabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Default password</I> is
+	disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Impersonation enabled</EM> is
+	disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Run UltraVNC server at system
+	start-up</I> is disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Place remote support icon on
+	desktop</I> is disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Remote support icon label
+	(Blank defaults to 'Start remote support')</I> is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Address of remote computer</EM>
+	is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Listener port (Blank defaults
+	to 5500)</EM> is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Run now</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Shutdown now</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Uninstall on shutdown</EM> is
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Remote control software
+	installation executable download URL</EM> is empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Install now</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Install and run now</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Uninstall now</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Use intermediate server</I> is
+	disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Maintain connection with
+	intermediate server</I> is disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Address of intermediate server</I>
+	is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Connection ID (0 or
+	200-1999999)</I> is set to <B>0</B></P>
+	<LI><P STYLE="margin-bottom: 0in; font-weight: medium"><I>Initiate
+	Connection Automatically</I> is enabled</P>
+</UL>
+<H4>Definitions and important notes</H4>
+<P><I>RealVNC</I> users please note. Although Scrip 236 supports
+UltraVNC, it will not interfere with an existing <I>RealVNC</I>
+installation. In fact, you can use your <I>RealVNC</I> client running
+in listen mode on the remote computer to take control of the target
+system where the UltraVNC server installed by Scrip 236 is running.</P>
+<P>Please note that <B>before</B> you use Scrip 236 to initiate
+remote control of the system whose Scrip 236 configuration page you
+are accessing (<B>target computer</B>), you will need to run the
+remote control software in <I>listen mode</I> on the computer (<B>remote
+computer</B>) from which you will be controlling the <I>target
+computer</I>. It is important to ensure that only ONE remote control
+software client process is running at any one time on the <I>remote
+computer</I>.</P>
+<P>This means that the remote control software needs to be installed
+on the <I>remote computer</I> (<B>remember, this is the system that
+takes over the target computer</B>) before you use Scrip 236.</P>
+<P>If the <I>remote computer</I> is accessing a <I>target computer </I>at
+an external site, i.e. a site accessible via the Internet, and the
+<I>remote computer</I> does not have a public IP address, the entry
+for the <I>Address of remote computer</I> configuration parameter
+should be the public IP address or URL of the Internet gateway device
+used by the <I>remote computer</I>.</P>
+<P>In addition, the firewall for the network where the remote
+computer is located should be configured to forward traffic incoming
+via port 5500 (the default port used by the remote control software)
+to the remote computer.</P>
+<P>For example, suppose you want to configure Scrip 236 to initiate a
+remote control session from your computer (remote computer) on server
+X at customer site ABC. Let's also assume that your computer has a
+private IP address (e.g. 192.168.1.250), and that the Internet
+gateway at your site is a device with the service.provider.com URL.</P>
+<P>The entry in the <I>Address of remote computer</I> configuration
+parameter would be service.provider.com (or its public IP address).
+In addition, the firewall on your network would be configured to
+forward incoming port 5500 (or whichever port you have specified in
+the <I>Listener port (Blank defaults to 5500)</I> configuration
+parameter) traffic to the device at 192.168.1.250 (the private IP
+address of your computer).</P>
+<P>Please note that to identify the public IP address of your
+Internet gateway you can simply start an Internet browser session and
+enter the following <A HREF="http://checkip.dyndns.org/">http://checkip.dyndns.org/</A>
+in the browser's address box.</P>
+<P>If Scrip 236 finds that the UltraVNC, or RealVNC process
+(winvnc.exe for both) is running when it starts up, it will stop it.</P>
+<P>After completing a remote control session, if you wish to leave
+the UltraVNC server process running on the target system, simply
+close the remote control window. Do not terminate the process using
+the taskbar icon.</P>
+<P>Before using Scrip 236, you should also increase the frequency of
+execution of Scrip 177 (Scrip Configuration Update) to ensure that
+execution of Scrip 236 will occur quickly after you trigger its
+execution from the ASI server. We suggest that Scrip 177 be
+configured to run once every three minutes. While it's not necessary,
+you may want to revert the Scrip 177 schedule to the settings you
+normally use after the remote control sessions are over.</P>
+<P>You can configure Scrip 236 in two ways:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Accessing its configuration page
+	either on your ASI server, or directly at a site, or</P>
+	<LI><P>Using the remote control configuration wizard on the ASI
+	server (<A HREF="https://asiserverdomain/main/config/remote.php">https://asiserverdomain/main/config/remote.php</A>)</P>
+</UL>
+<P><B>Please note that whenever you change one of the configuration
+parameters of Scrip 236, the Scrip will run updating, if necessary,
+the UltraVNC configuration on the system whose Scrip 236
+configuration you just changed. For example, if you disable the </B><EM><B>Place
+remote support icon on desktop</B></EM> <B>configuration parameter,
+Scrip 236 will run and remove the remote support icon from the
+desktop of the system where you disabled the configuration parameter.</B></P>
+<H4>Connection testing</H4>
+<P>When Scrip 236 runs on the <I>target computer</I> it first tries
+to get a response from the <I>remote computer</I>. The Scrip will
+open and close the port using the <I>remote computer</I> listed in
+the the <I>Address of remote computer</I> configuration parameter
+(see below). If this attempt to establish a connection succeeds,
+Scrip 236 will connect to that remote computer.</P>
+<P>The Scrip will try to connect with the first host listed in the
+<I>Address of remote computer</I> configuration parameter. If it
+receives a response, it will use that address to attempt a
+connection. If it doesn't get the expected response, Scrip 236 will
+attempt to establish a connection with next <I>remote computer</I>
+listed in the <I>Address of remote computer</I> configuration
+parameter. If none of the <I>remote computers</I> listed in the
+<I>Address of remote computer</I> configuration parameter respond to
+Scrip 236's request for a connection, the Scrip will post an event
+log with that information on the ASI server, and won't try to
+establish a connection.</P>
+<P>Please note that At this point in time there is no way for Scrip
+236 to know which device is responding to its connection request.
+This means that it is susceptible to &ldquo;false positive&rdquo;. If
+another program responds to Scrip's connection request, a &ldquo;false
+positive&rdquo; will result in as much as the Scrip will try connect
+with the device that responded. 
+</P>
+<H4>Disable tray icon</H4>
+<P>As the name of the <EM>Disable tray icon</EM> configuration
+parameter suggests, enabling it will remove the remote control
+utility icon from the target computer's system tray.</P>
+<H4>Run UltraVNC as a service</H4>
+<P>When the <I>Run UltraVNC as a service</I> configuration parameter
+is enabled (its default state), the UltraVNC server will run as a
+service. This results in a number of benefits:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">When the UltraVNC server runs a
+	service on a system that is logged off, UltraVNC will not generate
+	the display of the UltraVNC server properties control panel.</P>
+	<LI><P>The ASI client will not attempt to open a remote session
+	connection before the UltraVNC server starts running which would
+	result in a failed remote control session</P>
+</UL>
+<H4>Default password 
+</H4>
+<P>If Scrip 236 finds that the UltraVNC server password is blank, it
+sets it to the value you entered in the <I>Default password</I>
+configuration parameter.</P>
+<P><B>We strongly advise you to change the default password the first
+time you use the remote control utility.</B></P>
+<H4>Impersonation Support</H4>
+<P>On NT based systems (MS Windows NT4, 2000, XP, and Server 2003)
+the ASI client is logged in as local system administrator. This means
+that it cannot access shared resources on the local network.</P>
+<P>In order to enable ASI client's access to shared resources on the
+local network, we have implemented impersonation. Impersonation lets
+the ASI client log onto the system where the shared resource is
+located as a user known by that system enabling it to access that
+shared resource.</P>
+<P>You should enter the known user id and password in Scrip 43, as
+described below. With this information, the ASI client will be able
+to access shared resources on the local network as follows:</P>
+<H5>For Workgroups</H5>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=341>
+	<COL WIDTH=261>
+	<COL WIDTH=336>
+	<TR>
+		<TD WIDTH=341></TD>
+		<TD WIDTH=261>
+			<P ALIGN=CENTER><STRONG>To MS Windows 9x</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=336>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=341>
+			<P><STRONG>From MS Windows 9x</STRONG></P>
+		</TD>
+		<TD WIDTH=261>
+			<P>Not supported</P>
+		</TD>
+		<TD WIDTH=336>
+			<P>Not supported</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=341>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD WIDTH=261>
+			<P>Supported <BR>User account needs to exist on <EM>from</EM>
+			system</P>
+		</TD>
+		<TD WIDTH=336>
+			<P>Supported <BR>User account needs to exist both on <EM>from</EM>
+			and <EM>to</EM> systems</P>
+		</TD>
+	</TR>
+</TABLE>
+<H5>For Domains</H5>
+<TABLE WIDTH=803 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=402>
+	<COL WIDTH=387>
+	<TR>
+		<TD WIDTH=402></TD>
+		<TD WIDTH=387>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=402>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD WIDTH=387>
+			<P>Supported <BR>User account needs to exist on domain controller</P>
+		</TD>
+	</TR>
+</TABLE>
+<H4>Impersonation enabled</H4>
+<P>When the <EM>Impersonation enabled</EM> configuration parameter is
+enabled, using the impersonation user id and password (and domain if
+necessary) you entered in <EM>Impersonation Username</EM>,
+<EM>Impersonation Password and Confirmation</EM>, and <EM>Impersonation
+Domain</EM> configuration parameters in the Scrip 43 configuration
+page, Scrip 236 can retrieve The remote control software installation
+executable from a shared resources on other systems on the network,
+accessed either as mapped drives(e.g. <STRONG>x:\shared folder</STRONG>),
+or using UNC (Universal Naming Convention) syntax (e.g.
+<STRONG>\\server\\shared folder</STRONG>).</P>
+<H4>Place remote support icon on desktop</H4>
+<P>When the <EM>Place remote support icon on desktop</EM>
+configuration parameter is enabled, an icon with the label entered in
+the <I>Remote support icon label</I> configuration parameter is
+placed on the desktop of the system where the <EM>Place remote
+support icon on desktop</EM> configuration parameter is enabled.</P>
+<P>The icon placed on the desktop is the ASI icon.</P>
+<P>By default, the <EM>Place remote support icon on desktop</EM>
+configuration parameter is disabled.</P>
+<H4>Remote support icon label (Blank defaults to 'Start remote
+support')</H4>
+<P>In the <I>Remote support icon label</I> configuration parameter,
+you can enter any text to replace the default remote support icon
+label (<B>Start remote support</B>).</P>
+<H4>Address of remote computer</H4>
+<P>In the <I>Address of remote computer</I> configuration parameter
+you should enter the IP address(es) or name(s) of the <I>remote
+computer(s)</I>, where <I>remote computer</I> is as defined in the
+<I>Definitions and important notes</I> section above.</P>
+<P>The IP addresses or names of <I>remote computers</I> must be be
+listed one per line. For example:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">192.168.0.1</P>
+	<LI><P STYLE="margin-bottom: 0in">245.45.6.100</P>
+	<LI><P STYLE="margin-bottom: 0in">nanoheal.org</P>
+	<LI><P>hfn.tellink.net</P>
+</UL>
+<P>If you choose to specify a port for a <I>remote computer</I>,
+enter a colon after the name or IP address of the <I>remote computer</I>,
+and then enter the port number, with no spaces in between. For
+example:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">192.168.0.1:5800</P>
+	<LI><P>tellink.net:2345</P>
+</UL>
+<P>A port number doesn't have to be attached to the IP address or
+name of a <I>remote computer</I> listed in the <I>Address of remote
+computer</I> configuration parameter. If you enter only ports and no
+<I>remote computer</I> IP addresses or name, Scrip 236 will fail to
+connect the <I>target computer</I> to any device.</P>
+<P>Scrip 236 will identify the port to use as follows:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip 236 will use the port
+	attached to the IP address or name of a <I>remote computer</I>
+	listed in the <I>Address of remote computer</I> configuration
+	parameter, if there is one.</P>
+	<LI><P STYLE="margin-bottom: 0in">If no port is attached to the IP
+	address or name of a <I>remote computer</I> listed in the <I>Address
+	of remote computer</I> configuration parameter, Scrip 236 will use
+	the port listed in the <I>Listener port</I> configuration parameter.</P>
+	<LI><P>If there are no entries in the <I>Listener port</I>
+	configuration parameter, the Scrip will use <B>5500</B>, the default
+	port.</P>
+</UL>
+<P>If Scrip 236 detects that the port entries in the <I>Address of
+remote computer</I> or <I>Listener port</I> configuration parameters
+are invalid, it will use <B>5500</B>, the default port.</P>
+<P><B>Please note that if the <I>remote computer</I> is accessing a
+<I>target computer </I>at an external site, i.e. a site accessible
+via the Internet, and the <I>remote computer</I> does not have a
+public IP address, the entry for the <I>Address of remote computer</I>
+configuration parameter should be the public IP address or URL of the
+Internet gateway device used by the <I>remote computer</I>. </B>
+</P>
+<P><B>In addition, the firewall for the network where the remote
+computer is located should be configured to forward traffic incoming
+via port 5500 (the default port used by the remote control software)
+to the remote computer.</B></P>
+<P><B>For example, suppose you want to configure Scrip 236 to
+initiate a remote control session from your computer (remote
+computer) on server X at customer site ABC. Let's also assume that
+your computer has a private IP address (e.g. 192.168.1.250), and that
+the Internet gateway at your site is a device with the
+service.provider.com URL.</B></P>
+<P><B>The entry in the <I>Address of remote computer</I>
+configuration parameter would be service.provider.com (or its public
+IP address). In addition, the firewall on your network would be
+configured to forward incoming port 5500 (or whichever port you have
+specified in the <I>Listener port (Blank defaults to 5500)</I>
+configuration parameter) traffic to the device at 192.168.1.250 (the
+private IP address of your computer).</B></P>
+<P><B>Please note that to identify the public IP address of your
+Internet gateway you can simply start an Internet browser session and
+enter the following <A HREF="http://checkip.dyndns.org/">http://checkip.dyndns.org/</A>
+in the browser's address box.</B></P>
+<H4>Listener port (Blank defaults to 5500)</H4>
+<P>The <I>Listener port (Blank defaults to 5500)</I> configuration
+parameter lets you identify an IP port different from the default
+(5500) for the remote control software on the <I>target</I> computer
+to use to communicate with the <I>remote</I> computer. 
+</P>
+<P>The value of the <I>Listener port (Blank defaults to 5500)</I>
+configuration parameter can be different for each <I>remote</I>
+computer. In this way, you can have multiple systems at your site
+conducting remote control sessions with different <I>target</I>
+computers <B>at the same time</B>. 
+</P>
+<P><B>As described in the <I>Address of remote computer</I> section
+of this configuration help file, please keep in mind that you will
+need to configure the firewall at your site to forward traffic
+incoming to each of the IP ports entered in the <I>Listener port
+(Blank defaults to 5500)</I> configuration parameter for each of the
+target systems to the corresponding remote computer.</B></P>
+<H4>Run now</H4>
+<P>Clicking on the <B>Execute</B> button in the <I>Run now</I>
+parameter will cause Scrip 236 to run the remote control software in
+server mode on the system whose Scrip 236 configuration page you are
+accessing (the <I>target computer</I>).</P>
+<H4>Shutdown now</H4>
+<P>Clicking on the <B>Execute</B> button in the <I>Shutdown now</I>
+parameter will cause Scrip 236 to terminate execution of the remote
+control software running in server mode on the system whose Scrip 236
+configuration page you are accessing.</P>
+<H4>Uninstall on shutdown</H4>
+<P>If the <EM>Uninstall on shutdown</EM> configuration parameter is
+set to <B>local</B>, clicking on the Execute button will cause Scrip
+236 to:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Terminate execution of the remote
+	control software running in server mode 
+	</P>
+	<LI><P>Remove the remote control software 
+	</P>
+</UL>
+<P>on the system whose Scrip 236 configuration page you are
+accessing.</P>
+<P><STRONG>If the <EM>Uninstall on shutdown</EM> configuration
+parameter is set to global, the above actions will be performed on
+every system on the sub-net.</STRONG></P>
+<H4>Remote control software installation executable download URL</H4>
+<P>The current version of Scrip 236 supports only the VNC family of
+remote control utilities. For your convenience, we have placed a copy
+of the UltraVNC installation executable in the publicly accessible
+<I>download</I> folder on <A HREF="http://www.handsfreenetworks.com/">www.handsfreenetworks.com</A>.
+The Remote control software installation executable download URL for
+the UltraVNC installation executable at this location is</P>
+<P><B>http://www.handsfreenetworks.com/download/UltraVNC-Setup.exe</B></P>
+<P>If you leave the <EM>Remote control software installation
+executable download URL</EM> parameter blank, Scrip 236 will
+automatically download the installation executable for UltraVNC from
+the above location.</P>
+<P>In the <I>Remote control software installation executable download
+URL</I> configuration parameter you specify the location where the
+installation executable for the remote control software is located
+and the file name. 
+</P>
+<P>The path leading to the remote control software installation
+executable must be visible on all the machines you want to run the
+executable on. This means that if the executable is on a networked
+drive then the drive must be accessible on all the machines through
+an appropriately configured drive letter mapping.</P>
+<P>If the installation executable is located on a networked drive,
+you can enter either the UNC name of the location, e.g. <STRONG>\\[server
+name]\[shared resource name]\</STRONG>, or the mapped drive letter if
+one has been assigned to the networked drive.</P>
+<P>The remote control software installation executable can also
+reside on FTP or Web servers (HTTP or HTTPS).</P>
+<P>FTP servers can be accessed via a URL scheme that uses a common
+syntax for IP-based protocols. The syntax of a command line for
+having Scrip 196 retrieve a patch executable from a FTP server is:</P>
+<P><STRONG>ftp://user:password@host:port/url-path</STRONG>. 
+</P>
+<P>The <EM>user</EM>, <EM>password</EM>, or <EM>port</EM> can be
+omitted, and defaults will be applied. The default <EM>user</EM> is
+<STRONG>anonymous</STRONG>. The default <EM>password</EM> is a
+fictitious email address (most FTP servers that allow anonymous login
+either ignore the password or require an email address). The default
+<EM>port</EM> is <STRONG>21</STRONG>, which is the standard FTP port.
+</P>
+<P><EM>Url-path</EM> can merely be the name of the remote file
+(current working directory for the FTP server assumed), or it can
+denote a particular subdirectory path to the file, e.g.,
+dir/dir/dir/filename.</P>
+<P><EM>host</EM> is either the name or IP address of the FTP server.</P>
+<P>Scrip 236 captures all FTP commands executed when running a patch
+located on a FTP server. They will be logged automatically onto the
+ASI server if the patch download process fails.</P>
+<P>Web servers can be accessed using HTTP or secure HTTP (HTTPS) via
+a URL scheme that uses a common syntax for IP-based protocols. The
+syntax of a command line for having Scrip 196 retrieve a patch
+executable from a Web server is:</P>
+<P><STRONG>http://user:password@host/url-path</STRONG>, or
+<STRONG>https://user:password@host/url-path</STRONG></P>
+<P>For publicly accessible Web pages, the <EM>user</EM> and <EM>password</EM>
+are not necessary, and should be omitted.</P>
+<P><EM>Url-path</EM> can merely be the name of the remote file
+(current working directory for the Web server assumed), or it can
+denote a particular subdirectory path to the file, e.g.,
+dir/dir/dir/filename.</P>
+<P><EM>host</EM> is either the name or IP address of the Web server.</P>
+<P>Scrip 236 captures all HTTP commands executed when running a patch
+located on a Web server. They will be logged automatically onto the
+ASI server if the patch download process fails.</P>
+<P>Please note that capitalization of the name of the patch/software
+update executable in the path parameter of a Scrip 196 command line
+needs to match capitalization of the patch/software update name on
+the FTP or HTTP/HTTPS server. Otherwise, Scrip 196 will report a <STRONG>file
+not found</STRONG> error. Generally speaking, to minimize the
+probability of an error, it is advisable to use all-lower case names.</P>
+<P>Each ASI server includes a folder called <STRONG>patches</STRONG>
+located in the publicly accessible <STRONG>https://ASIserverURL/main/pub</STRONG>
+directory. You can use the <STRONG>patches</STRONG> folder as a
+convenient location from which the remote control software
+installation executable can be downloaded by Scrip 236 using
+HTTP/HTTPS, without requiring authentication. A sample Scrip 236
+<EM>Remote control software installation executable download URL</EM>
+for remote control software located in the folder <STRONG>patches</STRONG>
+would look something like this:</P>
+<P><STRONG>https//ASIserverURL/main/pub/patches/&lt;remote control
+software installation executable file name&gt;</STRONG></P>
+<P>Please remember that on each ASI server we have installed an FTP
+server and created a a user id and password with upload access to the
+<STRONG>patches</STRONG> folder to upload patches and installation
+executables to this folder.</P>
+<H4>Install now</H4>
+<P>If the <EM>Install now</EM> configuration parameter is set to
+<B>local</B>, clicking on the <B>Execute</B> button will cause Scrip
+236 to:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Download the remote control
+	software installation executable from the location specified in the
+	<EM>Remote control software installation executable download URL</EM>
+	parameter</P>
+	<LI><P>Install it on the system whose Scrip 236 configuration page
+	your are accessing.</P>
+</UL>
+<P>on the system whose Scrip 236 configuration page you are
+accessing.</P>
+<P>If the <EM>Install now</EM> configuration parameter is set to
+<B>global</B>, the above actions will be performed on every system on
+the sub-net.</P>
+<H4>Install and run now</H4>
+<P>If the <EM>Install and run now</EM> configuration parameter is set
+to <B>local</B>, clicking on the <B>Execute</B> button will cause
+Scrip 236 to:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Download the remote control
+	software installation executable from the location specified in the
+	<EM>Remote control software installation executable download URL</EM>
+	parameter</P>
+	<LI><P STYLE="margin-bottom: 0in">Install it on the system whose
+	Scrip 236 configuration page your are accessing.</P>
+	<LI><P>Run it in server mode</P>
+</UL>
+<P>on the system whose Scrip 236 configuration page you are
+accessing.</P>
+<P>If the <EM>Install and run now</EM> configuration parameter is set
+to <B>global</B>, the above actions will be performed on every system
+on the sub-net.</P>
+<H4>Uninstall now</H4>
+<P>If the <EM>Uninstall now</EM> configuration parameter is set to
+<B>local</B>, clicking on the <B>Execute</B> button will cause Scrip
+236 to remove the remote control software from the system whose Scrip
+236 configuration page you are accessing.</P>
+<P>If the <EM>Uninstall now</EM> configuration parameter is set to
+<B>global</B>, clicking on the <B>Execute</B> button will cause Scrip
+236 to remove the remote control software from every system on the
+sub-net.</P>
+<H4>Note on uninstall and install</H4>
+<P>If Scrip 236 detects an existing installation of the remote
+control utility, it will not change any of the existing configuration
+changes.</P>
+<P>In some cases, re-installation of the remote control utility might
+not work correctly unless the target computer is first restarted.
+This is due to the fact sometimes uninstall of the remote control
+utility does not succeed in removing certain dlls that might be
+loaded at the time of the uninstall even though there is no active
+remote session.</P>
+<H4>Use intermediate server</H4>
+<P>By default, the <I>Use intermediate server</I> configuration
+parameter is enabled. The system with the IP address or host name
+entered in the <I>Address of intermediate server</I> configuration
+parameter will be used as the UltraVNC intermediate server. This
+means, that both the system taking control (remote system), and the
+system to be controlled (target computer) will create an incoming
+connection through ports 5500 and 5900 on the selected intermediate
+server computer. 
+</P>
+<P>With the the <I>Use intermediate server</I> configuration
+parameter enabled, the only networking configuration you will need to
+make is to open ports 5500 and 5900 for incoming traffic forwarded to
+your ASI server. 
+</P>
+<P>Although typically this is the case, you should also make sure
+that port 5500 is open in the outbound direction at the site where
+the target computer is located.</P>
+<P>You will be able to take remote control of systems at your
+customer sites from anywhere without making any additional
+configuration changes.</P>
+<H4>Maintain connection with intermediate server</H4>
+<P>When the <I>Maintain connection with intermediate server</I>
+configuration parameter is enabled, every time the ASI client
+starts-up Scrip 236 will run to ensure that the UltraVNC server is
+running with an open outbound connection to the intermediate server.</P>
+<P>This means that whenever a system is re-started (and every other
+time the ASI client re-starts), Scrip 236 will ensure that the
+UltraVNC server is running with an open outbound connection with the
+intermediate server.</P>
+<P>Whenever you want to take remote control of a system where the ASI
+client is installed and running, and the <I>Maintain connection with
+intermediate server</I> configuration parameter is enabled, the
+remote control session will be established instantaneously.</P>
+<P><B>Please note, however, that this functionality comes at the cost
+of a lower level of security as on every system where the <I>Maintain
+connection with intermediate server</I> configuration parameter is
+enabled, port 5500 will always be open for outbound traffic.</B></P>
+<P>After you enable the <I>Maintain connection with intermediate
+server</I> configuration parameter, if you want to ensure that the
+UltraVNC server is running on a system with an open outbound
+connection to the ASI server, all you need to do is run Scrip 18
+(Client Shut-down / Re-start), or Scrip 73 (System Restart).</P>
+<H4>Address of intermediate server</H4>
+<P>In the <I>Address of intermediate server</I> configuration
+parameter, you enter the name of the one or more computers housing
+the intermediate server software, which we call intermediate servers.
+For each entry, you can enter the netBIOS name, domain name, or IP
+address. If you enter multiple names (or IP addresses), each should
+be on a new line. If for any reason, Scrip 236 fails to establish a
+connection with the first system whose name or IP address is listed
+in the <I>Address of intermediate server</I> configuration parameter,
+Scrip will attempt to establish a remote control session via the
+intermediate server next on the list, and move down the list until it
+finds an intermediate server which accepts a connection.</P>
+<P>If the <I>Address of intermediate server</I> configuration
+parameter is left blank, and the <I>Use intermediate server</I>
+configuration parameter is enabled, Scrip 236 will extract the domain
+name of your ASI server (the server that is being logged to) from the
+<I>HandsFree event management server URL list</I> configuration
+parameter in Scrip 43, and use it as the UltraVNC intermediate
+server. 
+</P>
+<P>If Scrip 236 cannot reach an intermediate server, it will post an
+event log on your ASI server reporting the failure with the following
+message <B>Connection failed: Unable to find listening intermediate
+server client.</B> 
+</P>
+<H4>Connection ID (0 or 200-1999999)</H4>
+<P>In order for you to be able to take remote control of a system
+using the intermediate server you will need a unique identifier for
+that remote control session. This is because in order to handle
+multiple remote control session simultaneously, the intermediate
+server needs a unique connection ID number for each remote control
+session. In this way, it can distinguish among the remote control
+sessions taking place at any one time. The connection ID number has
+to be the same one for the remote system (the one taking control),
+and the target system (the one being controlled). In this way, the
+intermediate server can match them, and establish the link between
+them necessary for the remote control session.</P>
+<P>The <I>Connection ID (0 or 200-1999999)</I> configuration
+parameter is an integer with a value between <B>200</B> and <B>1999999</B>.
+When the value of The <I>Connection ID (0 or 200-1999999)</I>
+configuration parameter is set to the default value of <B>0</B>,
+Scrip 236 will generate a unique connection ID number based on the
+UUID (Unique Universal ID) of the system where Scrip 236 is running. 
+</P>
+<P>Please note that because of the way it is generated, the
+connection id number for a system will always be the same. This
+means, that after the first time Scrip 236 runs on a system with the
+<I>Use intermediate server</I> configuration parameter enabled, you
+will know that system's connection id, and it will never change,
+unless that system's UUID changes. 
+</P>
+<P>You can change the value of the <I>Connection ID (0 or
+200-1999999)</I> configuration parameter as long you enter an integer
+between <B>200</B> and <B>1999999</B>.</P>
+<P>If you decide to assign a different connection id to each system
+at your sites, you need to make sure that:</P>
+<OL>
+	<LI><P>You assign a unique connection id to each system</P>
+	<LI><P>When you enter the unique connection id for a system in the
+	<I>Connection ID (0 or 200-1999999)</I> configuration parameter in
+	its Scrip 236 configuration page, the <I>Connection ID (0 or
+	200-1999999)</I> configuration parameter is set to <B>local</B>.</P>
+</OL>
+<P>If the value of the <I>Connection ID (0 or 200-1999999)</I>
+configuration parameter is not within the allowed range, Scrip 236
+will post an event log on your ASI server reporting the error with
+the following message <B>Error: Invalid ID number. No connection can
+be made. A valid ID number is between 200 &ndash; 1999999</B>.</P>
+<H4>Initiate Connection Automatically</H4>
+<P>The <I>Initiate Connection Automatically</I> configuration
+parameter is used by the ASI server software to remind users how a
+remote control session was initiated the last time Scrip 236 ran. It
+has no effect on how Scrip 236 runs.</P>
+<P>Please note that disabling or enabling the <I>Initiate Connection
+Automatically</I> configuration parameter via the Scrip 236
+configuration page has no effect whatsoever on the way Scrip 236
+runs. The value of the <I>Initiate Connection Automatically</I>
+configuration parameter is controlled by the ASI server software, and
+changed by user actions performed when using the remote control
+wizard on the ASI server.</P>
+<P>If a remote control session is initiated by a system's user
+clicking on the remote support icon placed by Scrip 236 on a system's
+desktop, the <I>Initiate Connection Automatically</I> configuration
+parameter is disabled.</P>
+<P>If a remote control session takes place by execution of Scrip 236
+initiated on the ASI server, the <I>Initiate Connection Automatically</I>
+configuration parameter is enabled.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

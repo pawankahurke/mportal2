@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Status &ndash; Microsoft Updates</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20040321;8150381">
+	<META NAME="CHANGED" CONTENT="20061006;10191472">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Status &ndash; Microsoft Updates</H3>
+<H4>Selecting and sorting software updates</H4>
+<P>Any field used to filter software update entries will be displayed
+in the software update status table. In order to have a field
+displayed in the table even if you do not use it as a search
+parameter, select the (all) option from its pull down list in the
+<FONT COLOR="#000080">Search Options</FONT> panel. If you do not want
+a field displayed in the table, simply select (not displayed) from
+its pull down list in the <FONT COLOR="#000080">Search Options</FONT>
+panel.</P>
+<P>In order to select software update status for a single system you
+need to first select the site it belongs to from the Site pull down
+list in the <FONT COLOR="#000080">Search Options</FONT> panel, click
+on the Submit Search button, then select the system whose update
+status you are interested in by selecting it from the Machine pull
+down list in the <FONT COLOR="#000080">Search Options</FONT> panel.</P>
+<P>Dates can only be selected in daily increments up to two weeks
+from the current date, weekly increments from two weeks up to one
+month, monthly increments from the second month up to six months, and
+up to one year beyond six months. You cannot select an end date
+different from the current date.</P>
+<P>If you want to sort software update status table entries by more
+than one parameter (e.g. site/machine/update), you should use the
+<I>Sort-by</I> options in the <FONT COLOR="#000080">Display Options</FONT>
+panel. To sort table entries by a single parameter, simply click on
+the column heading corresponding to that parameter (e.g. Status).
+Clicking once sorts entries in descending order, twice sorts them in
+ascending order.</P>
+<H5>Machine groups and update groups</H5>
+<P>The Search Options panel includes the Machine Group and Update
+Group selection parameters. 
+</P>
+<P>You can select either one of the built-in machine groups, a
+machine group defined by another user, or a machine group that you
+defined when using the software update wizards. Note that if you
+select a machine group defined by another user, you cannot modify it.
+The ASI built-in machine groups are:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><B>All</B> This category should
+	contain only one group, <B>All</B>. The group should contain every
+	machine logging to the server. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><B>Sites</B> This category
+	contains one machine group for every site currently logging to the
+	server. The site groups have the same name as the site, and each
+	site group should contain one member for each machine at the
+	associated site. 
+	</P>
+	<LI><P><A NAME="DDE_LINK1"></A><B>Machines</B> This category should
+	contain one group for each machine currently logging to the server.
+	Each of these groups should contain a single machine. The name of
+	the group is &quot;$SITE:$HOST&quot; where $SITE represents the site
+	name and $HOST represents the machine name. 
+	</P>
+</UL>
+<P>Currently, none of the software update wizards give you the option
+to define software update groups. The wizards define software update
+groups automatically in order to perform software update tasks. The
+names of these software update groups, e.g. <B>Wiz_CRIT_PG $MGRP</B>
+, are not meaningful to you. The membership of these software update
+groups changes every time the software update task they were created
+for is executed again. ASI features a number of built-in software
+groups:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><B>All</B> This patch category
+	should contain only one group, <B>All</B>. The group should contain
+	every patch known to the server. 
+	</P>
+	<LI><P><B>Updates</B> This category contains one patch group for
+	every patch known to the server. Each group will have the same name
+	as its associated patch, and should contain just that one patch. 
+	</P>
+</UL>
+<H4>Frequently asked questions</H4>
+<H5>Why are certain updates listed as having been detected and
+downloaded but not installed for many software update cycles?</H5>
+<P>In many cases certain software updates are detected and downloaded
+but cannot be installed until other updates with higher internal
+priority are installed first. Below, is a list of internal priority
+values used by Scrip 237 (Microsoft Update Management):</P>
+<UL>
+	<LI><P>0 - Drivers</P>
+	<LI><P>1 - Updates</P>
+	<LI><P>3 - Service Packs</P>
+	<LI><P>4 - Update Rollups</P>
+	<LI><P>4 - Security Updates</P>
+	<LI><P>4 &ndash; Critical Updates</P>
+	<LI><P>5 &ndash; Mandatory Updates</P>
+</UL>
+<P>Mandatory and critical software updates are always detected,
+downloaded, and installed before any other software updates are even
+detected. Service packs will not be detected, downloaded, or
+installed until both of the following conditions are met:</P>
+<OL>
+	<LI><P>All mandatory updates are installed.</P>
+	<LI><P>All critical, security, and update rollups are either
+	declined or installed. If an update is declined, Scrip 237 will
+	ignore the update and proceed down to a lower &quot;precedence&quot;
+	level.</P>
+</OL>
+<P>Please note that since drivers have the precedence value of 0,
+they will never be detected, downloaded, or installed.</P>
+<P>Software updates can remain in a <I>downloaded</I> state
+indefinitely for other reasons, including:</P>
+<UL>
+	<LI><P>Failure of the software update installation</P>
+	<LI><P>Incorrect security settings on the system where the software
+	update is to be installed</P>
+	<LI><P>Logged off system. Certain updates require that a user with
+	local system administrative rights be logged on at the time of the
+	software update installation.</P>
+	<LI><P>Expiration of the MUM software update cycle. In this case, a
+	software update would be installed during the next MUM update cycle.</P>
+</UL>
+<P>In all cases where a software update remains in a <I>downloaded</I>
+state, Scrip 237 reports detailed information about the cause for
+this. You can start by retrieve the relevant Scrip 237 at or about
+the date on which a software update was downloaded as reported on the
+MUM status page (<A HREF="https://asiserverurl/main/patch/wu-stats.php">https://asiserverurl/main/patch/wu-stats.php</A>
+). There is also a complete set of ASI event filters to help you
+retrieve Scrip 237 by completion code. The name of all of the MUM
+related event filters starts with <B>mum -</B>. You can retrieve them
+by typing <B>mum &ndash;</B> in the <I>Name Contains</I> search
+option parameter in the <FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000080">Event
+Query Filters</FONT></FONT> page on your ASI server
+(<A HREF="https://asiserverurl/main/event/search.php#searches">https://asiserverurl/main/event/search.php#searches</A>
+).</P>
+<H5>What's the difference between pending and scheduled?</H5>
+<P>A pending action is one that will take place in the immediate
+future, if not right now. A scheduled action is one that will take
+place in the future at the time you selected for the specific update
+if you approved the update manually, or according to the schedule you
+defined when you selected the All updates approved automatically
+update method.</P>
+<H5>What does disabled mean?</H5>
+<P>A software update that you declined on the ASI server is
+classified as disabled.</P>
+<H5>How is it possible for a software update to have a download date
+and yet have a detected status?</H5>
+<P>A software Download Date could have a value, and the software
+update be in <B>detect</B> state if the software update was
+previously detected and downloaded but was not installed before the
+update cache was cleared because the retention period you specified
+using the download and propagation wizard had expired.</P>
+<H5>Are software update detect, download, and installation failures
+reported?</H5>
+<P>Scrip 237, which manages the software update process on each
+machine, reports the content of MS Windows Update.log changes, which
+may contain error information, in its event logs. On systems where
+with a Microsoft AU client with iuengine.dll version higher than
+5.4.3790.21. Scrip 237 reports software update download and
+installation failures in its event logs.</P>
+<P>When a software update detect operation fails, Scrip 237 uses the
+value of the &quot;When a software update detect or download fails,
+retry this many times&quot; configuration parameter to determine how
+many times to retry the detect operation. 
+</P>
+<P>When a software update download operation fails, on systems with a
+Microsoft AU client with iuengine.dll version higher than 5.4.3790.21
+Scrip 237 uses the value of the &quot;When a software update detect
+or download fails, retry this many times&quot; configuration
+parameter to determine how many times to retry the download
+operation. On systems with a Microsoft AU client with iuengine.dll
+version equal to, or lower than 5.4.3790.21, Scrip 237 will retry to
+download the software update until it succeeds.</P>
+<P>When a software update installation fails, the Scrip will not
+retry the install, and will report the software update to the ASI
+server with a <B>Update failed to install</B> error status.</P>
+<H5>Does a needs reboot software update state mean that Scrip 237
+will not install any other software updates until the system is
+rebooted? Or, does it mean that Scrip 237 will install all software
+updates due to be installed at that time and then posts the &quot;needs
+reboot&quot; message? If the former, is this the way the native AU
+client behaves?</H5>
+<P>Needs reboot means the Scrip will not perform any action until the
+system is restarted. When a reboot is needed after a software update
+is installed, Scrip 237 posts an event log with the following
+message: &quot;Reboot is required, further actions are disabled.&quot;
+in response to attempts to perform any other action. 
+</P>
+<P>Please note that you can configure Scrip 237 to automatically
+re-start systems after a software update which requires a system to
+be re-started is installed. In order to do this, go to the <FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000080">Machine
+Configurations for Microsoft Update</FONT></FONT> page on your ASI
+server (<A HREF="https://asiserverurl/main/patch/wu-confg.php?act=lwid">https://asiserverurl/main/patch/wu-confg.php?act=lwid</A>
+), click on the <I>edit</I> link for the machine group whose
+configuration you want to change, click on the <I>Automatically
+restart when a restart is necessary after an installation</I> radio
+button, and then click on the <I>OK</I> buton.</P>
+<H5>How can a software update have an install date that is earlier
+than its detect, and download dates?</H5>
+<P>This can happen on systems where MS Windows was recently
+re-installed, or a major MS Windows service pack was removed. In this
+case, Scrip 237 will retrieve and report the actual installation date
+of a software update from the system's internal history log.</P>
+<H5>How can a software update have a not downloaded download status,
+and yet have an installation date and installed status?</H5>
+<P>This can happen when a previously detected software update is
+rendered unnecessary by the installation of another software update.
+In this case, the software update is no longer detected, and Scrip
+237 changes its state to <B>installed</B>.</P>
+<H5>Why does the Microsoft Update Status page lists updates that have
+been uninstalled as having a <I>detected</I> state?</H5>
+<P>Scrip 237 keeps track of updates it removed in the local ASI
+client repository. When it sends a status update to the ASI server,
+any update that is seen as detected but exists in the internal
+uninstalled list will have its status changed from detected to
+uninstalled (this is done before the ASI server is even contacted).
+If the update has a status other than detected, then the uninstalled
+status will not apply to the update. What can happen (rarely) is a
+corruption and re-build of the local ASI repository between the time
+an update is removed, and the last detect cycle. This results in an
+update that has been uninstalled being reported to have a <I>detected</I>
+status on the ASI server. However, since the update has been
+declined, Scrip 237 will not attempt to download or install it unless
+you change the update's configuration on the server.</P>
+<H4>Software update state description</H4>
+<P>Software updates listed in the ASI Software Update Status page can
+be in one of the following states:</P>
+<UL>
+	<LI><P><B>automatic</B></P>
+	<P>Currently, this state is not used by Scrip 237.</P>
+	<LI><P><B>pending install</B></P>
+	<LI><P><B>pending uninstall</B></P>
+	<LI><P><B>scheduled install</B></P>
+	<LI><P><B>scheduled uninistall</B></P>
+	<LI><P><B>pending download</B></P>
+</UL>
+<P>All of the above states indicate the next action Scrip 237 will
+take for that software update.</P>
+<P>A pending state is when Scrip 237 is just about to perform the
+operation, be it downloading, installing, or uninstalling.</P>
+<P>A scheduled state is when Scrip 237 needs to wait until a specific
+point in time before performing a task. These states are not used
+presently since Scrip 237 reports this information in even greater
+detail as part of its logs. They're in place in case we need to make
+them active at some future date.</P>
+<UL>
+	<LI><P><B>disabled</B></P>
+</UL>
+<P STYLE="margin-left: 0.51in">A software update has disabled status
+when it is declined via the <I>Decline updates</I> wizard on the ASI
+server.</P>
+<UL>
+	<LI><P><B>error</B></P>
+	<P>When a software update installation fails, its status will change
+	to error, last error date will be set to the time Scrip 237
+	discovered the failure, and last error text will <B>Update failed to
+	install</B>. In future, we will add other error states. For example,
+	providing error codes and the corresponding error text.</P>
+</UL>
+<P STYLE="margin-left: 0.51in">Installation errors are the only kind
+of error that changes a software update status to <B>error</B>. This
+is true for both Microsoft AU clients. The old Microsoft AU client
+(iuengine.dll version equal to, or lower than 5.4.3790.21) does not
+report the error code explicitly although there may be an error code
+in the Windows Update client log output. 
+</P>
+<P STYLE="margin-left: 0.51in">The new Microsoft AU client
+(iuengine.dll version higher than 5.4.3790.21) tries to report the
+error code explicitly as an hresult. You could then lookup the large
+negative decimal number in the table here, or some other source, e.g.
+<A HREF="http://inetexplorer.mvps.org/windows_update_codes.htm">http://inetexplorer.mvps.org/windows_update_codes.htm</A></P>
+<P STYLE="margin-left: 0.51in">Scrip 237 will try to install a
+software update which has error status again if it actually exists
+and it is configured to do so. 
+</P>
+<UL>
+	<LI><P><B>installed</B></P>
+	<P>Scrip 237 reports the software update as successfully installed.</P>
+	<LI><P><B>uninstalled</B></P>
+	<P>Scrip 237 does not currently use this field.</P>
+	<LI><P><B>downloaded</B></P>
+	<P>Scrip 237 reports the software update as successfully downloaded.</P>
+	<LI><P><B>detected</B></P>
+	<P>Scrip 237 reports the software update as detected. 
+	</P>
+	<LI><P><B>needs reboot</B></P>
+	<P>When a software update is listed as being in this state, the
+	system must be restarted before Scrip 237 can take any further
+	actions.</P>
+	<LI><P><B>potential installation failure</B></P>
+	<P>When a software update install operation partially succeeds,
+	Scrip 237 will report the software update as having a <B>potential
+	installation failure</B> status. Ultimately, this state will be
+	followed by either in <B>installed</B> or <B>error</B> state.</P>
+	<LI><P><B>superseded</B> 
+	</P>
+</UL>
+<P STYLE="margin-left: 0.51in">A software update in <B>superseded</B>
+state has been superseded by another software update, and should not
+be installed. For instance, suppose you decline the installation of
+Microsoft Windows XP SP2, then software updates that were superseded
+by Microsoft XP SP2 are detected by Scrip 237. If Microsoft XP SP2
+were then approved, those software updates would be given <B>superseded</B>
+status. 
+</P>
+<P STYLE="margin-left: 0.51in">If a software update simply disappears
+for any reason, Scrip 237 will assign it a <B>superseded</B> status.
+A software update would disappear if at one time Scrip 237 detected
+it and reported it to the ASI server, and then during some future
+detection cycle the update is not detected again. 
+</P>
+<P STYLE="margin-left: 0.51in">Please note that when Scrip 237
+determines that a previously detected software update (update A) has
+a lower internal priority than a newly detected update (update B), it
+will change the state of update A to <B>waiting</B>, not superseded.</P>
+<H5>Download Date Note</H5>
+<P>Download Date could have a value and and the update be in detect
+state if the update was previously detected and downloaded but was
+not installed before the update cache was cleared because the
+retention period had expired.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

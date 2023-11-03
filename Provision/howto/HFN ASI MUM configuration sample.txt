@@ -1,0 +1,349 @@
+How to configure Microsoft Update Management (MUM) -- An example
+=================================================================
+
+Suppose you want to configure MUM as follows:
+
+a) Have MUM install MS software updates on non-server systems automatically.
+
+b) Have MUM install MS software updates on server systems only after you approve them.
+
+c) Install all Microsoft software update on systems where MUM is configured to install MS software updates automatically seven days after first applying them to one or more test systems. 
+
+d) On non-server systems: 
+- Configure MUM to install MS software updates on Tuesdays starting at 11 PM for a period of five hours. 
+- Have MUM re-start systems automatically if required by an MS software update installation
+
+e) On server systems:
+- Configure MUM to install MS software updates on Tuesdays starting at 11 PM for a period of five hours. 
+- Have MUM not re-start systems automatically even if required by an MS software update installation
+
+f) You want to prevent the installation of updates that cause problems on the test system(s).
+
+g) You also want to be able to have MUM install any critical updates as necessary. 
+
+In order to implement the Microsoft software update installation policy described above, you should perform the steps described below. Please note that all of the MUM configuration actions described below can be taken independently of each other, at any time. This means that you can implement one ore more elements of the Microsoft software update installation policy described above without adopting the entire policy.
+
+
+MUM operation notes
+====================
+
+Please note that any MUM wizard action you take is recorded and reported on the "Microsoft Update Wizard Status" page (https://asiservername/main/patch/wu-confg.php?act=wsts). This means that:
+
+i) You can review any MUM actions taken on your ASI server at any time.
+
+ii) Instead of running an MUM wizard every time you want to take a certain action (e.g. approve the installation of Microsoft software updates on server systems), all you need to do is go to the  "Microsoft Update Wizard Status" page, and update an existing action of the same type (e.g. a previously taken server systems Microsoft software update installation approval action). Please refer to the "How-to miscellaneous - 06.html" document for an example of how a previously taken MUM action can be updated on the "Microsoft Update Wizard Status" page.
+
+
+How to configure MUM to install MS software updates on non-server systems automatically
+========================================================================================
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The ASI "Welcome" page will be displayed. 
+
+3) Click on the "wizard" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page of the extedned ASI server interface. The "Microsoft Update Management - Wizards" page will be displayed (https://asiservername/main/patch/wu-confg.php). Please read the text on this page carefully.
+
+4) To enable MUM on the system in question, please click on the "enable the Microsoft Update management Scrip (#237)" link in the first paragraph in the  "Microsoft Update Management - Wizards" page.
+
+5) Follow the on-screen instructions
+- On the first wizard page, click on the "All sites" radio button, then click on the "Next" button
+
+- On the second wizard page, click on the "Enable" radio button, then click on the "Next" button
+
+6) Once you complete execution of the MUM activation wizard (Step 5)), the Microsoft Update Management function will be enabled in automated mode on the systems you selected when running the wizard. This means that every morning at 3 AM, Microsoft software updates will be installed for up to two hours, and systems will be re-started automatically, if required by a software update.
+
+
+Next, you need to change the software update method for the server systems from automatic to manual (i.e. on approval only).
+
+
+How to configure MUM to install MS software updates on server systems only after you approve them
+==================================================================================================
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The ASI "Welcome" page will be displayed. 
+
+3) Click on the "wizard" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page of the extedned ASI server interface. The "Microsoft Update Management - Wizards" page will be displayed (https://asiservername/main/patch/wu-confg.php). Please read the text on this page carefully.
+
+4) Scroll to the bottom of the page, and click on the "Select update method" wizard entry
+
+5) Follow the on-screen instructions carefully.
+- On the first wizard page, click on the "A group of machines", then click on the "OK" button
+
+- On the second wizard page, click on the "Add new group" button
+
+- On the third wizard page, enter the name of the server system group in the "Group name" box, then click on the "OK" button
+Note that if you want other users on your ASI server to be able to use (not change in any way) this group you shoudl click on the "Allow other users to use this group?" check box.
+
+- On the fourth wizard page follow the on-screen instructions for creating a new group carefully. Once you have selected all the systems you want to include in your server system group, click on the "OK" button one final time.
+
+- On the fifth wizard page, click on the "Manually approve updates" radio button, then click on the "OK" button.
+
+
+How to configure MUM to install Microsoft software updates on systems where MUM is configured to install MS software updates automatically, seven days after first applying them to one or more test systems
+========================================================================================
+
+Please note that the test group needs to needs to include at least one system running the operating system versions installed on systems at your customer sites. You should also make sure that the Microsoft software update status of the system(s) in your test group is not as up-to-date as that of the other systems at your customer sites. 
+
+In order to install all Microsoft software updates on all systems where MUM is configured to install MS software updates automatically (non-server systems) seven days after first applying them to one test system. Run the "Select test machines to install updates before other machines" wizard as follows:
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The ASI "Welcome" page will be displayed. 
+
+3) Click on the "wizard" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page of the extedned ASI server interface. The "Microsoft Update Management - Wizards" page will be displayed (https://asiservername/main/patch/wu-confg.php). Please read the text on this page carefully.
+
+4) Scroll down to the bottom of the page, and click on the "Select test machines to install updates before other machines" wizard entry
+
+5) Follow the on-screen instructions carefully.
+- On the first wizard page, click in the "Enable Test Machines Wizard" check box
+
+- On the second wizard page, read the on-screen text very carefully. Then, click on the desired radio button (a single site, a single machine, or a group of machines). Please note that if you click on the "a group of machines" radio button, you will have the opportunity to select an existing group, or create a new one on the fly. In this example, suppose you click on the "a group of machines" radio button. 
+
+- On the third wizard page, click on the "Add new group" button, then follow the on-screen instructions for creating a new group carefully. 
+
+Once you have selected all the systems you want to include in your test group, click on the "OK" button one final time.
+
+- On the fourth wizard page, select 7 from the "Delay (days)" pull-down list, then click on the "OK" button
+
+
+Machine and software update configuration
+==========================================
+
+Machine configurations contain settings that apply to machines:
+
+Source of Updates
+-----------------
+Management (you should leave the default "Manage from Server" option unchanged otherwise you will not be able to manage MS software updates using MUM)
+- Management - New Updates
+- Management - Downloading updates
+- Management - Retention policy
+- Management - Restart policy
+- Management - Multiple installations
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Software update configurations contain settings that apply to software updates:
+
+Schedule 
+- Schedule - Schedule to use for scheduled operations
+- Schedule - Action on missed schedule
+
+Notification
+- Notification - Notification options
+- Notification - Schedule to use for scheduled notifications
+- Notification - Action on missed schedule
+- Notification - Notification text
+
+Software update configuration note
+-----------------------------------
+Please note that the "Notify XX minutes before action" and "Schedule notification" options are mutually exclusive. Both notifications occur if the "Notify XX minutes before action" notification occurs before the scheduled notification ("Schedule notification" option enabled). If the scheduled notification ("Schedule notification" option enabled) occurs before the "Notify XX minutes before action" notification, the "Notify XX minutes before action" notification will not occur. For example if the "Notify XX minutes before action" notification is configured to occur 15 minutes before updates are installed, at 2.45 AM, and the scheduled notification ("Schedule notification/ option enabled) is configured to occur daily at 4 PM, the "Notify XX minutes before action" notification will not occur.
+
+
+Non-server systems machine and update configuration
+====================================================
+
+Machine configuration
+----------------------
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard page will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) Click on the "advanced" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page in the ASI extended interface.
+
+4) Click on the "config" link in the second-level navigation bar (the one with the sites, updates, and config links)
+
+5) Click on the "Machine configuration" link in the body of the page (second paragraph)
+
+6) On the "Machine Configurations for Microsoft Update" page, click on the "edit" link for the "All" machine group
+
+7) On the "Microsoft Update Machine Configuration" page, scroll down to the "Multiple installations" section
+
+8) Click on the radio button to the left of the "Repeat install cycle until machine is up to date ..." configuration parameter, if not already selected
+
+9) Select 5 from the pull-down list in the "Repeat install cycle until machine is up to date ..." configuration parameter
+
+10) Click on the "OK" button
+
+Please note that if you want MUM to re-start non-server systems automatically when they need to be after the installation of a Microsoft software update, you should make no changes to the machine configuration for non-server systems as the default restart policy is "Automatically restart when a restart is necessary after an installation".
+
+Software update configuration
+------------------------------
+Method A - Preferred
+---------------------
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The ASI "Welcome" page will be displayed. 
+
+3) Click on the "wizard" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page of the extedned ASI server interface. The "Microsoft Update Management - Wizards" page will be displayed (https://asiservername/main/patch/wu-confg.php). Please read the text on this page carefully.
+
+4) Scroll to the bottom of the page, and click on the "Select update method" wizard entry
+
+5) Follow the on-screen instructions carefully.
+- On the first wizard page, click on the "All machines", then click on the "OK" button
+
+- On the second wizard page, click on the "All updates approved automatically" radio button.
+
+- On the third wizard page, in the "Section" section of the page,
+- Select 11 PM from the "Hour" pull-down list
+- Select Tuesday from the "Weekday" pull-down list
+
+If you want to remind users to leave their systems on, in the "Notification" section of the page:
+- Click in the "Remind user to leave system on." check box.
+
+- Click on the "OK" button.
+
+Please note that by default, if the regularly scheduled installation period is missed (typically because a system is turned off), it will take place as soon as possible, i.e., as soon as the ASI client starts running again. In this case, especially given the length of the Microsoft software update installation cycle, it would probably make sense to change the "Action on missed schedule" parameter to "run at next scheduled time" (clicking on the corresponding radio button).
+
+Method B
+---------
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard page will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) Click on the "advanced" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page in the ASI extended interface.
+
+4) Click on the "config" link in the second-level navigation bar (the one with the sites, updates, and config links)
+
+5) Click on the "Software update configuration" link in the body of the "Microsoft Update - Configuration" page (third paragraph)
+
+6) On the "Software Update Configurations for Microsoft Update" page, click on the "edit" link to the left of the "All" "Update Group" entry.
+
+7) On the "Microsoft Software Update Configuration" page, scroll down to the "Schedule" section
+
+8) In order to configure MUM to install MS software updates on Tuesdays starting at 11 PM for a period of five hours:
+- Select 11 PM from the "Hour" pull-down list
+- Select Tuesday from the "Weekday" pull-down list
+
+If you want to remind users to leave their systems on, in the "Notification" section of the page:
+- Click in the "Remind user to leave system on." check box.
+
+9) Click on the "OK" button
+
+Please note that by default, if the regularly scheduled installation period is missed (typically because a system is turned off), it will take place as soon as possible, i.e., as soon as the ASI client starts running again. In this case, especially given the length of the Microsoft software update installation cycle, it would probably make sense to change the "Action on missed schedule" parameter to "run at next scheduled time" (clicking on the corresponding radio button).
+
+
+Server systems machine and update configuration
+================================================
+
+Server systems machine configuration
+------------------------------------
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard page will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) Click on the "advanced" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page in the ASI extended interface.
+
+4) Click on the "config" link in the second-level navigation bar (the one with the sites, updates, and config links)
+
+5) Click on the "Machine configuration" link in the body of the page (second paragraph)
+
+6) On the "Machine Configurations for Microsoft Update" page, click on the "edit" link for the server systems machine group
+
+7) On the "Microsoft Update Machine Configuration" page, scroll down to the "Restart policy" section
+
+8) Click on the "Do not automatically restart when a restart is necessary after an installation" radio button
+
+9) Scroll down to the "Multiple installations" section
+
+10) Click on the radio button to the left of the "Repeat install cycle until machine is up to date ..." configuration parameter, if not already selected
+
+11) Select 5 from the pull-down list in the "Repeat install cycle until machine is up to date ..." configuration parameter
+
+12) Click on the "OK" button
+
+Server systems software update configuration
+---------------------------------------------
+No action is required for two reasons:
+
+a) In this example, the schedule to be used for software update installations is tha same for both server and non-server systems
+
+b) You will have the opportunity to configure the software update installation schedule for software updates to be installed on server systems when approving the installation of software updates for server systems (see "Approving software update installations" section below). In fact, when you first run the "Approve updates" wizard you should check the software update installation schedule to make sure it is set as you want.
+
+
+Approving software update installations
+========================================
+
+In order to approve the installation of Microsoft software updates on server systems, you should take the following steps:
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The ASI "Welcome" page will be displayed. 
+
+3) Click on the "wizard" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page of the extedned ASI server interface. The "Microsoft Update Management - Wizards" page will be displayed (https://asiservername/main/patch/wu-confg.php). Please read the text on this page carefully.
+
+4) Scroll to the bottom of the page, and click on the "Approve updates" wizard entry
+
+5) Follow the on-screen instructions carefully.
+- On the first wizard page, click on the "A group of machines", then click on the "OK" button
+
+- On the second wizard page, click on the "use" link for the server system group you created when you first ran the "Select update method" wizard. If you need to make changes to the group, click on the "edit and use" link. Then click on the "OK" button
+
+- On the third wizard page, select the Microsoft software updates you want MUM to install, then click on the "OK" button
+
+- On the fourth wizard page, click on the "OK" button unless you want to modify the installation schedule for the Microsoft software updates you selected in the previous step, or add a notification.
+
+
+Declining software update installations
+========================================
+
+In order to decline the installation of Microsoft software updates, you should take the steps described below. Please note that if instead of declining the installation of software updates on the group of server systems you wanted to decline the installation of Microsoft software updates on other systems (all systems, a group, site, or individual systems), you would simply change the selection on the first wizard page (selecting "All machines" if you want to decline the installation of one ore more Microsoft software updates on all non-server systems).
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The ASI "Welcome" page will be displayed. 
+
+3) Click on the "wizard" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page of the extedned ASI server interface. The "Microsoft Update Management - Wizards" page will be displayed (https://asiservername/main/patch/wu-confg.php). Please read the text on this page carefully.
+
+4) Scroll to the bottom of the page, and click on the "Decline updates" wizard entry
+
+5) Follow the on-screen instructions carefully.
+- On the first wizard page, click on the "A group of machines", then click on the "OK" button
+
+- On the second wizard page, click on the "use" link for the server system group you created when you first ran the "Select update method" wizard. If you need to make changes to the group, click on the "edit and use" link. Then click on the "OK" button
+
+- On the third wizard page, select the Microsoft software update(s) you want MUM to decline, then click on the "OK" button
+
+Please note that running the "Decline updates" wizard to decline one or more Microsoft software updates on systems where the update method is automatic, may not result in preventing the installation of those Microsoft software updates. Success of the "decline" operation depends on whether the command to decline the selected Microsoft software updates reaches the ASI clients on the selected systems before those Microsoft software updates are automatically installed as per the automatic update installation schedule.
+
+Please also note that declining an update does not remove it from machines where it is already installed. If you want to remove an update from machines where it is already installed, you should use the "Remove updates" wizard. 
+
+
+Critical update installations
+==============================
+
+In order to have MUM install one or more Microsoft software updates immediately, you should take the steps described below. Please note that if instead of having MUM install Microsoft software updates immediately on the group of server systems you wanted to have it install Microsoft software updates immediately on other systems (all systems, a group, site, or individual systems), you would simply change the selection on the first wizard page (selecting "All machines" if you want to install one ore more Microsoft software updates on all systems immediately).
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The ASI "Welcome" page will be displayed. 
+
+3) Click on the "wizard" link in the "microsoft update" navigation bar found at the upper right-hand corner of any page of the extedned ASI server interface. The "Microsoft Update Management - Wizards" page will be displayed (https://asiservername/main/patch/wu-confg.php). Please read the text on this page carefully.
+
+4) Scroll to the bottom of the page, and click on the "Install critical updates" wizard entry
+
+5) Follow the on-screen instructions carefully.
+- On the first wizard page, click on the "A group of machines", then click on the "OK" button
+
+- On the second wizard page, click on the "use" link for the server system group you created when you first ran the "Select update method" wizard. If you need to make changes to the group, click on the "edit and use" link. Then click on the "OK" button
+
+- On the third wizard page, select the Microsoft software update(s) you want MUM to install immediately, then click on the "OK" button
+
+- On the fourth wizard page, you should select one of the two schedule options:
+  - Send update information to machines at next scheduled time 
+  - Send update information to machines as soon as possible
+If you wish, you can also enable the notification function (clicking on the "Enable Notification" check box), and enter a user notification message, then click on the "OK" button.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

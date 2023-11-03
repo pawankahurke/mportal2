@@ -1,0 +1,32 @@
+Remote control - Starting a remote control session reliably
+============================================================
+
+When you want to take remote control of a system:
+
+1) Start the UltraVNC viewer on the system you are using to establish the remote control session and attempt to take remote control of the target system.
+
+If the UltraVNC server is already running on the target system, and there is an open connection with the intermediate server, the remote control session will start immediatelty, and you will not need to run the remote control function on the ASI server.
+
+2) If the remote control session does not start within a minute or so, start a remote control session following the instructions in the "ASI remote control operation user instructions" page. If the UltrVNC viewer times out before the UltraVNC server on the target system establishes the connection with the intermediate server, simply re-start the UltraVNC client (making sure that there is only one copy running).
+
+
+Notes and known issues
+=======================
+
+a) By default, the ASI remote control function runs UltraVNC as a service. This does not mean that there will always be an open connection between target systems and the intermediate server. Even when UltraVNC is configured to run as a service (by default), when taking remote control of a system, users need to run the remote control function on the ASI server.
+
+When the ASI remote control function is configured to have UltraVNC run as a service, it's true that the UltraVNC server is running at all times. However, there is no connection open to the intermediate  server. This is why you still have to run the ASI remote control function in order to take remote control of the system). 
+
+Outsiders might be able to take remote control of a system where the ASI remote control function is configured to have UltraVNC run as a service if they were able to tunnel into the system and knew the UltraVNC password. However, because a session is not open, they would not be able to take remote control of the system by guessing (knowing) the session id for the system.
+
+In order to maintain a connection open between target systems and the intermediate server, you need to enable the "Maintain connection with intermediate server" option in Scrip 236 (On-demand remote control).
+
+b) Currently, when the "Maintain connection with intermediate server" option is enabled, the UltraVNC service type is set to "automatic". This means that the UltraVNC service starts on system start-up.  When Scrip 236 (On-demand remote control) runs on system start-up, it finds that the UltraVNC service is already running, and won't try to establish a connection with the intermediate server.
+
+This is another reason why when taking remote control of a system, users should follow the procedure described above.
+
+For the "Maintain connection with intermediate server" option to work properly after system restart the "startup type" of the UltraVNC service needs to be manual, or Scrip 236 needs to explicitly re-establish a connection with the intermediate server.
+
+c) In general, you should not use the option to uninstall and re-install UltraVNC from a target system when you have a problem taking remote control of the target system. We have observed that completion of the UltraVNC removal and re-installation proocesses often takes a significant amount of time causing a dealy in the re-start of the UltraVNC server and the re-opening of a connection with the intermediate server.
+
+d) In some rare cases, the initial attempt to take remote control of the target system using the ASI remote control function may not be successful even though the UltraVNC server process (winvnc.exe) is running on the target system (check using Scrip 93 (Report Running Processes)). In such cases, you should stop the UltraVNC server process (winvnc.exe) (using Scrip 227 (Process and Service Shutdown-Restart)), then start a remote control session following the instructions in the "ASI remote control operation user instructions" page. Please refer to the "Remote control - How to troubleshoot winvnc.exe re-start problems 01.txt" document for step-by-step instructions to do this.

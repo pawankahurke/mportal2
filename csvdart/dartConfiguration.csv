@@ -1,0 +1,425 @@
+dartNo,dartName,dartConfig,dartConfigsearch_txt,dartConfigwhere_txt,dartConfigshow_txt
+6,Memory statistics,text1->PageReadsPerSecond,$event->text1->PageReadsPerSecond,"json_extract(text1,'$.PageReadsPerSecond')",$event->text1->PageReadsPerSecond
+6,Memory statistics,text1->PhysicalMemoryKBytesFree,$event->text1->PhysicalMemoryKBytesFree,"json_extract(text1,'$.PhysicalMemoryKBytesFree')",&event->text1->PhysicalMemoryKBytesFree
+6,Memory statistics,text1->PhysicalMemoryKBytesInUse,$event->text1->PhysicalMemoryKBytesInUse,"json_extract(text1,'$.PhysicalMemoryKBytesInUse')",$event->text1->PhysicalMemoryKBytesInUse
+6,Memory statistics,text1->PhysicalMemoryKBytesTotal,$event->text1->PhysicalMemoryKBytesTotal,"json_extract(text1,'$.PhysicalMemoryKBytesTotal')",$event->text1->PhysicalMemoryKBytesTotal
+6,Memory statistics,text1->PhysicalMemoryPercentageFree,$event->text1->PhysicalMemoryPercentageFree,"json_extract(text1,'$.PhysicalMemoryPercentageFree')",$event->text1->PhysicalMemoryPercentageFree
+6,Memory statistics,text1->PhysicalMemoryPercentageInUse,$event->text1->PhysicalMemoryPercentageInUse,"json_extract(text1,'$.PhysicalMemoryPercentageInUse')",$event->text1->PhysicalMemoryPercentageInUse
+6,Memory statistics,text1->SwapSpaceKBytesFree,$event->text1->SwapSpaceKBytesFree,"json_extract(text1,'$.SwapSpaceKBytesFree')",$event->text1->SwapSpaceKBytesFree
+6,Memory statistics,text1->SwapSpaceKBytesInUse,$event->text1->SwapSpaceKBytesInUse,"json_extract(text1,'$.SwapSpaceKBytesInUse')",$event->text1->SwapSpaceKBytesInUse
+6,Memory statistics,text1->SwapSpaceKBytesTotal,$event->text1->SwapSpaceKBytesTotal,"json_extract(text1,'$.SwapSpaceKBytesTotal')",$event->text1->SwapSpaceKBytesTotal
+6,Memory statistics,text1->SwapSpacePercentageFree,$event->text1->SwapSpacePercentageFree,"json_extract(text1,'$.SwapSpacePercentageFree')",$event->text1->SwapSpacePercentageFree
+6,Memory statistics,text1->SwapSpacePercentageInUse,$event->text1->SwapSpacePercentageInUse,"json_extract(text1,'$.SwapSpacePercentageInUse')",$event->text1->SwapSpacePercentageInUse
+6,Memory statistics,text1->VirtualMemoryKBytesFree,$event->text1->VirtualMemoryKBytesFree,"json_extract(text1,'$.VirtualMemoryKBytesFree')",$event->text1->VirtualMemoryKBytesFree
+6,Memory statistics,text1->VirtualMemoryKBytesInUse,$event->text1->VirtualMemoryKBytesInUse,"json_extract(text1,'$.VirtualMemoryKBytesInUse')",$event->text1->VirtualMemoryKBytesInUse
+6,Memory statistics,text1->VirtualMemoryKBytesTotal,$event->text1->VirtualMemoryKBytesTotal,"json_extract(text1,'$.VirtualMemoryKBytesTotal')",$event->text1->VirtualMemoryKBytesTotal
+6,Memory statistics,text1->NumberOfProcessesRunning,$event->text1->NumberOfProcessesRunning,"json_extract(text1,'$.NumberOfProcessesRunning')",$event->text1->NumberOfProcessesRunning
+6,Memory statistics,text1->VirtualMemoryPercentageFree,$event->text1->VirtualMemoryPercentageFree,"json_extract(text1,'$.VirtualMemoryPercentageFree')",$event->text1->VirtualMemoryPercentageFree
+6,Memory statistics,text1->VirtualMemoryPercentageInUse,$event->text1->VirtualMemoryPercentageInUse,"json_extract(text1,'$.VirtualMemoryPercentageInUse')",$event->text1->VirtualMemoryPercentageInUse
+6,Memory statistics,text1->NumberOfProcessesRunning,$event->text1->NumberOfProcessesRunning,"json_extract(text1,'NumberOfProcessesRunning')",$event->text1->NumberOfProcessesRunning
+6,Memory statistics,text3->Process,$event->text3->Process,"json_extract(text3,'Process')",$event->text3->Process
+6,Memory statistics,text3->ProcessCPU,$event->text3->ProcessCPU,"json_extract(text3,'ProcessCPU')",$event->text3->ProcessCPU
+6,Memory statistics,text3->ProcessCreationDate,$event->text3->ProcessCreationDate,"json_extract(text3,'ProcessCreationDate')",$event->text3->ProcessCreationDate
+6,Memory statistics,text3->ProcessElapsed,$event->text3->ProcessElapsed,"json_extract(text3,'ProcessElapsed')",$event->text3->ProcessElapsed
+6,Memory statistics,text3->ProcessImageName,$event->text3->ProcessImageName,"json_extract(text3,'ProcessImageName')",$event->text3->ProcessImageName
+6,Memory statistics,text3->ProcessLastModifiedDate,$event->text3->ProcessLastModifiedDate,"json_extract(text3,'ProcessLastModifiedDate')",$event->text3->ProcessLastModifiedDate
+6,Memory statistics,text3->ProcessMemUsage_Kb,$event->text3->ProcessMemUsage_Kb,"json_extract(text3,'ProcessMemUsage_Kb')",$event->text3->ProcessMemUsage_Kb
+6,Memory statistics,text3->ProcessPID,$event->text3->ProcessPID,"json_extract(text3,'ProcessPID')",$event->text3->ProcessPID
+6,Memory statistics,text3->ProcessSize,$event->text3->ProcessSize,"json_extract(text3,'ProcessSize')",$event->text3->ProcessSize
+6,Memory statistics,text3->ProcessVersion,$event->text3->ProcessVersion,"json_extract(text3,'ProcessVersion->keyword')",$event->text3->ProcessVersion
+6,Memory statistics,text3->ProcessMemUsagePercent,$event->text3->ProcessMemUsagePercent,"json_extract(text3,'ProcessMemUsagePercent')",$event->text3->ProcessMemUsagePercent
+17,Executable Detected,text1->ProcessName,$event->text1->ProcessName,"json_extract(text1,'$.ProcessName')",$event->text1->ProcessName
+18,Client Restart,text1->number_of_Clients_restarted,$event->text1->number_of_Clients_restarted,"json_extract(text1,'$.number_of_Clients_restarted')",$event->text1->number_of_Clients_restarted
+18,Client ShutDown,text1->number_of_Clients_shutdown ,$event->text1->number_of_Clients_shutdown ,"json_extract(text1,'$.number_of_Clients_shutdown ')",$event->text1->number_of_Clients_shutdown 
+50,Process Creation Detected,text1->Command,$event->text1->Command,"json_extract(text1,'$.Command')",$event->text1->Command
+50,Process Creation Detected,text1->ResponseTime,$event->text1->ResponseTime,"json_extract(text1,'$.ResponseTime')",$event->text1->ResponseTime
+50,Process Creation Detected,text3->ResponseTime_mSec,$event->text3->ResponseTime_mSec,"json_extract(text3,'$.ResponseTime_mSec')",$event->text3->ResponseTime_mSec
+50,Process Creation Detected,text4->StartedExecutable,$event->text4->StartedExecutable,"json_extract(text4,'$.StartedExecutable')",$event->text4->StartedExecutable
+50,Process Creation Detected,text4->StartedProcess,$event->text4->StartedProcess,"json_extract(text4,'$.StartedProcess')",$event->text4->StartedProcess
+50,Process Creation Detected,text4->FileCreationDate,$event->text4->FileCreationDate,"json_extract(text4,'FileCreationDate')",$event->text4->FileCreationDate
+50,Process Creation Detected,text4->FileLastModified,$event->text4->FileLastModified,"json_extract(text4,'FileLastModified')",$event->text4->FileLastModified
+50,Process Creation Detected,text4->FinishedExecutable,$event->text4->FinishedExecutable,"json_extract(text4,'FinishedExecutable')",$event->text4->FinishedExecutable
+50,Process Creation Detected,text4->ProcessName,$event->text4->ProcessName,"json_extract(text4,'ProcessName')",$event->text4->ProcessName
+50,Process Creation Detected,text4->Size,$event->text4->Size,"json_extract(text4,'Size')",$event->text4->Size
+50,Process Creation Detected,text4->Version,$event->text4->Version,"json_extract(text4,'Version')",$event->text4->Version
+51,Process Completion Detected,text1->ProcessId,$event->text1->ProcessId,"json_extract(text1,'$.ProcessId')",$event->text1->ProcessId
+51,Process Completion Detected,text1->TotalExecutionTime_sec,$event->text1->TotalExecutionTime_sec,"json_extract(text1,'$.TotalExecutionTime_sec')",$event->text1->TotalExecutionTime_sec
+51,Process Completion Detected,text4->FinishedProcess,$event->text4->FinishedProcess,"json_extract(text4,'$.FinishedProcess')",$event->text4->FinishedProcess
+51,Process Completion Detected,text4->FileCreationDate,$event->text4->FileCreationDate,"json_extract(text4,'FileCreationDate')",$event->text4->FileCreationDate
+51,Process Completion Detected,text4->FileLastModified,$event->text4->FileLastModified,"json_extract(text4,'FileLastModified')",$event->text4->FileLastModified
+51,Process Completion Detected,text4->FinishedExecutable,$event->text4->FinishedExecutable,"json_extract(text4,'FinishedExecutable')",$event->text4->FinishedExecutable
+51,Process Completion Detected,text4->ProcessName,$event->text4->ProcessName,"json_extract(text4,'ProcessName')",$event->text4->ProcessName
+51,Process Completion Detected,text4->Size,$event->text4->Size,"json_extract(text4,'Size')",$event->text4->Size
+51,Process Completion Detected,text4->Version->keyword,$event->text4->Version->keyword,"json_extract(text4,'Version->keyword')",$event->text4->Version->keyword
+60,Cleanup,text1->Directories removed,$event->text1->Directories removed,"json_extract(text1,'$.Directories removed')",$event->text1->Directories removed
+60,Cleanup,text1->Files removed,$event->text1->Files removed,"json_extract(text1,'$.Files removed')",$event->text1->Files removed
+69,Autoheal,text1->ID,$event->text1->ID,"json_extract(text1,'$.ID')",$event->text1->ID
+69,Autoheal,text1->issuedescription,$event->text1->issuedescription,"json_extract(text1,'$.issuedescription')",$event->text1->issuedescription
+69,Autoheal,text1->operationstring,$event->text1->operationstring,"json_extract(text1,'$.operationstring')",$event->text1->operationstring
+69,Autoheal,text1->resolution,$event->text1->resolution,"json_extract(text1,'$.resolution')",$event->text1->resolution
+69,Autoheal,text1->solutionDART,$event->text1->solutionDART,"json_extract(text1,'$.solutionDART')",$event->text1->solutionDART
+69,Autoheal,text1->source_name,$event->text1->source_name,"json_extract(text1,'$.source_name')",$event->text1->source_name
+69,Autoheal,text1->sourceDART,$event->text1->sourceDART,"json_extract(text1,'$.sourceDART')",$event->text1->sourceDART
+74,Printer Added / Removed,text1->InstalledPrinters,$event->text1->InstalledPrinters,"json_extract(text1,'$.InstalledPrinters')",$event->text1->InstalledPrinters
+74,Printer Added / Removed,text1->NumberOfJobs,$event->text1->NumberOfJobs,"json_extract(text1,'$.NumberOfJobs')",$event->text1->NumberOfJobs
+74,Printer Added / Removed,text1->uninstalledPrinter,$event->text1->uninstalledPrinter,"json_extract(text1,'$.uninstalledPrinter')",$event->text1->uninstalledPrinter
+74,Printer Added / Removed,text1->Status,$event->text1->Status,"json_extract(text1,'$.Status')",$event->text1->Status
+74,Printer Added / Removed,text1->printerName,$event->text1->printerName,"json_extract(text1,'$.printerName')",$event->text1->printerName
+77,Windows events,text1->@timestamp,$event->text1->@timestamp,"json_extract(text1,'$.@timestamp')",$event->text1->@timestamp
+77,Windows events,text1->error,$event->text1->error,"json_extract(text1,'$.error')",$event->text1->error
+77,Windows events,text1->event_id,$event->text1->event_id,"json_extract(text1,'$.event_id')",$event->text1->event_id
+77,Windows events,text1->level,$event->text1->level,"json_extract(text1,'$.level')",$event->text1->level
+77,Windows events,text1->log_name,$event->text1->log_name,"json_extract(text1,'$.log_name')",$event->text1->log_name
+77,Windows events,text1->message,$event->text1->message,"json_extract(text1,'$.message')",$event->text1->message
+77,Windows events,text1->opcode,$event->text1->opcode,"json_extract(text1,'$.opcode')",$event->text1->opcode
+77,Windows events,text1->process_id,$event->text1->process_id,"json_extract(text1,'$.process_id')",$event->text1->process_id
+77,Windows events,text1->record_number,$event->text1->record_number,"json_extract(text1,'$.record_number')",$event->text1->record_number
+84,Network Connectivity Status,text1->type,$event->text1->type,"json_extract(text1,'$.type')",$event->text1->type
+88,Network Polling,text1->network_connectivity_status,$event->text1->network_connectivity_status,"json_extract(text1,'$.network_connectivity_status')",$event->text1->network_connectivity_status
+88,Network Polling,text1->Machine,$event->text1->Machine,"json_extract(text1,'$.Machine')",$event->text1->Machine
+88,Network Traffic monitoring,text1->machinestobetested,$event->text1->machinestobetested,"json_extract(text1,'$.machinestobetested')",$event->text1->machinestobetested
+88,Network Traffic monitoring,text1->trafficcontrol,$event->text1->trafficcontrol,"json_extract(text1,'$.trafficcontrol')",$event->text1->trafficcontrol
+88,Network Traffic monitoring,text1->urlmetering,$event->text1->urlmetering,"json_extract(text1,'$.urlmetering')",$event->text1->urlmetering
+88,Network Polling,text1->website,$event->text1->website,"json_extract(text1,'$.website')",$event->text1->website
+88,Network Polling,text1->networkpollingsuccess1,$event->text1->networkpollingsuccess1,"json_extract(text1,'$.networkpollingsuccess1')",$event->text1->networkpollingsuccess1
+88,Network Polling,text3->responsecode,$event->text3->responsecode,"json_extract(text3,'$.responsecode')",$event->text3->responsecode
+88,Network Polling,text3->serverresponse,$event->text3->serverresponse,"json_extract(text3,'$.serverresponse')",$event->text3->serverresponse
+88,Network Polling,text3->starttransfertime_sec,$event->text3->starttransfertime_sec,"json_extract(text3,'$.starttransfertime_sec')",$event->text3->starttransfertime_sec
+88,Network Polling,text3->connecttime_sec,$event->text3->connecttime_sec,"json_extract(text3,'$.connecttime_sec')",$event->text3->connecttime_sec
+88,Network Polling,text3->namelookuptime_sec,$event->text3->namelookuptime_sec,"json_extract(text3,'$.namelookuptime_sec')",$event->text3->namelookuptime_sec
+88,Network Polling,text3->totaltime_sec,$event->text3->totaltime_sec,"json_extract(text3,'$.totaltime_sec')",$event->text3->totaltime_sec
+95,Logical Disk Space,text3->traceroute1,$event->text3->traceroute1,"json_extract(text3,'$.traceroute1')",$event->text3->traceroute1
+95,Logical Disk Space,text1->kbytesfree1,$event->text1->kbytesfree1,"json_extract(text1,'$.kbytesfree1')",$event->text1->kbytesfree1
+95,Logical Disk Space,text1->kbytesfree2,$event->text1->kbytesfree2,"json_extract(text1,'$.kbytesfree2')",$event->text1->kbytesfree2
+95,Logical Disk Space,text1->kbytesfree3,$event->text1->kbytesfree3,"json_extract(text1,'$.kbytesfree3')",$event->text1->kbytesfree3
+95,Logical Disk Space,text1->kbytestotal1,$event->text1->kbytestotal1,"json_extract(text1,'$.kbytestotal1')",$event->text1->kbytestotal1
+95,Logical Disk Space,text1->kbytestotal2,$event->text1->kbytestotal2,"json_extract(text1,'$.kbytestotal2')",$event->text1->kbytestotal2
+95,Logical Disk Space,text1->kbytestotal3,$event->text1->kbytestotal3,"json_extract(text1,'$.kbytestotal3')",$event->text1->kbytestotal3
+95,Logical Disk Space,text1->kbytesused1,$event->text1->kbytesused1,"json_extract(text1,'$.kbytesused1')",$event->text1->kbytesused1
+95,Logical Disk Space,text1->kbytesused2,$event->text1->kbytesused2,"json_extract(text1,'$.kbytesused2')",$event->text1->kbytesused2
+95,Physical Disk Space,text1->kbytesused3,$event->text1->kbytesused3,"json_extract(text1,'$.kbytesused3')",$event->text1->kbytesused3
+95,Physical Disk Space,text1->percentagefree0,$event->text1->percentagefree0,"json_extract(text1,'$.percentagefree0')",$event->text1->percentagefree0
+95,Physical Disk Space,text1->percentagefree1,$event->text1->percentagefree1,"json_extract(text1,'$.percentagefree1')",$event->text1->percentagefree1
+95,Physical Disk Space,text1->percentagefree2,$event->text1->percentagefree2,"json_extract(text1,'$.percentagefree2')",$event->text1->percentagefree2
+95,Physical Disk Space,text1->percentagefree3,$event->text1->percentagefree3,"json_extract(text1,'$.percentagefree3')",$event->text1->percentagefree3
+95,Physical Disk Space,text1->percentageused0,$event->text1->percentageused0,"json_extract(text1,'$.percentageused0')",$event->text1->percentageused0
+95,Physical Disk Space,text1->percentageused1,$event->text1->percentageused1,"json_extract(text1,'$.percentageused1')",$event->text1->percentageused1
+95,Physical Disk Space,text1->percentageused2,$event->text1->percentageused2,"json_extract(text1,'$.percentageused2')",$event->text1->percentageused2
+96,Processor Statistics,text1->percentageused3,$event->text1->percentageused3,"json_extract(text1,'$.percentageused3')",$event->text1->percentageused3
+96,Processor Statistics,text1->AverageQueueLength,$event->text1->AverageQueueLength,"json_extract(text1,'$.AverageQueueLength')",$event->text1->AverageQueueLength
+96,Processor Statistics,text1->InterruptRatePerSecond,$event->text1->InterruptRatePerSecond,"json_extract(text1,'$.InterruptRatePerSecond')",$event->text1->InterruptRatePerSecond
+96,Processor Statistics,text3->Process,$event->text3->Process,"json_extract(text3,'Process')",$event->text3->Process
+96,Processor Statistics,text3->ProcessCPU,$event->text3->ProcessCPU,"json_extract(text3,'ProcessCPU')",$event->text3->ProcessCPU
+96,Processor Statistics,text3->ProcessCreationDate,$event->text3->ProcessCreationDate,"json_extract(text3,'ProcessCreationDate')",$event->text3->ProcessCreationDate
+96,Processor Statistics,text3->ProcessElapsed,$event->text3->ProcessElapsed,"json_extract(text3,'ProcessElapsed')",$event->text3->ProcessElapsed
+96,Processor Statistics,text3->ProcessImageName,$event->text3->ProcessImageName,"json_extract(text3,'ProcessImageName')",$event->text3->ProcessImageName
+96,Processor Statistics,text3->ProcessLastModifiedDate,$event->text3->ProcessLastModifiedDate,"json_extract(text3,'ProcessLastModifiedDate')",$event->text3->ProcessLastModifiedDate
+96,Processor Statistics,text3->ProcessMemUsage_Kb,$event->text3->ProcessMemUsage_Kb,"json_extract(text3,'ProcessMemUsage_Kb')",$event->text3->ProcessMemUsage_Kb
+96,Processor Statistics,text3->ProcessPID,$event->text3->ProcessPID,"json_extract(text3,'ProcessPID')",$event->text3->ProcessPID
+96,Processor Statistics,text3->ProcessSize,$event->text3->ProcessSize,"json_extract(text3,'ProcessSize')",$event->text3->ProcessSize
+96,Processor Statistics,text3->ProcessVersion,$event->text3->ProcessVersion,"json_extract(text3,'ProcessVersion->keyword')",$event->text3->ProcessVersion
+96,Processor Statistics,text3->ProcessMemUsagePercent,$event->text3->ProcessMemUsagePercent,"json_extract(text3,'ProcessMemUsagePercent')",$event->text3->ProcessMemUsagePercent
+97,Physical Disk Statistics ,text1->PercentUtilization,$event->text1->PercentUtilization,"json_extract(text1,'$.PercentUtilization')",$event->text1->PercentUtilization
+97,Physical Disk Statistics ,text1->averagequeuelength0,$event->text1->averagequeuelength0,"json_extract(text1,'$.averagequeuelength0')",$event->text1->averagequeuelength0
+97,Physical Disk Statistics ,text1->averagequeuelength1,$event->text1->averagequeuelength1,"json_extract(text1,'$.averagequeuelength1')",$event->text1->averagequeuelength1
+97,Physical Disk Statistics ,text1->averagequeuelength2,$event->text1->averagequeuelength2,"json_extract(text1,'$.averagequeuelength2')",$event->text1->averagequeuelength2
+97,Physical Disk Statistics ,text1->averagequeuelength3,$event->text1->averagequeuelength3,"json_extract(text1,'$.averagequeuelength3')",$event->text1->averagequeuelength3
+97,Physical Disk Statistics ,text1->averagequeuelength4,$event->text1->averagequeuelength4,"json_extract(text1,'$.averagequeuelength4')",$event->text1->averagequeuelength4
+97,Physical Disk Statistics ,text1->Drive0,$event->text1->Drive0,"json_extract(text1,'$.Drive0')",$event->text1->Drive0
+97,Physical Disk Statistics ,text1->Drive1,$event->text1->Drive1,"json_extract(text1,'$.Drive1')",$event->text1->Drive1
+97,Physical Disk Statistics ,text1->Drive2,$event->text1->Drive2,"json_extract(text1,'$.Drive2')",$event->text1->Drive2
+97,Physical Disk Statistics ,text1->Drive3,$event->text1->Drive3,"json_extract(text1,'$.Drive3')",$event->text1->Drive3
+97,Physical Disk Statistics ,text1->percentbusytime0,$event->text1->percentbusytime0,"json_extract(text1,'$.percentbusytime0')",$event->text1->percentbusytime0
+97,Physical Disk Statistics ,text1->percentbusytime1,$event->text1->percentbusytime1,"json_extract(text1,'$.percentbusytime1')",$event->text1->percentbusytime1
+97,Physical Disk Statistics ,text1->percentbusytime2,$event->text1->percentbusytime2,"json_extract(text1,'$.percentbusytime2')",$event->text1->percentbusytime2
+97,Physical Disk Statistics ,text1->percentbusytime3,$event->text1->percentbusytime3,"json_extract(text1,'$.percentbusytime3')",$event->text1->percentbusytime3
+97,Physical Disk Statistics ,text1->readpersecond0,$event->text1->readpersecond0,"json_extract(text1,'$.readpersecond0')",$event->text1->readpersecond0
+97,Physical Disk Statistics ,text1->readpersecond1,$event->text1->readpersecond1,"json_extract(text1,'$.readpersecond1')",$event->text1->readpersecond1
+97,Physical Disk Statistics ,text1->readpersecond2,$event->text1->readpersecond2,"json_extract(text1,'$.readpersecond2')",$event->text1->readpersecond2
+97,Physical Disk Statistics ,text1->readpersecond3,$event->text1->readpersecond3,"json_extract(text1,'$.readpersecond3')",$event->text1->readpersecond3
+97,Physical Disk Statistics ,text1->writespersecond0,$event->text1->writespersecond0,"json_extract(text1,'$.writespersecond0')",$event->text1->writespersecond0
+97,Physical Disk Statistics ,text1->writespersecond1,$event->text1->writespersecond1,"json_extract(text1,'$.writespersecond1')",$event->text1->writespersecond1
+97,Physical Disk Statistics ,text1->writespersecond2,$event->text1->writespersecond2,"json_extract(text1,'$.writespersecond2')",$event->text1->writespersecond2
+97,Physical Disk Statistics ,text1->writespersecond3,$event->text1->writespersecond3,"json_extract(text1,'$.writespersecond3')",$event->text1->writespersecond3
+98,Network Statistics,text1->realtimediskiopercentage,$event->text1->realtimediskiopercentage,"json_extract(text1,'$.realtimediskiopercentage')",$event->text1->realtimediskiopercentage
+98,Network Statistics,text1->Adapter1,$event->text1->Adapter1,"json_extract(text1,'$.Adapter1')",$event->text1->Adapter1
+98,Network Statistics,text1->Adapter1Bytesrecvpersec,$event->text1->Adapter1Bytesrecvpersec,"json_extract(text1,'$.Adapter1Bytesrecvpersec')",$event->text1->Adapter1Bytesrecvpersec
+98,Network Statistics,text1->Adapter1Bytessentpersec,$event->text1->Adapter1Bytessentpersec,"json_extract(text1,'$.Adapter1Bytessentpersec')",$event->text1->Adapter1Bytessentpersec
+98,Network Statistics,text1->Adapter2,$event->text1->Adapter2,"json_extract(text1,'$.Adapter2')",$event->text1->Adapter2
+98,Network Statistics,text1->Adapter2Bytesrecvpersec,$event->text1->Adapter2Bytesrecvpersec,"json_extract(text1,'$.Adapter2Bytesrecvpersec')",$event->text1->Adapter2Bytesrecvpersec
+98,Network Statistics,text1->Adapter2Bytessentpersec,$event->text1->Adapter2Bytessentpersec,"json_extract(text1,'$.Adapter2Bytessentpersec')",$event->text1->Adapter2Bytessentpersec
+111,Network Deployment(Scan All),text1->Percentutilization,$event->text1->Percentutilization,"json_extract(text1,'$.Percentutilization')",$event->text1->Percentutilization
+148,One Way Sync,text3->ScanResult,$event->text3->ScanResult,"json_extract(text3,'$.ScanResult')",$event->text3->ScanResult
+148,One Way Sync,text1->SynchronizeGroups,$event->text1->SynchronizeGroups,"json_extract(text1,'$.SynchronizeGroups')",$event->text1->SynchronizeGroups
+148,One Way Sync,text1->RetrieveVariableValues,$event->text1->RetrieveVariableValues,"json_extract(text1,'$.RetrieveVariableValues')",$event->text1->RetrieveVariableValues
+148,One Way Sync,text1->RetrievedValueMaps,$event->text1->RetrievedValueMaps,"json_extract(text1,'$.RetrievedValueMaps')",$event->text1->RetrievedValueMaps
+148,One Way Sync,text3->SynchronizeGroups,$event->text3->SynchronizeGroups,"json_extract(text3,'$.SynchronizeGroups')",$event->text3->SynchronizeGroups
+148,One Way Sync,text3->RetrieveVariableValues,$event->text3->RetrieveVariableValues,"json_extract(text3,'$.RetrieveVariableValues')",$event->text3->RetrieveVariableValues
+174,User Statistics,text3->RetrievedValueMaps,$event->text3->RetrievedValueMaps,"json_extract(text3,'$.RetrievedValueMaps')",$event->text3->RetrievedValueMaps
+174,User Statistics,text1->UserLogOffDetected,$event->text1->UserLogOffDetected,"json_extract(text1,'$.UserLogOffDetected')",$event->text1->UserLogOffDetected
+174,User Statistics,text1->UserLogonDetected,$event->text1->UserLogonDetected,"json_extract(text1,'$.UserLogonDetected')",$event->text1->UserLogonDetected
+174,User Statistics,text1->UserWasLoggedInFor,$event->text1->UserWasLoggedInFor,"json_extract(text1,'$.UserWasLoggedInFor')",$event->text1->UserWasLoggedInFor
+174,User Statistics,text3->AccountDisabled,$event->text3->AccountDisabled,"json_extract(text3,'$.AccountDisabled')",$event->text3->AccountDisabled
+174,User Statistics,text3->AccountExpirationTime,$event->text3->AccountExpirationTime,"json_extract(text3,'$.AccountExpirationTime')",$event->text3->AccountExpirationTime
+174,User Statistics,text3->AccountPrivileges,$event->text3->AccountPrivileges,"json_extract(text3,'$.AccountPrivileges')",$event->text3->AccountPrivileges
+174,User Statistics,text3->HomeDirectoryPath,$event->text3->HomeDirectoryPath,"json_extract(text3,'$.HomeDirectoryPath')",$event->text3->HomeDirectoryPath
+174,User Statistics,text3->NumberOfFailedLogons,$event->text3->NumberOfFailedLogons,"json_extract(text3,'$.NumberOfFailedLogons')",$event->text3->NumberOfFailedLogons
+174,User Statistics,text3->NumberOfSuccessfulLogons,$event->text3->NumberOfSuccessfulLogons,"json_extract(text3,'$.NumberOfSuccessfulLogons')",$event->text3->NumberOfSuccessfulLogons
+174,User Statistics,text3->PasswordAge,$event->text3->PasswordAge,"json_extract(text3,'$.PasswordAge')",$event->text3->PasswordAge
+174,User Statistics,text3->PasswordChangeable,$event->text3->PasswordChangeable,"json_extract(text3,'$.PasswordChangeable')",$event->text3->PasswordChangeable
+174,User Statistics,text3->PasswordExpires,$event->text3->PasswordExpires,"json_extract(text3,'$.PasswordExpires')",$event->text3->PasswordExpires
+174,User Statistics,text3->PasswordRequired,$event->text3->PasswordRequired,"json_extract(text3,'$.PasswordRequired')",$event->text3->PasswordRequired
+174,User Statistics,text3->UserInfo,$event->text3->UserInfo,"json_extract(text3,'$.UserInfo')",$event->text3->UserInfo
+174,User Statistics,text3->UserLockedOut,$event->text3->UserLockedOut,"json_extract(text3,'$.UserLockedOut')",$event->text3->UserLockedOut
+174,User Statistics,text3->UserStorageSize,$event->text3->UserStorageSize,"json_extract(text3,'$.UserStorageSize')",$event->text3->UserStorageSize
+174,User Statistics,text3->Username,$event->text3->Username,"json_extract(text3,'$.Username')",$event->text3->Username
+176,User Statistics,text3->Domain,$event->text3->Domain,"json_extract(text3,'$.Domain')",$event->text3->Domain
+176,User Statistics,string1->logonTime,$event->string1->logonTime,"json_extract(string1,'$.logonTime')",$event->string1->logonTime
+176,Service restart,string2->logoffTime,$event->string2->logoffTime,"json_extract(string2,'$.logoffTime')",$event->string2->logoffTime
+176,Service restart,text1->monitoredservicehasstopped->loggedservice1,$event->text1->monitoredservicehasstopped->loggedservice1,"json_extract(text1,'$.monitoredservicehasstopped->loggedservice1')",$event->text1->monitoredservicehasstopped->loggedservice1
+176,Service restart,text1->monitoredservicehasstopped->loggedservice2,$event->text1->monitoredservicehasstopped->loggedservice2,"json_extract(text1,'$.monitoredservicehasstopped->loggedservice2')",$event->text1->monitoredservicehasstopped->loggedservice2
+176,Service restart,text1->monitoredservicehasstopped->loggedservice3,$event->text1->monitoredservicehasstopped->loggedservice3,"json_extract(text1,'$.monitoredservicehasstopped->loggedservice3')",$event->text1->monitoredservicehasstopped->loggedservice3
+176,Service restart,text1->monitoredservicehasstopped->loggedservice4,$event->text1->monitoredservicehasstopped->loggedservice4,"json_extract(text1,'$.monitoredservicehasstopped->loggedservice4')",$event->text1->monitoredservicehasstopped->loggedservice4
+176,Service restart,text1->servicesstopped,$event->text1->servicesstopped,"json_extract(text1,'$.servicesstopped')",$event->text1->servicesstopped
+176,Service restart,text3->report_ratherthanrestartstopped_servicessettingis,$event->text3->report_ratherthanrestartstopped_servicessettingis,"json_extract(text3,'$.report_ratherthanrestartstopped_servicessettingis')",$event->text3->report_ratherthanrestartstopped_servicessettingis
+176,Service restart,text3->servicestomonitorandrestart->service1,$event->text3->servicestomonitorandrestart->service1,"json_extract(text3,'$.servicestomonitorandrestart->service1')",$event->text3->servicestomonitorandrestart->service1
+176,Service restart,text3->servicestomonitorandrestart->service2,$event->text3->servicestomonitorandrestart->service2,"json_extract(text3,'$.servicestomonitorandrestart->service2')",$event->text3->servicestomonitorandrestart->service2
+176,Service restart,text3->servicestomonitorandrestart->service3,$event->text3->servicestomonitorandrestart->service3,"json_extract(text3,'$.servicestomonitorandrestart->service3')",$event->text3->servicestomonitorandrestart->service3
+211,Disk defrag,text3->servicestomonitorandrestart->service4,$event->text3->servicestomonitorandrestart->service4,"json_extract(text3,'$.servicestomonitorandrestart->service4')",$event->text3->servicestomonitorandrestart->service4
+211,Disk defrag,text1->nondefragdrive0,$event->text1->nondefragdrive0,"json_extract(text1,'$.nondefragdrive0')",$event->text1->nondefragdrive0
+216,Printer,text1->nondefragdrive1,$event->text1->nondefragdrive1,"json_extract(text1,'$.nondefragdrive1')",$event->text1->nondefragdrive1
+216,Printer,text1->SpoolerSRVCinstSts,$event->text1->SpoolerSRVCinstSts,"json_extract(text1,'$.SpoolerSRVCinstSts')",$event->text1->SpoolerSRVCinstSts
+216,Printer,text1->SpoolerSRVCrunSts,$event->text1->SpoolerSRVCrunSts,"json_extract(text1,'$.SpoolerSRVCrunSts')",$event->text1->SpoolerSRVCrunSts
+216,Printer,text1->monitoringprinter,$event->text1->monitoringprinter,"json_extract(text1,'$.monitoringprinter')",$event->text1->monitoringprinter
+216,Printer,text3->jobstatus1,$event->text3->jobstatus1,"json_extract(text3,'$.jobstatus1')",$event->text3->jobstatus1
+216,Printer,text3->jobstatus2,$event->text3->jobstatus2,"json_extract(text3,'$.jobstatus2')",$event->text3->jobstatus2
+216,Printer,text3->jobstatus3,$event->text3->jobstatus3,"json_extract(text3,'$.jobstatus3')",$event->text3->jobstatus3
+216,Printer,text3->jobstatus4,$event->text3->jobstatus4,"json_extract(text3,'$.jobstatus4')",$event->text3->jobstatus4
+216,Printer,text3->jobstatus5,$event->text3->jobstatus5,"json_extract(text3,'$.jobstatus5')",$event->text3->jobstatus5
+216,Printer,text3->jobstatus8,$event->text3->jobstatus8,"json_extract(text3,'$.jobstatus8')",$event->text3->jobstatus8
+216,Printer,text3->printerstatus,$event->text3->printerstatus,"json_extract(text3,'$.printerstatus')",$event->text3->printerstatus
+216,Printer,text3->printingdoc,$event->text3->printingdoc,"json_extract(text3,'$.printingdoc')",$event->text3->printingdoc
+216,Printer,text3->printingspeedinsecperpage,$event->text3->printingspeedinsecperpage,"json_extract(text3,'$.printingspeedinsecperpage')",$event->text3->printingspeedinsecperpage
+216,Printer,text3->printjobsenttoprinter,$event->text3->printjobsenttoprinter,"json_extract(text3,'$.printjobsenttoprinter')",$event->text3->printjobsenttoprinter
+216,Printer,text3->timeinsec,$event->text3->timeinsec,"json_extract(text3,'$.timeinsec')",$event->text3->timeinsec
+216,Printer,text3->totalpages,$event->text3->totalpages,"json_extract(text3,'$.totalpages')",$event->text3->totalpages
+233,Start up,text3->failedtoinitmonitrofprinter,$event->text3->failedtoinitmonitrofprinter,"json_extract(text3,'$.failedtoinitmonitrofprinter')",$event->text3->failedtoinitmonitrofprinter
+234,Temperature,text3->totalnoofenabledstartupapps,$event->text3->totalnoofenabledstartupapps,"json_extract(text3,'$.totalnoofenabledstartupapps')",$event->text3->totalnoofenabledstartupapps
+234,Temperature,text1->coolingdevicestatus->keyword,$event->text1->coolingdevicestatus->keyword,"json_extract(text1,'$.coolingdevicestatus->keyword')",$event->text1->coolingdevicestatus->keyword
+234,Temperature,text1->currentvoltage,$event->text1->currentvoltage,"json_extract(text1,'$.currentvoltage')",$event->text1->currentvoltage
+234,Restore point,text1->hddtemperatureincel,$event->text1->hddtemperatureincel,"json_extract(text1,'$.hddtemperatureincel')",$event->text1->hddtemperatureincel
+234,Encryption,text1->systemrestorepoint,$event->text1->systemrestorepoint,"json_extract(text1,'$.systemrestorepoint')",$event->text1->systemrestorepoint
+234,Encryption,text1->systemvolumeencryptionstatus->ProtectionDisabled,$event->text1->systemvolumeencryptionstatus->ProtectionDisabled,"json_extract(text1,'$.systemvolumeencryptionstatus->ProtectionDisabled')",$event->text1->systemvolumeencryptionstatus->ProtectionDisabled
+245,Hard Disk Details,text1->systemvolumeencryptionstatus->ProtectionEnabled,$event->text1->systemvolumeencryptionstatus->ProtectionEnabled,"json_extract(text1,'$.systemvolumeencryptionstatus->ProtectionEnabled')",$event->text1->systemvolumeencryptionstatus->ProtectionEnabled
+245,Hard Disk Details,text1->bytespersector1,$event->text1->bytespersector1,"json_extract(text1,'$.bytespersector1')",$event->text1->bytespersector1
+245,Hard Disk Details,text1->bytespersector2,$event->text1->bytespersector2,"json_extract(text1,'$.bytespersector2')",$event->text1->bytespersector2
+245,Hard Disk Details,text1->diskhasbeenused_hrs,$event->text1->diskhasbeenused_hrs,"json_extract(text1,'$.diskhasbeenused_hrs')",$event->text1->diskhasbeenused_hrs
+245,Hard Disk Details,text1->errorcleared1,$event->text1->errorcleared1,"json_extract(text1,'$.errorcleared1')",$event->text1->errorcleared1
+245,Hard Disk Details,text1->errorcleared2,$event->text1->errorcleared2,"json_extract(text1,'$.errorcleared2')",$event->text1->errorcleared2
+245,Hard Disk Details,text1->errordescription1,$event->text1->errordescription1,"json_extract(text1,'$.errordescription1')",$event->text1->errordescription1
+245,Hard Disk Details,text1->errordescription2,$event->text1->errordescription2,"json_extract(text1,'$.errordescription2')",$event->text1->errordescription2
+245,Hard Disk Details,text1->firmwarerevision1,$event->text1->firmwarerevision1,"json_extract(text1,'$.firmwarerevision1')",$event->text1->firmwarerevision1
+245,Hard Disk Details,text1->firmwarerevision2,$event->text1->firmwarerevision2,"json_extract(text1,'$.firmwarerevision2')",$event->text1->firmwarerevision2
+245,Hard Disk Details,text1->lasterror1,$event->text1->lasterror1,"json_extract(text1,'$.lasterror1')",$event->text1->lasterror1
+245,Hard Disk Details,text1->lasterror2,$event->text1->lasterror2,"json_extract(text1,'$.lasterror2')",$event->text1->lasterror2
+245,Hard Disk Details,text1->manufacturer1,$event->text1->manufacturer1,"json_extract(text1,'$.manufacturer1')",$event->text1->manufacturer1
+245,Hard Disk Details,text1->manufacturer2,$event->text1->manufacturer2,"json_extract(text1,'$.manufacturer2')",$event->text1->manufacturer2
+245,Hard Disk Details,text1->model1,$event->text1->model1,"json_extract(text1,'$.model1')",$event->text1->model1
+245,Hard Disk Details,text1->model2,$event->text1->model2,"json_extract(text1,'$.model2')",$event->text1->model2
+245,Hard Disk Details,text1->name1,$event->text1->name1,"json_extract(text1,'$.name1')",$event->text1->name1
+245,Hard Disk Details,text1->name2,$event->text1->name2,"json_extract(text1,'$.name2')",$event->text1->name2
+245,Hard Disk Details,text1->partitions1,$event->text1->partitions1,"json_extract(text1,'$.partitions1')",$event->text1->partitions1
+245,Hard Disk Details,text1->partitions2,$event->text1->partitions2,"json_extract(text1,'$.partitions2')",$event->text1->partitions2
+245,Hard Disk Details,text1->sectorspertrack1,$event->text1->sectorspertrack1,"json_extract(text1,'$.sectorspertrack1')",$event->text1->sectorspertrack1
+245,Hard Disk Details,text1->sectorspertrack2,$event->text1->sectorspertrack2,"json_extract(text1,'$.sectorspertrack2')",$event->text1->sectorspertrack2
+245,Hard Disk Details,text1->serial1,$event->text1->serial1,"json_extract(text1,'$.serial1')",$event->text1->serial1
+245,Hard Disk Details,text1->serial2,$event->text1->serial2,"json_extract(text1,'$.serial2')",$event->text1->serial2
+245,Hard Disk Details,text1->signature1,$event->text1->signature1,"json_extract(text1,'$.signature1')",$event->text1->signature1
+245,Hard Disk Details,text1->signature2,$event->text1->signature2,"json_extract(text1,'$.signature2')",$event->text1->signature2
+245,Hard Disk Details,text1->size_bytes1,$event->text1->size_bytes1,"json_extract(text1,'$.size_bytes1')",$event->text1->size_bytes1
+245,Hard Disk Details,text1->size_bytes2,$event->text1->size_bytes2,"json_extract(text1,'$.size_bytes2')",$event->text1->size_bytes2
+245,Hard Disk Details,text1->status1,$event->text1->status1,"json_extract(text1,'$.status1')",$event->text1->status1
+245,Host Name,text1->status2,$event->text1->status2,"json_extract(text1,'$.status2')",$event->text1->status2
+245,Host Name,text1->systemname1,$event->text1->systemname1,"json_extract(text1,'$.systemname1')",$event->text1->systemname1
+245,Hard Disk Details,text1->systemname2,$event->text1->systemname2,"json_extract(text1,'$.systemname2')",$event->text1->systemname2
+245,Hard Disk Details,text1->totalcylinders1,$event->text1->totalcylinders1,"json_extract(text1,'$.totalcylinders1')",$event->text1->totalcylinders1
+245,Hard Disk Details,text1->totalcylinders2,$event->text1->totalcylinders2,"json_extract(text1,'$.totalcylinders2')",$event->text1->totalcylinders2
+245,Hard Disk Details,text1->totalheads1,$event->text1->totalheads1,"json_extract(text1,'$.totalheads1')",$event->text1->totalheads1
+245,Hard Disk Details,text1->totalheads2,$event->text1->totalheads2,"json_extract(text1,'$.totalheads2')",$event->text1->totalheads2
+245,Hard Disk Details,text1->totalsectors1,$event->text1->totalsectors1,"json_extract(text1,'$.totalsectors1')",$event->text1->totalsectors1
+245,Hard Disk Details,text1->totalsectors2,$event->text1->totalsectors2,"json_extract(text1,'$.totalsectors2')",$event->text1->totalsectors2
+245,Hard Disk Details,text1->totaltracks1,$event->text1->totaltracks1,"json_extract(text1,'$.totaltracks1')",$event->text1->totaltracks1
+245,Hard Disk Details,text1->totaltracks2,$event->text1->totaltracks2,"json_extract(text1,'$.totaltracks2')",$event->text1->totaltracks2
+245,Hard Disk Details,text1->trackpercylinder1,$event->text1->trackpercylinder1,"json_extract(text1,'$.trackpercylinder1')",$event->text1->trackpercylinder1
+263,Drive Details,text1->trackpercylinder2,$event->text1->trackpercylinder2,"json_extract(text1,'$.trackpercylinder2')",$event->text1->trackpercylinder2
+263,Drive Details,text1->C_drivefree,$event->text1->C_drivefree,"json_extract(text1,'$.C_drivefree')",$event->text1->C_drivefree
+263,Drive Details,text1->C_drivefresizeinper,$event->text1->C_drivefresizeinper,"json_extract(text1,'$.C_drivefresizeinper')",$event->text1->C_drivefresizeinper
+263,Drive Details,text1->C_drivetotal,$event->text1->C_drivetotal,"json_extract(text1,'$.C_drivetotal')",$event->text1->C_drivetotal
+263,Security,text1->LastCollectedTime,$event->text1->LastCollectedTime,"json_extract(text1,'$.LastCollectedTime')",$event->text1->LastCollectedTime
+263,Security,text1->asonoffstatus->asnnoffStatus,$event->text1->asonoffstatus->asnnoffStatus,"json_extract(text1,'$.asonoffstatus->asnnoffStatus')",$event->text1->asonoffstatus->asnnoffStatus
+263,Security,text1->asonoffstatus->asupdatests,$event->text1->asonoffstatus->asupdatests,"json_extract(text1,'$.asonoffstatus->asupdatests')",$event->text1->asonoffstatus->asupdatests
+263,Security,text1->asonoffstatus->displayName,$event->text1->asonoffstatus->displayName,"json_extract(text1,'$.asonoffstatus->displayName')",$event->text1->asonoffstatus->displayName
+263,Security,text1->autoupdatestatus,$event->text1->autoupdatestatus,"json_extract(text1,'$.autoupdatestatus')",$event->text1->autoupdatestatus
+263,RAM Size,text1->firewallstatus,$event->text1->firewallstatus,"json_extract(text1,'$.firewallstatus')",$event->text1->firewallstatus
+263,RAM Size,text1->ram_freesizeinkb,$event->text1->ram_freesizeinkb,"json_extract(text1,'$.ram_freesizeinkb')",$event->text1->ram_freesizeinkb
+263,RAM Size,text1->ram_freesizeinper,$event->text1->ram_freesizeinper,"json_extract(text1,'$.ram_freesizeinper')",$event->text1->ram_freesizeinper
+263,Security,text1->ram_totalsizeinkb,$event->text1->ram_totalsizeinkb,"json_extract(text1,'$.ram_totalsizeinkb')",$event->text1->ram_totalsizeinkb
+263,Security,text1->totalas,$event->text1->totalas,"json_extract(text1,'$.totalas')",$event->text1->totalas
+263,RAM - Virtual Memory,text1->totalav,$event->text1->totalav,"json_extract(text1,'$.totalav')",$event->text1->totalav
+263,RAM - Virtual Memory,text1->virtual_memfreesizeinper,$event->text1->virtual_memfreesizeinper,"json_extract(text1,'$.virtual_memfreesizeinper')",$event->text1->virtual_memfreesizeinper
+263,RAM - Virtual Memory,text1->virtual_memoryfreesizeinkb,$event->text1->virtual_memoryfreesizeinkb,"json_extract(text1,'$.virtual_memoryfreesizeinkb')",$event->text1->virtual_memoryfreesizeinkb
+263,Security,text1->virtual_memorytotalsizeinkb,$event->text1->virtual_memorytotalsizeinkb,"json_extract(text1,'$.virtual_memorytotalsizeinkb')",$event->text1->virtual_memorytotalsizeinkb
+263,Security,text3->asdisplayName,$event->text3->asdisplayName,"json_extract(text3,'$.asdisplayName')",$event->text3->asdisplayName
+263,Security,text3->asnnoffStatus,$event->text3->asnnoffStatus,"json_extract(text3,'$.asnnoffStatus')",$event->text3->asnnoffStatus
+270,Temprory files cleanup,text3->asupdatests,$event->text3->asupdatests,"json_extract(text3,'$.asupdatests')",$event->text3->asupdatests
+270,Temprory files cleanup,text1->Error,$event->text1->Error,"json_extract(text1,'$.Error')",$event->text1->Error
+270,Temprory files cleanup,text1->Action,$event->text1->Action,"json_extract(text1,'$.Action')",$event->text1->Action
+270,Temprory files cleanup,text1->TotalSize_Bytes,$event->text1->TotalSize_Bytes,"json_extract(text1,'$.TotalSize_Bytes')",$event->text1->TotalSize_Bytes
+270,Temprory files cleanup,text1->TotalReg,$event->text1->TotalReg,"json_extract(text1,'$.TotalReg')",$event->text1->TotalReg
+271,Application Update,text1->Status,$event->text1->Status,"json_extract(text1,'$.Status')",$event->text1->Status
+271,Application Update,text1->AppName1,$event->text1->AppName1,"json_extract(text1,'$.AppName1')",$event->text1->AppName1
+271,Application Update,text1->CurrentVersion1,$event->text1->CurrentVersion1,"json_extract(text1,'$.CurrentVersion1')",$event->text1->CurrentVersion1
+271,Application Update,text1->Version1,$event->text1->Version1,"json_extract(text1,'$.Version1')",$event->text1->Version1
+271,Application CleanUp,text1->Publisher1,$event->text1->Publisher1,"json_extract(text1,'$.Publisher1')",$event->text1->Publisher1
+271,Application CleanUp,text1->Status1,$event->text1->Status1,"json_extract(text1,'$.Status1')",$event->text1->Status1
+271,Application CleanUp,text1->DisplayName1,$event->text1->DisplayName1,"json_extract(text1,'$.DisplayName1')",$event->text1->DisplayName1
+271,Application CleanUp,text1->Display1,$event->text1->Display1,"json_extract(text1,'$.Display1')",$event->text1->Display1
+271,Application CleanUp,text1->Size1,$event->text1->Size1,"json_extract(text1,'$.Size1')",$event->text1->Size1
+271,Application CleanUp,text1->Publisher1,$event->text1->Publisher1,"json_extract(text1,'$.Publisher1')",$event->text1->Publisher1
+273,Location,text1->Details1,$event->text1->Details1,"json_extract(text1,'$.Details1')",$event->text1->Details1
+273,Location,text1->CurrentLocation->accuracy_m,$event->text1->CurrentLocation->accuracy_m,"json_extract(text1,'$.CurrentLocation->accuracy_m')",$event->text1->CurrentLocation->accuracy_m
+273,Location,text1->CurrentLocation->address,$event->text1->CurrentLocation->address,"json_extract(text1,'$.CurrentLocation->address')",$event->text1->CurrentLocation->address
+273,Location,text1->CurrentLocation->geolocation->lat,$event->text1->CurrentLocation->geolocation->lat,"json_extract(text1,'$.CurrentLocation->geolocation->lat')",$event->text1->CurrentLocation->geolocation->lat
+273,Location,text1->CurrentLocation->geolocation->lon,$event->text1->CurrentLocation->geolocation->lon,"json_extract(text1,'$.CurrentLocation->geolocation->lon')",$event->text1->CurrentLocation->geolocation->lon
+274,Network Statistics,text1->GeolocationStatus,$event->text1->GeolocationStatus,"json_extract(text1,'$.GeolocationStatus')",$event->text1->GeolocationStatus
+274,Network Statistics,text1->DATA,$event->text1->DATA,"json_extract(text1,'$.DATA')",$event->text1->DATA
+274,Network Statistics,text1->DriverStaus,$event->text1->DriverStaus,"json_extract(text1,'$.DriverStaus')",$event->text1->DriverStaus
+274,Network Statistics,text1->ProcessName,$event->text1->ProcessName,"json_extract(text1,'$.ProcessName')",$event->text1->ProcessName
+274,Network Statistics,text1->LocalAddrs,$event->text1->LocalAddrs,"json_extract(text1,'$.LocalAddrs')",$event->text1->LocalAddrs
+274,Network Statistics,text1->RemoteAddrs,$event->text1->RemoteAddrs,"json_extract(text1,'$.RemoteAddrs')",$event->text1->RemoteAddrs
+274,Network Statistics,text1->InVal,$event->text1->InVal,"json_extract(text1,'$.InVal')",$event->text1->InVal
+274,Network Statistics,text1->OutVal,$event->text1->OutVal,"json_extract(text1,'$.OutVal')",$event->text1->OutVal
+274,Network Statistics,text1->LogTimeh,$event->text1->LogTimeh,"json_extract(text1,'$.LogTimeh')",$event->text1->LogTimeh
+274,Network Statistics,text1->Time,$event->text1->Time,"json_extract(text1,'$.Time')",$event->text1->Time
+282,Battery,text1->connectivitytype,$event->text1->connectivitytype,"json_extract(text1,'$.connectivitytype')",$event->text1->connectivitytype
+282,Battery,text1->ACPowerLineStatus,$event->text1->ACPowerLineStatus,"json_extract(text1,'$.ACPowerLineStatus')",$event->text1->ACPowerLineStatus
+282,Battery,text1->BatteryCapacityStatus->Detail,$event->text1->BatteryCapacityStatus->Detail,"json_extract(text1,'$.BatteryCapacityStatus->Detail')",$event->text1->BatteryCapacityStatus->Detail->keyword
+282,Battery,text1->BatteryCapacityStatus->Status,$event->text1->BatteryCapacityStatus->Status,"json_extract(text1,'$.BatteryCapacityStatus->Status')",$event->text1->BatteryCapacityStatus->Status
+282,Battery,text1->BatteryFullLifeTime_sec,$event->text1->BatteryFullLifeTime_sec,"json_extract(text1,'$.BatteryFullLifeTime_sec')",$event->text1->BatteryFullLifeTime_sec
+282,Battery,text1->BatteryLifeTimePercentage,$event->text1->BatteryLifeTimePercentage,"json_extract(text1,'$.BatteryLifeTimePercentage')",$event->text1->BatteryLifeTimePercentage
+282,Battery,text1->BatteryLifeTime_sec,$event->text1->BatteryLifeTime_sec,"json_extract(text1,'$.BatteryLifeTime_sec')",$event->text1->BatteryLifeTime_sec
+282,Battery,text1->BatteryWearLevel,$event->text1->BatteryWearLevel,"json_extract(text1,'$.BatteryWearLevel')",$event->text1->BatteryWearLevel
+282,Battery,text1->Technology,$event->text1->Technology,"json_extract(text1,'$.Technology')",$event->text1->Technology
+282,Battery,text1->Capacity_mWh,$event->text1->Capacity_mWh,"json_extract(text1,'$.Capacity_mWh')",$event->text1->Capacity_mWh
+282,Battery,text1->Chemistry,$event->text1->Chemistry,"json_extract(text1,'$.Chemistry')",$event->text1->Chemistry
+282,Battery,text1->CriticalBias,$event->text1->CriticalBias,"json_extract(text1,'$.CriticalBias')",$event->text1->CriticalBias
+282,Battery,text1->CycleCount,$event->text1->CycleCount,"json_extract(text1,'$.CycleCount')",$event->text1->CycleCount
+282,Battery,text1->DefaultAlert1_mWh,$event->text1->DefaultAlert1_mWh,"json_extract(text1,'$.DefaultAlert1_mWh')",$event->text1->DefaultAlert1_mWh
+282,Battery,text1->DefaultAlert2_mWh,$event->text1->DefaultAlert2_mWh,"json_extract(text1,'$.DefaultAlert2_mWh')",$event->text1->DefaultAlert2_mWh
+282,Battery,text1->DesignedCapacity_mWh,$event->text1->DesignedCapacity_mWh,"json_extract(text1,'$.DesignedCapacity_mWh')",$event->text1->DesignedCapacity_mWh
+282,Battery,text1->LastFullChargedCapacity_mWh,$event->text1->LastFullChargedCapacity_mWh,"json_extract(text1,'$.LastFullChargedCapacity_mWh')",$event->text1->LastFullChargedCapacity_mWh
+282,Battery,text1->Summary,$event->text1->Summary,"json_extract(text1,'$.Summary')",$event->text1->Summary
+282,Battery,text1->manufacturer,$event->text1->manufacturer,"json_extract(text1,'$.manufacturer')",$event->text1->manufacturer
+282,Battery,text1->serialnumber,$event->text1->serialnumber,"json_extract(text1,'$.serialnumber')",$event->text1->serialnumber
+282,Battery,text3->Status,$event->text3->Status,"json_extract(text3,'$.Status')",$event->text3->Status
+286,Troubleshooter Statistics,text1->Voltage_mv,$event->text1->Voltage_mv,"json_extract(text1,'$.Voltage_mv')",$event->text1->Voltage_mv
+286,Troubleshooter Statistics,text1->sequencename,$event->text1->sequencename,"json_extract(text1,'$.sequencename')",$event->text1->sequencename
+289,Network Diagnostic Management(Current Network Setting.),text1->sequence,$event->text1->sequence,"json_extract(text1,'$.sequence')",$event->text1->sequence
+289,Network Diagnostic Management(Current Network Setting.),text4->Name1,$event->text4->Name1,"json_extract(text4,'$.Name1')",$event->text4->Name1
+289,Network Diagnostic Management(Current Network Setting.),text4->AdapterType1,$event->text4->AdapterType1,"json_extract(text4,'$.AdapterType1')",$event->text4->AdapterType1
+289,Network Diagnostic Management(Current Network Setting.),text4->IPAddress1,$event->text4->IPAddress1,"json_extract(text4,'$.IPAddress1')",$event->text4->IPAddress1
+289,Network Diagnostic Management(current network type),text1->NetworkType,$event->text1->NetworkType,"json_extract(text1,'$.NetworkType')",$event->text1->NetworkType
+289,Network Diagnostic Management(current network type),text1->Name1,$event->text1->Name1,"json_extract(text1,'$.Name1')",$event->text1->Name1
+289,Network Diagnostic Management(current network type),text1->AdapterType1,$event->text1->AdapterType1,"json_extract(text1,'$.AdapterType1')",$event->text1->AdapterType1
+289,Network Diagnostic Management(current network type),text1->IPAddress1,$event->text1->IPAddress1,"json_extract(text1,'$.IPAddress1')",$event->text1->IPAddress1
+289,Release & Renew DHCP,text1->DHCP,$event->text1->DHCP,"json_extract(text1,'$.DHCP')",$event->text1->DHCP
+289,Release & Renew DHCP,text1->DHCP_Success,$event->text1->DHCP_Success,"json_extract(text1,'$.DHCP_Success')",$event->text1->DHCP_Success
+289,Release & Renew DHCP,text1->DHCP_Renew,$event->text1->DHCP_Renew,"json_extract(text1,'$.DHCP_Renew')",$event->text1->DHCP_Renew
+289,Release & Renew DHCP,text1->DHCP_Renew_Success,$event->text1->DHCP_Renew_Success,"json_extract(text1,'$.DHCP_Renew_Success')",$event->text1->DHCP_Renew_Success
+289,Release & Renew DHCP,text1->DHCP_Status,$event->text1->DHCP_Status,"json_extract(text1,'$.DHCP_Status')",$event->text1->DHCP_Status
+289,Release & Renew DHCP,text1->DHCP_Error,$event->text1->DHCP_Error,"json_extract(text1,'$.DHCP_Error')",$event->text1->DHCP_Error
+289,Network Diagnostic Management,text1->DHCP_Renew_Error,$event->text1->DHCP_Renew_Error,"json_extract(text1,'$.DHCP_Renew_Error')",$event->text1->DHCP_Renew_Error
+289,View Host File,text1->NetworkFixit,$event->text1->NetworkFixit,"json_extract(text1,'$.NetworkFixit')",$event->text1->NetworkFixit
+289,Clear Static IP Settings (enable DHCP),text1->ViewHostFile,$event->text1->ViewHostFile,"json_extract(text1,'$.ViewHostFile')",$event->text1->ViewHostFile
+289,Clear Static IP Settings (enable DHCP),text1->Static_IP,$event->text1->Static_IP,"json_extract(text1,'$.Static_IP')",$event->text1->Static_IP
+289,Clear Static IP Settings (enable DHCP),text1->Static_IP_ErrorDHCP,$event->text1->Static_IP_ErrorDHCP,"json_extract(text1,'$.Static_IP_ErrorDHCP')",$event->text1->Static_IP_ErrorDHCP
+289,Clear Static IP Settings (enable DHCP),text1->Static_IP_ErrorDNS,$event->text1->Static_IP_ErrorDNS,"json_extract(text1,'$.Static_IP_ErrorDNS')",$event->text1->Static_IP_ErrorDNS
+289,Change to Google DNS,text1->Static_IP_Status,$event->text1->Static_IP_Status,"json_extract(text1,'$.Static_IP_Status')",$event->text1->Static_IP_Status
+289,Change to Google DNS,text1->GooGleDNS1,$event->text1->GooGleDNS1,"json_extract(text1,'$.GooGleDNS1')",$event->text1->GooGleDNS1
+289,Change to Google DNS,text1->GooGleDNS_Error1,$event->text1->GooGleDNS_Error1,"json_extract(text1,'$.GooGleDNS_Error1')",$event->text1->GooGleDNS_Error1
+289,Change to Google DNS,text1->GooGleDNS_AdapError1,$event->text1->GooGleDNS_AdapError1,"json_extract(text1,'$.GooGleDNS_AdapError1')",$event->text1->GooGleDNS_AdapError1
+289,Change to Google DNS,text1->Setting DNS Server for1,$event->text1->Setting DNS Server for1,"json_extract(text1,'$.Setting DNS Server for1')",$event->text1->Setting DNS Server for1
+289,FlushDNS,text1->GooGleDNS_Status,$event->text1->GooGleDNS_Status,"json_extract(text1,'$.GooGleDNS_Status')",$event->text1->GooGleDNS_Status
+289,FlushDNS,text1->FlushDNS,$event->text1->FlushDNS,"json_extract(text1,'$.FlushDNS')",$event->text1->FlushDNS
+289,FlushDNS,text1->FlushDNS_Success,$event->text1->FlushDNS_Success,"json_extract(text1,'$.FlushDNS_Success')",$event->text1->FlushDNS_Success
+289,FlushDNS,text1->FlushDNS_Error,$event->text1->FlushDNS_Error,"json_extract(text1,'$.FlushDNS_Error')",$event->text1->FlushDNS_Error
+289,FlushDNS,text1->FlushDNS_Re-registering,$event->text1->FlushDNS_Re-registering,"json_extract(text1,'$.FlushDNS_Re-registering')",$event->text1->FlushDNS_Re-registering
+289,FlushDNS,text1->FlushDNS_Re-registering_Success,$event->text1->FlushDNS_Re-registering_Success,"json_extract(text1,'$.FlushDNS_Re-registering_Success')",$event->text1->FlushDNS_Re-registering_Success
+289,FlushDNS,text1->FlushDNS_Re-registering_Status,$event->text1->FlushDNS_Re-registering_Status,"json_extract(text1,'$.FlushDNS_Re-registering_Status')",$event->text1->FlushDNS_Re-registering_Status
+289,Clear ARP/Route Table,text1->FlushDNS_Re-registering_Error,$event->text1->FlushDNS_Re-registering_Error,"json_extract(text1,'$.FlushDNS_Re-registering_Error')",$event->text1->FlushDNS_Re-registering_Error
+289,Clear ARP/Route Table,text1->ClearARP,$event->text1->ClearARP,"json_extract(text1,'$.ClearARP')",$event->text1->ClearARP
+289,Clear ARP/Route Table,text1->DeleteARPCacheFailed,$event->text1->DeleteARPCacheFailed,"json_extract(text1,'$.DeleteARPCacheFailed')",$event->text1->DeleteARPCacheFailed
+289,Clear ARP/Route Table,text1->DeleteARPCacheSuccess,$event->text1->DeleteARPCacheSuccess,"json_extract(text1,'$.DeleteARPCacheSuccess')",$event->text1->DeleteARPCacheSuccess
+289,Clear ARP/Route Table,text1->ARPCacheStatus,$event->text1->ARPCacheStatus,"json_extract(text1,'$.ARPCacheStatus')",$event->text1->ARPCacheStatus
+289,Clear ARP/Route Table,text1->ARPCacheIPv4Error,$event->text1->ARPCacheIPv4Error,"json_extract(text1,'$.ARPCacheIPv4Error')",$event->text1->ARPCacheIPv4Error
+289,Clear ARP/Route Table,text1->ARPCacheIPv4Success,$event->text1->ARPCacheIPv4Success,"json_extract(text1,'$.ARPCacheIPv4Success')",$event->text1->ARPCacheIPv4Success
+289,Clear ARP/Route Table,text1->ARPCacheIPv6Error,$event->text1->ARPCacheIPv6Error,"json_extract(text1,'$.ARPCacheIPv6Error')",$event->text1->ARPCacheIPv6Error
+289,Clear ARP/Route Table,text1->ARPCacheIPv6Success,$event->text1->ARPCacheIPv6Success,"json_extract(text1,'$.ARPCacheIPv6Success')",$event->text1->ARPCacheIPv6Success
+289,Clear ARP/Route Table,text1->ARPCacheIPv4neighborsError,$event->text1->ARPCacheIPv4neighborsError,"json_extract(text1,'$.ARPCacheIPv4neighborsError')",$event->text1->ARPCacheIPv4neighborsError
+289,Clear ARP/Route Table,text1->ARPCacheIPv4neighborsSuccess,$event->text1->ARPCacheIPv4neighborsSuccess,"json_extract(text1,'$.ARPCacheIPv4neighborsSuccess')",$event->text1->ARPCacheIPv4neighborsSuccess
+289,Clear ARP/Route Table,text1->ARPCacheIPv6neighborsError,$event->text1->ARPCacheIPv6neighborsError,"json_extract(text1,'$.ARPCacheIPv6neighborsError')",$event->text1->ARPCacheIPv6neighborsError
+289,Clear ARP/Route Table,text1->ARPCacheIPv6neighborsSuccess,$event->text1->ARPCacheIPv6neighborsSuccess,"json_extract(text1,'$.ARPCacheIPv6neighborsSuccess')",$event->text1->ARPCacheIPv6neighborsSuccess
+289,Clear ARP/Route Table,text1->ARPCacheGatewayEntries,$event->text1->ARPCacheGatewayEntries,"json_extract(text1,'$.ARPCacheGatewayEntries')",$event->text1->ARPCacheGatewayEntries
+289,Clear ARP/Route Table,text1->ARPCacheRoutineTablesFailed,$event->text1->ARPCacheRoutineTablesFailed,"json_extract(text1,'$.ARPCacheRoutineTablesFailed')",$event->text1->ARPCacheRoutineTablesFailed
+289,Clear ARP/Route Table,text1->ARPCacheRoutineTablesSuccess,$event->text1->ARPCacheRoutineTablesSuccess,"json_extract(text1,'$.ARPCacheRoutineTablesSuccess')",$event->text1->ARPCacheRoutineTablesSuccess
+289,Clear ARP/Route Table,text1->ARPCacheStatusAll,$event->text1->ARPCacheStatusAll,"json_extract(text1,'$.ARPCacheStatusAll')",$event->text1->ARPCacheStatusAll
+289,NetBIOS Reload and Release,text1->ARPCacheRebootRequired,$event->text1->ARPCacheRebootRequired,"json_extract(text1,'$.ARPCacheRebootRequired')",$event->text1->ARPCacheRebootRequired
+289,NetBIOS Reload and Release,text1->NetBIOSReloading,$event->text1->NetBIOSReloading,"json_extract(text1,'$.NetBIOSReloading')",$event->text1->NetBIOSReloading
+289,NetBIOS Reload and Release,text1->NetBIOSReloading_Error,$event->text1->NetBIOSReloading_Error,"json_extract(text1,'$.NetBIOSReloading_Error')",$event->text1->NetBIOSReloading_Error
+289,NetBIOS Reload and Release,text1->NetBIOSReloading_Success,$event->text1->NetBIOSReloading_Success,"json_extract(text1,'$.NetBIOSReloading_Success')",$event->text1->NetBIOSReloading_Success
+289,NetBIOS Reload and Release,text1->NetBIOSReleasing,$event->text1->NetBIOSReleasing,"json_extract(text1,'$.NetBIOSReleasing')",$event->text1->NetBIOSReleasing
+289,NetBIOS Reload and Release,text1->NetBIOSReleasing_Error,$event->text1->NetBIOSReleasing_Error,"json_extract(text1,'$.NetBIOSReleasing_Error')",$event->text1->NetBIOSReleasing_Error
+289,NetBIOS Reload and Release,text1->NetBIOSReleasing_Success,$event->text1->NetBIOSReleasing_Success,"json_extract(text1,'$.NetBIOSReleasing_Success')",$event->text1->NetBIOSReleasing_Success
+289,Internet Options - Clear SSL State,text1->NetBIOSStatus,$event->text1->NetBIOSStatus,"json_extract(text1,'$.NetBIOSStatus')",$event->text1->NetBIOSStatus
+289,Internet Options - Clear SSL State,text1->ClearSSL,$event->text1->ClearSSL,"json_extract(text1,'$.ClearSSL')",$event->text1->ClearSSL
+289,Internet Options - Clear SSL State,text1->ClearSSLSuccess,$event->text1->ClearSSLSuccess,"json_extract(text1,'$.ClearSSLSuccess')",$event->text1->ClearSSLSuccess
+289,Internet Options - Clear SSL State,text1->ClearSSLStatus,$event->text1->ClearSSLStatus,"json_extract(text1,'$.ClearSSLStatus')",$event->text1->ClearSSLStatus
+289,Reset Internet Options Security/Privacy,text1->ClearSSLSError,$event->text1->ClearSSLSError,"json_extract(text1,'$.ClearSSLSError')",$event->text1->ClearSSLSError
+289,Reset Internet Options Security/Privacy,text1->ResetIESecurity,$event->text1->ResetIESecurity,"json_extract(text1,'$.ResetIESecurity')",$event->text1->ResetIESecurity
+289,Reset Internet Options Security/Privacy,text1->IESecurity_Pop-UpBlocker,$event->text1->IESecurity_Pop-UpBlocker,"json_extract(text1,'$.IESecurity_Pop-UpBlocker')",$event->text1->IESecurity_Pop-UpBlocker
+289,Reset Internet Options Security/Privacy,text1->IESecurity_Pop-UpBlocker_Failed,$event->text1->IESecurity_Pop-UpBlocker_Failed,"json_extract(text1,'$.IESecurity_Pop-UpBlocker_Failed')",$event->text1->IESecurity_Pop-UpBlocker_Failed
+289,Reset Internet Options Security/Privacy,text1->IESecurity_Pop-UpBlocker_Success,$event->text1->IESecurity_Pop-UpBlocker_Success,"json_extract(text1,'$.IESecurity_Pop-UpBlocker_Success')",$event->text1->IESecurity_Pop-UpBlocker_Success
+289,Reset Internet Options Security/Privacy,text1->IESecurityDefPhyLoc,$event->text1->IESecurityDefPhyLoc,"json_extract(text1,'$.IESecurityDefPhyLoc')",$event->text1->IESecurityDefPhyLoc
+289,Reset Internet Options Security/Privacy,text1->IESecurityDefPhyLoc_Failed,$event->text1->IESecurityDefPhyLoc_Failed,"json_extract(text1,'$.IESecurityDefPhyLoc_Failed')",$event->text1->IESecurityDefPhyLoc_Failed
+289,Reset Internet Options Security/Privacy,text1->IESecurityDefPhyLoc_Success,$event->text1->IESecurityDefPhyLoc_Success,"json_extract(text1,'$.IESecurityDefPhyLoc_Success')",$event->text1->IESecurityDefPhyLoc_Success
+289,Reset Internet Options Security/Privacy,text1->IESecurityToolbarAndExt,$event->text1->IESecurityToolbarAndExt,"json_extract(text1,'$.IESecurityToolbarAndExt')",$event->text1->IESecurityToolbarAndExt
+289,Reset Internet Options Security/Privacy,text1->IESecurityToolbarAndExtFailed,$event->text1->IESecurityToolbarAndExtFailed,"json_extract(text1,'$.IESecurityToolbarAndExtFailed')",$event->text1->IESecurityToolbarAndExtFailed
+289,Reset Internet Options Security/Privacy,text1->IESecurityToolbarAndExtSUccess,$event->text1->IESecurityToolbarAndExtSUccess,"json_extract(text1,'$.IESecurityToolbarAndExtSUccess')",$event->text1->IESecurityToolbarAndExtSUccess
+289,Set Network Windows Services Default ,text1->IESecurityStatus,$event->text1->IESecurityStatus,"json_extract(text1,'$.IESecurityStatus')",$event->text1->IESecurityStatus
+289,Set Network Windows Services Default ,text1->ResetWinNWServiceDef,$event->text1->ResetWinNWServiceDef,"json_extract(text1,'$.ResetWinNWServiceDef')",$event->text1->ResetWinNWServiceDef
+289,Ping IP,text1->ResetWinNWServiceDefReboot,$event->text1->ResetWinNWServiceDefReboot,"json_extract(text1,'$.ResetWinNWServiceDefReboot')",$event->text1->ResetWinNWServiceDefReboot
+289,Ping IP,text1->Pinging1,$event->text1->Pinging1,"json_extract(text1,'$.Pinging1')",$event->text1->Pinging1
+289,Ping IP,text1->PingHostStatus_Error,$event->text1->PingHostStatus_Error,"json_extract(text1,'$.PingHostStatus_Error')",$event->text1->PingHostStatus_Error
+289,View Host File,text1->PingHostStatus_Success,$event->text1->PingHostStatus_Success,"json_extract(text1,'$.PingHostStatus_Success')",$event->text1->PingHostStatus_Success
+289,Protect IPAddress Now,text1->PingHostStatus_Success,$event->text1->PingHostStatus_Success,"json_extract(text1,'$.PingHostStatus_Success')",$event->text1->PingHostStatus_Success
+289,Protect IPAddress Now,text1->PreventIPchangesStatus,$event->text1->PreventIPchangesStatus,"json_extract(text1,'$.PreventIPchangesStatus')",$event->text1->PreventIPchangesStatus
+289,Enable LAN/Wireless Adapters,text1->PreventIPchangesStatus,$event->text1->PreventIPchangesStatus,"json_extract(text1,'$.PreventIPchangesStatus')",$event->text1->PreventIPchangesStatus
+289,Enable LAN/Wireless Adapters,text1->AdapterLAN,$event->text1->AdapterLAN,"json_extract(text1,'$.AdapterLAN')",$event->text1->AdapterLAN
+289,Enable LAN/Wireless Adapters,text1->AdapterWireless,$event->text1->AdapterWireless,"json_extract(text1,'$.AdapterWireless')",$event->text1->AdapterWireless
+289,Enable LAN/Wireless Adapters,text1->AdapterNotFound,$event->text1->AdapterNotFound,"json_extract(text1,'$.AdapterNotFound')",$event->text1->AdapterNotFound
+289,Enable LAN/Wireless Adapters,text1->AdapterLANError,$event->text1->AdapterLANError,"json_extract(text1,'$.AdapterLANError')",$event->text1->AdapterLANError
+289,Enable LAN/Wireless Adapters,text1->AdapterWirelessError,$event->text1->AdapterWirelessError,"json_extract(text1,'$.AdapterWirelessError')",$event->text1->AdapterWirelessError
+289,Enable LAN/Wireless Adapters,text1->AdapterLANSuccess,$event->text1->AdapterLANSuccess,"json_extract(text1,'$.AdapterLANSuccess')",$event->text1->AdapterLANSuccess
+295,USB Driver,text1->AdapterWirelessSuccess,$event->text1->AdapterWirelessSuccess,"json_extract(text1,'$.AdapterWirelessSuccess')",$event->text1->AdapterWirelessSuccess
+296,USB Filtering,text1->USBDriverStatus,$event->text1->USBDriverStatus,"json_extract(text1,'$.USBDriverStatus')",$event->text1->USBDriverStatus
+307,Reliability monitor,text1->removaldeviceinformation,$event->text1->removaldeviceinformation,"json_extract(text1,'$.removaldeviceinformation')",$event->text1->removaldeviceinformation
+307,Reliability monitor,text1->Source,$event->text1->Source,"json_extract(text1,'$.Source')",$event->text1->Source
+307,Reliability monitor,text1->ShortSummary,$event->text1->ShortSummary,"json_extract(text1,'$.ShortSummary')",$event->text1->ShortSummary
+307,Reliability monitor,text1->Summary,$event->text1->Summary,"json_extract(text1,'$.Summary')",$event->text1->Summary
+307,Reliability monitor,text1->TypeOfEvent,$event->text1->TypeOfEvent,"json_extract(text1,'$.TypeOfEvent')",$event->text1->TypeOfEvent
+308,Personal Analytics,text1->Date,$event->text1->Date,"json_extract(text1,'$.Date')",$event->text1->Date
+308,Personal Analytics,text1->procstarttime,$event->text1->procstarttime,"json_extract(text1,'$.procstarttime')",$event->text1->procstarttime
+308,Personal Analytics,text1->procendtime,$event->text1->procendtime,"json_extract(text1,'$.procendtime')",$event->text1->procendtime
+308,Personal Analytics,text1->procduration,$event->text1->procduration,"json_extract(text1,'$.procduration')",$event->text1->procduration
+308,Personal Analytics,text1->processname,$event->text1->processname,"json_extract(text1,'$.processname')",$event->text1->processname
+308,Personal Analytics,text1->windows,$event->text1->windows,"json_extract(text1,'$.windows')",$event->text1->windows

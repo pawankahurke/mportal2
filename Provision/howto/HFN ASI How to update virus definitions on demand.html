@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>How to Update Virus Definitions on a System On Demand</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20071221;14510251">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>How to Update Virus Definitions on a System On Demand</H3>
+<H4>Configure the virus definition update action</H4>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>On the ASI dashboard, expand the entry for the site where the
+	system whose virus definitions you want to update is located.</P>
+	<LI><P>In the system list for the site, locate the entry for the
+	system whose virus definitions you want to update, and click on the
+	system name. Management links for the system will be displayed in
+	the right pane</P>
+	<LI><P>In the right pane, Click on the &quot;manage&quot; link. The
+	Scrip configurator page for the system will be displayed in a new
+	window.</P>
+	<LI><P>Locate the entry for the virus definition management Scrip
+	for the product installed on the system, e.g. Scrip 12 (Symantec
+	Virus Definition Management), and click on the Scrip name. The
+	selected Scrip's configuration page will be displayed.</P>
+	<LI><P>Scroll down to the bottom of the Scrip configuration page</P>
+	<LI><P>Change the selection in the pull-down list to the right of
+	the &quot;Run ... now&quot; Execute button to &quot;machine
+	&quot;&lt;machine name&gt;&quot;&quot;</P>
+	<LI><P>Click on the the &quot;Run ... now&quot; Execute button.</P>
+</OL>
+<H4>Check the processing of the virus definition update operation</H4>
+<OL START=9>
+	<LI><P>On the page confirming the action you just took, click on the
+	&quot;machines&quot; link found in the &quot;configuration&quot;
+	navigation bar at the upper right end of the page below the &quot;How
+	to&quot; button. The &quot;Configuration - &lt;site name&gt;
+	Machines&quot; page for the site where the system whose virus
+	definitions you just updated will be displayed.</P>
+	<LI><P>Locate the entry for the system whose virus definitions you
+	just updated. Inspect the entry in the &quot;Changed&quot; column.
+	If it is &quot;No&quot;, it means that the command to update the
+	virus definitions on the system, has already been retrieved by the
+	ASI client on the system.</P>
+	<LI><P>Otherwise, refresh the &quot;Configuration - &lt;site name&gt;
+	Machines&quot; page until the entry in the &quot;Changed&quot;
+	column for the system whose virus definitions you just updated is
+	&quot;No&quot;. Please remember that the amount of time it will take
+	for the virus definition action you took to be retrieved by the ASI
+	client on the system whose virus definitions you want to update,
+	won't be greater than the frequency of Scrip 177 (Scrip
+	Configuration Update) execution on the system.</P>
+</OL>
+<H4>Check the results of the virus definition update action</H4>
+<OL START=12>
+	<LI><P>While still on the the &quot;Configuration - &lt;site name&gt;
+	Machines&quot; page, click on the &quot;ad-hoc query&quot; link in
+	the &quot;events&quot; navigation bar found at the top right-hand
+	corner of the page. The &quot;Ad-hoc Event Query Form&quot; page
+	will be displayed.</P>
+	<LI><P>In the &quot;Select Additional Search Criteria for Events: &quot;
+	area of the page, select the name of the system whose virus
+	definitions you just updated from the &quot;Machines&quot; pull-down
+	list.</P>
+	<LI><P>In the &quot;Narrow Your Search (optional): &quot; area of
+	the page, select the entry for the virus definition management Scrip
+	you rand (e.g. Scrip 12 for Symantec) from the &quot;Scrip number&quot;
+	pull-down list</P>
+	<LI><P>Click on the &quot;Search button. The event log posted by the
+	Scrip after it ran on the system whose virus definitions you
+	updated, will be displayed.</P>
+</OL>
+<H4>Note</H4>
+<P><I>If you want to update virus definitions on all systems at a
+site or in one group. You should:</I></P>
+<OL>
+	<LI><P><I>Log onto your ASI server (https://asiservername/main)</I></P>
+	<LI><P><I>Click on the &quot;Use extended interface&quot; link on
+	the right side of the ASI Dashboard upper pane, below &quot;user
+	login&quot; and date.</I></P>
+	<LI><P><I>In the &quot;sites&quot; navigation bar, click on the
+	&quot;wizard&quot; link
+	(https://asiservername/main/config/index.php?act=wiz)</I></P>
+	<LI><P><I>Click on the &quot;Scrip configuration&quot; wizard entry.
+	The &quot;Scrip Configuration - Select a Group &quot; page will be
+	displayed.</I></P>
+	<LI><P><I>Select the machine group type (All machines, A single
+	site, A single machine, A group of machines)</I></P>
+</OL>
+<P><I>If you select &quot;All machines&quot; be extremely careful as
+the Scrip configuration change you are about to make will affect ALL
+systems.</I></P>
+<OL START=6>
+	<LI><P><I>Once you have completed the steps for selecting the group
+	of systems you want to update virus definitions on, click on the
+	&quot;Next&quot; button. The &quot;Scrip Configuration - Select
+	Scrip&quot; page will be displayed.</I></P>
+	<LI><P><I>Perform steps 5., 6., and 8. in the &ldquo;Configure the
+	virus definition update action&rdquo; section of this document.</I></P>
+	<LI><P><I>Wait for an amount of time equal to the Scrip 177 (Scrip
+	Configuration Update) execution interval for the systems you
+	selected.</I></P>
+	<LI><P><I>Perform the steps in the &ldquo;Check the results of the
+	virus definition update action&rdquo; section of this document
+	keeping in mind that if you ran the virus definition update Scrip
+	for a group you defined (i.e. Not a site, or a machine), you will
+	need to check the results of the virus definition update operation
+	for each system in the group individually as you cannot run and
+	ad-hoc event query for a group (except for sites).</I></P>
+</OL>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

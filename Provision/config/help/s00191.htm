@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 191 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20040803;17380453">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20040803;17395789">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 191 Configuration</H3>
+<H4>Default Configuration Parameters</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Minimum time (sec) between
+	consecutive failures</EM> set to <STRONG>0</STRONG> seconds 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Seconds between retries</EM>
+	set to <STRONG>60</STRONG> seconds 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Number of failures between
+	dialog boxes</EM> set to <STRONG>3</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Dialog box timeout (sec) if no
+	user present</EM> set to <STRONG>30</STRONG> seconds 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Maximum number of resolution
+	dialogs</EM> set to <STRONG>10</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Timeout (msec) for ping in
+	diagnosis</EM> set to <STRONG>3000</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Repeat count for ping in
+	diagnosis</EM> set to <STRONG>2</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Maximum delay (sec) for
+	detecting self-induced failures</EM> set to <STRONG>5</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Ports to include for failure
+	detection</EM> set to include all ports 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Ports to exclude for failure
+	detection</EM> set to exclude none 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>IP addresses and domains to
+	exclude for failure logging</EM> set to exclude none 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>User interface enabled on
+	failure of these ports</EM> empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>User interface disabled on
+	failure of these ports</EM> set to exclude none 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>User Interface disabled on
+	failure of these IP addresses and domains</EM> set to exclude none 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Report immediately when user
+	interface enabled</EM> disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Custom message for final user
+	interface notification</EM> empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Enable delay-based threshold
+	for user interface</EM> disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Maximum counted events in
+	delay-based threshold</EM> set to <STRONG>three</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Decay rate for delay-based
+	threshold</EM> set to <STRONG>0.2</STRONG> 
+	</P>
+	<LI><P><EM>Threshold value for delay-based threshold</EM> set to <STRONG>0.1</STRONG>
+		</P>
+</UL>
+<H4>Minimum time (sec) between consecutive failures</H4>
+<P><EM>Minimum time (sec) between consecutive failures</EM> is the
+amount of time measured in seconds that has to pass between two
+failures on the same machine/port combination in order for the second
+to be considered a &quot;new&quot; failure. if the second failure
+happens within a time interval that is shorter than the number of
+seconds specified in <EM>Minimum time (sec) between consecutive
+failures</EM>, it is ignored. If it occurs outside of this time
+interval, it is diagnosed.</P>
+<P>The <EM>Minimum time (sec) between consecutive failures</EM>
+parameter currently only has any effect at all if Scrip 191 is
+actually diagnosing a problem when the same problem happens again.</P>
+<P>Most of the time, when a connectivity problem occurs, Scrip 191
+diagnoses it and logs the result, and then removes it from the queue
+of problems. When a second failure occurs, if there is nothing like
+it in the problem queue, Scrip 191 diagnoses it. The <EM>Minimum time
+(sec) between consecutive failures</EM> parameter has no effect.</P>
+<P>However, if failure #1 happens, and Scrip 191 has it queued or is
+currently diagnosing it, and then failure #2 occurs with the same
+address and port as failure #1, then:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">If the the user interface is
+	enabled (i.e. the port where the failure occurred is listed in <EM>User
+	interface enabled on failure of these ports</EM>) for the diagnosis
+	of failure #1 (and therefore also #2), then Scrip 191 discards
+	failure #2. 
+	</P>
+	<LI><P>If the user interface is not enabled, then it checks the
+	difference between the time of failure #1 and the time of failure
+	#2. If that is less than the time netered in the <EM>Minimum time
+	(sec) between consecutive failures</EM> parameter, then it discards
+	#2. Otherwise it puts #2 into the queue to be diagnosed. 
+	</P>
+</UL>
+<P>If the value of <EM>Minimum time (sec) between consecutive
+failures</EM> is set to <STRONG>0</STRONG> (the default value), it is
+equivalent to an <EM>infinite</EM> <EM>Minimum time (sec) between
+consecutive failures</EM>. Scrip 191 will always discard failure #2,
+if it is in the process of diagnosing failure #1, whether or not the
+user interface is enabled. This case should be rather rare, unless
+there has been a whole string of failures and Scrip 191 is backing up
+because the user interface is enabled and each one has to time out in
+diagnosis.</P>
+<H4>Seconds between retries</H4>
+<P>When the user interface is enabled (see below), the <EM>Seconds
+between retries</EM> parameter is the time interval between each test
+to see if network connectivity has been re-established.</P>
+<P>Scrip 191 updates the end-user on the status of the failed service
+/ component at intervals based on the length <EM>Seconds between
+retries</EM>.</P>
+<H4>Number of failures between dialog boxes</H4>
+<P><EM>Number of failures between dialog boxes</EM> is the number of
+tests that are performed to see if network connectivity has been
+re-established between interactions with the end-user when the user
+interface is enabled.</P>
+<P>For example, if <EM>Seconds between retries</EM> is set to 60
+seconds, and <EM>Number of failures between dialog boxes</EM> is set
+to 3, then Scrip 191 will test to see if connectivity has been
+re-established every minute, but only update the end-user on the
+status via a dialog box every 3 minutes.</P>
+<H4>Dialog box timeout (sec) if no user present</H4>
+<P><EM>Dialog box timeout (sec) if no user present</EM> is the amount
+of time that Scrip 191 will wait before acting on behalf of the user
+to either close a dialog box or perform the default action presented
+by a dialog box</P>
+<P>For those dialog boxes that require the user to decide whether to
+be notified when a failed service is available again, if the user
+takes no action before <EM>Dialog box timeout (sec) if no user
+present</EM> is exceeded, Scrip 191 will assume that the user wants
+to be notified when the failed service is available again.</P>
+<H4>Maximum number of resolution dialogs</H4>
+<P><EM>Maximum number of resolution dialogs</EM> is the maximum
+number of times that dialog boxes informing the user about problem
+resolution status will appear on the screen of the user's system.</P>
+<H4>Timeout (msec) for ping in diagnosis</H4>
+<P><EM>Timeout (msec) for ping in diagnosis</EM> is the <STRONG>-w</STRONG>
+ping command line parameter that lets you set the amount of time in
+milliseconds that ping waits for each reply before timing out.</P>
+<H4>Repeat count for ping in diagnosis</H4>
+<P><EM>Repeat count for ping in diagnosis</EM> is the <STRONG>-n</STRONG>
+ping command line parameter that lets you set the number of ping
+requests to send before returning a failure response.</P>
+<H4>Maximum delay (sec) for detecting self-induced failures</H4>
+<P>With <EM>Maximum delay (sec) for detecting self-induced failures</EM>
+you control the time lag Scrip 191 uses when it compares connectivity
+failures caused by the ASI client with ones detected by the network
+device driver. If the port and address match, and time the failure
+was detected by each falls within <EM>Maximum delay (sec) for
+detecting self-induced failures</EM>, Scrip 191 will ignore the
+connectivity failure as it was caused by the ASI client.<BR>The
+reason for this is to allow for processing delays between detection
+of a connectivity problem by the network driver when compared to the
+ASI client, particularly on slower systems</P>
+<H4>Ports to include for failure detection</H4>
+<P>The <EM>Ports to include for failure detection</EM> list contains
+the IP services ports that you want Scrip 191 to monitor for failure
+detection and diagnosis. 
+</P>
+<P>As indicated by the <STRONG>*</STRONG>, by default this list
+includes all IP services ports.</P>
+<P>Entries in the <EM>Ports to include for failure detection</EM>
+list should be separated by a comma.</P>
+<H4>Ports to exclude for failure detection</H4>
+<P>The <EM>Ports to exclude for failure detection</EM> list contains
+the IP services ports that you want Scrip 191 to not monitor for
+failure detection and diagnosis. From time to time, you might want to
+use this parameter to list ports that you know would not respond for
+a known (temporary) reason. In such a case Scrip 191's detection of a
+connectivity failure would be superfluous.</P>
+<P>By default, this list is empty.</P>
+<P>Entries in the <EM>Ports to include for failure detection</EM>
+list should be separated by a comma.</P>
+<H4>IP addresses and domains to exclude for failure logging</H4>
+<P>There may be situations where over time you determine that
+failures to connect to certain IP address or domain name are always
+transient and don't result in an end-user's inability to access a
+service. In these cases, you can enter these IP address and/or domain
+names in <EM>IP addresses and domains to exclude for failure logging</EM>,
+each on a separate line. Whenever fialure to connect to any of the IP
+addresses and domains in this list occurs, Scrip 191 will ignore it.</P>
+<P>For example, applications such as instant messaging may fail to
+reach one of a pool of servers. This does not mean that the attempt
+to establish connectivity failed. Generally, these connectivity
+failures can be ignored.</P>
+<H4>User Interface enabled on failure of these ports</H4>
+<P>The <EM>User Interface enabled on failure of these ports</EM> list
+contains the IP services ports for whose failures you want Scrip 191
+to interact with end-users.</P>
+<P>The user interface for Scrip 191 consists of three dialog boxes.
+The first one lets end-users know that they lost TCP/IP network
+connectivity. The second one informs them about the cause of the
+failure. The third, at their option, notifies them when TCP/IP
+network connectivity is re-established.</P>
+<P>Entries in the <EM>User Interface enabled on failure of these
+ports</EM> list should be separated by commas with no spaces.</P>
+<P>By default, this list is empty.</P>
+<H4>User Interface disabled on failure of these ports</H4>
+<P>The <EM>User Interface disabled on failure of these ports</EM>
+list contains the IP services ports for whose failures you want Scrip
+191 to not interact with end-users.</P>
+<P>By default, this list is empty.</P>
+<P>Entries in the <EM>User Interface disabled on failure of these
+ports</EM> list should be separated by a comma.</P>
+<H4>User Interface disabled on failure of these IP addresses and
+domains</H4>
+<P>When Scrip 191 detects a failure to reach the IP addresses and
+domains contained in the <EM>User Interface disabled on failure of
+these IP addresses and domains</EM> parameter, it will not report the
+failure to the end-user but will continue to produce an event log
+with all the detection and diagnostic information.</P>
+<P>This function is useful in a number of situations. For example:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">If you have a service that can be
+	accessed via a pool of servers, you may still want Scrip 191 to
+	detect, diagnose, and log connectivity failures to track the load
+	and reliability on the servers in the pool even though these
+	connectivity failures do not result in a loss of service. 
+	</P>
+	<LI><P>It can also be a powerful tool for identifying IP addresses
+	and domains that may be accessed by a program that was installed
+	without the end-user's knowledge (e.g. spyware, or other intrusion
+	program). 
+	</P>
+</UL>
+<P>Entries in the <EM>IP addresses and domains to exclude for both
+logging and user interface</EM> list can be one per line, or all on
+one line, with each entry separated by a comma.</P>
+<H4>Report immediately when User Interface enabled</H4>
+<P>When the <EM>Report immediately when User Interface enabled</EM>
+parameter is enabled, Scrip 191 will notify the end-user about a
+TCP/IP connectivity failure immediately, before proceeding with
+failure diagnosis.</P>
+<H4>Custom message for final user interface notification</H4>
+<P>In the <EM>Custom message for final user interface notification</EM>
+parameter, you can enter the message you want Scrip 191 to display
+when the last notification message is displayed indicating that the
+failed device or service is not yet available. For example, you can
+have a message with instructions that the end-user should follow to
+work-around the problem, or contact information for the support
+center.</P>
+<H4>Delay based thresholding</H4>
+<P><EM>Enable delay based threshold for user interface</EM> turns on
+this feature. <EM>Maximum counted events in delay-based threshold</EM>
+is the maximum value beyond which the &quot;current activity level&quot;
+will not go. <EM>Decay rate for delay-based threshold</EM> is the
+value of the constant <STRONG>k</STRONG> in the activity level decay
+function <STRONG>exp(-k * t)</STRONG>. <EM>Threshold value for
+delay-based threshold</EM> is the threshold above which the &quot;current
+activity level&quot; prevents a dialog box from being displayed</P>
+<P>Delay based thresholding of Internet connectivity problem
+notifications prevents the user from being notified too frequently in
+case multiple Internet connectivity failures on a system where Scrip
+191 is enabled, occur close to each other.</P>
+<P>Please note that delay based thresholding limits the frequency of
+notifications to end-users. It does not affect Interent connectivity
+failure detection and diagnosis.</P>
+<P>If delay based thresholding is enabled, then a &quot;current
+activity level&quot; is maintained, and if the &quot;current activity
+level&quot; is above a threshold, then no user notification dialog
+box is displayed.</P>
+<P>Here is how delay based thresholding works.</P>
+<P>On system A, Scrip 191 with delay based thresholding is enabled.</P>
+<P>At time 0, Scrip 191 detects an Internet connectivity problem. If
+the user interface is enabled, the first end-user notification dialog
+box, notifying the user of the problem and offering to notify him/her
+when the problem is resolved, is displayed.</P>
+<P>The activity level on system A is increased from 0 to 1. At the
+same time, the exponential decay function, <STRONG>exp(-k*t)</STRONG>
+is multiplied by the activity level on system A with <EM>K</EM> set
+to <STRONG>0.1</STRONG> by default. This has the effect of
+immediately reducing the value of the activity level (decaying it).</P>
+<P>At time 1, another Internet connectivity problem occurs on system
+A. The activity level <EM>decayed</EM>, as described above, is
+compared to the <EM>Threshold value for delay based threshold</EM>,
+which by default is set to <STRONG>0.1</STRONG>. As long as the level
+of activity is greater than or equal to the <EM>Threshold value for
+delay based threshold</EM>, end-user notification dialog boxes for
+any subsequent ones will not be displayed.</P>
+<P>Please note that the notifications for the first event will
+continue to be generated, because the current activity level is zero
+at that point, which is less than the threshold. This is also the
+case after there have been no events in a long time and the current
+activity level has decayed back down to zero. 
+</P>
+<P>The level of activity is also compared to the value of <EM>Maximum
+counted events in delay based threshold</EM>. If it is less than
+<EM>Maximum counted events in delay based threshold</EM>, no action
+is taken. If it is greater, the level of activity is set to <EM>Maximum
+counted events in delay based threshold</EM>, which by default is set
+to <STRONG>3</STRONG>. In this case, since the level of activity is
+less than <STRONG>3</STRONG>, no action is taken. Effectively, this
+means that a number of rapidly occurring Internet related
+connectivity failures will be ignored, avoiding the possibility that
+the activity level be set so high as to make it extremely difficult
+for it to ever decay sufficiently to let any end-user notifications
+to be generated.</P>
+<P>Since at this point in our example the level of activity is
+greater than the <EM>Threshold value for delay based threshold</EM>.
+No end-user notifications for Internet connectivity problems are
+displayed. This state of things will continue as long as the activity
+level is greater than or equal to the <EM>Threshold value for delay
+based threshold</EM>. 
+</P>
+<P>As time goes on, if no new Internet connectivity problems occur,
+the activity level will continue to decay because the value of the
+exponential decay function <STRONG>exp(-k*t)</STRONG> it is
+multiplied to, will continue to decrease as a function of time.</P>
+<P>If another Internet connectivity problem occurs on system A before
+the level of activity can reach a value lower than the <EM>Threshold
+value for delay based threshold</EM>, the process of increasing the
+value of the level of activity by one each time an event occurs,
+multiplying it by the exponential decay function, and comparing it to
+the <EM>Threshold value for delay based threshold</EM>, will
+continue, and no end-user notification dialog boxes will be displayed
+although Scrip 191 will continue to detect, diagnose, and report all
+Internet related connectivity problems occurring on system A.</P>
+<P>Even when delay based thresholding is enabled, two kinds of
+end-user dialog box notifications generated by Scrip 191 will
+continue to be appear: 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Those that alert an end-user that
+	a failed Internet based service is once again available 
+	</P>
+	<LI><P>The <EM>Custom message for final User Interface notification</EM>
+	that notifies an end-user that a failed Internet based service is
+	still not available, and provides information for when thefollow-up
+	actions, when the maximum number of notification dialog boxes as set
+	in Scrip 191's <EM>Maximum number of resolution dialogs</EM>
+	parameter is reached. 
+	</P>
+</UL>
+<P>In addition to setting the value of <EM>Maximum counted events in
+delay based threshold</EM> and <EM>Threshold value for delay based
+threshold</EM>, you can also set the value of the constant <EM>K</EM>
+in the exponential decay function <STRONG>exp(-k*t)</STRONG> via the
+<EM>Decay rate for delay based threshold</EM> parameter. Its default
+value is <STRONG>0.1</STRONG>.</P>
+<P>With these settings, the longest period of time an end-user
+notification dialog box will not be generated after an Internet
+connectivity problem is detected, is <STRONG>34 seconds</STRONG>.
+This is because <STRONG>3*exp(-3.4)</STRONG> is greater than <STRONG>0.1</STRONG>
+but <STRONG>3*exp(-3.5)</STRONG> is less than <STRONG>0.1</STRONG>. 
+</P>
+<P>Please note that variations in the <EM>Decay rate for delay based
+threshold</EM> parameter have the greatest impact on the length of
+the period of time no end-user notification dialog boxes will be
+displayed.</P>
+<P><BR><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2003
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

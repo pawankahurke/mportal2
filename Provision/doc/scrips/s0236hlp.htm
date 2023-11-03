@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 236 &ndash; On-demand Remote Control</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20031126;9054487">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20040425;23021200">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 236 &ndash; <FONT FACE="verdana, helvetica"><FONT COLOR="#333399">On-demand
+Remote Control</FONT></FONT></H3>
+<H4>Overview</H4>
+<P>Scrip 236 extends remote system control capabilities in a number
+of significant ways:</P>
+<UL>
+	<LI><P>It lets users control computers remotely without end-user
+	intervention. This makes it ideal for remote control of unattended
+	systems, e.g. servers.</P>
+	<LI><P>All aspects of remote control operations can be performed on
+	demand, individually and in combination. This means that you can use
+	Scrip 236 to install/remove the remote control utility,
+	initiate/terminate a remote control session, or both
+	(install/initiate a session, shutdown/remove) at any time.</P>
+	<LI><P>Scrip 236 brings scalability to remote control. The
+	installation/removal of remote control software on one, some, or all
+	systems on a sub-net is completely automated and managed via a
+	single Scrip configuration page.</P>
+</UL>
+<P STYLE="margin-left: 0.18in">You can also initiate remote control
+sessions on one, some or all systems on a sub-net with the click of a
+button on one system.</P>
+<UL>
+	<LI><P>With Scrip 236 remote control sessions are more secure:</P>
+</UL>
+<UL>
+	<LI><P>The remote control session is initiated as an outbound
+	transaction by the system you want to work on. This means that there
+	is no need to open any ports for inbound traffic, which would pose a
+	significant security risk.</P>
+	<LI><P>Scrip 236 can be configured to automatically remove the
+	remote control utility as soon as a remote control session is
+	completed</P>
+	<LI><P>There are no servers outside of your control that are used as
+	intermediaries</P>
+	<LI><P>The remote control session is completely self-contained every
+	aspect of it is under your control including the installation and
+	removal of the remote control utility</P>
+</UL>
+<UL>
+	<LI><P>Scrip 236 is designed to be used with any remote control
+	utility. <A HREF="mailto:Ultr@VNC">Ultr@VNC</A> is the one initially
+	supported both because it is popular, and it is open source</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4>How it works</H4>
+<P><FONT FACE="Verdana, sans-serif">Scrip 236 performs four tasks:</FONT></P>
+<UL>
+	<LI><P>Installation and removal of the remote control utility (in
+	the first version, VNC is the only supported remote control utility)</P>
+	<LI><P>Initiation and termination of a remote control session</P>
+</UL>
+<P>Each task can be performed individually giving you flexibility on
+their sequence. For example, you could instruct Scrip 236 to install
+the remote control utility and begin a remote control session either
+immediately or at a different time. Depending on your choice, removal
+of the remote control utility can occur either right after a remote
+control session is over or at a later time.</P>
+<P>You can perform both the installation and session initiation tasks
+in one step. You can also configure Scrip 236 to automatically remove
+the remote control utility as soon as the remote control session is
+completed.</P>
+<P>When instructed to install the remote control utility, Scrip 236
+downloads the software&rsquo;s installation executable from a URL of
+your choice. You can use an HTTP/HTTPS server, and FTP server, or
+shared network resource.</P>
+<P>For your convenience, HandsFree Networks has placed the
+installation executable for <A HREF="mailto:Ultr@VNC">Ultr@VNC</A> at
+<A HREF="http://www.handsfreenetworks.com/download/UltraVNC--100-RC11d-Setup.exe">http://www.handsfreenetworks.com/download/UltraVNC--100-RC11d-Setup.exe</A></P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Actions performed by Scrip 236.</P>
+			<P>(E.g.</P>
+			<P>Installing Ultr@VNC 
+			</P>
+			<P>Running Ultr@VNC server 
+			</P>
+			<P>Uninstalling Ultr@VNC 
+			</P>
+			<P>Installing Ultr@VNC<BR>Running Ultr@VNC server 
+			</P>
+			<P>Ultr@VNC is not installed 
+			</P>
+			<P>Installing Ultr@VNC<BR>Ultr@VNC is already installed 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Command lines corresponding to the actions reported in field
+			<I>text1</I> executed by Scrip 236.</P>
+			<P>(E.g.</P>
+			<P>Installing Ultr@VNC<BR>Using URL:
+			http://www.handsfreenetworks.com/download/UltraVNC--100-RC11d-Setup.exe
+			for file retrieval<BR>File download complete, time: 12
+			Seconds<BR>Executing: C:\Program
+			Files\HandsFree\Client\temp\ultravnc.exe /VERYSILENT<BR>Ultr@VNC
+			installation is complete<BR>Ultr@VNC was installed in: 
+			</P>
+			<HR>
+			<P>Running: winvnc.exe with the -run command<BR>Executing:
+			C:\Program Files\UltraVNC\winvnc.exe -run<BR>Running: winvnc.exe
+			with the -connect command<BR>Executing: C:\Program
+			Files\UltraVNC\winvnc.exe -connect 192.168.1.252<BR>Process:
+			winvnc.exe was started 
+			</P>
+			<HR>
+			<P>Executing: &quot;C:\Program Files\UltraVNC\unins000.exe&quot;
+			/SILENT /NORESTART 
+			</P>
+			<HR>
+			<P>Installing Ultr@VNC<BR>Using URL:
+			http://www.handsfreenetworks.com/download/UltraVNC--100-RC11d-Setup.exe
+			for file retrieval<BR>File download complete, time: 10
+			Seconds<BR>Executing: C:\Program
+			Files\HandsFree\Client\temp\ultravnc.exe /VERYSILENT<BR>Ultr@VNC
+			installation is complete<BR>Ultr@VNC was installed in: <BR><BR>Running
+			Ultr@VNC server<BR>Running: winvnc.exe with the -run
+			command<BR>Executing: \winvnc.exe -run 
+			</P>
+			<HR>
+			<P>Client was unable to locate Ultr@VNC 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Value of additional configuration parameters.</P>
+			<P>(E.g.</P>
+			<P>Uninstall on shutdown is: Disabled 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

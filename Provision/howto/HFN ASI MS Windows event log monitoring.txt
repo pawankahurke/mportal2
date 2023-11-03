@@ -1,0 +1,106 @@
+To start with, you could enable the "win log" notification. It will retrieve and report to you all MS Windows error event logs. To do this:
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) Click on the "notifications" link in the "events" navigation bar at the top right-hand corner of any page on the ASI server extended interface. The "Event Notifications" page will be displayed  (https://asiservername/main/event/notify.php).
+ 
+4) enter "win log" (without quotes) in the "Name Contains" parameter in the "Search Options" panel
+
+5) Click on the Search button
+
+6) We would recommend you only enable the first notification retrieved by the search, the one called "win log". To do this just click on the "enable" link to the left of the notification name.
+
+7) After you perform steps 1)-6) above, all MS Windows event log errors detected by the ASI client on systems at your sites, will be reported on the notification console (you reach the notification console by clicking on the "console" link on the "events" navigation bar (https://asiservername/main/event/console.php) on any page on the ASI server extended interface)
+
+8) If you want the "win log" event notification sent to the e-mail recipient(s) defined on your ASI server, perform the following steps
+	a) Click on the "edit" link for the "win log" notification
+	b) Make sure the "Default E-mail Recipients" is set to "Yes"
+	c) Set the "E-mail" configuration parameter to "Yes"
+	d) Click on the "Add"/"Update" link
+
+9) If you want the "win log" event notification sent to a custom e-mail recipient(s) (i.e. not the default event notification recipient(s) defined on your ASI server), perform the following steps
+	a) Click on the "edit" link for the "win log" notification
+	b) Make sure the "Default E-mail Recipients" is set to "No", unless you want the event notification sent to BOTH the default e-mail recipient(s) and customer e-mail recipient(s).
+	c) Enter the e-mail address for the custom e-mail recipients (separated by a comma with no spaces if there is more than one) in the "E-mail Recipients" configuration parameter.
+	d) Set the "E-mail" configuration parameter to "Yes"
+	e) Click on the "Add"/"Update" link
+
+Please note that you can access and edit the default notification e-mail recipient(s) defined on your ASI server as follows:
+
+i) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+ii) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+iii) Go to the "Admin" page (click on the admin link in the tools navigation bar at the top right-hand corner of any page on the ASI server extended interface (https://asiservername/main/acct/admin.php),)
+
+iv) Scroll down to the bottom of the "Admin" page. There, you will see the default notification and report e-mail addresses
+
+v) You can change the content of the "Notifications default email recipients" and "Report default email recipients" configuration parameters. If you do, click on the "Update" button for the changes to take effect.
+
+Once you have performed the above steps, you will have enabled "win log", the basic MS Windows event logs error notification.
+
+
+Please note that the "win log" item on the ASI Dashboard performs the same function as the "win log" notification reporting all MS Windows error logs occurring on systems where the ASI client is running.
+
+
+Notes
+======
+
+A) By default the "Windows Event Log Changes" Scrip (#77) is configured to only detect and report errors in the system, security and application event logs. We would strongly advise you to not change this configuration because of the potentially extremely high volume of event logs reported if you configure Scrip 77 to report warnings and/or information logs.
+
+B) In certain very infrequent cases, either because of corruption (or size) of the MS Windows event log, or the extremely high frequency at which MS Windows event logs are posted on a system (tens of thousands per hour), Scrip 77 may cause a performance problem. We have a number of ways in which to take care of this kind of problem should it take place. 
+Please contact us immediately if you think a system's performance is sub-par because of the ASI client.
+
+C) MS Windows event log error notifications can be event specific. For example, you could enable a group of notifications that report only disk hardware related MS Windows event log errors. you will find step-by-step instructions for doing this in the "HFN ASI disk monitoring how-to 04.txt" document.
+
+Please refer to the "MS Win Ev. Log Filters" sheet in the "HFN asi start-up questionnaire.xls" workbook in the hfnstart.zip archive for a complete list of currently available MS Windows event log error filters. 
+
+You can retrieve all default MS Windows event log event filters as follows:
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) Go to the event filters page (https://asiservername/main/event/search.php). Click on the "filters" link in the "events" navigation bar at the top right-hand corner of any page on the ASI server extended interface. (https://asiservername/main/event/notify.php)
+
+4) Enter "scrip = 77" (without quotes) in the "Filter Contains" parameter in the "Search Options" panel, and click on the "Search" button.
+
+In many cases, for each filter there is a corresponding notification which you can find by performing the following steps:
+
+i) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+ii) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+iii) Go to the event notifications page. Click on the "notifications" link in the "events" navigation bar at the top right-hand corner of any page on the ASI server extended interface (https://asiservername/main/event/notify.php)
+
+iv) Enter (part of) the name of the MS Windows event log filter whose notification you are looking for in the "Filter Contains" parameter in the "Search Options" panel, and click on the "Search" button
+
+v) Follow the steps described in 1)-7) above to enable and edit the notification you just retrieved.
+
+vi) If you do not find an event notification that uses the filter you are interested in, you can use an existing notification as the starting point by using the "copy" function (just click on the "copy" link for the notification you want to use as starting point).
+
+D) If there are MS Windows event logs you are interested in being notified about for which there is no event filter or notification, and you know their event ids, and/or keywords, you can easily define an event filter and associated notification for these MS Windows event logs using existing MS Windows event log error event filters and notifications as templates. Please keep in mind that Scrip 77 (MS Windows Event Log Changes) stores an MS Windows event log error's id in the ID field, and its source in the string1 field, in its event logs. This makes it every easy to retrieve MS Windows event logs by their ID number, and/or their source.
+
+
+How to use an existing event notification as template for a new notification
+=============================================================================
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) Click on the "notifications" link in the "events" navigation bar at the top right-hand corner of any page on the ASI server extended interface. The "Event Notifications" page will be displayed  (https://asiservername/main/event/notify.php).
+ 
+4) Enter (part of) the name of the MS Windows event log filter whose notification you are looking for in the "Filter Contains" parameter in the "Search Options" panel, and click on the "Search" button. For example, enter "stopped" (without quotes).
+
+5) Click on the Search button.
+
+6) Locate the notification you want to use as your "template", and click on its "copy" action link located to the left of the name. The "Coyp a Notification" page will be displayed.
+
+7) Change the name of the notification from "Copy of..." to the desired name.
+
+8) Change the event filter used by selecting the one you want the new notification to use from the "Saved Search" pull-down list. to facilitate the selection of the event filter, click in the the "Saved Search" pull-down list, then type the first letter of the name of the event filter you want to select (e.g. if you want to select an MS Windows event log filter, type "w").
+
+9) At this point, unless there are any other notification configuration parameters you want to change, e.g. recipients, desitnation, or schedule, the process is completed. Click on the "Add" button at the bottom of the page. The "Event Notification Added" page will be displayed.
+

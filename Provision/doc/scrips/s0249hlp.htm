@@ -1,0 +1,317 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 249 - Trend Micro Anti Virus Scan Execution</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20050809;8324743">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050811;22450779">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 249 - Trend Micro Anti Virus Scan Execution</H3>
+<P>Scrip 249 executes the Trend Micro Anti Virus virus scan, and
+reports its completion.</P>
+<P><FONT FACE="Verdana, sans-serif"><FONT SIZE=2>If so configured,
+Scrip 249 will also report if Trend Micro Anti Virus is either not
+installed correctly, or not at all on the system where the Scrip
+runs.</FONT> </FONT>
+</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=106>
+	<COL WIDTH=838>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Completion code corresponding to completion message reported in
+			field string1.</P>
+			<P>0 &quot;Scan completed successfully or was terminated by user.&quot;</P>
+			<P>1 &quot;No scan targets were specified.&quot;</P>
+			<P>2 &quot;Scan executable could not be determined.&quot;</P>
+			<P>3 &quot;Scan executable could not be found.&quot;</P>
+			<P>4 &quot;Command line for scan executable could not be
+			determined.&quot;</P>
+			<P>5 &quot;Report file path could not be determined.&quot;</P>
+			<P>6 &quot;Failed to run the scan executable.&quot;</P>
+			<P>7 &quot;Scan was initiated and is now running.&quot;</P>
+			<P>8 &quot;Failed to created registry controlled scan.&quot;</P>
+			<P>9 &quot;Failed to start registry controlled scan.&quot;</P>
+			<P>10 &quot;Attempt to execute scan failed.&quot;</P>
+			<P>11 &quot;Scheduler error encountered.&quot;</P>
+			<P>12 &quot;Version no longer supported by vendor.&quot;</P>
+			<P>13 &quot;Version supported by this Scrip not detected.&quot;</P>
+			<P>14 &quot;Virus scanning status code not set.&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Program completion message</P>
+			<P>(e.g. 
+			</P>
+			<P>Scan complete<BR>Scan complete<BR>Scan complete 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Type of Scrip execution</P>
+			<P>(e.g.On-Demand )</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Command line executed by Scrip and program execution log</P>
+			<P>(e.g.</P>
+			<P>Performing scan: C:\Program Files\Trend Micro\OfficeScan
+			Client\vscanwin32.com /S /C C:<BR><BR><BR>Reading virus pattern
+			from C:\Program Files\Trend Micro\OfficeScan
+			Client\lpt$vpn.741(274100) (2005/07/21) (274100)<BR><BR><BR>Scanning
+			C:\Documents and Settings\All Users\Application ...\qmgr0.dat-&gt;
+			&lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning C:\Documents and
+			Settings\All Users\Application ...\qmgr1.dat-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning C:\Documents and Settings\William O
+			Harding\L...\UsrClass.dat-&gt; &lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning
+			C:\Documents and Settings\William O Hardi...\UsrClass.dat.LOG-&gt;
+			&lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning C:\Documents and
+			Settings\William O Harding\Loc...\hfc54B.tmp-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning C:\Documents and Settings\William O
+			Hardi...\eicar.com[1].txt-&gt;Found Virus
+			[Eicar_test_file]<BR><BR>Scanning C:\Documents and
+			Settings\William O Harding\NTUSER.DAT-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning C:\Documents and Settings\William O
+			Harding\ntuser.dat.LOG-&gt; &lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning
+			C:\pagefile.sys-&gt; &lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning
+			C:\WINNT\system32\config\default-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning
+			C:\WINNT\system32\config\default.LOG-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning C:\WINNT\system32\config\SAM-&gt;
+			&lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning
+			C:\WINNT\system32\config\SAM.LOG-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning C:\WINNT\system32\config\SECURITY-&gt;
+			&lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning
+			C:\WINNT\system32\config\SECURITY.LOG-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning C:\WINNT\system32\config\software-&gt;
+			&lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning
+			C:\WINNT\system32\config\software.LOG-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning C:\WINNT\system32\config\system-&gt;
+			&lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>Scanning
+			C:\WINNT\system32\config\SYSTEM.ALT-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>Scanning
+			C:\WINNT\system32\Perflib_Perfdata_2c4.dat-&gt; &lt;&lt;ERROR
+			(-94)&gt;&gt;<BR><BR>13263 files have been checked.<BR>Found 1
+			files containing
+			viruses.<BR><BR>---------------------------------------------<BR>Performing
+			scan: C:\Program Files\Trend Micro\OfficeScan
+			Client\vscanwin32.com /S /C D:<BR><BR><BR>Reading virus pattern
+			from C:\Program Files\Trend Micro\OfficeScan
+			Client\lpt$vpn.741(274100) (2005/07/21) (274100)<BR><BR><BR>Scanning
+			D:\hfn\dev\cust\cust.ncb-&gt; &lt;&lt;ERROR (-94)&gt;&gt;<BR><BR>26129
+			files have been checked.<BR>No file-type viruses
+			found.<BR><BR>---------------------------------------------<BR>Performing
+			scan: C:\Program Files\Trend Micro\OfficeScan
+			Client\vscanwin32.com /S /C E:<BR><BR><BR>Reading virus pattern
+			from C:\Program Files\Trend Micro\OfficeScan
+			Client\lpt$vpn.741(274100) (2005/07/21) (274100)<BR><BR><BR>Scanning
+			E:\New Text Document.txt-&gt;Found Virus [Eicar_test_file]<BR><BR>39
+			files have been checked.<BR>Found 1 files containing
+			viruses.<BR><BR>---------------------------------------------<BR><BR><BR><BR>
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,253 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 84 - Network Connectivity Status</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20070327;10560160">
+	<META NAME="CHANGED" CONTENT="20070327;11041305">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 84 - Network Connectivity Status</H3>
+<P>Scrip 84 reports loss of TCP/IP network connectivity at the local
+interface, and can be configured to report when a network connection
+is re-established.</P>
+<P>This Scrip generates a log both when network connectivity is first
+lost and when it is re-established.</P>
+<P>When enabled, Scrip 84 will post an event log, and generate a
+message for the system's user if so configured, when the following
+thresholds are exceeded</P>
+<UL>
+	<LI><P>No acknowledgment to three sends to another device on the
+	sub-net within five seconds</P>
+	<LI><P>No acknowledgment to three sends to the Internet within 20
+	seconds</P>
+</UL>
+<P>The above thresholds are configuration parameters in Scrip 201
+(Network Device Driver Management).</P>
+<P>The table below describes the information contained in the logs
+produced by Scrip 84.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Message network connectivity status</P>
+			<P>(e.g.</P>
+			<P>Testing the LAN<BR>LAN is avaiable</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Trace of tests performed</P>
+			<P>(e.g.</P>
+			<P>Retrieving address of default gateway<BR>Address of default
+			gateway: 192.168.1.1<BR>Subnet mask of default gateway:
+			0.0.0.0<BR>Pinging gateway<BR>No response at address: 192.168.1.1</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

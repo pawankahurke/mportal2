@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>How to find out on which systems a back-up application is installed and active</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20071121;17240976">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Finding out on Which Systems a Back-up Application is Installed
+and Active</H3>
+<P>In order to track completion status of back-up operations, you
+first need to determine which systems back-up utilities run on, and
+the location of the log files they produce. Once you have done that,
+you can configure Scrip 100 (File Distribution and Retrieval) to
+upload the log files to the ASI server, where pre-built event filters
+are used to parse through the log files, and pre-built notifications
+using these filters will alert you about back-up operations
+completion status.</P>
+<P>If you do not know which systems back-up applications are active
+on, and the location of the log files they produce, you can use Scrip
+222 (File Attributes) to perform this task automatically, as follows:</P>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below &quot;user login&quot;
+	and date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>In the &quot;sites&quot; navigation bar, click on the
+	&quot;wizard&quot; link
+	(https://asiservername/main/config/index.php?act=wiz)</P>
+	<LI><P>Click on the &quot;Scrip configuration&quot; wizard entry.
+	The &quot;Scrip Configuration - Select a Group &quot; page will be
+	displayed.</P>
+	<LI><P>Select the machine group type (All machines, A single site, A
+	single machine, A group of machines)</P>
+</OL>
+<P>If you select &quot;All machines&quot; be extremely careful as the
+Scrip configuration change you are about to make will affect ALL
+systems.</P>
+<P>Typically, back-up software is installed on servers. This being
+the case, you might want to first defined a group containing all
+servers at your sites and call it, for example, &quot;Servers - All&quot;</P>
+<OL START=6>
+	<LI><P>Assuming you set up a group called &quot;Servers - All&quot;
+	containing all servers at your sites, select &quot;Servers - All&quot;,
+	and click on the &quot;Next&quot; button. The &quot;Scrip
+	Configuration - Select Scrip&quot; page will be displayed.</P>
+	<LI><P>Scroll down to the entry for Scrip 222 (Report File
+	Attributes), and click on the Scrip name. The Scrip's configuration
+	page will be displayed.</P>
+	<LI><P>If its parameter data entry box is not displayed, click on
+	the &quot;Configure&quot; button for the &quot;Directories or files
+	to scan&quot; configuration parameter. The Scrip 222 configuration
+	page will be automatically re-displayed with the data entry box for
+	the &quot;Directories or files to scan&quot; configuration
+	parameter.</P>
+	<LI><P>In the &quot;Directories or files to scan&quot; configuration
+	parameter data entry box, enter:</P>
+</OL>
+<P STYLE="margin-left: 0.53in">1,0,*:\program files\veritas\backup
+exec\nt\data\,default</P>
+<P STYLE="margin-left: 0.53in">1,1,*:\program files\veritas\,belog</P>
+<P STYLE="margin-left: 0.53in">1,0,*:\program files\symantec\Backup
+Exec\DataBackup\Data\,default</P>
+<P STYLE="margin-left: 0.53in">1,1,*:\program files\symantec\,belog</P>
+<P STYLE="margin-left: 0.53in">1,0,*:\Documents and
+Settings\Administrator\Local Settings\Application
+Data\Microsoft\Windows NT\NTBackup\data\,ntbkuplogs</P>
+<P STYLE="margin-left: 0.53in">1,1,*:\Program Files\CA\BrightStor
+ARCserve Backup\,brightstorlog</P>
+<OL START=10>
+	<LI><P>If its parameter data entry box is not displayed, click on
+	the &quot;Configure&quot; button for the &quot;File groups&quot;
+	configuration parameter. The Scrip 222 configuration page will be
+	automatically re-displayed with the data entry box for the &quot;File
+	groups&quot; configuration parameter.</P>
+	<LI><P>In the &quot;File groups&quot; configuration parameter data
+	entry box, leave the default entry untouched and, on a new line,
+	enter:</P>
+</OL>
+<P STYLE="margin-left: 0.53in">default,*.*</P>
+<P STYLE="margin-left: 0.53in">belog,BEX*.xml,BEX*.txt</P>
+<P STYLE="margin-left: 0.53in">ntbkuplogs,backup*.log</P>
+<P STYLE="margin-left: 0.53in">brightstorlog,*log*.*,*.log</P>
+<OL START=12>
+	<LI><P>Click on the &quot;Execute for group&quot; button for the
+	&quot;Generate report now&quot; configuration parameter</P>
+	<LI><P>Click on the &quot;Continue&quot; button.</P>
+	<LI><P>Enter &quot;yes&quot; (without quotes) in the text box.</P>
+	<LI><P>Click on the &quot;Continue&quot; button.</P>
+</OL>
+<P>Please note that the above procedure can be used to locate log
+files produced by any application. For each application whose log
+file location you want to find, you would need to enter the
+appropriate entry in the the &quot;Directories or files to scan&quot;,
+and &quot;File groups&quot; configuration parameters.</P>
+<P>Next, you should check the event logs produced by Scrip 222,
+following the steps described below. Before retrieving the Scrip 222
+event logs, you will need to wait for the Scrip 222 action you
+executed following the steps above to be run on the systems at your
+sites. The time lag depends on the Scrip 177 (Scrip Configuration
+Update) schedule at each of your sites. Please keep in mind that the
+action will take place as soon as the system whose Scrip 177 is
+configured to run most frequently at each site contacts the ASI
+server.</P>
+<P>To retrieve Scrip 222 event logs:</P>
+<OL>
+	<LI><P>Log onto your ASI server (https://asiservername/main). The
+	ASI dashboard will be displayed</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below &quot;user login&quot;
+	and date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>Click on the &quot;ad-hoc query&quot; link in the &quot;events&quot;
+	navigation bar found at the top right-hand corner of any page of the
+	extended ASI server interface
+	(https://asiservername/main/event/event.php). The &quot;Ad-hoc Event
+	Query Form&quot; page will be displayed.</P>
+	<LI><P>Select the entry for Scrip 222 from the &quot;Scrip number&quot;
+	pull-down list in the &quot;Narrow Your Search (optional):&quot;
+	section of the &quot;Ad-hoc Event Query Form&quot; page. 
+	</P>
+	<LI><P>Select &quot;2000&quot; from the &quot;Number of Results per
+	Page:&quot; pulld-down list in the &quot;Select Display Options:&quot;
+	section of the &quot;Ad-hoc Event Query Form&quot; page (this step
+	is optional).</P>
+	<LI><P>Click on the &quot;Search&quot; button. The &quot;Event Query
+	Results&quot; page will be displayed.</P>
+	<LI><P>Click on the &quot;detail&quot; link in the left-most column
+	for each of the Scrip 222 event logs reporting file attributes.</P>
+</OL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

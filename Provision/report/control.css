@@ -1,0 +1,124 @@
+/* HFN Control CSS definitions
+
+Contains the CSS definitions for the newer listbox and scheduling controls.
+
+Revision history:
+
+Date        Who     What
+----        ---     ----
+24-Feb-07   BTE     Original creation.
+19-Mar-07   BTE     Added class mytable2.
+
+*/
+
+.mytable
+{
+    border-right: 1px solid #333399;
+    border-bottom: 1px solid #333399;
+}
+.mytable2
+{
+    border-right: 1px solid #333399;
+    border-bottom: 1px solid #333399;
+    border-left: 1px solid #333399;
+    border-top: 1px solid #333399;
+}
+.mycol
+{
+    border-left: 1px solid #333399;
+    border-top: 1px solid #333399;
+}
+.regbutton
+{
+    font-weight:normal;
+    color:#333399;
+    background-color:#FFFFFF;
+    border-style:none;
+    border-left:1px solid #333399;
+    border-top:1px solid #333399;
+    width:90px;
+    height:24px;
+}
+.regbuttonlg
+{
+    font-weight:normal;
+    color:#333399;
+    background-color:#FFFFFF;
+    border-style:none;
+    border-left:1px solid #333399;
+    border-right:1px solid #333399;
+    border-bottom:1px solid #333399;
+    border-top:1px solid #333399;
+    width:120px;
+    height:24px;
+}
+.regbuttonsm
+{
+    font-weight:normal;
+    font-size:10;
+    color:#333399;
+    background-color:#FFFFFF;
+    border-style:none;
+    border-left:1px solid #333399;
+    border-right:none;
+    border-bottom:1px solid #333399;
+    border-top:1px solid #333399;
+    width:30px;
+    height:24px;
+}
+.regbuttonsmend
+{
+    font-weight:normal;
+    font-size:10;
+    color:#333399;
+    background-color:#FFFFFF;
+    border-style:none;
+    border-left:1px solid #333399;
+    border-right:1px solid #333399;
+    border-bottom:1px solid #333399;
+    border-top:1px solid #333399;
+    width:30px;
+    height:24px;
+}
+.selbutton
+{
+    font-weight:bold;
+    color:#FFFFFF;
+    background-color:#333399;
+    border-style:none;
+    width:90px;
+    height:24px;
+}
+.selbuttonlg
+{
+    font-weight:bold;
+    color:#FFFFFF;
+    background-color:#333399;
+    border-style:none;
+    width:120px;
+    height:24px;
+} 
+.selbuttonsm
+{
+    font-weight:bold;
+    font-size:10;
+    color:#FFFFFF;
+    background-color:#333399;
+    border-style:none;
+    width:30px;
+    height:24px;
+}
+.tdnosel
+{
+    background-color:#FFFFFF;
+    border-style:none;
+}
+.tdsel
+{
+    background-color:#333399;
+    border-style:none;
+}
+.plaindiv
+{
+    clear:both;
+}

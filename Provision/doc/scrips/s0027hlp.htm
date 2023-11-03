@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 27 - System Start-up Executables Management</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20040120;13271538">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20041104;20324530">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 27 - System Start-up Environment Control</H3>
+<P>Managing and controlling a system's start-up environment helps
+minimize: 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Slower system boot-up 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Ongoing startup performance
+	problems 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Unwanted intrusion, and
+	potentially even harm to the system 
+	</P>
+	<LI><P>Slower system performance 
+	</P>
+</UL>
+<P>ASI features complete system start-up environment management and
+control. We have two Scrips that perform these functions:</P>
+<UL>
+	<LI><P><FONT FACE="Verdana, sans-serif">Scrip 27 to control the
+	content of a system&rsquo;s start-up environment. Depending on its
+	configuration, it accepts, rejects, or disables any attempt to add a
+	new item to a system&rsquo;s start-up environment. If so configured,
+	it performs all actions automatically. Scrip 27 can also prevent the
+	removal of items from a system&rsquo;s start-up environment. In this
+	way it neutralizes attempts to remove intrusion protection software
+	such as virus scanners from running at system start-up. </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Scrip 233 to manage a system&rsquo;s
+	start-up environment. Scrip 233 reports the content of a system&rsquo;s
+	start-up environment, and disabled start-up items. It also lets you
+	easily enable and disable start-up items on one, some, or all
+	systems at a site.</P>
+</UL>
+<H4>Triggering and detection 
+</H4>
+<P>Scrip 27 is enabled by default. When the ASI client is first
+installed on a system, Scrip 27 builds a list of all the programs
+that run at system start-up by extracting the relevant information
+from the registry keys and file folders that are used to control
+which programs are run when the system starts. These include the
+&quot;Startup&quot; folder, the &quot;win.ini&quot; file, and the
+registry keys described in
+http://support.microsoft.com/default.aspx?scid=KB;en-us;q137367, and
+http://support.microsoft.com/default.aspx?scid=kb;EN-US;314866. Note
+that the Scrip does not monitor the &quot;run once&quot; keys, since
+those are primarily used for system operations, and will not cause
+changes that permanently affect system performance.</P>
+<P>Whenever the list of items in any one of these locations changes,
+the Scrip notifies the support provider by loggging the change to the
+Web log database, and takes action based on how it was configured.</P>
+<P>Due to a limitation in Windows 95, this Scrip cannot be triggered
+by registry key changes on that operating system. Because of that
+limitation, and in order to avoid missing a change when the client is
+not running, the Scrip also runs at system startup, and whenever the
+HandsFree Networks client starts. 
+</P>
+<P>Scrip 27 can also prevent the removal of items from a system&rsquo;s
+start-up environment. In this way it neutralizes attempts to remove
+intrusion protection software such as virus scanners from running at
+system start-up.</P>
+<H4>Actions</H4>
+<P>Scrip 27 can take one or more of the following actions:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Delete the item so that it will no
+	longer run at startup 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Disable the item by moving it to a
+	&quot;holding area&quot; 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Bring up a dialog asking the user
+	whether or not to delete/disable the item 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Verdana, sans-serif">Prevent
+	removal of an item from the system&rsquo;s start-up environment </FONT>
+	</P>
+	<LI><P>Do none of the above 
+	</P>
+</UL>
+<P>Note that Scrip 27 will always log the detection of a new start-up
+item on the Event log database residing on the ASI server<FONT FACE="Verdana, sans-serif">,
+even if it is configured to do nothing to prevent these changes from
+taking place. </FONT>
+</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=106>
+	<COL WIDTH=839>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Log of attempts to change a system's start-up environment,
+			nature and content of change, and action taken by Scrip 27, if
+			enabled to prevent changes to the system's start-up environment.</P>
+			<P>(E.g. 
+			</P>
+			<P>The following registry value has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+			-&gt; TV Media. <BR>The value's current data is: C:\PROGRAM
+			FILES\TV MEDIA\Tvm.exe. <BR>The change was disabled
+			automatically.<BR>The following registry value has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+			-&gt; saie. <BR>The value's current data is:
+			c:\windows\system\saie.exe. <BR>The change was disabled
+			automatically.<BR>The following registry value has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+			-&gt; afgmma. <BR>The value's current data is:
+			C:\WINDOWS\Gnwrnqy.exe. <BR>The change was disabled
+			automatically.<BR>The following registry value has been added for
+			user ummed:
+			<BR>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+			-&gt; aDv3RWHnX. <BR>The value's current data is: ODBLMA.EXE. <BR>The
+			change was disabled automatically.<BR>The following registry value
+			has been added for user ummed:
+			<BR>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+			-&gt; MyDailyHoroscope. <BR>The value's current data is:
+			C:\PROGRA~1\MYDAIL~1\MYDAIL~1.EXE. <BR>The change was disabled
+			automatically.<BR>The following registry value has been added for
+			user ummed:
+			<BR>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+			-&gt; TV Media. <BR>The value's current data is: C:\PROGRAM
+			FILES\TV MEDIA\Tvm.exe. <BR>The change was disabled
+			automatically.<BR>The following registry value has been added for
+			user ummed:
+			<BR>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+			-&gt; pgtaff. <BR>The value's current data is:
+			C:\WINDOWS\pgtaff.exe. <BR>The change was disabled automatically. 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>Detailed description of items whose addition to the system's
+			start-up environment Scrip 27 detected and acted upon based on how
+			you configured it.</P>
+			<P>(E.g. 
+			</P>
+			<P>Item: TV Media<BR>Item data: C:\PROGRAM FILES\TV
+			MEDIA\Tvm.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\PROGRAM FILES\TV
+			MEDIA\Tvm.exe<BR>CompanyName: not available<BR>FileDescription:
+			not available<BR>FileVersion: not available<BR>LegalCopyright: not
+			available<BR>ProductName: not available<BR>ProductVersion: not
+			available<BR>Comments: not available<BR><BR>Item: saie<BR>Item
+			data: c:\windows\system\saie.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			c:\windows\system\saie.exe<BR>CompanyName: 180solutions,
+			Inc.<BR>FileDescription: Search Assistant<BR>FileVersion: 5, 12,
+			0, 13<BR>LegalCopyright: Copyright &copy; 2004, 180solutions
+			Inc.<BR>ProductName: Search Assistant<BR>ProductVersion: 5, 12, 0,
+			13<BR>Comments: not available<BR><BR>Item: afgmma<BR>Item data:
+			C:\WINDOWS\Gnwrnqy.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\Gnwrnqy.exe<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR><BR>Item: aDv3RWHnX<BR>Item data:
+			ODBLMA.EXE<BR>Location:
+			HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\SYSTEM\ODBLMA.EXE<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR><BR>Item: MyDailyHoroscope<BR>Item data:
+			C:\PROGRA~1\MYDAIL~1\MYDAIL~1.EXE<BR>Location:
+			HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\PROGRA~1\MYDAIL~1\MYDAIL~1.EXE<BR>CompanyName:
+			Enconfidence<BR>FileDescription: MyDailyHoroscope
+			Module<BR>FileVersion: 1, 4, 0, 0<BR>LegalCopyright: Copyright
+			2004<BR>ProductName: MyDailyHoroscope<BR>ProductVersion: 1, 4, 0,
+			0<BR>Comments: not available<BR><BR>Item: TV Media<BR>Item data:
+			C:\PROGRAM FILES\TV MEDIA\Tvm.exe<BR>Location:
+			HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\PROGRAM FILES\TV
+			MEDIA\Tvm.exe<BR>CompanyName: not available<BR>FileDescription:
+			not available<BR>FileVersion: not available<BR>LegalCopyright: not
+			available<BR>ProductName: not available<BR>ProductVersion: not
+			available<BR>Comments: not available<BR><BR>Item: pgtaff<BR>Item
+			data: C:\WINDOWS\pgtaff.exe<BR>Location:
+			HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\pgtaff.exe<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: 7, 0,
+			0, 1<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: 7, 0, 0, 1<BR>Comments: not available</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD WIDTH=839>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

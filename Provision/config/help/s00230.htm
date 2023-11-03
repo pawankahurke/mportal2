@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 230 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20040225;8415648">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050725;18191532">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 230 Configuration</H3>
+<H4>Configuration Parameters</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Product list</EM> filled in
+	automatically by the ASI client &ndash; <B>DO NOT EDIT MANUALLY</B></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Minimum time between logs
+	(seconds)</EM> set to a default value of <B>30</B> seconds</P>
+</UL>
+<H4>Product list 
+</H4>
+<P><FONT SIZE=2 STYLE="font-size: 11pt"><B>Before reading this
+section, please note that it is extremely important that you NOT edit
+the contents of the <I>Product list</I> parameter manually. Should
+you do that, your edits would be overwritten by the settings entered
+for each product on the provisioning and metering facility on the ASI
+server. In addition, you would run the risk of losing or compromising
+metering information on the applications whose <I>Product list</I>
+parameter content you have changed, particularly if you make a
+mistake, typographical or syntactical, when making the changes.</B></FONT></P>
+<P><B><FONT SIZE=2 STYLE="font-size: 11pt">If you want to change the
+definition and configuration settings of a metered product please use
+the ASI provisioning and metering facility browser based user
+interface found at <A HREF="https://asiserverurl/main/provis/meter.php">https://asiserverurl/main/provis/meter.php</A>
+(where asiserverurl is the URL of the ASI server used to manage your
+sites)</FONT></B></P>
+<P>The <I>Product list</I> parameter contains a list of the software
+applications provisioned on the system whose Scrip 229 configuration
+page you are viewing. It is stored as one product per line. The
+format of an item in the list is:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">User id &ndash; the user id of the
+	owner of the product, i.e. the user that defined the product on the
+	ASI server.</P>
+	<LI><P STYLE="margin-bottom: 0in">Product name &ndash; the name
+	assigned to the product when it was defined on the ASI server.</P>
+	<LI><P STYLE="margin-bottom: 0in">0, 1 &ndash; meter / do not meter
+	flag set to 0 if the product specified is not metered, 1 if it is
+	metered.</P>
+	<LI><P STYLE="margin-bottom: 0in">Product key file(s) - The full
+	path for the key files of the product specified. You can use a
+	directory specification that may have an environment variable in it
+	or wild cards (see section on directory wild cards at the end of
+	this document). For example: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">c:\Program Files\Microsoft
+		Office\Office\excel.exe 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">%windir%\freecell.exe</P>
+		<LI><P>c:\Program Files\Adobe\Photoshop\**\*.exe (to specify all
+		the executables anywhere in the Adobe Photoshop installation
+		directories )</P>
+	</UL>
+</UL>
+<H4>Minimum time between logs (seconds)</H4>
+<P>With the <EM>Minimum time between logs (seconds)</EM> parameter
+you control the minimum time interval between transactions logging
+application metering information onto the ASI server. In between
+logging transactions, information is accumulated. When it comes time
+to log metering information, it occurs in a single transaction. 
+</P>
+<P>The <EM>Minimum time between logs (seconds)</EM> parameter is used
+to reduce the load on the ASI server by moderating the frequency with
+which Scrip 230 logs metering events to the ASI server. In addition,
+Scrip 230 needs to be able to queue events in case the ASI server is
+not immediately available, and the <EM>Minimum time between logs
+(seconds)</EM> parameter is consistent with this requirement.</P>
+<P>Please note that the ASI client does not try to resolve metered
+application issues such as a missing process completion events. These
+are resolved on the ASI server when metering reports are produced. 
+</P>
+<H4>Note about Scrip 230 execution</H4>
+<P>Scrip 230 runs when one of the following events occurs:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">When you change the Scrip's
+	schedule. When this happens, Scrip 230 enables or disables
+	(depending on the whether Scrip 230 is enabled or not) the
+	triggering mechanism used to detect execution of the applications
+	specified in the <I>Product list</I> parameter.</P>
+</UL>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">When the content of the <I>Product
+	list</I> parameter changes. When this happens, the configuration of
+	the triggering mechanism is updated to match the settings as
+	specified in the product list. 
+	</P>
+</UL>
+<UL>
+	<LI><P>When you change the value of the <EM>Minimum time between
+	logs (seconds)</EM> parameter. When this happens, the log timer is
+	reset.</P>
+	<LI><P>When executable events (process creation or process
+	termination) of an application specified in the <I>Product list</I>
+	parameter occur. Information about the events is recorded. If the
+	minimum time has elapsed since the last logging of metering
+	information onto the ASI server occurred, the recorded events are
+	logged, otherwise the log timer is started. 
+	</P>
+	<LI><P>When the time interval specified in the <EM>Minimum time
+	between logs (seconds)</EM> parameter expires. When this happens,
+	metering information (any recorded instances of execution of the
+	applications specified in the <I>Product list</I> parameter)
+	accumulated since the last logging transaction occurred are logged
+	onto the ASI server. 
+	</P>
+	<LI><P>On client startup. If Scrip 230 is enabled, the triggering
+	mechanism used to detect execution of the applications specified in
+	the <I>Product list</I> parameter is activated.</P>
+</UL>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=47>
+	<COL WIDTH=98>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=47>
+			<P ALIGN=CENTER><STRONG>Field</STRONG></P>
+		</TD>
+		<TD WIDTH=98>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<H4>Directory path wild card support</H4>
+<P>Certain repetitive system maintenance and management tasks require
+access to sub-directories that have the same name but have different
+parent directories. For example, clean-up of temp directories on
+systems running the Microsoft Windows NT based operating systems
+(NT4, 2000, XP, and Server 2003), requires access to each user's temp
+directory located in <I>[drive}:\Documents and Settings\&lt;user
+name&gt;\Local Settings\Temp</I>. 
+</P>
+<P>In order to make it easier for you configure Scrips to perform
+such repetitive tasks, we have implemented wild card directory
+support, allowing wild cards anywhere in a directory path. This means
+that in the example above, specification of the path for the temp
+directory on all systems would be reduced to a single line:</P>
+<PRE STYLE="margin-bottom: 0.2in">*:\Documents and Settings\*\Local Settings\Temp\</PRE><P>
+Wild card directory support applies to any Scrip where you may need
+to specify a directory path, including Scrips 60, 61, 100, 196, 222,
+225, 229, and 230. It also extends to devices, meaning that you can
+use the wild card character for devices including:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Fixed drives (like hard disk
+	partitions)</P>
+	<LI><P STYLE="margin-bottom: 0in">Removable drives (like floppies)</P>
+	<LI><P STYLE="margin-bottom: 0in">Network drives</P>
+	<LI><P STYLE="margin-bottom: 0in">CD-ROMs</P>
+	<LI><P STYLE="margin-bottom: 0in">RAM disk drives</P>
+	<LI><P>Unknown drive types</P>
+</UL>
+<P>For example:</P>
+<PRE STYLE="margin-bottom: 0.2in">\\*\c:\Windows\**\temp</PRE><P>
+would scan the <I>temp</I> directory found zero or more levels below
+the <I>Windows</I> directory on the <I>c:</I> drive on all reachable
+systems on the local network.</P>
+<P>The notation used for wild card directory support is slightly
+different from the MS-DOS wild card notation. It consists of either <B>*</B>
+or <B>**</B>:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><B>*</B> matches exactly one
+	directory level.</P>
+	<LI><P><B>**</B> matches zero or more directory levels.</P>
+</UL>
+<P>For example:</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\**\Local Settings\Temp\</PRE><P>
+would cover all directory levels where the end path consists of
+<I>\Local Settings\Temp\</I> including:</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\Local Settings\Temp\</PRE><P>
+and</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\&lt;user name&gt;\Local Settings\Temp\</PRE><P>
+while</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\*\Local Settings\Temp\</PRE><P>
+would cover only one directory level above <I>\Local Settings\Temp\</I></P>
+<P>You can use multiple instances of <B>*</B> and/or <B>**</B> in
+directory path specifications. When the directory wild card support
+software finds instances of multiple wild cards, it performs
+left-to-right scan that looks through directories 
+</P>
+<P>recursively. Please note that his means that multiple <B>**</B> or
+<B>*</B> in a directory path specification can cause a lot of
+multiple scans through the same directory structure, which will take
+a lot of time, but it will return the correct result.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

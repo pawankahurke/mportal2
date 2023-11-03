@@ -1,0 +1,751 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 240 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20031020;13233299">
+	<META NAME="CHANGED" CONTENT="20061115;23184054">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 240 Configuration</H3>
+<H4>Configuration parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>Scrip enabled</I> enabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM><FONT FACE="verdana, helvetica">Currently
+	enabled items on this machine - for review</FONT></EM> empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Currently enabled items on this
+	machine &ndash; known</I> empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM><FONT FACE="verdana, helvetica">Currently
+	disabled items on this machine</FONT></EM> empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Current configuration settings
+	on this machine - for review</I> empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Current configuration settings
+	on this machine &ndash; known</I> empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Known items</I> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM><FONT FACE="verdana, helvetica">Items
+	to enable</FONT></EM> empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM><FONT FACE="verdana, helvetica">Items
+	to disable</FONT></EM> empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Configuration settings to
+	enforce</I> empty</P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, by default Scrip 240
+	runs daily at 15 minutes past 5 AM 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Update local variables only</I></P>
+	<LI><P><EM><FONT FACE="verdana, helvetica">Update intrusion
+	protection now</FONT> </EM>
+	</P>
+</UL>
+<H4>Scrip 240 coverage</H4>
+<P>System configuration variables managed by Scrip 240 are divided
+into two groups manipulated via different sets of configuration
+parameters.</P>
+<P>The <EM>Currently enabled items on this machine</EM> (for review
+and known), <EM>Currently disabled items on this machine </EM>, <EM>Items
+to enable</EM>, and <EM>Items to disable</EM> configuration
+parameters manage the following system configuration variables:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Autoexec.bat</P>
+	<LI><P STYLE="margin-bottom: 0in">Shell= system.ini setting for
+	systems running Microsoft Windows 9x based operating systems</P>
+	<LI><P STYLE="margin-bottom: 0in">Shell extension handlers</P>
+	<LI><P STYLE="margin-bottom: 0in">RunOnce</P>
+	<LI><P STYLE="margin-bottom: 0in">RunOnceEx</P>
+	<LI><P STYLE="margin-bottom: 0in">RunServicesOnce registry keys</P>
+	<LI><P STYLE="margin-bottom: 0in">Browser Helper Objects</P>
+	<LI><P STYLE="margin-bottom: 0in">Internet Explorer Bars</P>
+	<LI><P STYLE="margin-bottom: 0in">Internet Explorer Extensions</P>
+	<LI><P STYLE="margin-bottom: 0in">Internet Explorer Toolbars</P>
+	<LI><P>Hosts file</P>
+</UL>
+<P>The <EM>Current configuration settings on this machine</EM> (for
+review and known), and <I>Configuration settings to enforce</I>
+configuration parameters manage the following system configuration
+variables:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Start Page settings</P>
+	<LI><P STYLE="margin-bottom: 0in">Search Pages settings</P>
+	<LI><P STYLE="margin-bottom: 0in">Open verb commands</P>
+	<LI><P STYLE="margin-bottom: 0in">Screen saver settings</P>
+	<LI><P STYLE="margin-bottom: 0in">Critical Winlogon registry keys
+	(Shell, Userinit and <FONT FACE="Verdana, sans-serif">DllName</FONT>)
+	for systems running Microsoft Windows NT based operating systems
+	(NT4, 2000, XP, or Server 2003)</P>
+</UL>
+<H4>Currently enabled items on this machine</H4>
+<P>To facilitate, and speed up the review of a system's environment
+managed by Scrip 240, items currently enabled on a system are divided
+into two groups:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM><I><FONT FACE="verdana, helvetica">Currently
+	enabled items on this machine - for review</FONT></I></EM> 
+	</P>
+	<LI><P><EM><I>Currently enabled items on this machine &ndash; known</I></EM>
+		</P>
+</UL>
+<P>The <EM><I><FONT FACE="verdana, helvetica">Currently enabled items
+on this machine - for review</FONT></I></EM> configuration parameter
+contains items that do not match any of the entries in the <I>Known
+items</I> configuration parameter. The <EM><I>Currently enabled items
+on this machine &ndash; known</I></EM> configuration parameter
+contains items that match entries in the <I>Known items</I>
+configuration parameter.</P>
+<P>When reviewing a system's environment, you can focus your review
+on the contents of the <EM><I><FONT FACE="verdana, helvetica">Currently
+enabled items on this machine - for review</FONT></I></EM>
+configuration parameter, ignoring the contents of the <EM><I>Currently
+enabled items on this machine &ndash; known</I></EM> configuration
+parameter. However, we suggest that periodically you review the
+content of the <EM><I>Currently enabled items on this machine &ndash;
+known</I></EM> configuration parameter to ensure that one or more
+malware items have not been inadvertently included in the <EM><I>Currently
+enabled items on this machine &ndash; known</I></EM> configuration
+parameter.</P>
+<P><EM>Currently enabled items on this machine</EM> configuration
+parameters (for review and known) entries can have one of the
+following formats:</P>
+<UL>
+	<LI><P><B>RegKey</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Key, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>IniFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>.ini file (either win.ini or system.ini) path, followed by a
+	comma with no spaces</P>
+	<LI><P>.ini file section, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable name, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>TxtFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Text file path, followed by a comma with no spaces</P>
+	<LI><P>Text file line, followed by a comma with no spaces</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>ExtObj</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Friendly name, followed by a comma with no spaces</P>
+	<LI><P>Key name, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable data, followed by a comma with no spaces</P>
+	<LI><P>Associated DLL</P>
+</UL>
+<P>The <EM>Currently enabled items on this machine</EM> configuration
+parameter entries (for review and known) are display-only. They
+report the content of the disabled items in the start-up environment
+on the system whose Scrip 240 configuration page your are viewing.
+Editing the <EM>Currently enabled items on this machine</EM>
+configuration parameters (for review and known) has no effect, as
+their content will be regenerated when Scrip 240 runs. 
+</P>
+<H4>Currently disabled items on this machine</H4>
+<P><EM>Currently disabled items on this machine</EM> configuration
+parameter entries can have one of the following formats:</P>
+<UL>
+	<LI><P><B>RegKey</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Key, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>IniFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>.ini file (either win.ini or system.ini) path, followed by a
+	comma with no spaces</P>
+	<LI><P>.ini file section, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable name, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>TxtFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Text file path, followed by a comma with no spaces</P>
+	<LI><P>Text file line, followed by a comma with no spaces</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>ExtObj</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Friendly name, followed by a comma with no spaces</P>
+	<LI><P>Key name, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable data, followed by a comma with no spaces</P>
+	<LI><P>Associated DLL</P>
+</UL>
+<P>The <EM><FONT FACE="verdana, helvetica">Currently disabled items
+on this machine</FONT></EM> configuration parameter entries are
+display-only. They report the content of the disabled configuration
+items on the system whose Scrip 240 configuration page your are
+viewing. Editing the <EM><FONT FACE="verdana, helvetica">Currently
+disabled items on this machine</FONT></EM> configuration parameter
+has no effect, as its content will be regenerated when Scrip 240 runs
+but not before executing any actions specified in the <I>Items to
+enable</I> and <I>Items to disable</I> configuration parameters.</P>
+<H4>Current configuration settings on this machine</H4>
+<P>To facilitate and speed up the review of a system's configuration
+settings managed by Scrip 240, configuration settings currently
+enabled on a system are divided into two groups:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM><I><FONT FACE="verdana, helvetica">Current
+	configuration settings on this machine - for review</FONT></I></EM> 
+	</P>
+	<LI><P><EM><I>Current configuration settings on this machine - known</I></EM>
+		</P>
+</UL>
+<P>The <EM><I>Current configuration settings on this machine - for
+review</I></EM> configuration parameter contains configuration
+settings that do not match any of the entries in the <I>Known items</I>
+configuration parameter. The <EM><I>Current configuration settings on
+this machine - known</I></EM> configuration parameter contains
+configuration settings that match entries in the <I>Known items</I>
+configuration parameter.</P>
+<P>When reviewing a system's configuration settings, you can focus
+your review on the contents of the <EM><I>Current configuration
+settings on this machine - for review</I></EM> configuration
+parameter, ignoring the contents of the <EM><I>Current configuration
+settings on this machine - known</I></EM> configuration parameter.
+However, we suggest that periodically you review the content of t the
+<EM><I>Current configuration settings on this machine - known</I></EM>
+configuration parameter to ensure that one or more malware items have
+not been inadvertently included in the <EM><I>Current configuration
+settings on this machine - known</I></EM> configuration parameter.</P>
+<P><EM>Currentl configuration settings on this machine</EM>
+configuration parameters entries can have one of the following
+formats:</P>
+<UL>
+	<LI><P><B>RegKey</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Key, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>IniFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>.ini file (either win.ini or system.ini) path, followed by a
+	comma with no spaces</P>
+	<LI><P>.ini file section, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable name, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable value</P>
+</UL>
+<P>The <EM>Current configuration settings on this machine</EM>
+configuration parameter entries (for review and known) are
+display-only. They report the content of the disabled items in the
+start-up environment on the system whose Scrip 240 configuration page
+your are viewing. Editing the <EM>Current configuration settings on
+this machine</EM> configuration parameters (for review and known) has
+no effect, as their content will be regenerated when Scrip 240 runs. 
+</P>
+<H4>Note on adding item entries and wild card support</H4>
+<P>Please note that identical items for different users show up as
+different entries in the <EM>Currently enabled items on this machine</EM>
+and <EM>Currently disabled items on this machine</EM> configuration
+parameters, and are handled as separate items in the <EM><FONT FACE="verdana, helvetica">Items
+to enable and </FONT><EM><FONT FACE="verdana, helvetica">Items to
+disable</FONT></EM></EM> <EM>configuration </EM>parameters. This
+allows you to enable or disable a given system configuration item
+only for a certain user or group of users. 
+</P>
+<P>To facilitate the addition of entries to the <I>Items to enable</I>
+and <I>Items to disable</I> configuration parameters, Scrip 240
+supports the use of the <FONT SIZE=3>*</FONT> wild card character.
+For example, if you want to disabled occurrences of 
+</P>
+<PRE>RegKey,Administrator,HKEY_USERS\S-1-5-21-1855000883-1368534861-315576832-11656\Software\
+Microsoft\Windows\CurrentVersion\RunOnce,*MS Setup,C:\WINNT\system32\bkinst.exe ren time:1098905100</PRE><P>
+for all users on one system or all systems at a site, in the <EM>Items
+to disable</EM> configuration parameter you should enter:</P>
+<PRE STYLE="margin-bottom: 0.2in">RegKey,*,HKEY_USERS\S-1-5-21-1855000883-1368534861-315576832-11656\Software\Microsoft\Windows\CurrentVersion\RunOnce,*MS Setup,C:\WINNT\system32\bkinst.exe ren time:1098905100</PRE><P>
+Please note that the wild card character can be used only as a value
+in the <I>User Name</I> field.</P>
+<P><A NAME="DDE_LINK41"></A>Wild card character use as described in
+this <I>Note on adding item entries and wild card support</I>
+section, is also supported in the <EM>Configuration settings to
+enforce</EM> configuration parameter.</P>
+<H4>Known items</H4>
+<P>The <I>Known items</I> configuration parameter contains all
+start-up environment items which you know to be safe. This does not
+mean that you may not want to disable items that are in the <I>Known
+items</I> configuration parameter. All it means is that you do not
+have to be concerned about any of them being malware.</P>
+<P>You can add entries to the <I>Known items</I> configuration
+parameter manually making sure that they have the format described
+below. However, we advise against doing this because of the chance of
+inadvertent error.</P>
+<P>The easiest and most reliable way to add entries to the <I>Known
+items</I> configuration parameter, is to copy safe entries in the
+<EM><FONT FACE="verdana, helvetica">Currently enabled items on this
+machine - for review</FONT></EM> configuration parameter, or from the
+<EM><I>Current configuration settings on this machine - for review</I></EM>
+configuration parameter, and paste them on a new line in the <I>Known
+items</I> configuration parameter.</P>
+<P>After you add entries to the <I>Known items</I> configuration
+parameter, changes you have made (i.e. additions to the <EM>Currently
+enabled items on this machine &ndash; known</EM> configuration
+parameter and the <EM><I>Current configuration settings on this
+machine - known</I></EM> configuration parameter, and deletions from
+the <EM>Currently enabled items on this machine &ndash; for review</EM>
+configuration parameter and the <EM><I>Current configuration settings
+on this machine - for review</I></EM> configuration parameter, will
+take effect after you click on the the <I>Update local variables only</I>
+Execute button, or when you click on the <I>Update intrusion
+protection now</I> <EM>Execute</EM> button.</P>
+<P>Please note that since the <I>Known items</I> configuration
+parameter can be global, you can have one known items list for all
+your sites. If you leave the <I>Known items</I> configuration
+parameter set to global, any additions made to the parameter will
+immediately propagate to all systems at a site. In addition, you can
+use the export function to propagate the contents of the <I>Known
+items</I> configuration parameter from one system to all sites.</P>
+<P>We suggest that you maintain a master known items list in an ASCII
+text file and update it as you find start-up items that are known to
+be safe. Periodically, you can copy the master list, paste it into
+the <I>Known items</I> configuration parameter for a system at one of
+your sites (at that point it will propagate automatically to all
+other systems at the site), and then export that system's Scrip 240
+configuration to all other sites.</P>
+<P><EM>Known items</EM> configuration parameter entries can have one
+of the following formats:</P>
+<UL>
+	<LI><P><B>RegKey</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Key, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>IniFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>.ini file (either win.ini or system.ini) path, followed by a
+	comma with no spaces</P>
+	<LI><P>.ini file section, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable name, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>TxtFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Text file path, followed by a comma with no spaces</P>
+	<LI><P>Text file line, followed by a comma with no spaces</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>ExtObj</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Friendly name, followed by a comma with no spaces</P>
+	<LI><P>Key name, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable data, followed by a comma with no spaces</P>
+	<LI><P>Associated DLL</P>
+</UL>
+<H4>Items to enable</H4>
+<P><EM>Items to enable</EM> configuration parameter entries can have
+one of the following formats:</P>
+<UL>
+	<LI><P><B>RegKey</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Key, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>ExtObj</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Friendly name, followed by a comma with no spaces</P>
+	<LI><P>Key name, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable data, followed by a comma with no spaces</P>
+	<LI><P>Associated DLL</P>
+</UL>
+<H4>Items to disable</H4>
+<P>To avoid potentially significant problems, do not use the <I>Items
+to disable</I> configuration parameter to disable/change a system's
+configuration settings listed in the <EM>Configuration settings to
+enforce</EM> configuration parameter. To change a system's
+configuration settings use the <EM>Configuration settings to enforce</EM>
+configuration parameter. Please refer to the <I>Note on configuration
+settings</I> section of this document.</P>
+<P><EM>Items to disable</EM> configuration parameter entries can have
+one of the following formats:</P>
+<UL>
+	<LI><P><B>RegKey</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Key, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>TxtFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Text file path, followed by a comma with no spaces</P>
+	<LI><P>Text file line, followed by a comma with no spaces</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>ExtObj</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Friendly name, followed by a comma with no spaces</P>
+	<LI><P>Key name, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable data, followed by a comma with no spaces</P>
+	<LI><P>Associated DLL</P>
+</UL>
+<H4>Configuration settings to enforce</H4>
+<P><A NAME="DDE_LINK4"></A><EM>Configuration settings to enforce</EM>
+configuration parameter entries can have one of the following
+formats:</P>
+<UL>
+	<LI><P><B>RegKey</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>Key, followed by a comma with no spaces</P>
+	<LI><P>Key variable name, followed by a comma with no spaces</P>
+	<LI><P>Key variable value</P>
+</UL>
+<P>or,</P>
+<UL>
+	<LI><P><B>IniFile</B>, followed by a comma with no spaces</P>
+	<LI><P>User name, followed by a comma with no spaces</P>
+	<LI><P>.ini file (either win.ini or system.ini) path, followed by a
+	comma with no spaces</P>
+	<LI><P>.ini file section, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable name, followed by a comma with no spaces</P>
+	<LI><P>.ini file variable value</P>
+</UL>
+<P><A NAME="DDE_LINK411"></A>Wild card character use as described in
+the <I>Note on adding item entries and wild card support</I> section
+of this configuration help file, is also supported in the
+<EM>Configuration settings to enforce</EM> configuration parameter.</P>
+<H4>Note on configuration settings 
+</H4>
+<P>You should take special care when modifying Scrip 240's
+configuration to change the items in the <EM>Current configuration
+settings on this machine</EM> configuration parameter. If you choose
+to delete entries such as 
+</P>
+<P>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+Explorer\Main,Start
+Page,<A HREF="http://www.microsoft.com/isapi/redir.dll?prd">http://www.microsoft.com/isapi/redir.dll?prd</A>={SUB_PRD}&amp;clcid={SUB_CLSID}&amp;pver={SUB_PVER}&amp;ar=home</P>
+<P>and 
+</P>
+<P>RegKey,adonnini,HKEY_USERS\.Default\Software\Microsoft\Internet
+Explorer\Main,Start Page,about:blank</P>
+<P>respectively a system's, and user's MS Internet Explorer start
+page settings, you will render MS Internet Explorer on the system
+unusable.</P>
+<P>If you delete only a user's MS Internet Explorer start page but
+not a system's MS Internet Explorer start page users on the system
+will still be able to use MS Internet Explorer as the browser will
+default to the system's start page.</P>
+<P>The above consideration is also true for other MS Internet
+Explorer configuration settings although deletion of the others does
+not have the same drastic impact of deletion of the start page
+setting.</P>
+<P>The best way to control MS Internet Explorer Start, Search,
+Customize Search, and Search Assistant page configurations for both a
+system and its users is to use the <EM>Configuration settings to
+enforce</EM> configuration parameter as described in the preceding
+section.</P>
+<H4>Update local variables only</H4>
+<P>Clicking on the <I>Update local variables only</I> <I>Execute</I>
+button, will cause Scrip 240 to update the content of the <EM><FONT FACE="verdana, helvetica">Currently
+enabled startup items on this machine</FONT></EM> configuration
+parameters (for review and known) and the <EM><I>Current
+configuration settings on this machine</I></EM> configuration
+parameters (for review and known), and post an event log on the ASI
+server with the the up-to-date content of a system's configuration
+areas covered by Scrip 232. This function can be useful for verifying
+that Scrip 232 (Intrusion Protection control) is protecting a
+system's configuration areas targeted by intruders without having
+Scrip 240 clean-up them up, which would prevent you from verifying
+that Scrip 232 is working.</P>
+<H4>Update intrusion protection now</H4>
+<P>Clicking on the <I>Update intrusion protection now</I> <EM>Execute</EM>
+button, triggers Scrip 240 immediate execution, even if it's not
+enabled. The <I>Update intrusion protection now</I> <EM>Execute</EM>
+button can be used to execute the Scrip both on the local system, or
+on all systems at a site. When you click on the <I>Update intrusion
+protection now</I> <EM>Execute</EM> button, Scrip 240 runs
+immediately, regenerating the content of the <EM>Currently enabled
+items on this machine</EM> (for review and known), <EM>Currently
+disabled items on this machine</EM> parameters, and <I>Current
+configuration settings on this machine</I> configuration parameters
+(for review and known). It also enables/disables the system
+configuration items identified in the <EM>Items to enable</EM>, and
+<EM>Items to disable</EM> configuration parameters, respectively, and
+enforces the configuration settings contained in the <I>Configuration
+settings to enforce</I> configuration parameter.</P>
+<H4>Note about Scrip 240 execution</H4>
+<P>Scrip 240 runs when one of the following events occurs:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">When the ASI client starts-up</P>
+	<LI><P STYLE="margin-bottom: 0in">When you click on the <I>Update
+	intrusion protection now</I> <EM>Execute</EM> button, or on the
+	<I>Update local variables only</I> Execute button</P>
+	<LI><P STYLE="margin-bottom: 0in">When a user logs on. Having Scrip
+	240 run when a user logs on has the side effect of having it run on
+	ASI client start-up. This is because the user that is currently
+	active is seen as a <I>new user</I> when the ASI client starts up.</P>
+	<LI><P STYLE="margin-bottom: 0in">When it is enabled. When this
+	happens it updates the configuration. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Whenever the schedule changes</P>
+</UL>
+<UL>
+	<LI><P>At its scheduled time</P>
+</UL>
+<P>When Scrip 240 runs the <EM><FONT FACE="verdana, helvetica">Items
+to enable, </FONT><EM><FONT FACE="verdana, helvetica">Items to
+disable</FONT></EM></EM>, and <I>Configuration settings to enforce</I>
+parameters are processed first. After the appropriate system
+configuration items are enabled or disabled as per the configuration,
+then the content of the <EM><EM><FONT FACE="verdana, helvetica">Currently
+enabled items on this machine</FONT></EM> and <EM><EM><FONT FACE="verdana, helvetica">Currently
+disabled items on this machine</FONT></EM> <EM>configuration
+</EM></EM>parameters is</EM> updated.</P>
+<H4>Note on enabling and disabling items</H4>
+<P>The easiest way to disable a system configuration item is to copy
+it from the <I>Currently enabled items</I> configuration parameter,
+and paste it into the <I>Items to disable</I> configuration
+parameter. To re-enable an item you can move it (cut and paste) from
+the <I>Items to disable</I> configuration parameter to the <I>Items
+to enable</I> configuration parameter.</P>
+<P>Please note that you cannot re-enable <I>TxtFile</I> items as
+described above. 
+</P>
+<P>While this method of enabling and disabling start-up items is
+certainly not the most elegant, it is straightforward and efficient.
+For example, in order to disable a system configuration item on all
+systems at a site you only need to add an entry to the <I>Items to
+disable</I> configuration parameter on one system. 
+</P>
+<P><A NAME="DDE_LINK2"></A>In order to add entries to the
+<I>Configuration settings to enforce</I> configuration parameter
+minimizing the probability of making an error, you should perform the
+following steps:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><A NAME="DDE_LINK1"></A>Click on
+	the <I>list all</I> link to the right of the <I>Configuration
+	settings to enforce</I> configuration parameter on the Scrip 240
+	configuration page on any system</P>
+	<LI><P STYLE="margin-bottom: 0in">Locate the <I>RegKey</I> or
+	<I>IniFile</I> item with a value the configuration setting you want
+	to enforces</P>
+	<LI><P STYLE="margin-bottom: 0in">Copy the desired <I>RegKey</I> or
+	<I>IniFile</I> item</P>
+	<LI><P STYLE="margin-bottom: 0in">Go back to the Scrip 240
+	configuration page by clicking on your browser Back button</P>
+	<LI><P STYLE="margin-bottom: 0in">Paste the <I>RegKey</I> or <I>IniFile</I>
+	item you copied in the <I>Configuration settings to enforce</I>
+	configuration parameter text box 
+	</P>
+	<LI><P>Click on the Submit Changes button if you want to record the
+	changes, or the <EM>Execute</EM> button if you want to enforce the
+	configuration change immediately</P>
+</UL>
+<P>When performing any of the above tasks, please pay special
+attention to the local/global settings of each variable whose value
+you are changing. Otherwise, you run the risk of making changes to
+all systems at a site, when you don't want to, or making changes on
+only one system when, in fact, the changes should apply to all
+systems at a site. You should use the same care when executing Scrip
+240 on-demand using the <EM>Execute</EM> button.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

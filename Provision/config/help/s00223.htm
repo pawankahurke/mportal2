@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 223 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20041019;8481492">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20041122;22270769">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 223 Configuration</H3>
+<H4>Configuration parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Site registration code</EM> is
+	empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Scrips enabled at start-up</EM>
+	is empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Scrips enabled at start of
+	follow-on phase</EM> is empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Delay before start of
+	follow-on phase (minutes)</EM> is empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Check box if you want
+	follow-on action to uninstall ASI client</EM> unchecked 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Initial delay for install server
+	retry, in seconds set to <B>300</B></P>
+	<LI><P STYLE="margin-bottom: 0in">Global Maximum delay for install
+	server retry, in seconds set to <B>86400</B></P>
+	<LI><P>Global Random offset for install server retry, in seconds set
+	to <B>120</B></P>
+</UL>
+<H4>ASI client installation and deployment</H4>
+<P>When the ASI client comes up on the first system where the generic
+ASI client installation executable has been run, it is in a <EM>dormant</EM>
+configuration with a minimum number of Scrips enabled. One of the
+Scrips that is enabled is Scrip 223. The first thing this Scrip does
+is to check whether or not the ASI client has been configured. If it
+hasn't, then it displays a dialog box asking for the ten-digit site
+registration code. It checks the internal consistency of the code,
+using the check digit, and keeps asking until it gets one that is
+internally consistent.</P>
+<P>Once the ASI client installation and deployment Scrip has the
+ten-digit site registration code, it makes a remote call to the ASI
+installation management facility asking for the site installation and
+deployment information. This is the information that you entered for
+the site on the ASI installation management facility; the information
+that is in cust.ini when the ASI client is installed using a custom
+installation executable. This information allows the ASI client to be
+deployed for operational use.</P>
+<P>Since it controls the application of the start-up and follow-on
+Scrip configurations, Scrip 223 effectively manages both the initial
+installation of the ASI client and its operational deployment.</P>
+<P>If the ASI client is installed on a system connected to a sub-net
+where the ASI client is already installed and running on other
+systems, Scrip 223 performs a series of tasks to facilitate the site
+registration code entry process:</P>
+<P STYLE="margin-left: 1.25in"><FONT SIZE=2 STYLE="font-size: 9pt"><FONT FACE="Arial Black">1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT></FONT>If
+Scrip 223 sees responses to the broadcast it sends after the with
+execution of the installation executable is completed with more than
+one site code, then it will leave the site registration code box in
+the dialog box empty, and the dialog box includes the message: <B>&quot;No
+default is provided because multiple codes are currently accessible
+on this sub-net&quot;</B>.</P>
+<P STYLE="margin-left: 1.25in"><FONT SIZE=2 STYLE="font-size: 9pt"><FONT FACE="Arial Black">2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT></FONT>If
+the Scrip 223 doesn't see any responses to its broadcast, it doesn't
+enter any suggested site code, and the dialog box includes the
+message: <B>&quot;No default code is provided because no codes are
+currently accessible on this sub-net&quot;</B>.</P>
+<P STYLE="margin-left: 1.25in"><FONT SIZE=2 STYLE="font-size: 9pt"><FONT FACE="Arial Black">3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT></FONT>If
+the Scrip 223 sees responses to its broadcast with only one site
+registration code, it uses that site registration code as a suggested
+value, and the dialog box includes the message: <B>&quot;The default
+code provided is the only one currently accessible on this sub-net&quot;</B>.
+Please note that the person performing the installation needs to
+explicitly accept the suggested site registration code value.</P>
+<P STYLE="margin-left: 1.25in"><FONT SIZE=2 STYLE="font-size: 9pt"><FONT FACE="Arial Black">4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT></FONT>If
+the suggested site registration code in 3) is one generated by the
+ASI client, as in the case of versions of the client that are
+installed using a custom installation executable (one that has a
+cust.ini file), then it will be used as the suggested site
+registration code. However, if the person performing the installation
+enters a legacy site registration code (one generated from the site
+name contained in the cust.ini file), Scrip 223 will reject it, and
+the rejection is accompanied by a dialog box that says: <B>&quot;Site
+registration codes for sites where the ASI client was originally
+installed with a custom installation executable are not valid&quot;</B>.</P>
+<P>Please refer to the document titled <I>ASI Client Installation
+Instructions</I> for step-by step ASI client installation
+instructions.</P>
+<H4>ASI client deployment changes</H4>
+<P>You may want to change a site's installation and deployment
+information after deployment has already started. For example, you
+may want to change the follow-on phase Scrip configuration, or you
+may want to change the duration of the start-up phase or the action
+at the end of the start-up phase.</P>
+<P>In order to change the deployment of the ASI client at a site
+after the start-up phase is already under way, you would change the
+configuration of Scrip 223 either by directly logging onto the ASI
+client Scrip configurator on any system at the site using any
+browser, or logging onto the ASI server configuration module.</P>
+<P><STRONG>You should be extremely careful about using Scrip 223
+after deployment of the ASI client at a site is completed. You can
+use it to:</STRONG></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>Disable or enable Scrips
+	by changing the value of the Scrips enabled at start-up parameter </STRONG>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>Place the ASI clients at a
+	site in start-up configuration mode by giving the Delay before start
+	of follow-on phase (minutes) parameter a value greater than the one
+	originally given. If you do this, you can also change the value of
+	the Scrips enabled at start-up parameter. You can also remove the
+	ASI client at a site by enabling the Check box if you want follow-on
+	action to uninstall ASI client option. </STRONG>
+	</P>
+	<LI><P><STRONG>Remove the ASI client from all systems at a site by
+	enabling the Check box if you want follow-on action to uninstall ASI
+	client option. This can be done independently from changes made to
+	any of the other parameters. </STRONG>
+	</P>
+</UL>
+<P><STRONG>If you accidentally change the value of the Site
+registration code parameter, the ASI client will prompt you to
+re-enter the correct value. If you change the change the value of the
+Site registration code parameter to another valid registration code,
+the ASI client will automatically contact the ASI installation
+management facility to retrieve the site, start-up and follow-on
+configuration parameters from the new site profile, and re-deploy the
+ASI client at the site.</STRONG></P>
+<P><STRONG>Please note that any changes to the Site registration code
+parameter should be made only via the Scrip configuration module on
+the ASI server because changing a site's registration code also
+changes the password used by the ASI clients when communicating to
+each other. This means that a change to the registration code made
+locally will not propagate.</STRONG></P>
+<P><STRONG>If you want to change the name of a site, creating a new
+site profile record on the ASI installation management facility is an
+easy and quick way to make this change remotely. Once the new site
+profile record is created, simply change the value of the Site
+registration code parameter to the new site registration code,
+ensuring that you make this change using the Scrip configuration
+module on the ASI server used by the site.</STRONG></P>
+<H4>ASI installation process detail</H4>
+<P>When you run the generic ASI client installation executable on the
+first system at a site, Scrip 223 tries to load configuration data
+from cust.ini. If that succeeds, a unique registration code is
+generated from the site name that is in cust.ini. If loading data
+from the file fails (for example because cust.ini is not present),
+Scrip 223 prompts the user for the site registration code through a
+dialog box. The dialog box will pop up until the user has entered a
+valid site registration code.</P>
+<P>If the e-mail distribution option is enabled, the ASI client
+installation and deployment Scrip checks for the cookie from the ASI
+installation management facility that contains the site registration
+code. The ASI client will look the cookie in the browser (Microsoft
+Internet Explorer) cookie directory. The location does not matter
+because the ASI client uses a procedure call into a special API to
+get the cookie. The cookie is stored by the ASI installation
+management facility when the user clicks on the URL download link in
+the ASI client installation e-mail message.</P>
+<P>Once the Scrip has a valid registration code, it tries to contact
+the ASI installation management facility server (unless the data was
+loaded from cust.ini). If it fails because the server is unreachable,
+then a timer will be started to retry as described in the <I>Scrip
+223 re-try mechanism</I> section below. If the contact fails because
+the site is invalid, Scrip 223 will generate a dialog box asking the
+user for a new registration code. If the contact succeeds, the Scrip
+will load and activate the start-up Scrip configuration. If the Scrip
+configuration was loaded from cust.ini, then Scrip 223 loads and
+activates the follow-on Scrip configuration. In this way, the ASI
+client installation process will work at existing sites.</P>
+<P>After the start-up Scrip configuration is loaded and active, Scrip
+223 will start the countdown to the start of the follow-on phase. The
+length of the countdown is equal to the delay you entered in the site
+installation and deployment information on the ASI installation
+management facility. Each time Scrip 223 runs, it will re-compute the
+remaining time. When the remaining time passes zero, the Scrip
+executes the follow-on action that may consist of loading and
+activating the follow-on Scrip configuration, placing the ASI client
+in a dormant state, or uninstalling it.</P>
+<H4>Scrip 223 re-try mechanism</H4>
+<P>If the initial attempt to contact the ASI installation server when
+the ASI client first starts up after installation fails, Scrip 223
+will start re-trying to contact the ASI installation server at the
+time you enter in the <I>Initial delay for install server retry, in
+seconds</I> configuration parameter, then doubles the interval
+between attempts to contact the ASI server each time until it gets to
+the value you enter in the <I>Maximum delay for install server retry,
+in seconds</I> configuration parameter at which point it doesn't
+increase any more.</P>
+<P>In order to spread out the impact on the connection, whenever a
+time is computed for contacting the ASI installation server, a random
+number of seconds between 0 and the value in you enter in the <I>Random
+offset for install server retry, in seconds</I> configuration
+parameter is added to the time.</P>
+<P>Regardless of the values you enter in the <I>Initial delay for
+install server retry, in seconds</I>, <I>Maximum delay for install
+server retry, in seconds</I>, and <I>Random offset for install server
+retry, in seconds</I> configuration parameters an maximum value of
+<B>three days</B> is imposed on the re-try interval.</P>
+<P>With its default values, after the ASI client is installed, after
+initial ASI client start-up Scrip 223 will try to contact the ASI
+installation server at these times:</P>
+<P>0, 5 minutes, 15 minutes, 35 minutes, 1 hour and 15 minutes, 2
+hours and 35 minutes, 5 hours 15 minutes, 10 hours 35 minutes, 21
+hours 15 minutes. Each of these times will be delayed by a random
+interval between 0 and 2 minutes.</P>
+<P>If the attempts to contact the ASI installation server at the
+times listed above fail, Scrip will contact the ASI installation
+server once per day after that. 
+</P>
+<P>Every time the ASI client starts, Scrip 223 will try to contact
+the ASI installation server, and then it will try again once per day,
+every day after that.</P>
+<P>If the local ASI repository gets corrupted, it will start the 0, 5
+min, etc. sequence over.</P>
+<H4>Site registration code</H4>
+<P>The <EM>Site registration code</EM> is the ten-digit registration
+code that uniquely identifies a site.</P>
+<H4>Scrips enabled at start-up</H4>
+<P><EM>Scrips enabled at start-up</EM> is a comma separated list of
+the Scrips that you want eenabled at the beginning of the start-up
+phase. If the list is a single asterisk, all Scrips will be enabled.
+If the list is empty, The ASI client is in a dormant state. No Scrips
+are enabled except the minimum set necessary for you to be able to
+activate the client at a time of your choosing.</P>
+<P>A sample <EM>Scrips enabled at start-up</EM> list is:</P>
+<P><STRONG>9,12,15,18,19</STRONG></P>
+<P>You can use a text editor to build your list and cut and paste
+into the <EM>Scrips enabled at start-up</EM> list.</P>
+<H4>Scrips enabled at start of follow-on phase</H4>
+<P><EM>Scrips enabled at start of follow-on phase</EM> is a comma
+separated list of the Scrips that you want eenabled at the beginning
+of the start-up phase. If the list is a single asterisk, all Scrips
+will be enabled. If the list is empty, The ASI client is in a dormant
+state. No Scrips are enabled except the minimum set necessary for you
+to be able to activate the client at a time of your choosing.</P>
+<P>A sample <EM>Scrips enabled at start of follow-on phase</EM> list
+is:</P>
+<P><STRONG>9,12,15,18,19</STRONG></P>
+<P>You can use a text editor to build your list and cut and paste
+into the <EM>Scrips enabled at start-up</EM> list.</P>
+<H4>Delay before start of follow-on phase (minutes)</H4>
+<P><EM>Delay before start of follow-on phase (minutes)</EM>
+represents the length of the start-up phase of the ASI client
+deployment measured in minutes.</P>
+<H4>Check box if you want follow-on action to uninstall ASI client</H4>
+<P>If the <EM>Check box if you want follow-on action to uninstall ASI
+client</EM> box is checked, the ASI client will be uninstalled from
+the system at the end of the start-up phase.</P>
+<H4>Initial delay for install server retry, in seconds</H4>
+<P>If the initial attempt to contact the ASI installation server when
+the ASI client first starts up after installation fails, in the
+<I>Initial delay for install server retry, in seconds</I>
+configuration parameter you enter the amount of time Scrip 223 should
+wait before starting to re-try to contact the ASI installation
+server.</P>
+<H4>Global Maximum delay for install server retry, in seconds</H4>
+<P>When Scrip 223's ASI server contact re-try interval reaches the
+value you enter the <I>Maximum delay for install server retry, in
+seconds</I> configuration parameter, it will stop re-trying to
+contact the ASI server.</P>
+<H4>Global Random offset for install server retry, in seconds</H4>
+<P>In the <I>Random offset for install server retry, in seconds</I>
+configuration parameter you enter the range in which the calculated
+random number of seconds added to the re-try time will fall.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2004
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

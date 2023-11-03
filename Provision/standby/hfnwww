@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# hfnwww
+# Reset /www symlink on boot
+#
+# The purge/optimize script changes the normal
+# symbolic link for /www to enable Apache standby
+# mode, which prevents clients and interactive
+# users from updating the database.  This script
+# resets the symbolic link, to recover from a
+# crash during the purge/optimize.
+# This script should always run before httpd
+# startup on boot.
+
+if [ -d /www/main/acct ] && [ -d /var/www/html ]; then
+    rm -rf /www
+    ln -s /var/www/html /www
+fi

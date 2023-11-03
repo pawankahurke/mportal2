@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Enabling Baseline Event Notifications</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20071121;14015965">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Enabling Baseline Event Notifications</H3>
+<P>After you install the ASI client at your first site, you may want
+to enable a small set of e-mail notifications to alert you about
+important events. Based on experience, we think that the following
+list includes the minimum set of such notifications:</P>
+<UL>
+	<LI><P>ASI client not reporting (servers only &ndash; please refer
+	to <A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Monitor%20ASI%20Clients%20on%20critical%20devices%2001.html" TARGET="_blank">Monitoring
+	ASI Clients on critical devices</A>)</P>
+	<LI><P>Compaq physical drive failure</P>
+	<LI><P>DellOM - Disk array errors - AspiPro</P>
+	<LI><P>DellOM - Disk array errors - Mylex</P>
+	<LI><P>DellOM - Disk array errors - Perc2Pro</P>
+	<LI><P>DellOM - Disk array errors - PercPro</P>
+	<LI><P>disk - DELL raid controller errors</P>
+	<LI><P>device status (before activating this notification, you need
+	to activate device availability monitoring using Scrip 88 (Devices
+	and Services Availability as described in )</P>
+	<LI><P>disk - Device slot returned an invalid status</P>
+	<LI><P>disk - Driver detect an internal error</P>
+	<LI><P>disk - driver detected a controller error</P>
+	<LI><P>disk - ft set cannot be used</P>
+	<LI><P>disk - ftdisk failed</P>
+	<LI><P>disk - not ready for access</P>
+	<LI><P>disk - parity error</P>
+	<LI><P>disk - port timeout due to prolonged inactivity</P>
+	<LI><P>disk array status change</P>
+	<LI><P>disk cap &lt; 10 percent</P>
+	<LI><P>disk controller error</P>
+	<LI><P>disk did not respond</P>
+	<LI><P>mass storage device has bad block - disk</P>
+	<LI><P>Unexpected system shutdown</P>
+</UL>
+<P><BR><BR>
+</P>
+<P>We will describe the process for retrieving, editing, and enabling
+event notifications using those covering disk problems as an example.</P>
+<H4>Retrieving event notifications</H4>
+<P>In order to retrieve event notifications covering disk related
+problems, please perform the following steps:</P>
+<P>I) Log onto the ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+The ASI dashboard will be displayed.</P>
+<P>II) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>III) Go to the &quot;Event Notifications&quot; page. Click on the
+&quot;notifications&quot; link in the &quot;events&quot; navigation
+bar (https://asiservername/main/event/notify.php)</P>
+<P>IV) In the &quot;Search Options&quot; panel, enter:</P>
+<UL>
+	<LI><P><B>disk</B>    in the &quot;Name contains&quot; search
+	options parameter</P>
+	<LI><P><B>disk</B>    in the &quot;Filter contains&quot; search
+	options parameter,</P>
+</UL>
+<P STYLE="margin-left: 0.52in">and click on the &quot;Search&quot;
+button</P>
+<P>A number of notifications will be retrieved. Among these, the
+following disk problem related event notifications:</P>
+<UL>
+	<LI><P>DellOM - Disk array errors - AspiPro</P>
+	<LI><P>DellOM - Disk array errors - Mylex</P>
+	<LI><P>DellOM - Disk array errors - Perc2Pro</P>
+	<LI><P>DellOM - Disk array errors - PercPro</P>
+	<LI><P>disk - DELL raid controller errors</P>
+	<LI><P>disk - Device slot returned an invalid status</P>
+	<LI><P>disk - Driver detect an internal error</P>
+	<LI><P>disk - driver detected a controller error</P>
+	<LI><P>disk - ft set cannot be used</P>
+	<LI><P>disk - ftdisk failed</P>
+	<LI><P>disk - not ready for access</P>
+	<LI><P>disk - parity error</P>
+	<LI><P>disk - port timeout due to prolonged inactivity</P>
+	<LI><P>disk array status change</P>
+	<LI><P>disk cap &lt; 10 percent</P>
+	<LI><P>disk controller error</P>
+	<LI><P>disk did not respond</P>
+	<LI><P>mass storage device has bad block - disk</P>
+</UL>
+<P>V) In the &quot;Search Options&quot; panel, enter:</P>
+<UL>
+	<LI><P><B>mass</B>   in the &quot;Name contains&quot; search options
+	parameter,</P>
+</UL>
+<P STYLE="margin-left: 0.52in">and click on the &quot;Search&quot;
+button</P>
+<P>The following event notification will be retrieved:</P>
+<UL>
+	<LI><P>mass storage device has bad block</P>
+	<LI><P>mass storage device has bad block - cdrom</P>
+	<LI><P>mass storage device has bad block - disk</P>
+	<LI><P>mass storage device has bad block - tape 
+	</P>
+</UL>
+<P>VI) In the &quot;Search Options&quot; panel, enter:</P>
+<UL>
+	<LI><P><B>compaq</B>  in the &quot;Name contains&quot; search
+	options parameter, and click on the &quot;Search&quot; button. 
+	</P>
+</UL>
+<P>The following event notification will be retrieved:</P>
+<UL>
+	<LI><P>Compaq physical drive failure</P>
+</UL>
+<H4>Editing and enabling event notifications</H4>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The Welcome page will be displayed.</P>
+	<LI><P>At the upper right-hand corner of any page on the ASI server,
+	click on the &ldquo;notifications&rdquo; link in the &ldquo;events&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The &ldquo;Event Notifications&rdquo;
+	page will be displayed.</P>
+	<LI><P>Retrieve the event notifications you want to edit and enable
+	following the instructions in the &ldquo;Retrieving event
+	notifications&rdquo; section of this document.</P>
+	<LI><P>If all you want to do is enable an event notification, just
+	click on its &ldquo;enable&rdquo; action link, found in the &ldquo;Action&rdquo;
+	column to the left of the name of the notification.</P>
+	<LI><P>If you want to customize an event notification, then click on
+	the &ldquo;edit&rdquo; action link , found in the &ldquo;Action&rdquo;
+	column to the left of the name of the notification. The &ldquo;Edit
+	an Event Notification&rdquo; page will be displayed (the name of the
+	page will be slightly different if you are customizing a global
+	event notification owned by another user).</P>
+	<LI><P>Review the configuration settings of the event notification
+	you want to customize, and change them as needed carefully following
+	the on-screen instructions. In order to enable the event
+	notification select &ldquo;Yes&rdquo; from the &ldquo;Enabled&rdquo;
+	configuration parameter pull-down list. Once you have completed the
+	review and change of the event notification configuration, click on
+	the &ldquo;Update&rdquo; button (if you are customizing a global
+	event notification owned by another user, you will click on the
+	&ldquo;Add&rdquo; button as you will be adding a local copy of the
+	event notification which you will own).</P>
+</OL>
+<H4>Notes on disk problem tracking</H4>
+<P><I>The currently available disk problem event notifications do not
+by any means cover all potential disk failures. If you know of other
+disk/controller related MS Windows event log errors, please let us
+know. It will be very easy to add event filters to retrieve the event
+logs produced by these other errors.</I></P>
+<P><I>Additionally, you could use Scrip 89 (or one of Scrips 151-157,
+or 212-215) to periodically run a disk/mass storage sub-system
+diagnostic utility, then use Scrip 100 to retrieve the log files
+produced by the disk/mass storage sub-system diagnostic utility,
+define event filters that scan the log files for errors, and define
+notifications that use these filters. If you already have a disk/mass
+storage sub-system diagnostic utility which runs periodically, you do
+not need to use Scrip 89 to run it.</I></P>
+<P><I>Please note that there are more than 100 event filters designed
+to retrieve event logs reporting disk related problems. The ones
+listed above retrieve the most frequently occurring disk related
+problems. For each of these, there is a pre-built event notification,
+as described above. You can easily define event notifications using
+those event filters which are currently not used by any event
+notification.</I></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

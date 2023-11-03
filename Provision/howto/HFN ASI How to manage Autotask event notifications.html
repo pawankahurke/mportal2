@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>How to Manage Autotask Event Notifications</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20080315;17414825">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>How to Manage Autotask Event Notifications</H3>
+<P>Previously, users could configure event notifications to be
+automatically sent to the Autotask server of their choice, and
+automatically generate tickets.</P>
+<P>Extended Autotask support lets users:</P>
+<UL>
+	<LI><P>Create open (or closed) Autotask tickets</P>
+	<LI><P>Enable or disable Autotask integration per ASI notification</P>
+	<LI><P>Optionally append additional instances of a notification to
+	an existing Autotask ticket avoiding unnecessary ticket
+	proliferation</P>
+	<LI><P>Directly access their Autotask server, and configure Autotask
+	settings per user including :</P>
+	<UL>
+		<LI><P>Autotask server assignment by site</P>
+		<LI><P>Ticket priority</P>
+		<LI><P>Ticket queue</P>
+		<LI><P>Ticket due date</P>
+		<LI><P>Ticket creation options</P>
+		<UL>
+			<LI><P>Always create new tickets</P>
+			<LI><P>Always create new tickets and close them</P>
+			<LI><P>Append multiple instances of the same notification to an
+			existing ticket</P>
+		</UL>
+		<LI><P>Ticket Note options</P>
+		<UL>
+			<LI><P>Note Type</P>
+			<LI><P>Publish</P>
+		</UL>
+	</UL>
+</UL>
+<P>Extended Autotask support works as described below.</P>
+<H4>Configuring Autotask settings</H4>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The Welcome page will be displayed.</P>
+	<LI><P>At the upper right-hand corner of any page on the ASI server,
+	click on the &ldquo;notifications&rdquo; link in the &ldquo;events&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The &ldquo;Event Notifications&rdquo;
+	page will be displayed.</P>
+	<LI><P>If you want to define a default Autotask configuration for
+	all users on the ASI server, click on the &ldquo;autotask server
+	defaults&rdquo; link in the line of links above the &ldquo;Search
+	Options&rdquo; panel. If you want to define an Autotask
+	configuration for the user currently logged on, click on the
+	&ldquo;autotask&rdquo; link in the line of links above the &ldquo;Search
+	Options&rdquo; panel. The &ldquo;Autotask Server Login&rdquo; page
+	will be displayed.</P>
+</OL>
+<P><I>Please note that whether you click on the &ldquo;autotask
+server defaults&rdquo;, or the &ldquo;autotask&rdquo; link, the
+information you will be asked to provide is the same. In the former
+case it will apply to all users, in the latter it will apply only to
+the user currently logged on. The main differences between the
+Autotask settings pages for one user and for all users are:</I></P>
+<UL>
+	<LI><P><I>The word &ldquo;Default&rdquo; used in the title of the
+	Autotask settings page for all users</I></P>
+	<LI><P><I>In the &quot;user&quot; Autotask settings page, for each
+	ASI site you can either leave the &ldquo;Autotask account&rdquo;
+	configuration parameter set to the value entered in the &quot;Autotask
+	server defaults&quot; (leave selection to &ldquo;Use Default&rdquo;)
+	if you have a site that doesn&rsquo;t have an Autotask account  set
+	up, or assign the Autotask account corresponding to each ASI site
+	for those sites that have an Autotask customer account set up.</I></P>
+</UL>
+<OL START=5>
+	<LI><P>Enter the Autotask server domain name, user name, and
+	password, and click on the &ldquo;Connect&rdquo; button. The
+	&ldquo;Autotask Settings Configuration&rdquo; page will be
+	displayed.</P>
+	<LI><P>Follow the on-screen instructions carefully. When you have
+	entered all of the required information, click on the &ldquo;Save&rdquo;
+	button. The &ldquo;Autotask Settings&rdquo; save confirmation page
+	will be displayed.</P>
+</OL>
+<H5><I>Notes</I></H5>
+<P><I>Default settings for all users on the ASI server can only be
+changed by administrative users. </I>
+</P>
+<P><I>When a notification with Autotask enabled runs for a particular
+user, the ASI server software looks for user specific Autotask
+settings first. If there are no user specific settings, it checks for
+default settings setup by an administrator. If these default settings
+do no exist, a note is made in the php log and the audit log to that
+effect. Please note that an ASI server where the Autotask support
+extensions have been newly installed does not have any Autotask
+settingsl. </I>
+</P>
+<H4>Configuring event notifications for Autotask</H4>
+<OL TYPE=a>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The Welcome page will be displayed.</P>
+	<LI><P>At the upper right-hand corner of any page on the ASI server,
+	click on the &ldquo;notifications&rdquo; link in the &ldquo;events&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The &ldquo;Event Notifications&rdquo;
+	page will be displayed.</P>
+	<LI><P>To retrieve the notifications you want to configure for
+	Auotask, in the &quot;Name Contains&quot; parameter in the &quot;Search
+	Options&quot; panel, enter one or more keywords the name of these
+	notifications have in common. If necessary, adjust the value of the
+	&ldquo;Page Size&rdquo; parameter in the &ldquo;Display Options&rdquo;
+	panel.</P>
+	<LI><P>Click on the Search button. The notifications you want to
+	configure for Auotask will be listed in the &ldquo;Event
+	Notifications&rdquo; page.</P>
+	<LI><P>Click on the &ldquo;edit&rdquo; action link , found in the
+	&ldquo;Action&rdquo; column to the left of the name of the
+	notification. The &ldquo;Edit an Event Notification&rdquo; page will
+	be displayed (the name of the page will be slightly different if you
+	are customizing a global event notification owned by another user).</P>
+	<LI><P>If you need to enable the event notification select &ldquo;Yes&rdquo;
+	from the &ldquo;Enabled&rdquo; configuration parameter pull-down
+	list</P>
+	<LI><P>Scroll down the &ldquo;Edit a Notification&rdquo; page until
+	you see the &ldquo;Autotask&rdquo; configuration option. Click on
+	its box. The &ldquo;Per-site e-mail notifications&rdquo;
+	configuration parameter will also be automatically enabled, and
+	grayed out. You will not be able to disable it.</P>
+	<LI><P>Review the other configuration settings of the event
+	notification, and change them as needed carefully following the
+	on-screen instructions. Once you have completed the review and
+	changes of the event notification configuration, click on the
+	&ldquo;Update&rdquo; button (if you are customizing a global event
+	notification owned by another user, you will click on the &ldquo;Add&rdquo;
+	button as you will be adding a local copy of the event notification
+	which you will own).</P>
+</OL>
+<H5><I>Notes</I></H5>
+<P><I>If you add a notification, or copy a notification for Autotask,
+the event notification configuration steps are the same as those
+described in a) to i) above, except that the name of the page you
+will be configuring the notification on will be called &ldquo;Add an
+Event Notification&rdquo; and &ldquo;Copy an Event Notification&rdquo;,
+respectively.</I></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2008
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

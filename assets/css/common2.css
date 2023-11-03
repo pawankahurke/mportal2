@@ -1,0 +1,100 @@
+/* kishore comments */
+
+.toolbar .icon-bullet-list-67 {
+    top: 0px;
+    margin-top: 5px;
+    margin-right: 10px;
+    float: right;
+    cursor: pointer;
+    color: #fa0f4b;
+    font-size: 16px;
+    margin-left: 35px;
+}
+.bullDropdown .dropdown-menu {
+    position: absolute !important;
+    left: 1046px !important;
+    top: 27px !important;
+}
+.bullDropdown .dropdown-menu:before {
+    left: 140px;
+}
+.main-panel>.content .card {
+    min-height: calc(100vh - 72px);
+    margin-bottom: 0px;
+}
+
+/* rightside slider starts */
+
+.rightSidenav {
+  height: calc(100vh - 72px);
+  width: 0;
+  position: fixed;
+  z-index: 9999;
+  top: 52px;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
+}
+.rightSidenav a {
+  padding: 2px 8px 5px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.rightSidenav a:hover {
+  color: #f1f1f1;
+}
+.rightSidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 22px;
+    width: 97%;
+    left: 0px;
+    text-align: right;
+}
+.rightSidenav .button {
+    bottom: 5px;
+    margin: auto;
+    position: relative;
+}
+.rightSidenav .form {
+    padding: 15px;
+    width: 100%;
+    height: calc(100vh - 150px);
+    background: #fff;
+        overflow-x: hidden !important;
+}
+#absoFeed {
+    display: none;
+    width: 0px;
+    height: calc(100vh - 72px);
+    float: left;
+    background: #858d93;
+    z-index: 9;
+    top: 52px;
+    position: absolute;
+    opacity: 0.5;
+}
+.sm-3 {
+    width: 30%;
+}
+.md-6 {
+    width: 50%;
+}
+.lg-9 {
+    width: 70%;
+}
+.rightslide-container-hide {
+    width: 0;
+}
+div.dataTables_scrollBody table tbody tr:first-child td {
+    border-top: solid 1px rgba(34, 42, 66, 0.2);
+}
+div.dataTables_scrollBody table tbody tr:last-child td {
+    border-bottom: solid 1px rgba(34, 42, 66, 0.2);
+}

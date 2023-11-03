@@ -1,0 +1,457 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 232 - Intrusion Protection Management</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20031126;9054487">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20041104;20333374">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 232 &ndash; <FONT FACE="verdana, helvetica"><FONT COLOR="#333399">Intrusion
+Protection Management</FONT></FONT></H3>
+<H4>Overview</H4>
+<P>Scrip 232 detects attempted configuration changes that can be used
+to execute unauthorized or malicious code. It can be configured to
+disable or delete these changes automatically without end-user
+intervention. If the user interface option is enabled, it alerts the
+end-user of such system configuration changes giving him/her the
+option to reject, disable (for future re-enabling if desired), or
+accept such changes.</P>
+<P>The areas monitored by Scrip 232 are ones that are not normally
+covered by anti-virus and most other intrusion protection software.
+Scrip 232 focuses particularly on how a virus or other unauthorized
+code may be re-activated after an end-user or system administrator
+tries to terminate its execution and remove it. Typically, if an
+end-user or system administrator discovers an unauthorized executable
+running they may shut down the application, remove it, and possibly
+remove an entry for it from the system registry. 
+</P>
+<P>However it is possible, using shell extension handlers for
+example, to run a program every time a user right-clicks on a file
+which checks to see if the <I>rogue</I> application is installed and
+running, and if not, re-installs it and re-runs it. This type of
+re-activation can be very difficult to track down. 
+</P>
+<P>Malicious code can also be run at startup by using the Run
+registry keys, the startup folders, system.ini and win.ini. Scrip 27,
+(System Start-up Executable Management) protects these areas from
+intrusion. Though autoexec.bat can be used to run code at startup,
+currently it's rarely used to do so. In autoexec.bat, we're more
+interested here in protecting the contents of the PATH environment
+variable. <I>Rogue</I> applications can use it to run unauthorized
+code. The system areas and object types currently protected by Scrip
+232 include:</P>
+<UL>
+	<LI><P>Autoexec.bat</P>
+	<LI><P>Shell extension handlers</P>
+	<LI><P>Screen savers</P>
+	<LI><P><EM>Open</EM> verb's command default value for executable
+	files</P>
+	<LI><P>The <EM>Shell</EM> and <EM>Userinit</EM> values for the
+	Winlogon key</P>
+	<LI><P><EM>RunOnce</EM>, <EM>RunOnceEx</EM>, and <EM>RunServicesOnce</EM>
+	registry keys</P>
+	<LI><P>Scrap Objects</P>
+</UL>
+<H4>How it works</H4>
+<P>Scrip 232 creates a hidden directory in the client dir called
+&quot;232&quot;. When the scrip first runs it creates in this hidden
+directory backup files of autoexec.bat, explorer.exe, and
+userinit.exe, using the .bak extension. Scrip 232 watches these files
+for tampering using checksums and should one of these files change
+the backup file in the hidden directory will be restored if the
+change is rejected (either silently, by dialog box timeout, or by
+user action). If a file changes and the change is accepted then the
+backup file is updated.</P>
+<P>Further, if one of these files change and the chosen action is
+&quot;Disable&quot; then in addition to the backup file being
+restored the &quot;disabled&quot; version is archived in the hidden
+directory with the extension dbl. This is so a system administrator
+could examine the changed file after the backup is restored.</P>
+<H4>Scrip 232 coverage areas detail</H4>
+<P>In this section we describe in some detail the areas and object
+Scrip 232 protects from intrusion. For additional information on why
+and how configuration changes in these areas, and changes to these
+objects, can cause the execution of malicious code please refer to
+the article by Jason Fisher titled &quot;Understand Common Virus
+Attacks Before They Strike to Better Protect Your Apps&quot; at the
+following URL:</P>
+<P><A HREF="http://msdn.microsoft.com/msdnmag/issues/03/05/VirusHunting/default.aspx">http://msdn.microsoft.com/msdnmag/issues/03/05/VirusHunting/default.aspx</A></P>
+<UL>
+	<LI><P><EM><FONT FACE="Arial Black">Autoexec.bat</FONT></EM> can be
+	used to run executable files on startup so we'll use a checksum to
+	watch for changes in this config file. Also, the modification of the
+	PATH environment variable is perhaps even more insidious than
+	running executable code directly because it's less likely to be
+	noticed as a potential risk. For example, when Microsoft Windows NT
+	starts up it runs explorer.exe as the shell. This is because the
+	&quot;Shell&quot; value of the &quot;Winlogon&quot; key is set to
+	&quot;explorer.exe&quot;. Now explorer.exe can't be replaced with a
+	copy while Windows NT is running because it's protected by an
+	operating system lock. However, there is no path given in the
+	registry, so someone could replace explorer.exe with a copy stored
+	somewhere on the system, and change the PATH variable so that Winds
+	NT uses the copy instead of the original. What's worse is that the
+	real explorer.exe is no longer protected by an operating system lock
+	so it can now be overwritten. &nbsp;</P>
+	<LI><P><EM><FONT FACE="Arial Black">Shell extension handlers</FONT></EM>
+	(DLLs) can be set to run whenever any number of shell actions are
+	initiated by the user, such as right clicking on an object to bring
+	up the context menu or dragging and dropping. Since these handlers
+	can execute malicious code, Scrip 232 monitord this area of the
+	registry detecting (and rejecting/disabling them if so configured)
+	any new ones that are installed and registered.</P>
+	<LI><P><EM><FONT FACE="Arial Black">Screen savers</FONT></EM> are
+	standalone executable files. They can run malicious code when they
+	are activated, or even if the user merely previews them. &nbsp;</P>
+	<LI><P><EM><FONT FACE="Arial Black">Open verb's command default
+	value</FONT></EM>. There is a list of executable files (.exe, .com,
+	.bat, etc.) that will run if the user double-clicks them. This is
+	because their &quot;open&quot; verb's command default value in the
+	registry is &quot;%1&quot; %*. These registry values can be changed
+	to something like &quot;VirusExecutable.exe %1&quot;. The result, as
+	explained by Jason Fisher, would be this: &quot;This allowed the
+	virus program to run first any time the user attempted to execute
+	any EXE program. The requested program was passed to the virus
+	executable as a parameter, whereupon the virus could launch it,
+	keeping the user largely in the dark about what was really going
+	on.&quot; Scrip 232 monitors the open command's default value for
+	executable files for attempts to modify them (rejecting/disabling
+	them if so configured).</P>
+	<LI><P><EM><FONT FACE="Arial Black">The &quot;Shell&quot; and
+	&quot;Userinit&quot; values for the registry key &quot;Winlogon&quot;</FONT></EM>
+	contains the name of executable files that are executed whenever a
+	user logs on. The &quot;Shell&quot; value runs explorer.exe.
+	&quot;Userinit&quot; runs userinit.exe on Microsoft Windows 2000, XP
+	and 2003, and userinit.exe and nddeagnt.exe on systems running
+	Microsoft Windows NT4. Scrip 232 monitors &ldquo;Shell&rdquo; and
+	Userinit&rdquo;. If so configured, it prevents them from being
+	changed and, as further protection, records the checksums of the
+	.exe files in case they get replaced with copies with the same name.</P>
+	<LI><P><EM><FONT FACE="Arial Black">The RunOnce, RunOnceEx, and
+	RunServicesOnce registry keys</FONT></EM> can be used to run a
+	malicious executable at system start-up. What makes this type of
+	intrusion particularly insidious is that after the malicious code
+	runs at system start-up, the registry entries are automatically
+	deleted, thus leaving no trace.</P>
+	<LI><P><A NAME="DDE_LINK1"></A><EM><FONT FACE="Arial Black">Scrap
+	objects</FONT></EM> can be created for OLE (Object Linking and
+	Embedding) purposes. Again, We&rsquo;ll just quote Jason Fisher's
+	explanation: &quot;[Scrap objects] are extremely dangerous because
+	they can encapsulate executable code within a compound OLE document
+	format.&quot; Further: &quot;There are two additional reasons these
+	files are particularly risky, apart from the simple fact that they
+	can hide executable code. First, they're often overlooked by
+	antivirus software. Even if one of them is included in the list of
+	executable application types, the other is often omitted. You should
+	ensure that your antivirus program includes both file types. The
+	second reason is much more subtle. As it turns out, the SHS and SHB
+	extensions are always hidden by Explorer, even if you've configured
+	Windows to display all file extensions. The reason is that the
+	registry keys for these file types include an undocumented value,
+	&quot;NeverShowExt.&quot; If present, this value overrides global
+	settings in Windows. For this reason, a virus writer can create a
+	scrap object, give it an icon corresponding to an image, then rename
+	it something like &quot;Look at This Funny Picture.jpg.&quot; Its
+	actual file name, of course, is &quot;Look at This Funny
+	Picture.jpg.shs,&quot; but to the unsuspecting user it looks exactly
+	like any other image. By the time the realization dawns that the
+	file wasn't an image at all, the damage is done.&quot; Initially,
+	Scrip 232 turns off the value <I>NeverShowExt</I> for scrap objects,
+	making it less likely for a user to inadvertently execute one.</P>
+</UL>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Log of attempts to change a system's configuration items
+			protected by Scrip 232, nature and content of change, and action
+			taken by Scrip 232, if enabled to prevent changes to the system's
+			configuration.</P>
+			<P>(E.g. 
+			</P>
+			<P>The following registry key has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects\{FCADDC14-BD46-408A-9842-CDBE1C6D37EB}. <BR>Friendly
+			name: . <BR>Executable file: C:\WINNT\System32\msnkmi.dll. <BR>The
+			change was disabled automatically.<BR>The following registry key
+			has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects\{CC916B4B-BE44-4026-A19D-8C74BBD23361}. <BR>Friendly
+			name: . <BR>Executable file: C:\WINNT\System32\msfaol.dll. <BR>The
+			change was disabled automatically.<BR>The following registry key
+			has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects\{94927A13-4AAA-476A-989D-392456427688}. <BR>Friendly
+			name: CUrlCliObj Object. <BR>Executable file:
+			C:\WINNT\System32\msjfbl.dll. <BR>The change was disabled
+			automatically.<BR>The following registry key has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects\{0982868C-47F0-4EFB-A664-C7B0B1015808}. <BR>Friendly
+			name: . <BR>Executable file: C:\WINNT\System32\mskhhe.dll. <BR>The
+			change was disabled automatically.<BR>The following registry key
+			has been added:
+			<BR>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects\{00A0A40C-F432-4C59-BA11-B25D142C7AB7}. <BR>Friendly
+			name: . <BR>Executable file: C:\WINNT\System32\mskceo.dll. <BR>The
+			change was disabled automatically. 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Detailed description of items whose addition to the system's
+			configuration Scrip 232 detected and acted upon based on how you
+			configured it.</P>
+			<P>(E.g. 
+			</P>
+			<P>Item: {FCADDC14-BD46-408A-9842-CDBE1C6D37EB}<BR>Item data:
+			n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			<BR>Executable file: C:\WINNT\System32\msnkmi.dll<BR>CompanyName:
+			not available<BR>FileDescription: not available<BR>FileVersion:
+			not available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR><BR>Item: {CC916B4B-BE44-4026-A19D-8C74BBD23361}<BR>Item
+			data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			<BR>Executable file: C:\WINNT\System32\msfaol.dll<BR>CompanyName:
+			<BR>FileDescription: MetaHelper<BR>FileVersion:
+			1.0.1.0<BR>LegalCopyright: <BR>ProductName: BHO<BR>ProductVersion:
+			1.0.0.0<BR>Comments: Code written for<BR><BR>Item:
+			{94927A13-4AAA-476A-989D-392456427688}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			CUrlCliObj Object<BR>Executable file:
+			C:\WINNT\System32\msjfbl.dll<BR>CompanyName: TODO:
+			<BR>FileDescription: TODO: <BR>FileVersion:
+			1.0.0.1<BR>LegalCopyright: TODO: (c) . All rights
+			reserved.<BR>ProductName: TODO: <BR>ProductVersion:
+			1.0.0.1<BR>Comments: not available<BR><BR>Item:
+			{0982868C-47F0-4EFB-A664-C7B0B1015808}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			<BR>Executable file: C:\WINNT\System32\mskhhe.dll<BR>CompanyName:
+			not available<BR>FileDescription: not available<BR>FileVersion:
+			not available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR><BR>Item: {00A0A40C-F432-4C59-BA11-B25D142C7AB7}<BR>Item
+			data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			<BR>Executable file: C:\WINNT\System32\mskceo.dll<BR>CompanyName:
+			<BR>FileDescription: Browser Helper for Word<BR>FileVersion:
+			1.2.0.0<BR>LegalCopyright: <BR>ProductName: BHO<BR>ProductVersion:
+			1.0.0.0<BR>Comments:</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

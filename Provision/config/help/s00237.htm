@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 237 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20040321;8150381">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050205;14475817">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 237 Configuration</H3>
+<H4>Configuration Parameters and their default values</H4>
+<P>Scrip 237 can be executed both on a schedule and on demand.</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Scrip </EM>enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>When a software update detect
+	or download fails, retry this many times</I> set to <B>3</B></P>
+	<LI><P STYLE="margin-bottom: 0in"><I>When a detect fails retry in
+	(minutes)</I> set to <B>10 </B>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in; font-weight: medium"><I>When
+	applicable, check for locally available software updates at a random
+	interval whose maximum is (minutes)</I> set to <B>60</B></P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, Scrip 237 runs
+	between 12:30 AM and 1 AM every day 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Synchronize configuration with
+	ASI server now</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Configure software updates now</EM>
+		</P>
+	<LI><P><EM>Reset configuration now</EM></P>
+</UL>
+<H4>When a software update detect or download fails, retry this many
+times</H4>
+<P>As the name of the <I>When a software update detect or download
+fails, retry this many times</I> configuration parameter suggests, it
+lets you control the number of times the Microsoft AU client will
+re-try failed software update detect operations. If a detect
+operation fails for a number of times equal to the value of the <I>When
+a software update detect or download fails, retry this many times</I>
+configuration parameter, the Microsoft AU client will attempt it at
+the next scheduled Scrip 237 execution. 
+</P>
+<P>On machines with the Microsoft AU client with iuengine.dll version
+higher than 5.4.3790.21, The Microsoft AU client attempts to download
+each software update a number of times equal to the value of the <I>When
+a software update detect or download fails, retry this many times</I>
+configuration parameter without waiting between re-tries, unless the
+attempted software update download failed due to an error in which
+case the Microsoft AU client will re-try the software update download
+a variable amount of time after the preceding failure. If a software
+update download operation is not successful after the number of times
+specified in the <I>When a software update detect or download fails,
+retry this many times</I> configuration parameter, the Microsoft AU
+client will try again the next time a Scrip 237 scheduled execution
+takes place.</P>
+<P>On machines with the Microsoft AU client with iuengine.dll version
+equal to, or lower than 5.4.3790.21, software update download
+operations are re-tried indefinitely until they are successful.</P>
+<H4>When a detect fails retry in (minutes)</H4>
+<P>The <I>When a detect fails retry in (minutes)</I> configuration
+parameter lets you set the interval between attempts made by the
+Microsoft AU client to detect new software updates in those cases
+when the software update detect operation fails.</P>
+<P>The <I>When a detect fails retry in (minutes)</I> configuration
+parameter does not apply to software update download operations. When
+a software update download operation fails, the MS AU client attempts
+it again immediately.</P>
+<P>Please note that the <I>When a detect fails retry in (minutes)</I>
+configuration parameter cannot be set to a value lower than <B>10</B>.
+If you do set it to a value lower than <B>10</B>, it defaults to <B>10</B>.</P>
+<H4>When applicable, check for locally available software updates at
+a random interval whose maximum is (minutes)</H4>
+<P>You can use the <I>When applicable, check for locally available
+software updates at a random interval whose maximum is (minutes)</I>
+configuration parameter to specify the maximum amount of time Scrip
+237 will wait before checking with Scrip 237 on other systems on the
+same sub-net for software updates. This configuration parameter
+applies only if propagation is enabled using the Microsoft Updates
+<I>Configure update download and propagation</I> wizard on the ASI
+server.</P>
+<P>The default value for this setting is 60 minutes 
+</P>
+<H4>Synchronize configuration with ASI server now</H4>
+<P>The <I>Synchronize configuration with server now</I> configuration
+parameter forces the ASI client to download from the server the
+following:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The local system's software update
+	processing configuration</P>
+	<LI><P>The default software update configuration 
+	</P>
+</UL>
+<P>Normally, the ASI client retrieves this information from the ASI
+server if something has changed since it last retrieved it. Clicking
+on the Execute button for the <I>Synchronize configuration with
+server now</I> configuration parameter forces an update.</P>
+<P>Clicking on the button for this configuration parameter also
+resets the Microsoft Windows AU client to a known state, and forces
+it to perform the <I>detect</I> operation where it checks for new
+software updates. The <I>detect</I> operation may not happen if the
+ASI client discovers that the Microsoft Windows AU client is doing
+something else already, or is already in the reset state.</P>
+<P>The <I>Synchronize configuration with server now</I> configuration
+parameter is particularly useful if you suspect that the ASI client
+has gotten out of sync, but you would like it to keep its internal
+state, where by internal state we mean the internal status list of
+update events and the list of items on the internal action queue.
+Also, you would use it if the Microsoft Windows AU (Automated
+Updated) client has somehow gotten out of control and needs to be
+reset itself.</P>
+<H4>Configure software updates now</H4>
+<P>The <I>Configure software updates</I> configuration parameter
+retrieves the configuration of all pending software updates from the
+ASI server. Then it verifies and adjusts the state of all software
+updates on the local system based on their configuration, including
+scheduling installations and removals as necessary.</P>
+<P>You would use this configuration parameter to cause a
+configuration change on the server to be immediately propagated to
+the ASI client. This is how the <I>Install critical updates</I>
+wizard causes the ASI client to run the installation right away
+rather than wait for the next synchronization cycle</P>
+<H4>Reset configuration now</H4>
+<P>The <I>Reset configuration now</I> configuration parameter erases
+all of the ASI client's state information (the internal status list
+of update events and the list of items on the internal action queue),
+bringing it back to its initial state. Then, the ASI client continues
+as if you had clicked on the <B>Execute</B> button for the
+<I>Synchronize configuration with server now</I> configuration
+parameter.</P>
+<P>You would use this configuration parameter if the ASI client were
+misbehaving for some reason and you wanted to bring it back to a
+known state based on the ASI server configuration.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2004
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

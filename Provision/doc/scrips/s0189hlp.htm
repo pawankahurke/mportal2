@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 189 - File Download Blocking</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 189 - File Download Blocking</H3>
+
+<P>Scrip 189 can be used to block downloading of files on a system.
+You can enter the types of files, or specific files, whose download 
+you want Scrip 189 to prevent using the Scrip configuration facility.</p>
+
+
+<p>Files whose download is prevented are replaced with a file whose name you enter in Scrip 189's configuration page.</p>
+
+<p>If no such file name is entered, the file whose download was prevented is replaced with a file whose content
+is zeros.</p>
+
+
+<p><strong>It's important to note that Scrip 189 only replaces the content of the file whose download was blocked,
+not its name. Unless the end-user is informed on a timely basis that the file download filtering is enabled,
+this can lead to repeated attempts to download a file, and
+consequent frustration on the part of the end-user.</strong></p>
+
+<p>To minimize the potential for this to happen, we have included in the ASI client directory a
+small program called block.exe (also in zipped form, block.zip) that when executed informs the end user
+about the file download blocking policy in effect with the following statement:<br><br>
+<em>"Sorry, per company policy download of this file type is not allowed.
+Please contact your system administrator with any questions. Thank you."<em><br><br>
+<p>You can use block.exe, or block.zip as the files that replace blocked files when
+blocking files of types .exe, or .zip, respectively.</p>
+
+
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>Text contained in Window title field of
+dialog box</P>
+
+<P>(e.g. HotSync Manager) </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>When Scrip 189 is enabled, a log event is entered in the log database reporting
+the types of files, or specific files, whose download the Scrip will prevent:</P>
+
+<P>(e.g. </p>
+<p>
+<br>Filtering:
+<br>*.exe c:\blocked.exe
+<br>*.gif c:\borgbill.gif
+</p>
+<p>)</p></TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Identifying and Grouping Server Systems</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20070919;8123360">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20071014;11300535">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Identifying and Grouping Server Systems</H3>
+<H4>Identifying servers and non-server systems</H4>
+<P>The pre-defined asset queries <B>Servers</B> and <B>Non-servers</B>
+can be used to determine which machines at a site are servers and
+which machines are not. To create a report that identifies servers at
+a given site: 
+</P>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The Welcome page will be displayed.</P>
+	<LI><P>Click on the &ldquo;legacy reports&rdquo; link in the
+	&ldquo;reports&rdquo; navigation bar found the at upper right-hand
+	corner of any page in the ASI server extended interface. The &ldquo;Legacy
+	Reports&rdquo; page will be displayed.</P>
+	<LI><P>Click on the &ldquo;Legacy asset reports&rdquo; link to
+	access the &ldquo;legacy&rdquo; asset reports page at
+	<A HREF="https://asiservername/main/asset/report.php">https://asiservername/main/asset/report.php</A>.
+	The &ldquo;legacy&rdquo; &ldquo;Asset Reports&rdquo; pages will be
+	displayed.</P>
+	<LI><P>Click on the <B>add</B> link in the line of links found above
+	the &ldquo;Search Options&rdquo; panel. The &ldquo;Add an Asset
+	Report&rdquo; page will be displayed. 
+	</P>
+	<LI><P>Configure a new asset report as follows</P>
+</OL>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Report title: Type the report
+	title using the site name, for example, <B>Servers - Site1</B>. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Report output: Choose <B>Send as
+	email</B>. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">E-mail recipients: Type your email
+	address. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Default e-mail recipients: Choose
+	<B>no</B>. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Saved Queries: Scroll down and
+	highlight <B>Servers</B>. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Include: Scroll down and select
+	the desired site. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Categorize by: <B>Machine Name</B>
+		</P>
+	<LI><P STYLE="margin-bottom: 0in">Include Links: <B>No</B> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Include details: <B>No</B> 
+	</P>
+	<LI><P>Run Report: <B>Immediate</B> 
+	</P>
+</UL>
+<OL START=7>
+	<LI><P>When all the information has been entered, click the <B>Add</B>
+	button near the bottom of the page. The report should be delivered
+	by email within a 5-10 minutes. 
+	</P>
+</OL>
+<P>To run a single report covering all sites, the procedure is
+similar. In the &ldquo;Include&rdquo; box, select &ldquo;All&rdquo;,
+the first choice at the top of the box.. 
+</P>
+<P>To produce a report that identifies non-server machines, follow
+the same procedure, substituting <B>Non-servers</B> as the name of
+the saved query and as the report title. 
+</P>
+<H4>Grouping server systems into one group</H4>
+<P>Once server and non-server machines have been identified, you may
+want to define a group including all server systems, or one including
+all server systems at one site. To add a group including all server
+systems you should perform the following steps: 
+</P>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &ldquo;Use extended interface&rdquo; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>Click on the &ldquo;sections&rdquo; link in the &ldquo;reports&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The main &ldquo;Sections&rdquo;
+	page will be displayed. 
+	</P>
+	<LI><P>Click the &ldquo;groups&rdquo; link in the &ldquo;tools&rdquo;
+	navigation bar. The &ldquo;<SPAN STYLE="font-weight: medium">Select
+	or Add a Group&rdquo;</SPAN> page will be displayed. 
+	</P>
+	<LI><P>Click the &ldquo;<SPAN STYLE="font-weight: medium">Add new
+	group&rdquo;</SPAN> button. The &ldquo;Group Management - <SPAN STYLE="font-weight: medium">Add
+	a Group&rdquo;</SPAN> page will be displayed. 
+	</P>
+	<LI><P>Enter the group name (for example, <B>Servers - site1</B>).
+	Check the &ldquo;Allow other users to use this group?&rdquo; box if
+	you would like to allow other users to use this group. Click on the
+	&ldquo;<SPAN STYLE="font-weight: medium">OK&rdquo;</SPAN> button. A
+	page listing the available sites will be displayed. 
+	</P>
+	<LI><P>To select machines at a site, click on the &ldquo;<SPAN STYLE="font-weight: medium">select/de-select
+	individual&rdquo;</SPAN> link for that site. Check the box in the
+	<B>New</B> column for each machine to be added to the group, based
+	on the information provided by the report created following the
+	instructions in the &ldquo;Identifying server and non-server
+	systems&rdquo; section of this document (e.g. <B>Servers - Site1</B>).
+	When finished, click on the &ldquo;OK&rdquo; button. The page
+	listing the available sites will be displayed once again. 
+	</P>
+	<LI><P>Repeat the steps in 7. until you have selected all the
+	systems you want to include in the group you are defining. When
+	finished, click on the &ldquo;<SPAN STYLE="font-weight: medium">OK&rdquo;</SPAN>
+	button to complete definition of the new group. A page confirming
+	the definition of the new group will be displayed with &ldquo;Return
+	to group management&rdquo;, and &ldquo;Go to management wizards&rdquo;
+	links in the body of the page.</P>
+</OL>
+<P>A group consisting of the servers at a single site can be defined
+in a similar way, the only difference being that you would perform
+step 7. only once clicking on the &ldquo;<SPAN STYLE="font-weight: medium">select/de-select
+individual&rdquo;</SPAN> link only for the site whose server systems
+you want to place in a group. 
+</P>
+<H4>Note</H4>
+<P>Please note that the procedure described in the &ldquo;Grouping
+server systems into one group&rdquo; section of this document can be
+used to define any group of systems.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 177 - Scrip Configuration Update</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 177 - Scrip Configuration Update</H3>
+
+<P>Scrip 177 retrieves Scrip configuration changes made using the server based ASI site management facility, and
+propagates them to all systems on the local network.</p>
+
+<p>Here is how it works:</p>
+
+<ul>
+<li>It makes a call to the server where the ASI site management facility is located, 
+passing it the client revision level, the PS revision level, the machine name, and the site name.</li>
+<li>The ASI site management facility  returns an indication of what to do. 
+It will tell the client whether or not the client revision level, and the PS revision
+level matches.  After receiving this information, the ASI client takes the following two steps, in order:</li>
+<ul>
+<li>If the client revision level doesn't match, the ASI client sends the Scrip templates to 
+the ASI site management facility.</li>
+<li>If the PS revision level doesn't match, the ASI client performs a Scrip configuration update operation 
+retrieving the updated Scrip configuration(s) from the ASI site management facility and propagating it/them 
+to all systems on the local network.</li>
+</ul>
+</ul>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>Text contained in Window title field of
+dialog box</P>
+
+<P>(e.g. HotSync Manager) </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD><p>Log of actions taken by Scrip</P>
+
+<p>(e.g
+
+<P>Updates found
+<br>Client has been synchronized with 24.60.162.247
+<br><br>-------------------------------------------------------------
+<br><br>Registering client version 1.003.1007.EB with 24.60.162.247
+<br><i>The above indicates that the client sent Scrip templates to the ASI site management facility
+because of a client revision level mismatch.</i>
+<br><br>Updates found
+<br>Client has been synchronized with 24.60.162.247
+<br><br>-------------------------------------------------------------
+<br><br>No updates
+<br>Client is in sync with 24.60.162.247 </p>
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD><p>Type of run</p>
+<P>(e.g. on demand)</p>
+</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

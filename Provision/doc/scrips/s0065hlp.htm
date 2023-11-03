@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 65 - Traceback Information on Client Internal Error </TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 65 - Traceback Information on Client Internal Error </H3>
+
+<P>Scrip 65 detects Client internal errors and logs 
+traceback information in a text file that is uploaded to the
+log database.</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Text to introduce name of orphaned log file:
+"The following file contains traceback
+information" </TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD></TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>Content of error log file </P>
+
+<P>(e.g. </P>
+
+<P>Computer: NODE11<BR>
+User: megan<BR>
+Time: Thu Mar 08 09:12:19 2001<BR>
+<BR>
+Error: client processor fault<BR>
+Fault code: C0000005<BR>
+Fault addr: 004D9BB3<BR>
+EAX: 35396666<BR>
+EBX: 0096E810<BR>
+ECX: 00E7F9EC<BR>
+EDX: 00E7F9EC<BR>
+ESI: 00E7FEE4<BR>
+EDI: 00E7FA84<BR>
+EBP: 00E7FA84<BR>
+ESP: 00E7FA20<BR>
+DS: 00000023<BR>
+ES: 00000023<BR>
+SS: 00000023<BR>
+CS: 0000001B<BR>
+FS: 00000038<BR>
+GS: 00000000<BR>
+Flg: 00010212<BR>
+<BR>
+----------<BR>
+<BR>
+Computer: NODE11<BR>
+User: megan<BR>
+Time: Fri Mar 09 16:50:38 2001<BR>
+<BR>
+Error: Can't load state file<BR>
+<BR>
+----------<BR>
+)</TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>Location and name of error log file on user
+system </P>
+
+<P>(e.g. Process:
+D:\HFN\DEV\CUST\DEBUG\errlog.txt) </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

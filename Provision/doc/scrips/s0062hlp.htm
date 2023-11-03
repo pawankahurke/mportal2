@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 62 - Clean scandisk files on MS Windows 9x / Windows Me Systems</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 62 -Scandisk Files Clean-up on MS Windows 9x / Windows Me Systems</H3>
+
+<P>Scrip 62 deletes files created when Microsoft Scandisk finds an error on a drive and attempts to recover data before repairing
+the error. Its default parameters are:</P>
+
+<UL>
+  <LI>Location scanned: Root directory on all local drives</LI>
+  <LI>Search criteria: file????.chk</LI>
+  <LI>Removal criteria: Older than 14 Days, 0 Hours, 0 Minutes, 0 Seconds </LI>
+</UL>
+
+<P>The value of the removal criteria parameter can be changed using the Scrip configuration 
+module. All other parameters are fixed.</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>Creation date and time of the last file
+deleted by the Scrip </P>
+
+<P>(e.g. Friday, November 3, 2000 12:38:09)</TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Location scanned by Scrip and list of
+scandisk files that met search and removal
+criteria and whose removal was attempted
+with success/failure of each attempted
+removal operation </P>
+
+<P>(e.g. </P>
+
+<P>Checking c:\file????.chk<BR>
+c:\file0000.chk<BR>
+Successful<BR>
+c:\file0002.chk<BR>
+Successful<BR>
+c:\file0001.chk<BR>
+Successful<BR>
+Checking d:\file????.chk<BR>
+Checking e:\file????.chk<BR>
+Checking f:\file????.chk</P>
+
+<P>)</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>Value of parameters used by Scrip:
+Removal criteria and results of search and
+removal operations </P>
+
+<P>(e.g. </P>
+
+<P>Removal criteria: older than 14 Days, 0
+Hours, 0 Minutes, 0 Seconds<BR>
+3 items were found that met search criteria<BR>
+3 items were removed, being older than
+Sunday, November 19, 2000 12:39:38<BR>
+0 items were left</P>
+
+<P>) </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

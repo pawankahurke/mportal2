@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>The instructions that you will find below should give you sufficient information for removing the ASI client</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20040929;13000953">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050810;16474774">
+	<META NAME="ProgId" CONTENT="Word.Document">
+	<META NAME="Originator" CONTENT="Microsoft Word 9">
+	<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Alessandro Donnini</o:Author>
+  <o:LastAuthor>Alessandro Donnini</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>3</o:TotalTime>
+  <o:Created>2004-10-06T23:26:00Z</o:Created>
+  <o:LastSaved>2004-10-06T23:26:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>522</o:Words>
+  <o:Characters>2976</o:Characters>
+  <o:Lines>24</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3654</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in }
+		P { color: #000000; font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+		A:visited { color: #800080 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#333399" VLINK="#800080" DIR="LTR">
+<H3>ASI Client Removal Instructions</H3>
+<P>In this document we describe two methods for removing the ASI
+client listed in order of preference, with the preferred method
+listed first. <B>Please also take the time to read the <I>ASI client
+removal notes</I> section as it contains important information and
+answers to frequently asked questions about the ASI client removal.</B></P>
+<H4>ASI client removal using Scrip 43</H4>
+<P STYLE="margin-bottom: 0.17in">Below, you will find step-by-step
+instructions for removing the ASI client using Scrip 43. 
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0.17in">Access the Scrip 43
+	configuration page in one of two ways:</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.17in">Locally, at the system you
+		want to remove the ASI client from,</P>
+		<UL>
+			<LI><P STYLE="margin-bottom: 0.17in">Start an Internet browser
+			session</P>
+			<LI><P STYLE="margin-bottom: 0.17in">Type <A HREF="http://localhost:2721/">http://localhost:2721</A>
+			in the address box</P>
+			<LI><P STYLE="margin-bottom: 0.17in">Click on the entry for the
+			system at the top of the page. The Scrip configurator page will be
+			displayed</P>
+			<LI><P STYLE="margin-bottom: 0.17in">Click on the entry for Scrip
+			43 (HandsFree Client Tools)</P>
+		</UL>
+		<LI><P STYLE="margin-bottom: 0.17in">Via the ASI server, at any
+		system with Internet access,</P>
+		<UL>
+			<LI><P STYLE="margin-bottom: 0.17in">Start an Internet browser
+			session</P>
+			<LI><P STYLE="margin-bottom: 0.17in">Type
+			<A HREF="http://asiserverurl/main/config/index.php">https://asiserverurl/main/config/index.php</A>
+			in the address box. Note that you should replace <B>asiserverurl</B>
+			with the URL of the ASI server the ASI clients at your sites
+			report to.</P>
+			<LI><P STYLE="margin-bottom: 0.17in">Click on the <FONT COLOR="#0000ff">view
+			machines</FONT> link for the site where the system(s) you want to
+			remove the ASI client from are located.</P>
+			<LI><P STYLE="margin-bottom: 0.17in">Click on the <FONT COLOR="#0000ff">configure
+			Scrips</FONT> link for the system where you want to remove the ASI
+			client. The Scrip configurator page will be displayed.</P>
+			<LI><P STYLE="margin-bottom: 0.17in">Click on the entry for Scrip
+			43 (HandsFree Client Tools)</P>
+		</UL>
+	</UL>
+	<LI><P>Once you are viewing the Scrip 43 configuration page click on
+	the Execute button for one of the following Scrip 43 configuration
+	parameters:</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.17in">HandsFree client uninstall</P>
+		<LI><P STYLE="margin-bottom: 0.17in">HandsFree client uninstall &ndash;
+		silent 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0.17in">At this point, ASI client removal
+	is completed. If you performed it via the ASI server, it will take
+	place the next time Scrip 177 (Scrip Configuration Update) from the
+	system where you want to remove the ASI client contacts the ASI
+	server for Scrip configuration changes, finds your Scrip 43 execute
+	command, and downloads it to the ASI client on the system. At that
+	point, Scrip 43 will execute the uninstall command.</P>
+</OL>
+<H4>ASI client removal using cutil.exe</H4>
+<P>You can also remove the ASI client from a system using the
+cutil.exe utility found in the client directory. In order to do this,
+you need to have direct access to the system where you want to remove
+the ASI client. 
+</P>
+<OL>
+	<LI><P>Click on the <I>Start</I> button at the bottom left corner of
+	the screen of the system where you want to remove the ASI client</P>
+	<LI><P>Click on the <I>Run</I> menu entry</P>
+	<LI><P>In the <I>Open</I> box type 
+	</P>
+	<UL>
+		<LI><P><B>[drive]:\Program Files\HandsFree\client\cutil.exe -l</B></P>
+	</UL>
+	<P>for silent removal, or</P>
+	<UL>
+		<LI><P><B>[drive]:\Program Files\HandsFree\client\cutil.exe -u</B></P>
+	</UL>
+	<P>for non-silent removal</P>
+	<P>Please note that instead of typing the path for cutil.exe, you
+	can locate it by clicking on the <I>Browse</I> button in the <I>Run</I>
+	dialog box. 
+	</P>
+	<P><B>You should also keep in mind that if you are using a
+	re-branded ASI client the name of the directories will not be
+	HandsFree and Client.</B></P>
+	<LI><P>Click on the <I>OK</I> button</P>
+</OL>
+<P><B>Please note that if you attempt to use Scrip 89 , or one of
+212-215 (Scheduled Program Execution), to run cutil.exe to remove the
+ASI client, you will not be able to remove the ASI client as Scrip 89
+(or one of 212-215) will still be running when cutil.exe attempts to
+remove the ASI client.</B></P>
+<H4>ASI client removal notes</H4>
+<OL>
+	<LI><P><B><FONT FACE="Verdana, sans-serif">VERY IMPORTANT. Double
+	clicking on the </FONT>unins000.exe executable in [drive]:\Program
+	Files\HandsFree\client will not remove the ASI client. Do not
+	attempt that. If, accidentally, you do that please contact HandsFree
+	Networks Immediately.</B></P>
+	<LI><P><FONT FACE="Verdana, sans-serif">PLEASE NOTE THAT REMOVING
+	THE ASI CLIENT ALSO REMOVES THE ASI NETWORK DRIVER (IF IT IS
+	INSTALLED). ASI NETWORK DRIVER REMOVAL WILL CAUSE THE NETWORK
+	CONNECTIONS ON THE SYSTEM WHERE IT IS BEING REMOVED FROM TO BE
+	RESET. THIS ACTION IS PERFORMED BY THE OPERATING SYSTEM
+	INDEPENDENTLY OF ANY ACTION TAKEN BY THE ASI SOFTWARE.</FONT></P>
+	<LI><P><FONT FACE="Verdana, sans-serif">On those systems where it is
+	installed, to complete removal of the ASI network driver, you will
+	need to re-start the system. The system re-start will remove the
+	last hook left by the ASI network driver. Please note that the
+	system re-start is not necessary as this last hook performs no
+	function.</FONT></P>
+	<LI><P>The ASI client removal leaves the persistent state data in
+	<B>[drive]:\Program Files\HandsFree\client</B> so that if you
+	reinstall the ASI client it will still be configured as before the
+	removal. It also leaves the UUID registry key so that a
+	re-installation will not cause a change in the ID of the system. 
+	</P>
+</OL>
+<P STYLE="margin-left: 0.23in">If you really need to eliminate every
+trace of the ASI client, you should perform the removal using one of
+the two methods described in the preceding sections, re-start the
+system, then delete the directory <B>[drive]:\Program
+Files\HandsFree</B>, and delete the registry key
+<B>HKLM\Software\HandsFree Networks</B> 
+</P>
+<P><B>You should keep in mind that if you are using a re-branded ASI
+client the name of the directories will not be HandsFree and Client.</B></P>
+</BODY>
+</HTML>

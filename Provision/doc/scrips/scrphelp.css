@@ -1,0 +1,10 @@
+TD { font-family: verdana; font-size : x-small;}
+P { font-family: verdana; font-size: x-small;}
+UL { font-family: verdana; font-size: x-small; color: black;}
+H3 { font-family : verdana; font-size: medium; color: #333399;}
+H4 { font-family : verdana; font-size: small; color: #333399;}
+H5 { font-family : verdana; font-size: x-small; color: #333399;}
+A:ACTIVE { color : #00ff00;}
+A:LINK { color : #333399;}
+A:VISITED { color : #660066;}
+IMG { vertical-align: middle; border: none;}

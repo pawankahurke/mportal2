@@ -1,0 +1,89 @@
+How to use the HandsFree Client Network Deployment
+====================================================
+
+The best way to leverage the power of the HandsFree Client network deployment function is to trigger its execution via the ASI client installation executable command line by using the /DEPLOY=1 command line parameter.
+
+How to use the HandsFree Client Network Deployment at the time the ASI client is first installed at a site
+============================================================================================================
+
+We assume that you have set up a site record for the site where you want to install the ASI client, and have the site registration code.
+
+You must remember the site registration code for the site the system you are about to install the ASI client on belongs to. If you do not have, or forget the correct site registration code, you will have to return to the system at a later date to enter it. Otherwise, you won't be able to complete deployment of the ASI client on the system. 
+Please note that first-time ASI client installation on a system always requires the entry of a site registration code, even at sites where the ASI client is already installed, and the system where the ASI client is being installed is connected to a sub-net with systems where the ASI client is already installed and running. 
+
+Please note that as the ASI client runs as a service, first-time installation on systems running Microsoft Windows NT4, 2000, XP, or Server 2003 operating systems has to take place with a user with full administrative rights logged in. Otherwise, the ASI service cannot be installed, and the ASI client will not run correctly. 
+
+1) Obtain the following user authentication information for a user with administrative rights on all systems on the sub-net where you want to install the ASI client:
+- User name
+- User password
+- Domain name
+
+2) Download the installation executable onto the system you will use to run the HandsFree client network deployment function from. Alternatively, you can load the ASI client installation executable from a CD.
+
+3) Install the ASI client on the system  you will use to run the HandsFree client network deployment function from using the following command line:
+
+<path ASI client installation executable is located>:\<ASI client installation executable name> /VERYSILENT /ID=<site registration code> /DEPLOY=1
+
+Once you have run the command line above, in the background, the ASI client contacts the ASI installation server (the server you used to set up the site record for the site your are installing the ASI client at, and which generated the site’s unique 10-digit registration code) asking for the site installation and deployment information. This is the information you entered when you created the record for this site. This information allows the ASI client to be activated for operational use. 
+
+After the ASI client has successfully retrieved the site information from the ASI installation server, it is fully activated.
+
+At this point, if you used the /DEPLOY=1 command line parameter, Scrip 111 (HandsFree Client Network Deployment) will run and display a dialog box asking you for:
+- User name
+- User password
+- Domain name
+for a user with administrative rights on all systems on the sub-net where you want to install the ASI client.
+
+After you enter the information, and click on the "OK" button, Scrip 111 will run once, execute a network survey and beginning the ASI client installation on systems in the sub-net which meet the HandsFree client network deployment function restrictions (please refer to Scrip 111 configuration help file for additional information).
+ 
+After the initial execution, Scrip 111 will run every time a new device is added to the ARP table on the system where Scrip execution was triggered. After every execution, Scrip 111 will post an event log on the ASI server documenting its actions.
+
+By default, Scrip 111 will continue to run for one day. The amount of time Scrip 111 runs is configurable via the "Auto deploy run time (seconds)" configuration parameter in the Scrip 111 configuration page.
+
+If you change the configuration of the network where you ran the HandsFree client network deployment function in a way which you think may affect the ASI client deployment, you should run the HandsFree client network deployment function again as described in the "How to use the HandsFree Client Network Deployment after you have installed the ASI client on at least one system at a site" section of this note below.
+
+
+How to use the HandsFree Client Network Deployment after you have installed the ASI client on at least one system at a site
+===========================================================================================================================
+
+If you do not run the HandsFree client network deployment function when you install the ASI client on a system using the /DEPLOY=1 ASI installation executable command line parameter, you can run it at any time after that, from any system where the ASI client is running, and the ASI network driver is installed.
+
+To do run the HandsFree Client network deployment function on demand, please perform the following steps:
+
+1) Log onto the ASI server (https://asiservername/main ). The ASI dashboard will be displayed
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) At the upper right-hand corner of any page on the ASI server, click on the "configuration" link in the "sites" navigation bar (https://asiservername/main/config/index.php?act=site ). The "Select a Site" page will be displayed.
+
+4) Click on the "view machines" link for the site where you want to run the HandsFree client network deployment function. The  "Configuration - <site name> Machines" page will be displayed.
+
+5) Click on the "configure Scrips" link for the system where you want to run the HandsFree client network deployment function. This could be any system on the sub-net where you want to run the HandsFree client network deployment function where the ASI client and ASI network driver are running. The "Scrip Configurator" page for the system will be displayed.
+
+Before you can run the HandsFree client network deployment function you need to enable impersonation to make it possible for the HandsFree client network deployment function to access all systems on the sub-net and install the ASI client remotely. In order to enable impersonation:
+
+6) Scroll down to the entry for Scrips 43 (HandsFree Client Tools), and click on the Scrip name. The Scrip 43 configuration page will be displayed.
+
+7) Scroll down to the "Impersonation username" configuration parameter. Enter the name of a user with administrative rights on all systems on the sub-net
+
+8) In the "Impersonation password" configuration parameter, enter the password for the user whose name you entered in the "Impersonation username" configuration parameter.
+
+9) Enter the name of the MS Windows domain the systems on the sub-net belong to in the "Impersonation domain" configuration parameter.
+
+10) Click on the "Submit Changes" button at the top or bottom of the page.
+
+Now, you are ready to run the HandsFree client network deployment function.
+
+11) Click on the "Scrips" link in the navigation bar below the "How to" button at the upper right side of the page. The "Scrip Configurator" page for the system where you want to run the HandsFree client network deployment function will be displayed.
+
+12) Scroll down to the entry for Scrips 111 (HandsFree Client Network Deployment), and click on the Scrip name. The Scrip 111 configuration page will be displayed.
+
+13) Review the value of the "Auto deploy run time" configuration parameter, and change it if necessary. The default value is 86,400 seconds (one day).
+
+14) Click on the "Begin auto deploy" Execute button.
+
+Please note that before you run the HandsFree client network deployment function you could run the sub-net wide survey by clicking on the "Run network survey now" Execute button. 
+
+Scrip 111 performs a survey of the sub-net in both cases, and reports the results in its event logs.
+
+

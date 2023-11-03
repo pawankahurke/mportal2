@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 175 - Anti Virus Scan Execution</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20050811;14200786">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050811;18481519">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 175 - McAfee VirusScan Execution</H3>
+<P>Scrip 175 executes the McAfee VirusScan virus scan and reports its
+completion.</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip when used to perform a virus scan.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=106>
+	<COL WIDTH=838>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Completion code corresponding to the completion message
+			reported in field string1.</P>
+			<P>0 &quot;Scan completed successfully or was terminated by user.&quot;</P>
+			<P>1 &quot;No scan targets were specified.&quot;</P>
+			<P>2 &quot;Scan executable could not be determined.&quot;</P>
+			<P>3 &quot;Scan executable could not be found.&quot;</P>
+			<P>4 &quot;Command line for scan executable could not be
+			determined.&quot;</P>
+			<P>5 &quot;Report file path could not be determined.&quot;</P>
+			<P>6 &quot;Failed to run the scan executable.&quot;</P>
+			<P>7 &quot;Scan was initiated and is now running.&quot;</P>
+			<P>8 &quot;Failed to created registry controlled scan.&quot;</P>
+			<P>9 &quot;Failed to start registry controlled scan.&quot;</P>
+			<P>10 &quot;Attempt to execute scan failed.&quot;</P>
+			<P>11 &quot;Scheduler error encountered.&quot;</P>
+			<P>12 &quot;Version no longer supported by vendor.&quot;</P>
+			<P>13 &quot;Version supported by this Scrip not detected.&quot;</P>
+			<P>14 &quot;Virus scanning status code not set.&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Completion status</P>
+			<P>(e.g. Scan completed successfully or was terminated by user. )</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Scrip execution completion message</P>
+			<P>(e.g. Scanning viruses is done.)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Scrip execution completion message</P>
+			<P>(e.g. 
+			</P>
+			<P>Completed successfully <BR>Execution Time: 8 Minutes, 55
+			Seconds 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Program execution report 
+			</P>
+			<P>(e.g.</P>
+			<P>McAfee VirusScan for Win32 v4.5.0 <BR>Copyright (c) 1992-1999
+			Networks Associates Technology, Inc. All rights reserved. <BR>(408)
+			988-3832 LICENSED COPY - Nov 30 1999 <BR><BR>Scan engine v4.0.50
+			for Win32. <BR>Virus data file v4184 created 01/30/2002 <BR>Scanning
+			for 59762 viruses, trojans and variants. <BR><BR><BR><BR>02/06/2002
+			03:00:04 <BR><BR><BR>Options: <BR>/ADL /REPORT
+			C:\WINDOWS\TEMP\HFC5.TMP <BR><BR>Scanning C: [] <BR>Scanning
+			C:\*.* <BR><BR>Summary report on C:\*.* <BR>File(s) <BR>Total
+			files: ........... 42814 <BR>Clean: ................. 7276 <BR>Not
+			scanned: ........... 35538 <BR>Possibly Infected: ..... 0 <BR>Master
+			Boot Record(s): ......... 1 <BR>Possibly Infected: ..... 0 <BR>Boot
+			Sector(s): ................ 1 <BR>Possibly Infected: ..... 0
+			<BR><BR><BR>Time: 00:08.51</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=106>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD WIDTH=838>
+			<P>Name of temporary file on local system where VirusScan output
+			was stored. 
+			</P>
+			<P>(e.g. Data: c:\windows\TEMP\hfc5.TMP)</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip when used to retireve on demand the virus
+definitions database dates.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of virus definitions database files</P>
+			<P>(e.g. Number of active copies: 1)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Headers for data in field text4</P>
+			<P>Machine name and date of virus definitions</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Virus definitions database files date information 
+			</P>
+			<P>(e.g. Data: go : Wednesday, January 30, 2002 00:00:00)</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

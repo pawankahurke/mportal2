@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>ASI Microsoft Update Management Priorities</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20060102;18431467">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20060316;13131998">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>ASI Microsoft Update Management Priorities</H3>
+<P>Within ASI Microsoft Update Management (MUM) priorities are
+assigned to:</P>
+<UL>
+	<LI><P>Machines categories (machine groups are members of machine
+	categories)</P>
+	<LI><P>Software update categories (software update groups are
+	members of software update categories)</P>
+</UL>
+<H4><A NAME="mumconfigurationsettings"></A>MUM configuration settings
+</H4>
+<P>MUM configuration settings are partitioned between machine and
+software update groups as follows:</P>
+<H5>Software update group configuration settings</H5>
+<P>Software update configurations include those settings that let you
+control how MUM should handle a software update, specifically:</P>
+<UL>
+	<LI><P>Approve/decline status</P>
+	<LI><P>Schedule</P>
+	<LI><P>Notification</P>
+</UL>
+<H5>Machine group configuration settings</H5>
+<P>Machine configurations include those settings that let you control
+the software update process on a system, specifically:</P>
+<UL>
+	<LI><P>Source of updates</P>
+	<LI><P>Management (e.g. disabled, managed from ASI client, or
+	managed from ASI server (the default setting))</P>
+	<LI><P>How new software updates should be handled (i.e. use last
+	settings from ASI server (the default setting), or get updated
+	settings from ASI server before taking action)</P>
+	<LI><P>Download policy (default setting - Try to retrieve from local
+	machines, then download from vendor if unsuccessful)</P>
+	<LI><P>Retention policy (default setting - Keep updates on this
+	machine for 14 days, for other machines to use)</P>
+	<LI><P>Restart policy (default setting - Automatically restart when
+	a restart is necessary after an installation)</P>
+	<LI><P>Multiple installations (default setting - Repeat install
+	cycle until machine is up to date, but stop after 1 hour)</P>
+</UL>
+<H4>Built-in ASI machine categories</H4>
+<P>ASI features the following built-in machine categories:</P>
+<UL>
+	<LI><P><I>All</I> which has the lowest priority (1 is lowest). It
+	has only one group. The All machine group</P>
+	<LI><P><I>User</I> which has the second lowest priority. Every user
+	defined on an ASI server has a corresponding group in this category
+	containing all the systems in sites to which a user has access. 
+	</P>
+	<LI><P><I>Site</I> which has the second highest priority. Every site
+	on an ASI server, and in which Scrip 237 (Microsoft Update
+	Management) is enabled on at least one system, has a corresponding
+	group in this category.</P>
+	<LI><P><A NAME="DDE_LINK1"></A><I>Machine</I>, which has the highest
+	priority. Every system whose ASI client has logged to an ASI server,
+	and on which Scrip 237 is enabled, has a corresponding group in this
+	category, made up of itself only. 
+	</P>
+</UL>
+<H4>Machine configurations</H4>
+<H5>Default machine configurations</H5>
+<P>By default, MUM assigns a machine configuration <B>ONLY</B> to the
+<I>All</I> machine group which, as its name implies, includes all
+systems at all sites. MUM automatically assigns the configuration of
+the first lower priority machine group with a configuration to any
+machine group which does not have a configuration. This means that by
+default, systems in all other groups, have the MUM configuration
+assigned to the <I>All</I> machine group. 
+</P>
+<P><B>Please note that unless necessary, you should not add a machine
+configuration for a group. Keep in mind that any machine
+configuration you add will have the same priority as the group it is
+defined for.</B></P>
+<H5>User defined machine configurations</H5>
+<P>Once you add a configuration to a machine group, for the systems
+in the machine group it supersedes the <I>All</I> machine group MUM
+configuration.</P>
+<P>For systems that belong to multiple groups the machine
+configuration of the group with higher priority will apply. To add a
+machine configuration to a group follow these links:</P>
+<P STYLE="margin-left: 0.79in"><B>microsoft update</B> navigation
+bar: click on the <I>advanced</I> link &gt;&gt;&gt; click on the
+<I>config</I> link in the second-level navigation bar labeled
+<B>configuration</B> &gt;&gt;&gt; click on the <I>Machine
+configuration</I> link in the body of the page &gt;&gt;&gt; Click on
+the <I>add</I> link in the link entries at the top of the page under
+the title.</P>
+<P>Please note that you <B>CANNOT</B> add machine groups to built-in
+machine categories.</P>
+<P>You can add new groups either via the <I>Add new group</I>
+function in the group management page on your ASI server
+(<A HREF="https://asiserverurl/main/config/groups.php?custom=3">https://asiserverurl/main/config/groups.php?custom=3</A>
+), or by first defining new categories via the advanced group
+management interface (clicking on the advanced link on the group
+management page on your ASI server), and then defining groups within
+the new categories. 
+</P>
+<P>By default, A user defined category is assigned a priority that is
+higher than <I>Site</I>, <I>User</I>, and <I>All</I> category groups
+but lower than <I>Machine</I> category groups. You can change this
+default behavior, by changing the value of the <I>override_sites</I>
+configuration parameter in your ASI server's configuration from <B>1</B>
+(its default value) to <B>0</B>. After you make this change, any
+group you define (which will be placed in a user defined group
+category) will have a priority lower than <I>machine</I> and <I>sites</I>
+category groups but higher than <I>user</I> and <I>All</I> category
+groups .</P>
+<P><B>Please remember that by default, MUM assigns the machine
+configuration of the <I>All</I> machine group to all user defined
+machine groups.</B></P>
+<P>When a system is in two (or more) user defined groups that are in
+the same category, and the MUM machine group configuration settings
+for the two user defined groups are different, the MUM software on
+the ASI server uses the machine configuration settings from the most
+recently-created group.</P>
+<P>You can change the priority of machine categories by following
+these links:</P>
+<P STYLE="margin-left: 0.79in"><B>microsoft update</B> navigation
+bar: click on the <I>advanced</I> link &gt;&gt;&gt; click on the
+<I>config</I> link in the second-level navigation bar labeled
+<B>configuration</B> &gt;&gt;&gt; click on the <I>Machine groups</I>
+link in the body of the page &gt;&gt;&gt; click on the <I>move up</I>
+and <I>move down</I> links in the <I>Action</I> entries for the
+machine category whose priority you want to change.</P>
+<P>When you define machine groups while performing an MUM wizard
+action, those user defined groups (e.g. the <I>server</I> group
+defined while using the <I>Select update method</I> wizard to assign
+a manual software update method to servers at all sites) are placed
+in a built-in category called <I>Wiz_SCOP_MC</I>.</P>
+<P>By default, machine groups in the <I>Wiz_SCOP_MC</I> category have
+the same priority as other user defined groups, higher than the <I>All</I>,
+<I>User</I>, and <I>Site</I> built-in machine category groups, but
+lower than <I>Machine</I> category groups. Please note that you can
+raise the priority of the <I>Wiz_SCOP_MC</I> category as described
+above.</P>
+<P><B>THE KEY POINT IS THAT AS LONG AS YOU DO NOT DEFINE MUM
+CONFIGURATIONS FOR GROUPS OUTSIDE OF THE <I>ALL</I> MACHINE GROUP,
+CONFIGURATIONS FOR ALL MACHINE GROUPS ARE EQUAL TO THAT OF THE <I>ALL</I>
+MACHINE GROUP, REGARDLESS OF THE PRIORITIES OF THE VARIOUS MACHINE
+GROUPS. </B>
+</P>
+<H4>Built-in software update categories</H4>
+<P>There are two built-in software update categories:</P>
+<P>- All which has the lowest priority (1). It contains contains all
+of the software updates</P>
+<P>- Update which has the highest priority. It contains a group for
+each software update that contains only that update</P>
+<H4>Software update configurations</H4>
+<P>By default,MUM assigns a software update configuration <B>ONLY</B>
+to systems in the <I>All</I> software update group. MUM automatically
+assigns the configuration of the first lower priority software update
+group with a configuration to any software update group which does
+not have a configuration. This means that by default, software
+updates in all other groups, have the MUM configuration assigned to
+the All software update group. 
+</P>
+<P>When you run the <I>Approve updates</I>, <I>Decline updates</I>,
+<I>Remove updates</I>, and <I>Install critical updates</I> wizards,
+the entries for the software updates you select for each action are
+stored in groups contained in the following four built-in software
+update categories, listed in order of <B>increasing</B> priority:</P>
+<UL>
+	<LI><P>Wiz_APPR_PC</P>
+	<LI><P>Wiz_DECL_PC</P>
+	<LI><P>Wiz_REMV_PC</P>
+	<LI><P>Wiz_CRIT_PC. 
+	</P>
+</UL>
+<P>All four built-in software update categories listed above have
+higher priority than the <I>All</I> and <I>Update</I> software update
+categories listed in the <I>Built-in software update categories</I>
+section of this document.</P>
+<P>The rationale behind this is that decline should override approve,
+so that you can approve software updates, and then decline them just
+on systems where they would cause problems. Software update removal
+actions have to override both, because you are explicitly
+uninstalling a software update that may have already been approved,
+and even declined, once you discovered a problem. Installation of
+critical software updates overrides all other actions because you are
+installing a software update that has to be installed so the action
+has to be performed, overriding any other outstanding actions.</P>
+<H4>Machine and software update priorities &ndash; which ones apply?</H4>
+<P>As you can see from the above, within MUM there are two sets of
+priorities: Those for machine categories and those for software
+update categories. The way to keep the differences, and impact of
+both straight is to ask the following question about any particular
+setting:</P>
+<P STYLE="margin-left: 0.79in">Does it affect a SYSTEM, or does it
+affect a SOFTWARE UPDATE (Please refer to the <A HREF="#mumconfigurationsettings"><I>MUM
+configuration settings</I></A> section of this document for a listing
+of MUM configuration parameters applicable to machine and software
+update groups)? 
+</P>
+<P>The answer to this question will tell you where the priority will
+be resolved.</P>
+<P>The connection between machine groups and software update groups
+is displayed on the <FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000080">Software
+Update Configurations for Microsoft Update</FONT></FONT> page which
+you get to by following these links: 
+</P>
+<P STYLE="margin-left: 0.79in"><B>microsoft update</B> navigation
+bar: click on the <I>advanced</I> link &gt;&gt;&gt; click on the
+<I>config</I> link in the second-level navigation bar labeled
+<B>configuration</B> &gt;&gt;&gt; click on the <I>Software update
+configuration</I> link in the body of the page</P>
+<P>The <FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000080">Software
+Update Configurations for Microsoft Update</FONT></FONT> page lists
+software update groups in order of increasing priority. Each entry on
+this page lists a software update group and the machine group it
+applies to. Note that a software update group can be applied to more
+than one machine group. This should make the precedence of settings
+fairly clear.</P>
+<P>For example, if in the <FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000080">Software
+Update Configurations for Microsoft Update</FONT></FONT> page you
+have:</P>
+<UL>
+	<LI><P>Two entries for the <I>All</I> software update group, one
+	applied to machine group <I>All</I>, and the other to user defined
+	group ABC in user defined category XYZ</P>
+	<LI><P>Two entries for the <I>Wiz_APPR_PC</I> software update group
+	applied to machine groups ABC in user defined category XYZ, and DEF
+	in the <I>Wiz_SCOP_MC</I> machine category</P>
+	<P>and</P>
+	<LI><P>No machine group configuration has been defined (or edited)
+	<B>except</B> for the default <I>All</I> machine group configuration</P>
+</UL>
+<P>Then, the MUM software update configuration settings of the
+<I>Wiz_APPR_PC</I> software update group are applied to software
+updates installed on the ABC and DEF machine group, and the <I>All</I>
+machine group configuration settings are applied to the ABC and DEF
+machine groups since the <I>All</I> machine group is the ONLY machine
+group with defined MUM machine configuration settings.</P>
+<P>Now suppose a machine group configuration has been defined for
+site ACME, and three systems from site ACME are included in group
+ABC. The three systems in group ABC which are also part of site ACME
+will have the machine configuration assigned to systems in site ACME
+because the priority of the <I>Site</I> machine category is higher
+than the priority of the <I>All</I> machine group, and machine group
+ABC has the same machine configuration as the <I>All</I> machine
+group since one of its own has not been defined.</P>
+<P><B>A system will always have the machine configuration of the
+highest priority group it belongs to for which a machine
+configuration has been defined.</B></P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,84 @@
+How to Resolve the HPBPRO.EXE Stop/start Execution Problem
+===========================================================
+
+1) Log onto your ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) In the "sites" navigation bar, click on the "configuration" link (https://asiservername/main/config/index.php?act=site)
+
+4) Click on the "view machines" link for the site where you want to resolve HPBPRO.EXE problem. The "Configuration <site name> Machines" page will be displayed.
+
+5) If you want to resolve the problem for the entire site, click on the "configure Scrips" link for any system in the site's machine list. Otherwise, click on the "configure Scrips" link for the system where you want to resolve HPBPRO.EXE problem. The "Scrip configurator" page for the system whose "configure Scrips" link you clicked on will be displayed.
+
+6) Scroll down to the entry for Scrip 233 (System Start-up Environment Management), and click on the Scrip name. The Scrip's configuration page will be displayed.
+
+7) Scroll to the end of the list of items in the "Startup items to disable" configuration parameter, click the mouse at the end of the last line, and press the "Enter" key on your keyboard twice. The mouse pointer should be positioned at the beginning of a new line.
+
+8) Paste the text between quotes (without the quotes) you will find below.
+
+"
+RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,StatusClient 2.6,C:\Program Files\Hewlett-Packard\Toolbox\StatusClient\StatusClient.exe /auto
+RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,StatusClient,C:\Program Files\Hewlett-Packard\Toolbox2.0\Apache Tomcat 4.0\webapps\Toolbox\StatusClient\StatusClient.exe /auto
+RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,TomcatStartup 2.5,C:\Program Files\Hewlett-Packard\Toolbox\hpbpsttp.exe
+RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,TomcatStartup,C:\Program Files\Hewlett-Packard\Toolbox2.0\hpbpsttp.exe
+RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,StatusClient 2.5,C:\Program Files\Hewlett-Packard\Toolbox\Apache Tomcat 4.0\webapps\Toolbox\StatusClient\StatusClient.exe /auto
+"
+
+7) If you want to resolve the problem for the entire site, leave the "Startup items to disable" configuration parameter set to the site (i.e. "site <name>" should be selected from the "Group" pull-down list" found to the left of the configuration parameter). Otherwise, in the the "Group" pull-down list" select the machine whose Scrip 233 configuration page you are viewing.
+
+8) Click on the "Update startup items now" "Execute" button selecting either the site or the machine from the pull-down list to the right of the "Execute" button, depending on whether you want to resolve the problem for the entire site, or only on the machine whose Scrip 233 configuration page you are viewing. The page confirming the action you took will be displayed.
+
+9) Click either on the "scrips" link in the "configuration" navigation bar to the right of the page title, or on the "(<machine name>) Select another Scrip." action link below the "What do you want to do?" question. The "Scrip Configurator" page for the system where you ran Scrip 233 will be displayed once again.
+
+10) Scroll down to the Scrip 227 (Process and Service Shutdown-Restart) entry, and click on the Scrip name. The Scrip's configuration page will be displayed.
+
+11) Click in the "Scrip enabled" box. This will enable the Scrip
+
+12) If you want to resolve the problem for the entire site, leave the "Scrip enabled" configuration parameter set to the site (i.e. "site <nam>" should be selected from the "Group" pull-down list" found to the left of the configuration parameter). Otherwise, in the the "Group" pull-down list" select "machine <name>".
+
+13) In the "Process groups" configuration (leaving the site selected from the "Group" pull-down list to the left of the configuration parameter), paste the text between quotes (without the quotes) you will find below.
+
+"
+hpbpro-resolution,StatusClient.exe,hpbpsttp.exe,STATUS~1.EXE
+"
+
+14) In the "Scheduled shutdown" configuration (leaving "site <name>" selected from the "Group" pull-down list to the left of the configuration parameter), paste the text between quotes (without the quotes) you will find below.
+
+"
+hpbpro-resolution
+"
+
+15) In the schedule parameter enter the following:
+
+Minute (0-59): 30
+Hour (0-23): 12
+Day (1-31): *
+Month (1-12): *
+Weekday (0-6): *
+Random minute: 0
+Type (1 or 2): 2
+Fail limit: 2
+
+16)  In the "On demand shutdown" configuration (leaving "site <name>" selected from the "Group" pull-down list to the left of the configuration parameter), paste the text between quotes (without the quotes) you will find below.
+
+"
+hpbpro-resolution
+"
+
+17) Click on the "Submit Changes" button found both above and below the Scrip configuration parameter table. The page confirming the action you took will be displayed.
+
+18) At this point, you have completed HPBPRO.EXE problem resolution for either a machine, or a site. If you applied the problem resolution to an entire site, and you want to apply this problem resolution to all sites, you can use the export function. 
+
+PLEASE CONTACT HANDSFREE NETWORKS BEFORE YOU PERFORM THE EXPORT ACTION DESCRIBED BELOW.
+
+a) on the page confirming the action you took, Click either on the "machines" link in the "configuration" navigation bar to the right of the page title, or on the "Select another Machine." action link under the "What do you want to do?" question. The "Configuration - <site name> Machines " page for the site where you made the Scrip 233 and 227 configuration changes will be displayed once again.
+b) Click on the "export" link found to the left of the name of any machine in the machine list for the site. The "Export Global Scrip Configurations" page will be displayed.
+c) Click on the "Export to existing site(s)" action link. The "Export to Specified Sites" page will be displayed.
+d) Click on the "Clear All Scrips", and on the "Clear All Sites" buttons.
+e) Scroll down the page. In the "Scrips" list found on the left side of the page, scroll down to the entries for Scrips 227 and 233, and check the box fo each Scrip.
+f) Scroll back up to the top of the page, and click on the "Check All Sites" button.
+g) Scroll down the page to make sure that:
+- Only the boxes for Scrips 227 and 233 are checked
+- The boxes for all sites are checked
+f) Scroll back to the top of the page, and click on the "Export" button.

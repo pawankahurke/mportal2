@@ -1,0 +1,310 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 38 - Fault Detected</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 38 - Fault Detected</H3>
+
+<P>Scrip 38 detects and reports faults. It provides detailed information about processes running 
+on the system at the time of the fault. Scrip 38's output also includes the User Action Log (UAL).</p>
+
+<p>The UAL contains a description of a user's 50 actions that preceded a fault. 
+It captures a number of different types of actions, including:</p>
+
+<ul>
+<li>Running a program</li>
+<li>Dialog box creation</li>
+<li>Clicking on a button</li>
+<li>Selecting a menu item</li>
+<li>Entering text in a text box</li>
+<li>Shifting focus of top level window</li>
+</ul>
+
+<p>It should be noted that the current version of Scrip 38 does not 
+detect Microsoft Windows kernel faults, the ones that generate a blue screen.</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>Location of module that crashed</P>
+
+<P>(e.g. D:\PROGRAM
+FILES\PROGRAMS\UAWIN90.DLL) </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>Name of module that crashed (called faulting module)</P>
+
+<P>(e.g. UAWIN90.DLL in message "Wpwin9
+caused an invalid page fault
+in UAWIN90.DLL") </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>Version of module that crashed </P>
+
+<P>(e.g. 9.0.0.588 for UAWIN90.DLL) </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>Size of module that crashed in bytes</P>
+
+<P>(e.g. 499712 for UAWIN90.DLL) </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>Creation date of module that crashed </P>
+
+<P>(e.g. Thursday, March 8, 2001 16:07:17 for
+UAWIN90.DLL) </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Type of fault that occurred on user system </P>
+
+<P>(e.g. access violation, stack fault) </TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD VALIGN="TOP">Content of User Action Log (UAL) with user's 50 actions that preceded the fault.</P>
+
+<P>(e.g.</P>
+
+<P>The key "Enter" was pressed<br>
+The key "Ctrl" was pressed<br>
+The key "Ctrl" was pressed<br>
+The key "Ctrl" was pressed<br>
+The key "Y" was pressed<br>
+The key "V" was pressed<br>
+The left mouse button was released in window currently named "Standard" at (x,y) = (57,51)<br>
+The left mouse button was pressed in window with ID = 0x093C at (x,y) = (346,452)<br>
+The left mouse button was released in window with ID = 0x093C at (x,y) = (346,453)<br>
+The left mouse button was pressed in window with ID = 0x0148 at (x,y) = (543,754)<br>
+The left mouse button was released in window with ID = 0x0148 at (x,y) = (543,754)<br>
+The right mouse button was pressed in window with ID = 0x0290 at (x,y) = (99,243)<br>
+The right mouse button was released in window currently named "Directory of /04_Incoming/Cleveland 1-1-79/Disc Two - Netscape" at (x,y) = (99,243)<br>
+The left mouse button was pressed in window currently named "Directory of /04_Incoming/Cleveland 1-1-79/Disc Two - Netscape" at (x,y) = (177,478)<br>
+The left mouse button was released in window currently named "Directory of /04_Incoming/Cleveland 1-1-79/Disc Two - Netscape" at (x,y) = (177,478)<br>
+The left mouse button was pressed in window with ID = 0x0590 at (x,y) = (633,523)<br>
+The left mouse button was released in window with ID = 0x0590 at (x,y) = (633,523)<br>
+The left mouse button was released in window named "Saving Location - [%21]" at (x,y) = (629,287)<br>
+The left mouse button was released in window currently named "Directory of /04_Incoming/Cleveland 1-1-79/Disc Two - Netscape" at (x,y) = (979,4)<br>
+The left mouse button was released in window currently named "HFN web log database saved searches 02.doc - Microsoft Word" at (x,y) = (979,6)<br>
+The left mouse button was released in window currently named "Sorry Mail is off line. - Inbox - Netscape Folder" at (x,y) = (979,12)<br>
+The left mouse button was pressed in window with ID = 0x0114 at (x,y) = (41,749)<br>
+The left mouse button was released in window with ID = 0x012C at (x,y) = (41,750)<br>
+The left mouse button was pressed in window with ID = 0x012C at (x,y) = (103,455)<br>
+The left mouse button was released in window with ID = 0x012C at (x,y) = (103,455)<br>
+The left mouse button was pressed in window with ID = 0x012C at (x,y) = (649,454)<br>
+The left mouse button was pressed in window with ID = 0x0154 at (x,y) = (649,454)<br>
+The left mouse button was released in window with ID = 0x0154 at (x,y) = (648,455)<br>
+The left mouse button was pressed in window with ID = 0x0114 at (x,y) = (9,753)<br>
+The left mouse button was released in window with ID = 0x012C at (x,y) = (9,753)<br>
+The left mouse button was pressed in window with ID = 0x012C at (x,y) = (81,661)<br>
+The left mouse button was released in window with ID = 0x0668 at (x,y) = (82,661)<br>
+The left mouse button was pressed in window with ID = 0x067C at (x,y) = (303,703)<br>
+The left mouse button was released in window with ID = 0x067C at (x,y) = (303,703)<br>
+The left mouse button was pressed in window with ID = 0x0684 at (x,y) = (155,571)<br>
+The left mouse button was released in window with ID = 0x0684 at (x,y) = (155,571)<br>
+The left mouse button was double-clicked in window with ID = 0x0684 at (x,y) = (155,571)<br>
+The left mouse button was released in window with ID = 0x02C8 at (x,y) = (155,571)<br>
+The left mouse button was pressed in window with ID = 0x02C8 at (x,y) = (216,557)<br>
+The left mouse button was released in window with ID = 0x02C8 at (x,y) = (216,557)<br>
+The left mouse button was double-clicked in window with ID = 0x02C8 at (x,y) = (216,557)<br>
+The left mouse button was released in window with ID = 0x0B3C at (x,y) = (216,557)<br>
+The left mouse button was pressed in window with ID = 0x02BC at (x,y) = (298,485)<br>
+The left mouse button was released in window with ID = 0x02BC at (x,y) = (298,485)<br>
+The left mouse button was pressed in window with ID = 0x043C at (x,y) = (213,591)<br>
+The left mouse button was released in window with ID = 0x043C at (x,y) = (213,591)<br>
+The left mouse button was double-clicked in window with ID = 0x043C at (x,y) = (213,591)<br>
+The left mouse button was released in window named " " at (x,y) = (213,591)<br>
+The left mouse button was pressed in window named " " at (x,y) = (145,527)<br>
+The left mouse button was released in window named " " at (x,y) = (145,527)<br>
+The left mouse button was double-clicked in window named " " at (x,y) = (145,527)<br>
+Window with ID = 0x0398 destroyed<br>
+Window with ID = 0x0354 destroyed<br>
+Window with ID = 0x035C destroyed<br>
+Window with ID = 0x02BC destroyed<br>
+Window with ID = 0x04BC destroyed<br>
+Window with ID = 0x030C destroyed</p>
+<p>)</p>
+</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD VALIGN="TOP">Content of fault details dialog box and
+complete list of processes running at the
+time of the fault including, for each: Name
+of process and its location, version of
+process, size of process in bytes, creation
+date of process. Please note that the
+faulting process is the process that caused
+the fault.</P>
+
+<P>(e.g.</P>
+
+<P>Faulting process: D:\PROGRAM FILES\PROGRAMS\WPWIN9.EXE<BR>
+Address of fault: 3F3E4912<BR>
+EAX: FFFFFFFF<BR>
+EBX: 00BEE564<BR>
+ECX: 00000000<BR>
+EDX: FFFFFFFA<BR>
+ESI: 00000000<BR>
+EDI: 00BEF45A<BR>
+EBP: BFF55407<BR>
+ESP: 00BEE244<BR>
+DS: 00000167<BR>
+ES: 00000167<BR>
+SS: 00000167<BR>
+CS: 0000015F<BR>
+FS: 00005157<BR>
+GS: 00000000<BR>
+Flg: 00010256<BR>
+Process: D:\PROGRAM FILES\PROGRAMS\WPWIN9.EXE<BR>
+Process version: 9.0.0.588<BR>
+Process size: 5808128<BR>
+Process creation date: Thursday, March 8,
+2001 16:08:13<BR>
+Process: C:\PROGRAM FILES\...\CLIENT\CUST.EXE<BR>
+Process version: 0.700.4404.LE<BR>
+Process size: 626688<BR>
+Process creation date: Friday, March 9,
+2001 16:41:15<BR>
+Process: C:\WINDOWS\SYSTEM\DDHELP.EXE<BR>
+Process version: 4.08.00.0400<BR>
+Process size: 41984<BR>
+Process creation date: Saturday, March 10,
+2001 23:08:58<BR>
+Process: C:\PROGRAM FILES\NETSCAPE\COMMUNICATOR\PROGRAM\NETSCAPE.EXE<BR>
+Process version: 4.76.0.11<BR>
+Process size: 5574144<BR>
+Process creation date: Thursday, February
+15, 2001 10:33:08<BR>
+Process: C:\PROGRAM FILES\SMART BOOKMARKS\PROGRAM\FFTSKMON.EXE<BR>
+Process version: 3.2.1.200<BR>
+Process size: 62464<BR>
+Process creation date: Wednesday, May 6,
+1998 19:21:02<BR>
+Process: C:\WINDOWS\SYSTEM\ASISERVE.EXE<BR>
+Process version: 1.01<BR>
+Process size: 6144<BR>
+Process creation date: Thursday, February
+15, 2001 10:12:51Process: C:\PROGRAM
+FILES\EXTENDED SYSTEMS INTERPREYES\EYESMON.EXE<BR>
+Process version: 1, 7, 5, 0<BR>
+Process size: 978432<BR>
+Process creation date: Thursday, August 10,
+2000 22:50:17<BR>
+Process: C:\WINDOWS\ASISTAT.EXE</TD></TR>
+<TR><TD></TD>
+<TD VALIGN="TOP">Process: C:\PROGRAM FILES\NETSCAPE\COMMUNICATOR\PROGRAM\AIM\AIM.EXE<BR>
+Process version: 4.1.2010<BR>
+Process size: 24576<BR>
+Process creation date: Thursday, February
+15, 2001 10:33:19<BR>
+Process: C:\WINDOWS\RunDLL.exe<BR>
+Process version: 4.10.1998<BR>
+Process size: 4960<BR>
+Process creation date: Thursday, February
+15, 2001 09:35:06<BR>
+Process: C:\PROGRAM FILES\WINAMP\WINAMPA.EXE<BR>
+Process version: (none)<BR>
+Process size: 7680<BR>
+Process creation date: Tuesday, February
+29, 2000 20:45:15<BR>
+Process: C:\WINDOWS\TASKMON.EXE<BR>
+Process version: 4.10.1998<BR>
+Process size: 28672<BR>
+Process creation date: Thursday, February
+15, 2001 09:35:10<BR>
+Process: C:\WINDOWS\SYSTEM\SYSTRAY.EXE<BR>
+Process version: 4.10.1998<BR>
+Process size: 36864<BR>
+Process creation date: Thursday, February
+15, 2001 09:35:09<BR>
+Process: C:\WINDOWS\EXPLORER.EXE<BR>
+Process version: 4.72.3110.1<BR>
+Process size: 180224<BR>
+Process creation date: Thursday, February
+15, 2001 09:34:58<BR>
+Process: C:\WINDOWS\SYSTEM\mmtask.tsk<BR>
+Process version: 4.03.1998<BR>
+Process size: 1184<BR>
+Process creation date: Thursday, February
+15, 2001 09:35:52<BR>
+Process: C:\WINDOWS\SYSTEM\MDM.EXE<BR>
+Process version: 6.00.8149<BR>
+Process size: 119400<BR>
+Process creation date: Thursday,
+September 3, 1998 19:09:08<BR>
+Process: C:\WINDOWS\SYSTEM\MSTASK.EXE<BR>
+Process version: 4.71.1968.1<BR>
+Process size: 111888<BR>
+Process creation date: Sunday, February
+25, 2001 12:20:54<BR>
+Process: C:\WINDOWS\SYSTEM\MPREXE.EXE<BR>
+Process version: 4.10.1998<BR>
+Process size: 28672<BR>
+Process creation date: Thursday, February
+15, 2001 09:35:03<BR>
+Process: C:\WINDOWS\SYSTEM\SPOOL32.EXE<BR>
+Process version: 4.10.1998<BR>
+Process size: 45056<BR>
+Process creation date: Thursday, February
+15, 2001 09:35:08<BR>
+Process: C:\WINDOWS\SYSTEM\MSGSRV32.EXE<BR>
+Process version: 4.10.1998<BR>
+Process size: 11344<BR>
+Process creation date: Thursday, February
+15, 2001 09:35:03<BR>
+Process: C:\WINDOWS\SYSTEM\KERNEL32.DLL<BR>
+Process version: 4.10.1998<BR>
+Process size: 471040<BR>
+Process creation date: Thursday, February</p>
+<p>)</p>
+</TD></TR></TABLE>
+
+
+</BODY>
+</HTML>

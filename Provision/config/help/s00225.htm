@@ -1,0 +1,403 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 225 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20031020;14015607">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20041230;23043447">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 225 Configuration</H3>
+<H4>Configuration parameters &ndash; default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Continuously monitor for
+	changes</EM> enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Monitored items</EM> empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, by default Scrip 225
+	runs daily at 2.25 AM, once per hour between 6.25 AM and 6.25 PM,
+	and at 9.25 PM</P>
+	<LI><P><EM>Check monitored items now</EM> 
+	</P>
+</UL>
+<H4>Continuously monitor for changes</H4>
+<P>When the <EM>Continuously monitor for changes</EM> configuration
+parameter is enabled, Scrip 225 will detect changes to the
+directories and files listed in the <EM>Monitored items</EM>
+configuration parameter as they happen and will prevent changes to
+files being monitored, if so configured. When this configuration
+parameter is disabled, Scrip 225 will only check for changes when it
+is scheduled to run. Please note that enabling this configuration
+parameter can impact performance if the directories being monitored
+contain many items, and are very active.</P>
+<H4>Monitored items</H4>
+<P>The <EM>Monitored items</EM> configuration parameter contains the
+list of directories and files monitored by Scrip 225. Each item to be
+monitored is entered on a new line. The format of an item in the list
+is:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><B>0</B> (disable) or <B>1</B>
+	(enable) - this makes it possible to temporarily stop monitoring
+	selected items without deleting the corresponding monitored item
+	command line from the list. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Sub-directory monitor flag - If it
+	is set to <B>1</B>, Scrip 225 will monitor all sub-directories. When
+	this flag is set to <B>0</B>, Scrip 225 will ignore any
+	sub-directory contained in the directory being monitored. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Protection - If this flag is set
+	to <B>1</B> Scrip 225 will prevent any changes to be made to files
+	being monitored. Please note that this function applies only to
+	files. When this flag is set to <B>0</B>, Scrip 225 will only detect
+	and report changes made to monitored items. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Directory name - The full path for
+	a directory you want Scrip 225 to monitor, or a directory
+	specification that may have an environment variable in it, or wild
+	cards (see section on directory wild cards at the end of this
+	document). . For example: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">c:\windows\system32 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">%windir% 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">%windir%\prefetch 
+		</P>
+	</UL>
+	<LI><P>File mask - The file mask to use for identifying items to
+	monitor, or single file name to be monitored by Scrip 225. 
+	</P>
+</UL>
+<P>When specifying file masks, you can use the standard Microsoft
+MS-DOS wild card characters <STRONG>?</STRONG> and <STRONG>*</STRONG>
+in both the file name and extension.</P>
+<P>Some examples of <EM>Monitored items</EM> parameter list items
+are: 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>0,0,0,c:\,*.txt</STRONG> -
+	Scrip 225 will ignore this entry because it is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,0,1,%windir%\system32,*.dll</STRONG>
+	- This command line is enabled. It covers the system32 sub-directory
+	in the Windows directory and monitors and prevent any changes to be
+	made to existing dll files 
+	</P>
+	<LI><P><STRONG>1,1,0,C:\Program Files\Microsoft
+	Office\Templates\,*.dot</STRONG> - This command line is enabled. It
+	covers <STRONG>Templates</STRONG> directory and all its sub
+	directories. It monitors files of type <STRONG>dot</STRONG>
+	(Microsoft Word template files) but does not prevent changes from
+	being made to them. 
+	</P>
+</UL>
+<P>Please note that when a command line in the <EM>Monitored items</EM>
+configuration parameter is disabled, the stored information about the
+directory and its contents is removed. When a command line is
+enabled, the information about the directory and its contents is
+re-generated.</P>
+<H4>Note about Scrip 225 execution</H4>
+<P>Scrip 225 runs when one of the following events occurs:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">When the ASI client starts up.
+	When this happens it checks for changes 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">When you click on the execute
+	button to the right of the <EM>Check monitored items now</EM> label.
+	When this happens it checks for changes. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">At its scheduled time. When this
+	happens it checks for changes. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">When monitored item(s) change.
+	When this happens it checks for changes. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">When one of its configuration
+	parameter changes. When this happens it updates the configuration. 
+	</P>
+	<LI><P>When it is enabled/disabled. When this happens it updates the
+	configuration. 
+	</P>
+</UL>
+<P>Checking for changes means:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Determining if any files or
+	directories have been removed, added or altered, and 
+	</P>
+	<LI><P>Updating the stored information about any item that has
+	changed 
+	</P>
+</UL>
+<P>Updating the configuration means updating the stored information
+about monitored item(s) to match their current state. If any existing
+stored information for monitored item(s) is still relevant, then it
+is re-used. 
+</P>
+<P>If you enabled protection for a command line in the <EM>Monitored
+items</EM> parameter(value set to 1), instead of just updating the
+stored information (checksum contained in the ASI client's persistent
+state repository) for the item(s) in that command line, when an item
+changes, Scrip 225 will restore the item to its pre-change state by
+overwriting the changed item with the copy that was stored in the
+hidden directory <I>225</I> contained in the ASI client directory
+when the item was first added to a (part of) <EM>Monitored items</EM>
+parameter command line.</P>
+<P>Please note that Scrip 225 will restore any protected file or
+directory with the backup copy stored in the not only if an attempt
+is made to change them but also if they are deleted.</P>
+<P>If you change the copies of the files and/or directories you have
+configured Scrip 225 to monitor (and protect) that are stored in
+directory 225, the Scrip will not update the changed item's (or
+items') checksum information until it is disabled and then
+re-enabled, or the ASI client is restarted.</P>
+<H4>Check monitored items now</H4>
+<P>With the <EM>Execute</EM> button, you can run Scrip 225 on demand,
+even if it's not enabled. In Scrip 225, the <EM>Execute</EM> button
+can be used to execute the Scrip on the local system or on all
+supported systems.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<H4>Directory path wild card support</H4>
+<P>Certain repetitive system maintenance and management tasks require
+access to sub-directories that have the same name but have different
+parent directories. For example, clean-up of temp directories on
+systems running the Microsoft Windows NT based operating systems
+(NT4, 2000, XP, and Server 2003), requires access to each user's temp
+directory located in <I>[drive}:\Documents and Settings\&lt;user
+name&gt;\Local Settings\Temp</I>. 
+</P>
+<P>In order to make it easier for you configure Scrips to perform
+such repetitive tasks, we have implemented wild card directory
+support, allowing wild cards anywhere in a directory path. This means
+that in the example above, specification of the path for the temp
+directory on all fixed and network drives would be reduced to a
+single line:</P>
+<PRE STYLE="margin-bottom: 0.2in">*:\Documents and Settings\*\Local Settings\Temp\</PRE><P>
+Wild card directory support applies to any Scrip where you may need
+to specify a directory path, including Scrips 60 (and 217-221), 61,
+100, 196, 222, 225, 229, and 230. It also extends to devices, meaning
+that you can use the wild card character for devices including:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Fixed drives (like hard disk
+	partitions)</P>
+	<LI><P STYLE="margin-bottom: 0in">Removable drives (like floppies)</P>
+	<LI><P STYLE="margin-bottom: 0in">Network drives</P>
+	<LI><P STYLE="margin-bottom: 0in">CD-ROMs</P>
+	<LI><P STYLE="margin-bottom: 0in">RAM disk drives</P>
+	<LI><P>Unknown drive types</P>
+</UL>
+<P>For example:</P>
+<PRE STYLE="margin-bottom: 0.2in">\\*\c:\Windows\**\temp</PRE><P>
+would scan the <I>temp</I> directory found zero or more levels below
+the <I>Windows</I> directory on the <I>c:</I> drive on all reachable
+systems on the local network.</P>
+<P>The notation used for wild card directory support is slightly
+different from the MS-DOS wild card notation. It consists of either <B>*</B>
+or <B>**</B>:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><B>*</B> matches exactly one
+	directory level.</P>
+	<LI><P><B>**</B> matches zero or more directory levels.</P>
+</UL>
+<P>For example:</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\**\Local Settings\Temp\</PRE><P>
+would cover all directory levels where the end path consists of
+<I>\Local Settings\Temp\</I> including:</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\Local Settings\Temp\</PRE><P>
+and</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\&lt;user name&gt;\Local Settings\Temp\</PRE><P>
+while</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\*\Local Settings\Temp\</PRE><P>
+would cover only one directory level above <I>\Local Settings\Temp\</I></P>
+<P>You can use multiple instances of <B>*</B> and/or <B>**</B> in
+directory path specifications. When the directory wild card support
+software finds instances of multiple wild cards, it performs
+left-to-right scan that looks through directories 
+</P>
+<P>recursively. Please note that his means that multiple <B>**</B> or
+<B>*</B> in a directory path specification can cause a lot of
+multiple scans through the same directory structure, which will take
+a lot of time, but it will return the correct result.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2004
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

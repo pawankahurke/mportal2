@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20061213;18214230">
+	<META NAME="CHANGED" CONTENT="20080104;18381020">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>Event Notifications</H3>
+<UL>
+	<LI><P><A HREF="#How to produce a report or notification covering one or more sites &aacute;top |outline">How
+	to produce a report or notification covering one or more sites</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20MS%20Windows%20event%20log%20monitoring.txt" TARGET="_blank">MS
+	Windows event log monitoring</A> / <A HREF="HFN%20ASI%20MS%20Windows%20event%20log%20event%20filters.xls" TARGET="_blank">MS
+	Windows event log event filters</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20disk%20monitoring%20how-to.txt" TARGET="_blank">Disk
+	event monitoring</A> 
+	</P>
+</UL>
+<UL>
+	<LI><P><A HREF="HFN%20ASI%20How%20to%20manage%20Autotask%20event%20notifications.html" TARGET="_blank">Autotask
+	support configuration and use</A> 
+	</P>
+	<LI><P><A HREF="HFN%20asi%20connectwise%20psa%20support%20configuration%20and%20use.html" TARGET="_blank">Connectwise
+	PSA support configuration and use</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20how%20to%20customize%20and%20enable%20a%20notification.html" TARGET="_blank">How
+	to customize and enable an event notification</A> 
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="reportnotificationnproduction"></A><A NAME="How to produce a report or notification covering one or more sites &aacute;top |outline"></A>
+How to produce a report or notification covering one or more sites
+<A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1>&aacute;</FONT></FONT><FONT SIZE=1>top
+</FONT></A>
+</H4>
+<P>1) Set up a <A HREF="HFN%20ASI%20user%20management%20how-to%2001.html" TARGET="_blank">new
+user</A> (via the admin module) with access only to the site(s) you
+want the new user to be able to access (with &quot;Normal&quot;
+privileges, and no additional rights). 
+</P>
+<P>a) Log onto your ASI server (https://asiservername/main)</P>
+<P>b) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>c) In the &quot;tools&quot; navigation bar, click on the &quot;admin&quot;
+link.</P>
+<P>d) Click on the &quot;new user&quot; link located above the table
+listing users defined on the ASI server.</P>
+<P>e) Fill in &quot;name&quot; (eg. acme), &quot;password&quot;, and
+&quot;confirm&quot; fields.</P>
+<P>f) In the &quot;Notify mail&quot;, and &quot;Report mail&quot;
+fields enter the e-mail address of the notification and report
+recipient(s). 
+</P>
+<P>g) In the &quot;Sites&quot; list, click on the entry for the site
+you want the new user to have access to. If you want to select more
+than one site, press the &quot;Ctrl&quot; key and click the mouse on
+the entry for each site you want the new user to have access to.</P>
+<P>h) Click on the &quot;Create&quot; button at the bottom of the
+page.</P>
+<P>After you have created a user following the above steps, all
+enabled global reports (both event and asset), and global event
+notifications, when executed as per their schedule, will run for each
+user covering only the sites accessible to that user.</P>
+<P>2) You can also produce a report (asset or event), and event
+notification covering one or more sites by configuring a report (or
+notification) to cover only selected sites. The following steps
+describe this procedure for an event report. The steps for defining
+an asset report, or event notification covering one or more sites are
+the same except for the fact that you would perform them on the
+&quot;Asset Reports&quot;, and &quot;Event Notifications&quot; pages
+respectively.</P>
+<P>a) Log onto your ASI server (https://asiservername/main)</P>
+<P>b) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>c) In the &quot;events&quot; navigation bar, click on the
+&quot;reports&quot; link
+(https://asiservername/main/event/report.php).</P>
+<P>d) Retrieve the report you want to configure to cover one or more
+site:</P>
+<P>In the &quot;Name Contains&quot; field in the &quot;Search
+Options&quot; panel enter one or more words from the report title,
+and click on the &quot;Search&quot; button.</P>
+<P>e) Scroll down to the entry for the report you want to configure
+to cover one or more site, and click on the &quot;copy&quot; link to
+the left of the report entry. 
+</P>
+<P>f) Change the report title entered in the &quot;Report title&quot;
+field, as desired.</P>
+<P>g) In the &quot;Include&quot; list, click on the entry for the
+site you want the report to cover. If you want to select more than
+one site, press the &quot;Ctrl&quot; key and click the mouse on the
+entry for each site you want the report to cover.</P>
+<P>h) Click on the &quot;Add&quot; button at the bottom of the page.</P>
+<P>Note that once the new report has been added, it will run either
+at its scheduled time, or on-demand when you click on the &ldquo;run&rdquo;
+link to the left of the report name in its entry on the &ldquo;Event
+Reports&rdquo; page. In the case of an asset report, you would do the
+same on the &ldquo;Asset Reports&rdquo; page.</P>
+<P>Please also note that if you decided to change the schedule of the
+new report to type &ldquo;Immediate&rdquo; (and selected a period for
+the report to cover), once the report (event or asset) runs, it will
+be automatically deleted.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Changing System Survey (Scrip 61) Schedule</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20070621;17005137">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		P.list-number-2-western { font-family: "verdana"; font-size: 10pt }
+		P.list-number-2-cjk { font-family: "verdana"; font-size: 10pt }
+		P.list-number-2-ctl { font-family: "Tahoma"; font-size: 10pt }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Changing System Survey (Scrip 61) Schedule</H3>
+<P>By default, Scrip 61 (System Survey) runs monthly. If you need
+asset information from client machines stored on the ASI server to be
+kept more current, the Scrip may be scheduled to run weekly instead.
+In this example, we will configure the Scrip to execute on all
+machines every Wednesday. The large value for the &quot;random
+minute&quot; setting insures that asset logging is spread throughout
+the day, reducing any impact on server performance and bandwidth
+consumption. 
+</P>
+<OL>
+	<LI><P CLASS="list-number-2-western">Log onto the ASI server
+	(https://asiservername/main ). The ASI dashboard will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/welcome.php" TARGET="_blank"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Use
+	extended interface</U></FONT></FONT></A> link on the right side of
+	the ASI Dashboard upper pane, below user login and date. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Welcome</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">At the upper right-hand corner
+	of any page on the ASI server extended interface, click on the
+	<A HREF="https://192.168.1.248/main/config/index.php?act=wiz"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>wizard</U></FONT></FONT></A>
+	link in the <B>sites</B> navigation bar
+	(<A HREF="https://asiservername/main/config/index.php?act=wiz"><FONT COLOR="#333399"><U>https://asiservername/main/config/index.php?act=wiz</U></FONT></A>).</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/config/scrpconf.php?custom=8"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Scrip
+	configuration</U></FONT></FONT></A> link
+	(https://asiservername/main/config/scrpconf.php?custom=8). The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select a Group</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">All
+	machines</FONT></FONT> radio button. Then click on the <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Next</FONT></FONT>
+	button. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select Scrip</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Scroll down the page, locate
+	the entry for Scrip 61 (System Survey), and click on its name. The
+	Scrip 61 configuration page will be displayed. 
+	</P>
+	<LI><P>First, look at the schedule. In the left-hand (<B>Name</B>)
+	column, find the row that contains schedule data (Minute, Hour,
+	etc.) 
+	</P>
+	<LI><P>In that row, look at the <B>Value</B> column. If the
+	<B>Configure</B> button appears, click it to display the current
+	values. Change the Scrip 61 schedule parameter values to match the
+	following: 
+	</P>
+</OL>
+<DL>
+	<DD>
+	<TABLE CELLPADDING=2 CELLSPACING=2>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Minute (0-59):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>0</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Hour (0-23):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>10</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Day (1-31):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>*</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Month (1-12):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>*</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Weekday (0-6):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>3</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Random minute:</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>420</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Type (1 or 2):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>2</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Fail limit:</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>0</CODE></P>
+			</TD>
+		</TR>
+	</TABLE>
+</DL>
+<OL START=9>
+	<LI><P STYLE="margin-top: 0.2in; margin-bottom: 0.2in">click the
+	<B>Next</B> button. 
+	</P>
+</OL>
+<P>You will need to allow some time for machines to receive the
+updated configuration, depending on your settings for Scrip 177
+(Scrip Configuration Update), and the number of machines to be
+configured.  Do not be concerned if the browser window displays &ldquo;page
+not found&rdquo;, or similar messages indicating that the browser
+timed out. The Scrip configuration change action you took will be
+completed regardless of any browser time-out event.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

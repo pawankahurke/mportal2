@@ -1,0 +1,299 @@
+@font-face {
+	font-family: OpenSans;
+	src: url(/Dashboard/assets/fonts/OpenSans-Variable.ttf);
+}
+
+@font-face {
+	font-family: OpenSans800;
+	src: url(/Dashboard/assets/fonts/OpenSansWdth800.ttf);
+}
+
+body {
+	margin: 0px;
+}
+
+.card_login {
+	margin: 30px 15px;
+	width: 420px;
+	box-sizing: border-box;
+}
+
+.email_Password {
+	margin-top: 20px;
+	margin-bottom: 5px;
+	font-family: OpenSans;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	color: #828282;
+}
+
+.sso-btn {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid #e8e8e8;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-family: OpenSans;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	cursor: pointer;
+	text-align: center;
+	color: #828282;
+	margin: 20px 0px;
+}
+
+.form-control {
+	width: 100%;
+	height: 100%;
+	padding: 8px 11.2px;
+	outline: none;
+	border: 1px solid #ded2d9;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-family: OpenSans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+
+	color: #000000;
+}
+
+.form-control::-webkit-input-placeholder {
+	font-family: OpenSans;
+	font-weight: 400;
+	opacity: 0.5 !important;
+}
+
+.loginContImg {
+	background-color: #050d30;
+	min-height: 100%;
+	width: 65%;
+}
+
+.loginImg {
+	min-height: 100%;
+	max-width: 100%;
+	background-image: url("/visualization/api/dashboard-customization/bg.jpg");
+	background-size: cover;
+	z-index: 5;
+}
+
+.containerLogin {
+	background-color: #fff;
+	min-height: 100vh;
+	max-width: 100%;
+	display: flex;
+}
+
+.loginForm {
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 35%;
+}
+
+.login-titleText {
+	position: static;
+	font-family: OpenSans;
+	font-style: normal;
+	font-size: 36px;
+	text-align: center;
+	font-weight: 700;
+	color: #525252;
+	margin-bottom: 20px;
+}
+
+.loginText {
+	position: static;
+	text-align: center;
+	opacity: 0.5;
+	font-family: OpenSans;
+	font-style: normal;
+	line-height: 20px;
+	margin: 20px 0;
+	font-weight: 600;
+	font-size: 16px;
+	color: #525252;
+}
+
+.btnLogin {
+	width: 100%;
+	border: none;
+	cursor: pointer;
+	padding: 13px 10px 12px;
+	background: #fa0f4b;
+	border-radius: 6px;
+	font-family: OpenSans800;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: #ffffff;
+}
+
+.btnLogin,
+.btnLogin:active,
+.btnLogin:focus {
+	outline: none;
+}
+
+p {
+	color: #000000;
+}
+
+.link-red {
+	cursor: pointer;
+	text-decoration: none;
+	font-family: OpenSans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: #fa0f4b;
+}
+
+.signUpLink-footer {
+	font-family: OpenSans;
+	font-weight: normal;
+	font-size: 16px;
+	margin-bottom: 20px;
+	color: #828282;
+}
+
+.signUpLink {
+	font-family: OpenSans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 22px;
+	color: #fa0f4b;
+	cursor: pointer;
+}
+
+.cont-eyeIcon {
+	top: 0px;
+	position: absolute;
+	right: 0px;
+	height: 100%;
+	width: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cont-password {
+	position: relative;
+}
+
+.footer-login {
+	bottom: 30px;
+	margin: 5px 15px;
+}
+
+.absoLoaderCont {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	z-index: 10;
+	background: rgba(100, 100, 100, 0.4);
+}
+
+.absoLoader {
+	width: 70px;
+	height: 70px;
+}
+
+@media (max-width: 1700px) {
+	.card_login {
+		transform: scale(0.8);
+	}
+
+	.footer-login {
+		transform: scale(0.8);
+	}
+}
+
+@media (max-width: 1250px) {
+	body {
+		background-image: url("/visualization/api/dashboard-customization/bg.jpg");
+		background-size: cover;
+	}
+
+	.loginContImg {
+		display: none;
+	}
+
+	.loginForm {
+		width: auto;
+		margin: auto;
+		border-radius: 5px;
+		background-color: #fff;
+	}
+
+	.containerLogin {
+		background: transparent;
+	}
+
+	.card_login {
+		margin: 0px 0px;
+		max-width: 420px;
+		min-width: 0;
+		padding: 0px 15px;
+	}
+
+	.footer-login {
+		margin: 0px 0px;
+		padding: 0px 15px;
+		border-radius: 5px;
+	}
+
+	.absoLoaderCont {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.card_login {
+		margin: 0px auto;
+		padding: 15px;
+		padding-top: 40px;
+		width: 100%;
+		transform: none;
+	}
+}
+
+.signed-up-success-title{
+  font-family: OpenSans800;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.signed-up-success-text{
+  font-family: OpenSans800;
+  color: #525252;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.signed-up-success-img{
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.signed-up-success-block{
+  display: none;
+}

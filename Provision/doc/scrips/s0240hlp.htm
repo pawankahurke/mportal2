@@ -1,0 +1,569 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 240 &ndash; Intrusion Protection Management</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20031126;9054487">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20041104;8493599">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 240 &ndash; Intrusion Protection<FONT COLOR="#333399">
+<FONT FACE="verdana, helvetica">Management</FONT></FONT></H3>
+<H4>Overview</H4>
+<P>ASI features complete intrusion protection management and control.
+We have two Scrips that perform these functions:</P>
+<UL>
+	<LI><P>Scrip 232 controls the content of a system&rsquo;s areas that
+	could be targeted by intruders. Depending on its configuration, it
+	accepts, reject, or disable any attempt to modify the content of
+	these areas. If so configured, it performs all actions
+	automatically.</P>
+	<LI><P>Scrip 240 manages a system&rsquo;s configuration areas
+	potentially affected by intruders. It reports the content of a
+	system&rsquo;s intrusion related configuration variables, both
+	enabled and disabled. It also lets you easily enable and disable
+	these variables on one, some, or all systems at a site.</P>
+</UL>
+<H4>Scrip 240 coverage</H4>
+<P>System configuration variables managed by Scrip 240 are divided
+into two groups manipulated via different sets of configuration
+parameters.</P>
+<P>The <EM><FONT FACE="Arial Black">Currently enabled items on this
+machine</FONT></EM>, <EM><FONT FACE="Arial Black">Currently disabled
+items on this machine</FONT></EM>, <EM><FONT FACE="Arial Black">Items
+to enable</FONT></EM>, and <EM><FONT FACE="Arial Black">Items to
+disable </FONT></EM>configuration parameters manage the following
+system configuration variables:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Autoexec.bat</P>
+	<LI><P STYLE="margin-bottom: 0in">Shell= system.ini setting for
+	systems running Microsoft Windows 9x based operating systems</P>
+	<LI><P STYLE="margin-bottom: 0in">Shell extension handlers</P>
+	<LI><P STYLE="margin-bottom: 0in">RunOnce</P>
+	<LI><P STYLE="margin-bottom: 0in">RunOnceEx</P>
+	<LI><P STYLE="margin-bottom: 0in">RunServicesOnce registry keys</P>
+	<LI><P STYLE="margin-bottom: 0in">Browser Helper Objects</P>
+	<LI><P STYLE="margin-bottom: 0in">Internet Explorer Bars</P>
+	<LI><P STYLE="margin-bottom: 0in">Internet Explorer Extensions</P>
+	<LI><P STYLE="margin-bottom: 0in">Internet Explorer Toolbars</P>
+	<LI><P>Hosts file</P>
+</UL>
+<P>The <EM><FONT FACE="Arial Black">Current configuration settings on
+this machine</FONT></EM>, and <EM><FONT FACE="Arial Black">Configuration
+settings to enforce </FONT></EM>configuration parameters manage the
+following system configuration variables:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Start Page settings</P>
+	<LI><P STYLE="margin-bottom: 0in">Search Pages settings</P>
+	<LI><P STYLE="margin-bottom: 0in">Open verb commands</P>
+	<LI><P STYLE="margin-bottom: 0in">Screen saver settings</P>
+	<LI><P>Critical Winlogon registry keys (shell and userinit) for
+	systems running Microsoft Windows NT based operating systems (NT4,
+	2000, XP, or Server 2003)</P>
+</UL>
+<H4>How it works</H4>
+<P>Scrip 240 runs when one of the following events occurs:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">When you click on the execute
+	button to the right of the <EM><FONT FACE="Arial Black">Update
+	intrusion protection now </FONT></EM>label</P>
+	<LI><P STYLE="margin-bottom: 0in">When a user logs on. Having Scrip
+	240 run when a user logs on has the side effect of having it run on
+	ASI client start-up. This is because the user that is currently
+	active is seen as a <I>new user</I> when the ASI client starts up.</P>
+	<LI><P STYLE="margin-bottom: 0in">When it is enabled/disabled. When
+	this happens it updates the configuration. 
+	</P>
+	<LI><P>At its scheduled time</P>
+</UL>
+<P>When Scrip 240 runs, the <EM><FONT FACE="Arial Black">Items to
+enable</FONT>, <FONT FACE="Arial Black">Items to disable</FONT>, and
+<FONT FACE="Arial Black">Configuration settings to enforce</FONT></EM>
+parameters are processed first. After the appropriate system
+configuration items are enabled or disabled as per the configuration,
+then the content of the <EM><FONT FACE="Arial Black">Currently
+enabled items on this machine <FONT FACE="Verdana, sans-serif">and
+</FONT>Currently disabled items on this machine configuration
+parameters </FONT>is</EM> updated.</P>
+<H4>Enabling and disabling items</H4>
+<P>Scrip 240 is a powerful management tool because in addition to
+providing you with information about enabled and disabled system
+configuration items that could be targeted by intruders, it lets you
+enable and disable these system configuration items on one, some, or
+all systems at a site, or at all your sites making the necessary
+changes only once. 
+</P>
+<P>In addition, like all other ASI Scrips, Scrip 240 logs and reports
+all events it detects and actions it takes to the ASI server where
+you can easily set up notifications and reports to keep you and your
+users informed about intrusion protection management activities at
+your sites.</P>
+<P>The easiest way to disable a system configuration item is to copy
+it from the <EM><FONT FACE="Arial Black">Currently enabled items</FONT></EM>
+configuration parameter, and paste it into the <EM><FONT FACE="Arial Black">Items
+to disable </FONT></EM>configuration parameter. To re-enable an item
+you can move it <B>(cut and paste)</B> from the <EM><FONT FACE="Arial Black">Items
+to disable</FONT></EM> configuration parameter to the <I>items to
+enable</I> configuration parameter.</P>
+<P>While this method of enabling and disabling start-up items is
+certainly not the most elegant, it is straightforward and efficient.
+Depending on your needs, in order to disable a system configuration
+item on all systems at a site you only need to add an entry to the
+<EM><FONT FACE="Arial Black">Items to disable </FONT></EM>configuration
+parameter on one system. 
+</P>
+<P>The <EM><FONT FACE="Arial Black">Configuration settings to enforce</FONT></EM>
+configuration parameter provides you with a simple yet powerful tool
+for standardizing the value of critical system configuration settings
+such as browser and shell related variables at a site, and ensuring
+that they are protected from intruders.</P>
+<P>The easiest way (and least prone to errors) to add to or modify
+the content of the <EM><FONT FACE="Arial Black">Configuration
+settings to enforce</FONT></EM> configuration parameter is to copy
+entries with the desired value from the <EM><FONT FACE="Arial Black">Current
+configuration settings on this machine</FONT> configuration
+parameter.</EM></P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Start-up item disable and/or enable actions taken by Scrip 240</P>
+			<P>(E.g.</P>
+			<P>No items were enabled.<BR><BR>3 items were disabled:
+			<BR>ExtObj,,twaintecObj
+			Class,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper
+			Objects\{000020DD-C72E-4113-AF77-DD56626C6C42},,,C:\WINDOWS\twaintec.dll&nbsp;&nbsp;<BR>ExtObj,,Band
+			Class,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper
+			Objects\{01F44A8A-8C97-4325-A378-76E68DC4AB2E},,,C:\WINDOWS\systb.dll&nbsp;&nbsp;<BR>ExtObj,,IncrediFindBHO
+			Class,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper
+			Objects\{5D60FF48-95BE-4956-B4C6-6BB168A70310},,,C:\PROGRA~1\INCRED~1\BHO\INCFIN~1.DLL&nbsp;&nbsp;<BR><BR>4
+			settings were enforced:
+			<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Main,Search
+			Page,about:blank&nbsp;&nbsp;<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Search,SearchAssistant,about:blank&nbsp;&nbsp;<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Search,CustomizeSearch,about:blank&nbsp;&nbsp;<BR>RegKey,Alessandro
+			Donnini,HKEY_USERS\S-1-5-21-117609710-1715567821-839522115-1003\Software\Microsoft\Internet
+			Explorer\Main,Search Page,aboout:blank&nbsp;&nbsp; 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Scrip 240 configuration settings and event that triggered its
+			execution.</P>
+			<P>(E.g.</P>
+			<P>Type of run: On-Demand<BR><BR>Items to enable: none<BR><BR>Items
+			to disable: <BR>ExtObj,,twaintecObj
+			Class,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper
+			Objects\{000020DD-C72E-4113-AF77-DD56626C6C42},,,C:\WINDOWS\twaintec.dll<BR>ExtObj,,Band
+			Class,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper
+			Objects\{01F44A8A-8C97-4325-A378-76E68DC4AB2E},,,C:\WINDOWS\systb.dll<BR>ExtObj,,IncrediFindBHO
+			Class,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper
+			Objects\{5D60FF48-95BE-4956-B4C6-6BB168A70310},,,C:\PROGRA~1\INCRED~1\BHO\INCFIN~1.DLL<BR><BR>Settings
+			to enforce:
+			<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Main,Search
+			Page,about:blank<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Search,SearchAssistant,about:blank<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Search,CustomizeSearch,about:blank<BR>RegKey,Alessandro
+			Donnini,HKEY_USERS\S-1-5-21-117609710-1715567821-839522115-1003\Software\Microsoft\Internet
+			Explorer\Main,Search Page,aboout:blank</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Listing of the enabled and disabled configuration items on the
+			system whose ASI client produced the event log you are viewing.</P>
+			<P>(E.g.</P>
+			<P>Item: {00000EF1-0786-4633-87C6-1AA7A44296DA}<BR>Item data:
+			n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name: F1
+			Organizer Class<BR>Executable file: could not be determined or
+			does not exist<BR><BR>Item:
+			{06849E9F-C8D7-4D59-B87D-784B7D6BE0B3}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			AcroIEHlprObj Class<BR>Executable file: f:\Program
+			Files\Adobe\Acrobat
+			5.0\Acrobat\ActiveX\AcroIEHelper.ocx<BR>CompanyName: not
+			available<BR>FileDescription: AcroIEHelper Module<BR>FileVersion:
+			1, 0, 0, 1<BR>LegalCopyright: Copyright 2001<BR>ProductName:
+			AcroIEHelper Module<BR>ProductVersion: 1, 0, 0, 1<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item:
+			{4E7BD74F-2B8D-469E-C0FF-FA7FB592BF30}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			MEGASEAR<BR>Executable file:
+			C:\WINDOWS\DOWNLO~1\megasear.dll<BR>CompanyName: <BR>FileDescription:
+			<BR>FileVersion: 3.0.0.6<BR>LegalCopyright: <BR>ProductName:
+			<BR>ProductVersion: 3.0<BR>Comments: <BR>Status: enabled<BR><BR>Item:
+			{5CA3D70E-1895-11CF-8E15-001234567890}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			DriveLetterAccess<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfswshx.dll<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			{D714A94F-123A-45CC-8F03-040BCAF82AD6}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			<BR>Executable file: C:\WINDOWS\Downloaded Program
+			Files\SbCIe028.dll<BR>CompanyName: SideStep Inc.<BR>FileDescription:
+			SideStep<BR>FileVersion: 4, 1, 18, 380<BR>LegalCopyright:
+			Copyright &copy; 1999-2004 SideStep Inc.<BR>ProductName:
+			SideStep<BR>ProductVersion: 4, 1, 18, 380<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item:
+			{4D5C8C25-D075-11d0-B416-00C04FB90376}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Explorer
+			Bars<BR>Item type: Extension object<BR>Friendly name: &amp;Tip of
+			the Day<BR>Executable file:
+			C:\WINDOWS\System32\shdocvw.dll<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Shell Doc Object and Control
+			Library<BR>FileVersion: 6.00.2800.1400<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			6.00.2800.1400<BR>Comments: not available<BR>Status:
+			enabled<BR><BR>Item: {83B28A74-640D-48F4-9F51-E80EED7CC7E0}<BR>Item
+			data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Explorer
+			Bars<BR>Item type: Extension object<BR>Friendly name:
+			SideStep<BR>Executable file: C:\WINDOWS\Downloaded Program
+			Files\SbCIe028.dll<BR>CompanyName: SideStep Inc.<BR>FileDescription:
+			SideStep<BR>FileVersion: 4, 1, 18, 380<BR>LegalCopyright:
+			Copyright &copy; 1999-2004 SideStep Inc.<BR>ProductName:
+			SideStep<BR>ProductVersion: 4, 1, 18, 380<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item:
+			{08B0E5C0-4FCB-11CF-AAA5-00401C608501}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Extensions<BR>Item type: Extension object<BR>Friendly
+			name: Toolbar Extension for Executable<BR>Executable file:
+			C:\WINDOWS\System32\shdocvw.dll<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Shell Doc Object and Control
+			Library<BR>FileVersion: 6.00.2800.1400<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			6.00.2800.1400<BR>Comments: not available<BR>Status:
+			enabled<BR><BR>Item: {3E230861-5C87-11D3-A1C6-00105A1B41B8}<BR>Item
+			data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Extensions<BR>Item type: Extension object<BR>Friendly
+			name: Toolbar Extension for Bands<BR>Executable file:
+			C:\WINDOWS\System32\shdocvw.dll<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Shell Doc Object and Control
+			Library<BR>FileVersion: 6.00.2800.1400<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			6.00.2800.1400<BR>Comments: not available<BR>Status:
+			enabled<BR><BR>Item: {c95fe080-8f5d-11d2-a20b-00aa003c157a}<BR>Item
+			data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Extensions<BR>Item type: Extension object<BR>Friendly
+			name: Toolbar Extension for Executable<BR>Executable file:
+			C:\WINDOWS\System32\shdocvw.dll<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Shell Doc Object and Control
+			Library<BR>FileVersion: 6.00.2800.1400<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			6.00.2800.1400<BR>Comments: not available<BR>Status:
+			enabled<BR><BR>Item: {8E718888-423F-11D2-876E-00A0C9082467}<BR>Item
+			data: 0<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Toolbar<BR>Item type: Extension object<BR>Friendly name:
+			&amp;Radio<BR>Executable file:
+			C:\WINDOWS\System32\msdxm.ocx<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Windows Media Player 2 ActiveX
+			Control<BR>FileVersion: 6.4.09.1128<BR>LegalCopyright: Copyright
+			(C) 1992-1999 Microsoft Corp.<BR>ProductName: Microsoft Windows
+			Media Player<BR>ProductVersion: 6.4.09.1128<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item:
+			{2CDE1A7D-A478-4291-BF31-E1B4C16F92EB}<BR>Item data: <BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Toolbar<BR>Item type: Extension object<BR>Friendly name:
+			&amp;Radio<BR>Executable file:
+			C:\WINDOWS\System32\msdxm.ocx<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Windows Media Player 2 ActiveX
+			Control<BR>FileVersion: 6.4.09.1128<BR>LegalCopyright: Copyright
+			(C) 1992-1999 Microsoft Corp.<BR>ProductName: Microsoft Windows
+			Media Player<BR>ProductVersion: 6.4.09.1128<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item:
+			{4E7BD74F-2B8D-469E-C0FF-FA7FB592BF30}<BR>Item data: 2<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Internet
+			Explorer\Toolbar<BR>Item type: Extension object<BR>Friendly name:
+			&amp;Radio<BR>Executable file:
+			C:\WINDOWS\System32\msdxm.ocx<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Windows Media Player 2 ActiveX
+			Control<BR>FileVersion: 6.4.09.1128<BR>LegalCopyright: Copyright
+			(C) 1992-1999 Microsoft Corp.<BR>ProductName: Microsoft Windows
+			Media Player<BR>ProductVersion: 6.4.09.1128<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item:
+			{000020DD-C72E-4113-AF77-DD56626C6C42}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			twaintecObj Class<BR>Executable file:
+			C:\WINDOWS\twaintec.dll<BR>CompanyName: Twaintec<BR>FileDescription:
+			www.twain-tech.com<BR>FileVersion: 0, 1, 4, 35<BR>LegalCopyright:
+			Copyright &copy; 2003<BR>ProductName: twaintec<BR>ProductVersion:
+			0, 1, 4, 35<BR>Comments: www.Twain-Tech.com<BR>Status:
+			disabled<BR><BR>Item: {01F44A8A-8C97-4325-A378-76E68DC4AB2E}<BR>Item
+			data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			Band Class<BR>Executable file: C:\WINDOWS\systb.dll<BR>CompanyName:
+			not available<BR>FileDescription: wbho Module<BR>FileVersion: 1,
+			0, 0, 8<BR>LegalCopyright: Copyright 2004<BR>ProductName: wbho
+			Module<BR>ProductVersion: 1, 0, 0, 8<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item:
+			{5D60FF48-95BE-4956-B4C6-6BB168A70310}<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser
+			Helper Objects<BR>Item type: Extension object<BR>Friendly name:
+			IncrediFindBHO Class<BR>Executable file:
+			C:\PROGRA~1\INCRED~1\BHO\INCFIN~1.DLL<BR>CompanyName: not
+			available<BR>FileDescription: BHO Module<BR>FileVersion: 1, 0, 0,
+			1<BR>LegalCopyright: Copyright 2003<BR>ProductName: BHO
+			Module<BR>ProductVersion: 1, 0, 0, 1<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item: Shell<BR>Item data:
+			Explorer.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows
+			NT\CurrentVersion\Winlogon<BR>Item type: System file<BR>Executable
+			file: C:\WINDOWS\Explorer.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Windows Explorer<BR>FileVersion:
+			6.00.2800.1106 (xpsp1.020828-1920)<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			6.00.2800.1106<BR>Comments: not available<BR>Status:
+			enabled<BR><BR>Item: Userinit<BR>Item data:
+			C:\WINDOWS\system32\userinit.exe,<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows
+			NT\CurrentVersion\Winlogon<BR>Item type: System file<BR>Executable
+			file: C:\WINDOWS\system32\userinit.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Userinit Logon
+			Application<BR>FileVersion: 5.1.2600.1106
+			(xpsp1.020828-1920)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.1106<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			SCRNSAVE.EXE<BR>Item data: C:\WINDOWS\System32\logon.scr<BR>Location:
+			HKEY_USERS\S-1-5-21-117609710-1715567821-839522115-1003\Control
+			Panel\Desktop<BR>Item type: System file<BR>Executable file:
+			C:\WINDOWS\System32\logon.scr<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Logon Screen Saver<BR>FileVersion:
+			5.1.2600.1106 (xpsp1.020828-1920)<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.1106<BR>Comments: not available<BR>Status: enabled</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

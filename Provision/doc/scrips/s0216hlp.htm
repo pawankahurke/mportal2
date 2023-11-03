@@ -1,0 +1,231 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 216 - Print Queue Problem Resolution</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+<BODY>
+
+
+<H3>Scrip 216 - Print Queue Problem Resolution</H3>
+
+<h4>Overview</h4>
+
+<p>The print queue problem resolution Scrip monitors print queues on
+systems that have an attached printer, or send jobs to be printed on a
+network printer. When the Scrip is enabled, it logs a system's printer
+configuration every time the ASI client is restarted. The Scrip performs
+two main tasks:</p>
+
+<ul>
+<li>Monitor print queues, detect all jobs being printed, and report their status</li>
+<li>Detect print jobs that are stuck in the process of being printed,
+stop the print queue, remove them, and re-start the print queue enabling
+other print jobs, if any, to be printed. Problem resolution is triggered
+when the the maximum time that a job can be in the process of being
+printed, as set by IT personnel, is exceeded.</li>
+</ul>
+
+<h4>Automated print queue problem resolution</h4>
+
+<p>When the <em>Automated print queue problem resolution enabled</em> option is enabled,
+Scrip 216 will perform problem resolution whenever a job has been in the process of being printed
+for an amount of time equal, or in excess of the amount of time you specify in the
+<em>How long should the scrip wait for a job to be in process before running automated problem resolution?
+(enter time in minutes)</em>. parameter.</p>
+
+<p>Problem resolution takes place in three phases. Depending on the
+severity of the problem, the Scrip's actions escalate as follows:</p>
+
+<ul>
+<li>Level I - The Scrip detects the problem and uses spooler functionality
+to attempt to remove the job that's causing the problem from the queue
+while preserving the other jobs in the queue.
+
+The problem resolution steps carried out are:</li>
+
+<ul>
+<li>Shut down of print spooler</li>
+<li>Re-start of print spooler</li>
+</ul><br>
+
+
+
+<li>Level II - If Level I resolution does not resolve the problem, the Scrip
+performs the print job removal action directly, while still leaving
+untouched the other jobs in the queue.
+
+The problem resolution steps carried out are:</li>
+
+<ul>
+<li>Shut down of print spooler</li>
+<li>Deletion of job that has been in the process being printed for an amount of time equal to, or in excess of the amount of time calculated using the values entered in parameters <em>Printing speed (pages per minute)</em>, <em>Percent time added per print job</em>, <em>Fixed time added per print job (minutes)</em>, and <em>Print job sensitivity</em>, print queue problem resolution is triggered.</p></li>
+<li>Re-start of print spooler</li>
+</ul><br>
+
+
+
+<li>Level III - If the problem keeps recurring on the same queue, the Scrip
+restarts the system where the problem occurs (the problem may be caused
+by the print driver and restarting a system resolves most print driver
+related problems). Because this action, unlike the others, is very
+intrusive, level III problem resolution has to be explicitly enabled by
+IT personnel. If it is enabled, before restarting the system, and the
+<em>Third level problem resolution user interface enabled</em> option is enabled, the Scrip
+will display a dialog box explaining to the user the reason for having
+to restart the system and asking the end-user to authorize system
+re-start via a yes/no dialog box. If the user clicks on the no button or
+ignores the dialog box, the Scrip will not restart the system. If the
+printing problem occurs again soon after, the Scrip will once again ask
+the user for permission to restart the system.<br>
+If the <em>Third level problem resolution user interface enabled</em> option is not enabled, Scrip 216
+will perform third level problem resolution directly.</li>
+</ul>
+
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD><p>Log of print activity detected and reported by Scrip 216, if the <em>Log print queue activity</em>
+parameter is enabled,
+and the log of problem resolution steps performed by the Scrip when the
+<em>Automated print queue problem resolution enabled</em> paramter is enabled</P>
+
+<P>(E.g.</p>
+<br>Print job(s) were sent to printer: HP LaserJet 4000 Series PCL 6
+<br>
+<br>Printing: Microsoft PowerPoint - Analyst presentation 06-11-03
+<br>Machine: \\NODE14 | Owner: corinne
+<br>-Job status is "printed"
+<br>Pages: 9 Time: 33 Seconds
+<br>Calculated printing speed (seconds per page): 5
+<br>
+<br>Printing: Microsoft PowerPoint - Analyst presentation 10-2-2003b
+<br>Machine: \\NODE14 | Owner: corinne
+<br>-Job status is "printing"
+<br>-Job status is "printed"
+<br>Pages: 10 Time: 39 Seconds
+<br>Calculated printing speed (seconds per page): 4
+<br>
+<br>
+<br>Print job(s) were sent to printer: HP LaserJet 4000 Series PCL 6
+<br>
+<br>Printing: Microsoft Word - Weekly plan Sept 29.doc
+<br>Machine: \\NODE6 | Owner: Adam Parken
+<br>-Job status is "spooling"
+<br>*Performing level 2 problem resolution
+<br>Deleting print job from print queue
+<br>Pages: 0 Time: 3 Minutes, 54 Seconds
+<br>Calculated printing speed (seconds per page): 3
+<br>
+<br>Printing: File2.txt - Notepad
+<br>Machine: \\FRIENDLYS | Owner: admin
+<br>-Job is printing
+<br>*Performing level 1 problem resolution
+<br>Print job has exceeded timeout
+<br>Shutting down print spooler
+<br>Starting print spooler
+<br>*Performing level 2 problem resolution
+<br>Deleting print job from print queue
+<br>Pages: 1 Time: 2 Minutes, 27 Seconds
+<br>
+<br>Printing: File3.txt - Notepad
+<br>Machine: \\FRIENDLYS | Owner: admin
+<br>-Job is printing
+<br>*Performing level 3 problem resolution
+<br>Preparing to perform system reboot
+<br>*Performing level 3 problem resolution
+<br>Preparing to perform system reboot
+<br>User has authorized system reboot
+<br>Pages: 1 Time: 2 Minutes, 16 Seconds
+<p>)</p>
+
+<p>When Scrip 216 is enabled, every time the ASI client is restarted, it reports here the printers it monitors and
+the basic print queue configuration settings. In case monitoring of a printer could not start, Scrip 216
+reports the event.</p>
+
+<P>(E.g.</p>
+<P>Spooler service is installed
+<br>Print Spooler is running
+<br>Monitoring printer: HP OfficeJet G95
+<br>"Keep printed documents" for printer HP OfficeJet G95 is enabled
+<br>Monitoring printer: HP LaserJet 4000 Series PCL6
+<br>"Keep printed documents" for printer HP LaserJet 4000 Series PCL6 is enabled
+</p>
+<p>)</p>
+
+
+</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD><p>Scrip configuration settings<p>
+<p>(E.g.</p>
+<p>Automated print queue problem resolution is enabled
+<br>Printing speed (pages per minute): 2
+<br>Percent of time added to each print job: 10%
+<br>Fixed amount of time added to each print job: 2 minutes
+<br>Print job sensitivity: 100 </p>
+<p>)</p></p>
+</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a</TD></TR></TABLE>
+</BODY>
+</HTML>

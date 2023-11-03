@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 68 - User Has Changed System Date and Time</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 68 - User Has Changed System Date and Time</H3>
+
+<P>Scrip 68 detect and reports a user-produced change of system date and/or time. It takes no corrective action automatically 
+because it does not presume that the change in system date and/or time was unintentional.</p>
+
+<p>However, if the user interface feature is enabled when a user changes the system date and/or time, a dialog box 
+will pop up listing the original and new time and date, and asking:<br><br>
+<em>"Did you mean to change the time?"</em><br><br>
+seeking a <strong>Yes/No</strong> response.</p>
+
+<p>If the user interface is not enabled, Scrip 68 will detect the date/time change but
+will not take any action to reset it.</p>
+
+<p>Scrip 68 also compares the time zone of the system on which it was triggered with that of the other systems on
+the local network where the ASI client is active reporting any discrepancy and listing each system with its time  zone.</p>
+
+<p>Scrip 68 detects date/time changes of more than five hours.
+Any date/time change of five hours or less will be ignored.</p>
+
+<p>Please note that Scrip 68 is triggered when a user accesses the calendar on his/her system by 
+double-clicking on the time display at the lower right-hand corner of the system's desktop. 
+When this happens Scrip 68 will report any date and/or time discrepancy, as discussed above, and 
+time zone differences among systems on the local network.</p>
+
+<p>This means that even if the user does not change the time or date on his/her system, 
+if there are differences in time zones among systems on the local network, Scrip 68 will 
+report these differences as long as they persist.</p>
+
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD><p>Action taken</p>
+<p>e.g. The user has corrected an inadvertent system time change. </p></TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD><p>Date and time before change and after
+change, and their difference </P>
+
+<P>e.g. (</P>
+
+<P>Start time: Friday, August 10, 2001 10:56:02<br>
+End time: Monday, August 13, 2001 08:43:57<br>
+The time has been changed by: 2 Days, 21 Hours, 47 Minutes, 55 Seconds<br>
+Time zone does not match the time zone of other computers on the network<br>
+Machine name and zone: linnehan - Eastern Daylight Time<br>
+Machine name and zone: 211n - Eastern Daylight Time<br>
+Machine name and zone: 211p - Eastern Daylight Time<br>
+Machine name and zone: 211j - Eastern Daylight Time<br>
+Machine name and zone: 211t - Eastern Daylight Time<br>
+Machine name and zone: 211q - Eastern Daylight Time<br>
+Machine name and zone: 211cc - Pacific Daylight Time<br>
+Machine name and zone: 211o - Eastern Daylight Time<br>
+Machine name and zone: 211k - Pacific Daylight Time<br>
+Machine name and zone: 211v - Eastern Daylight Time<br>
+Machine name and zone: 211a - Eastern Daylight Time<br>
+Machine name and zone: 211g - Eastern Daylight Time</P>
+
+<P>)</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

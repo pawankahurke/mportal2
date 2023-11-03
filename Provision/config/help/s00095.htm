@@ -1,0 +1,306 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 95 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20040516;18430067">
+	<META NAME="CHANGED" CONTENT="20070724;19282832">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 95 Configuration</H3>
+<H4>Configuration Parameters, and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>Scrip enabled</I> enabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Absolute threshold (KB or %)
+	(e.g. 100000 or 10%)</I> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Change threshold (KB)</I> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Number of samples for change
+	threshold</I> <B>1</B></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Percentage of free space below
+	which to report for each drive (used for compatibility)</EM> <B>10</B></P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, Scrip 95 runs once
+	per hour at 20 minutes past the hour with a random 3-minute delay.
+	This means that Scrip 95 will run from 20 to 23 minutes past the
+	hour.</P>
+	<LI><P><EM>Report disk space (logical) now</EM> 
+	</P>
+</UL>
+<P>The Scrip execution interval can be changed by simply changing the
+default schedule.</P>
+<P>Please note that when either the <I>Absolute threshold (KB or %)
+(e.g. 100000 or 10%)</I> or <I>Change threshold (KB)</I>
+configuration parameter is empty, the corresponding function is
+disabled.</P>
+<H4>Absolute threshold (KB or %) (e.g. 100000 or 10%)</H4>
+<P>The <EM>Absolute threshold (KB or %) (e.g. 100000 or 10%)</EM>
+configuration parameter is used to alert you about low available
+logical disk capacity conditions and effectively regulate the Scrip's
+logging activity. 
+</P>
+<P>The value of the <EM>Absolute threshold (KB or %) (e.g. 100000 or
+10%)</EM> configuration parameter can be expressed either in terms of
+the absolute amount of available disk capacity expressed in KB (e.g.
+100000), or in terms of the % of available disk capacity (e.g. 10% --
+note the % appended to the number).</P>
+<P>When the value of the <EM>Absolute threshold (KB or %) (e.g.
+100000 or 10%)</EM> configuration parameter is expressed in terms of
+the % of available disk capacity, it can vary between 100% and 0%.
+When it is set to 100%, this means that Scrip 95 will log available
+logical disk capacity statistics once per hour (the default Scrip 95
+execution schedule). When the value of the <EM>Absolute threshold (KB
+or %) (e.g. 100000 or 10%)</EM> configuration parameter is set to X%,
+where X is between 0 and 100, this means that Scrip 95 will log
+available logical disk capacity statistics once per hour, if its
+amount falls below X%. When the value of the <EM>Absolute threshold
+(KB or %) (e.g. 100000 or 10%)</EM> configuration parameter is set to
+0%, in practice this means that Scrip 95 will log available logical
+disk capacity statistics very rarely.</P>
+<P>When the value of the <EM>Absolute threshold (KB or %) (e.g.
+100000 or 10%)</EM> configuration parameter is expressed in terms of
+the absolute amount of available disk capacity expressed in KB, it
+can vary between 0 and a number as large as you like. When it is set
+to a number greater than the capacity of the largest logical drive on
+a system, this means that Scrip 95 will log available logical disk
+capacity statistics once per hour (the default Scrip 95 execution
+schedule). When the reporting threshold is set to X, where X is
+between 0 and the capacity of the largest logical drive on a system,
+this means that Scrip 95 will log available logical disk capacity
+statistics once per hour, if its amount falls below X. When the value
+of the <EM>Absolute threshold (KB or %) (e.g. 100000 or 10%)</EM>
+configuration parameter is set to <B>0</B>, in practice this means
+that Scrip 95 will log available logical disk capacity statistics
+very rarely.</P>
+<H4>Change threshold (KB)</H4>
+<P>You can use Scrip 95 to warn you when available disk capacity
+decreases by the amount specified in the <I>Change threshold (KB)</I>
+configuration parameter expressed in number of KBytes.</P>
+<P>Every time Scrip 95 runs, for each logical drive on a system, it
+finds the largest of the available disk capacity values it has
+retained as specified by the value of the <I>Number of samples for
+change threshold</I> configuration parameter. It calculates the
+decrease from that value to the current available disk capacity. If
+the decrease is greater than the value of the <I>Change threshold
+(KB)</I> configuration parameter , Scrip 95 will post an event log
+onto the ASI server.</P>
+<H4>Number of samples for change threshold</H4>
+<P>The <I>Number of samples for change threshold</I> configuration
+parameter represents the number of available disk capacity
+measurements retained by Scrip 95 for each of the logical drives on a
+system. 
+</P>
+<P>Please note that if you increase the value of the <I>Number of
+samples for change threshold</I> configuration parameter it will take
+some time to accumulate the increased number of samples (an amount of
+time equal to the sum of the interval between Scrip 95 executions
+necessary to collect a number of samples equal to the increased value
+of the <I>Number of samples for change threshold</I> configuration
+parameter). The number of samples retained will be smaller than the
+increased value of the <I>Number of samples for change threshold</I>
+configuration parameter for the amount of time it will take to
+collect a number of samples equal to the value of the <I>Number of
+samples for change threshold</I> configuration parameter.</P>
+<H4>Percentage of free space below which to report for each drive
+(used for compatibility)</H4>
+<P>The <EM>Percentage of free space below which to report for each
+drive</EM> configuration parameter is used to alert the support
+provider about low available logical disk capacity conditions and
+effectively regulate the Scrip's logging activity. 
+</P>
+<P>The value of The <EM>Percentage of free space below which to
+report for each drive</EM> configuration parameter can vary between
+100 and 0. When it is set to 100, in practice this means that for
+Scrip 95 will log available logical disk capacity statistics once per
+hour (the default Scrip 95 execution schedule). When the reporting
+threshold is set to X, where X is between 0 and 100, this means that
+Scrip 95 will log available logical disk capacity statistics once per
+hour, if its amount falls below X. When the value of The <EM>Percentage
+of free space below which to report for each drive</EM> configuration
+parameter is set to 0, in practice this means that Scrip 95 will log
+available logical disk capacity statistics very rarely.</P>
+<H4>Report disk space (logical) now</H4>
+<P>With the <EM>Execute</EM> button, you can run Scrip 95 on demand,
+even if it's not enabled. In Scrip 95, the <EM>Execute</EM> button
+can be used to execute the Scrip on the local system or on all
+supported systems.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

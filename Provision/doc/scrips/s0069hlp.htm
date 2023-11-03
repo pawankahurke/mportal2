@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 69 - Chkdsk Files Clean-up on MS Windows NT4 / Windows 2000 Systems</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 69 - Chkdsk Files Clean-up on MS Windows NT4 / Windows 2000 Systems</H3>
+
+<P>Scrip 69 deletes files created when Chkdsk finds an error on a drive and attempts to recover data before repairing the 
+error.</P>
+
+<p>For every fixed disk drive in the system, Scrip 69 looks in the root directory for directories that match the mask "found.???".  This is where Windows NT 
+places any files produced by Chkdsk.  It names these directories found.001, found.002, and so on, for the different runs of Chkdsk.</p>
+
+<p>Inside the "found.???" directories, Scrip 69 selects files that match the "file*.chk" mask and directories that match "dir*.chk" mask.</p>
+
+<p>Inside the "dir*.chk" directories, it examines all files and directories. It deletes any file that is as old or 
+older than the number of days entered in its configuration file. The default value of the removal criteria is 14 days. This means that Scrip 69 deletes 
+any selected file that is at least 14 days old.</p>
+
+<p>When it examines a directory, it checks to see if it is old enough. If it is, then it recursively descends into the
+directory and looks at everything inside it.  If it ends up deleting everything inside the directory, then 
+it also deletes that directory.</p>
+
+<P>The value of the removal criteria parameter can be changed using the Scrip configuration 
+module. The file and directory selection masks are fixed.</p>
+
+<p>The table below describes the information contained in the logs produced by Scrip 69.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>Creation date and time of the last file
+deleted by the Scrip </P>
+
+<P>(e.g. Tuesday, December 5, 2000
+10:45:36)</TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P> (e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Location scanned by Scrip and list of
+scandisk files that met search and removal
+criteria and whose removal was attempted
+with success/failure of each </P>
+
+<P>(e.g. </P>
+
+<P>Checking C:\found.???<BR>
+Successful<BR>
+Successful<BR>
+Successful<BR>
+Successful<BR>
+Successful<BR>
+Successful<BR>
+Successful<BR>
+Successful<BR>
+Successful<BR>
+Checking D:\found.???</P>
+
+<P>) </TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>Value of parameters used by Scrip:
+Removal criteria and results of search and
+removal operations </P>
+
+<P>(e.g. </P>
+
+<P>Removal criteria: older than 14 Days, 0
+Hours, 0 Minutes, 0 Seconds<BR>
+9 items were found that met search criteria<BR>
+9 items were removed, being older than
+Wednesday, December 6, 2000 13:01:58<BR>
+0 items were left</P>
+
+<P>) </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

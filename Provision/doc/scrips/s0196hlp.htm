@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 196 - Software Patch Application</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 196 - Software Patch Application</H3>
+
+<P>Scrip 196 enables the automated application of software patches and updates on one, a subset, or all systems on
+the local network.</p>
+
+<p>Executables to be applied by Scrip 196 can be located on a network accessible location, on an FTP Server, or on a Web server (HTTP/HTTPS), which could be located on the same system as the ASI log server.</p>
+
+<p>When Scrip 196 fails to retrieve an executable from an FTP or Web server, it automatically logs and reports the responses received from the server. This makes it much easier to diagnose the failure and resolve the problem.</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>Text contained in Window title field of
+dialog box</P>
+
+<P>(e.g. HotSync Manager) </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Type of run (on demand, or scheduled, and log of actions executed by Scrip 196</P>
+
+<P>Example 1</p>
+
+
+<p>
+Type of run: On-Demand
+<br>Starting "F:\working\pegasus\peg32bit\w32-402.exe" on Thursday, December 12, 2002 12:03:01
+<br>Finished executing "F:\working\pegasus\peg32bit\w32-402.exe" on Thursday, December 12, 2002 12:03:28
+<br>--------------------------------------------------------------------------------------------------
+<br><br>Executing: ftp://corpink:hfn1@nanoheal.org:21/w32-402.exe
+<br>File download complete, time: 1 Minute, 3 Seconds
+<br>Starting "C:\WINDOWS\TEMP\w32-402.exe" on Thursday, December 12, 2002 13:41:21
+<br>Finished executing "C:\WINDOWS\TEMP\w32-402.exe" on Thursday, December 12, 2002 13:41:35</p>
+
+
+
+<p>Example 2</p>
+
+<p>
+<br>Type of run: Scheduled
+<br>Executing: ftp://192.168.1.2/823559.exe
+<br>File download complete, time: 7 Seconds
+<br>Starting "C:\WINDOWS\TEMP\823559.exe" on Tuesday, July 15, 2003 09:00:10
+<br>Window Title: Windows XP KB823559 Setup Wizard
+<br>Welcome to the
+<br>Windows XP
+<br>KB823559 Setup Wizard
+<br>Before you install this update, we recommend that you:
+<br>
+<br>- Back up your system
+<br>
+<br>- Close all open programs
+<br>
+<br>
+<br>To complete this installation, Windows might require restarting after you <br>finish this wizard.
+<br>
+<br>To continue, click Next.
+<br>Window Action: Selected push button "Next >"
+<br>Window Title: Windows XP KB823559 Setup Wizard
+<br>Completing the
+<br>Windows XP
+<br>KB823559 Setup Wizard
+<br>You have successfully completed the KB823559 Setup Wizard.
+<br>
+<br>To close this wizard, click Finish.
+<br>Window Action: Selected push button "Finish"
+<br>Finished executing "C:\WINDOWS\TEMP\823559.exe" on Tuesday, July 15, 2003 09:03:31</p>
+
+
+<p>Example 3</p>
+
+<p>Type of run: On-Demand
+<br>Executing: ftp://handsfree:xxxxxxx@ftp.handsfreenetworks.com/copyupdate.exe
+<br>220 ftp.handsfreenetworks.com FTP server ready.
+<br>331 Password required for handsfree.
+<br>230 User handsfree logged in. Access restrictions apply.
+<br>200 Type set to I.
+<br>200 PORT command successful.
+<br>550 copyupdate.exe: No such file or directory.</p>
+
+
+</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>Summary of Scrip 196 configuration</P>
+
+<P>Example 1<p>
+
+<br>On error: Stop
+<br>Max minutes: 5
+<br>Patches to apply
+<br>- F:\working\pegasus\peg32bit\w32-402.exe
+<br>--------------------------------------------------------------------------------------------------
+<br><br>On error: Stop
+<br>Max minutes: 5
+<br>Patches to apply
+<br>- ftp://corpink:hfn1@nanoheal.org:21/w32-402.exe</p>
+
+
+
+
+<p>Example 2</p>
+
+<p>On error: Continue
+<br>Max minutes: 5
+<br>Patches to apply
+<br>- 1,,ftp://192.168.1.2/823559.exe</p>
+
+
+</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

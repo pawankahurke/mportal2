@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 77 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20060815;14563364">
+	<META NAME="CHANGED" CONTENT="20061016;8445325">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 77 Configuration</H3>
+<H4>Configuration Parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Report error logs</EM> enabled
+		</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Report warning logs</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Report informational logs</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Report successful access
+	security audits</EM> disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Report failed access security
+	audits</EM> disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Report unknown logs</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Polling interval (minutes,
+	0=none)</EM> <B>0</B> 
+	</P>
+	<LI><P><EM>Event logs to monitor for changes</EM> <STRONG>Application</STRONG>,
+	<STRONG>System</STRONG>, <STRONG>Security</STRONG> 
+	</P>
+</UL>
+<H4>Report unknown logs</H4>
+<P>When the parameter <EM>Report unknown logs</EM> is enabled, Scrip
+77 will report the addition of undocumented logs to the event log,
+and their content.</P>
+<H4>Polling interval (minutes, 0=none)</H4>
+<P>The <I>Polling interval (minutes, 0=none)</I> configuration
+parameter can be used to work around the problem described in the
+following Microsoft knowledge base
+article:<BR>http://support.microsoft.com/default.aspx?scid=kb;en-us;Q245609</P>
+<P>Based on the problem described in the article referred to above,
+the worst that could happen is that there would be a delay in seeing
+an event log until the next time that either another one happened, or
+the system re-started. The way Scrip 77 works, you will NEVER miss
+seeing an event log.</P>
+<P>However, we felt that the best approach would be to give you the
+option to have Scrip 77 based on event detection (the default and
+preferred approach, with the <I>Polling interval (minutes, 0=none)</I>
+configuration parameter set to <B>0</B>), or based on polling. 
+</P>
+<P>With polling, if you have some events that are really time
+critical, and it is imperative that you see every event at most 10
+minutes after it happens, for example, then you will be able to do
+that. All you need to do is set the <I>Polling interval (minutes,
+0=none)</I> configuration parameter to <B>10</B>.</P>
+<P>If you can live with the occasional problem in the operating
+system that limits our ability to deliver real-time information, then
+you can leave the <I>Polling interval (minutes, 0=none)</I>
+configuration parameter set to <B>0</B>, which is the way we suggest
+running it.</P>
+<H4>Event logs to monitor for changes</H4>
+<P>In addition to the default entries, you can add the name of custom
+event logs to the <EM>Event logs to monitor for changes</EM> list,
+each on a separate line.</P>
+<H4>Security audits</H4>
+<P>Please note:</P>
+<P>Success audit - Success audit events are security events that
+occur when an audited access attempt is successful. For example, a
+successful logon attempt is a success audit event.</P>
+<P>Failure audit - Failure audit events are security events that
+occur when an audited access attempt fails. For example, a failed
+attempt to open a file is a failure audit event.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

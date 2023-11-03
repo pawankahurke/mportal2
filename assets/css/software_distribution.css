@@ -1,0 +1,234 @@
+
+    .open-dart-console{cursor:pointer}
+    a.w3-dart-title, a.w3-dart-title:hover{
+        color: #1d253b;
+        font-size: 12px;
+    }
+    .w3-dart-elements .my-collapse-content span{position: relative;left: 15px;}
+    .bx-cnt-spn {
+        border: 1px solid #06113c;
+        border-radius: 20px;
+        font-size: 10px;
+        float: right;
+        width: 25px;
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+        height: 25px;
+        margin: -12px -12px 0px 0px;
+        padding: 4px 0px 0px;
+    }
+    span.error {
+        margin-right: 6px !important;
+        position: relative;
+        top: 3px;
+    }
+    
+    span.error.left {
+        float:left !important;
+        top: -3px !important;
+    }
+    
+    select.dart-select.left{
+        width:96%;
+    }
+    
+    input.dart-input-title{
+         width:96%;
+    }
+    
+    div#ck-uck-all{position: relative;top: -12px;}
+    div#ck-uck-all p{position: relative;top: 7px;color: #1d253b;font-weight: 400;font-size:13px;}
+    #accordion .card div.card-header { width: 98%; }
+    .well{
+            background-color: #f9f9f9;
+            border: 1px solid #ececec;
+            padding: 5px 14px;
+            margin-bottom: 10px;
+            min-height: 32px;
+    }
+    
+    select{padding:0px 14px !important;}
+    
+    
+    .tooltip-main {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-weight: 700;
+  background: #f3f3f3;
+  border: 1px solid #737373;
+  color: #737373;
+  margin: 4px 121px 0 5px;
+  float: right;
+  text-align: left !important;
+}
+
+.tooltip-qm {
+  float: left;
+  margin: -2px 0px 3px 4px;
+  font-size: 12px;
+}
+
+.tooltip-inner {
+  max-width: 236px !important;
+  font-size: 12px;
+  padding: 10px 15px 10px 20px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #737373;
+  text-align: left;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: #f00;
+  /* Red */
+}
+
+div.bottom{bottom:39px !important;}
+#packageGrid_info{margin-left: 14%;color: #000;font-size: 10px;}
+.side-nav-it p{color: #ffffff}
+.swd-ic-it{
+    cursor:pointer;background-color: #f9f9f9;border: 1px solid #ececec;padding: 10px 0;margin-top:10px;margin-right:10px
+}
+
+.swd-ic-it.active,.swd-ic-it:hover{
+    background-color: #e7e7e7;border: 1px solid #cccccc;
+}
+
+.swd-hide{display:none}
+
+.swd-ic-it p{font-weight:bold;text-align:center}
+.swd-ic-it-group .swd-ic-it p{font-size:11px}
+
+.my-btn-group{margin-left:0px;margin-bottom:20px}
+.my-btn-group label {margin-right:0px}
+
+
+
+.resume-download-wrap .bootstrap-switch-wrapper,
+.propagation-wrap .bootstrap-switch-wrapper{position: relative;left: 10px;}
+
+#delete-log-file-wrap .bootstrap-switch-wrapper{position: relative;left: 22px;}
+.my-container, .my-row {border:1px solid #ccc;padding-top: 14px;padding-bottom: 14px;margin-bottom: 14px}
+
+.my-icon-wrap{
+    text-align: left;
+    font-size: 11px;
+    cursor: pointer;
+    margin-right: 0px;
+    float: left;
+    color: #000;
+}
+
+.my-icon{
+    border: solid 1px #999;
+    border-radius: 50px;
+    padding: 2px;
+    margin-right: 5px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.more-opt-box{cursor:pointer;margin-left: -12px;}
+
+.bx-cnt-spn {
+    background-color: #fff;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #06113c;
+    border-radius: 20px;
+    font-size: 10px;
+    float: right;
+    width: 25px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    height: 25px;
+    margin: -12px -12px 0px 0px;
+    padding: 4px 0px 0px;
+
+}
+
+.white-content .bootstrap-switch-off::before{
+    background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/J9H9WF0/night-sky-full-of-stars-fantasy-animation-made-of-magical-sparkly-light-particles-flickering-on-a-purple-blue-gradient-background_bajacpz7x_thumbnail-full01.png") !important;
+}
+
+
+.wt-group{box-shadow: 0px 0px 3px 0px #ccc;padding: 10px 13px;}
+#source-wrap .wt-group{min-height: 297px;}
+#pre-check-wrap .wt-group{min-height: 444px;}
+.r-ic{background-color: #ffffff;border-radius: 13px;padding: 0px 5px 2px 5px;border: 1px solid #C1C1C1;cursor: pointer;box-shadow: 0px 0px 3px 1px #ccc;-webkit-box-shadow: 0px 0px 3px 1px #ccc;-moz-box-shadow: 0px 0px 3px 1px #ccc;-o-box-shadow: 0px 0px 3px 1px #ccc;}
+.r-ic:hover{box-shadow: 1px 1px 3px 2px #ccc;}
+.r-ic-sm{ border-radius: 13px;padding:5px;color:#ffffff !important}
+.r-ic-sm.error{background-color: #D75A4A;}
+.r-ic-sm.success{background-color: #66B659;}
+.list-pl.windows{ 
+    background: url("../img/ic-mini-win.png") left top no-repeat ;width: 26px;height: 26px;
+}
+.list-pl.linux{ 
+    background: url("../img/ic-mini-linux.png") left top no-repeat ;width: 26px;height: 26px;
+}
+.list-pl.mac{ 
+    background: url("../img/ic-mini-mac.png") left top no-repeat ;width: 26px;height: 26px;
+}
+.list-pl.ios{ 
+    background: url("../img/ic-mini-ios.png") left top no-repeat ;width: 26px;height: 26px;
+}
+.list-pl.android{ 
+    background: url("../img/ic-mini-android.png") left top no-repeat ;width: 26px;height: 26px;
+}
+
+#swd-list-dtable tbody tr.active {
+    background-color: #f1f1f1;
+}
+
+#swd-list-dtable_processing{
+    background-color: #ffffff;
+    width: 100%;
+    margin-left: -50%;
+    z-index: 10;
+    position:absolute;
+}
+
+#swd-list-dtable_info{
+    margin-left: 14%;
+    color: #000;
+    font-size: 10px;
+    position: relative;
+    top: -3px;
+}
+
+.wt-group{
+    margin-top: -19px;margin-left: 1px;
+}  
+.my-btn-group label.btn:first-child{border-bottom-left-radius:0px;}
+.my-btn-group label.btn:last-child{border-bottom-right-radius:0px;}
+
+.my-grid.centered{
+    display: block;margin: 0 auto;
+}
+
+#dispMenu .addBox span.arrow-right{
+    display:none;
+}
+
+#dispMenu .addBox.active span.arrow-right{
+    display: inline-block !important;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #050d30;
+    float: right;
+    position: absolute;
+    right: -9px;
+    top: 25px;
+}
+
+.swd-progress-loader{display: none; position: relative;right: 0px;}

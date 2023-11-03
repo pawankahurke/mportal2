@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 187 - Machine List Management</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20050725;18401396">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050804;17140809">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 187 &ndash; Machine List Management</H3>
+<P>Scrip 187 reports the content of the the Local Machines page
+accessed via <A HREF="http://localhost:2721/">http://localhost:2721</A>,
+on the system where the Scrip was executed.</P>
+<P>Scrip 187 runs:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">When the ASI client starts-up</P>
+	<LI><P>On demand, when a user clicks on one of the Execute buttons
+	in the Scrip's configuration page</P>
+</UL>
+<P>The table below describes the information contained in the logs
+produced by Scrip 246.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Version of program used to install the software application</P>
+			<P>(e.g. 1.5 Build 14)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of program used to install the software application in
+			bytes</P>
+			<P>(e.g. 218624)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Creation date of program used to install the software
+			application</P>
+			<P>(e.g. Friday, June 5, 1998 04:01:08)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P><FONT SIZE=2>Action performed by Scrip 187</FONT></P>
+			<P>(e.g. Reporting machine list. See field text3.)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P><FONT SIZE=2>Type of Scrip execution, whether it ran on demand,
+			or at ASI client start-up</FONT></P>
+			<P>(e.g. Type of run: Client startup )</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P><FONT SIZE=2>ARP table content at the time Scrip 246 random</FONT></P>
+			<P><FONT SIZE=2>(e.g.</FONT></P>
+			<P STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><FONT SIZE=5><FONT FACE="verdana, helvetica"><FONT COLOR="#333399">HandsFree
+			Networks</FONT></FONT></FONT> <FONT SIZE=1><FONT FACE="verdana, helvetica"><BR>Thursday,
+			August 4, 2005 14:35:02<BR>Machine: gabe</FONT></FONT></FONT></FONT></P>
+			<P><FONT COLOR="#333399"><FONT FACE="verdana, helvetica"><FONT SIZE=4>Local
+			Machines</FONT></FONT></FONT></P>
+			<P><FONT FACE="verdana, helvetica"><FONT SIZE=2>Click on the link
+			below to go to the scrip configuration page for this machine. To
+			access another machine, click on one of the links in the table
+			below. </FONT></FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="https://192.168.1.249/main/event/config.cgi">192.168.1.247
+			- gabe</A> </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica">IP Address Name </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.253:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.253</FONT></A>
+			dasag </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.7:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.7</FONT></A>
+			node1 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.16:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.16</FONT></A>
+			node10 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.18:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.18</FONT></A>
+			node11 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.20:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.20</FONT></A>
+			node13 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.21:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.21</FONT></A>
+			node14 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.22:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.22</FONT></A>
+			node15 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.23:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.23</FONT></A>
+			node16 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.24:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.24</FONT></A>
+			node17 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.25:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.25</FONT></A>
+			node18 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.26:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.26</FONT></A>
+			node19 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.15:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.15</FONT></A>
+			node9 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.252:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.252</FONT></A>
+			olivia </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.244:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.244</FONT></A>
+			olivia-new </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.251:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.251</FONT></A>
+			telecommuter1 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.240:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.240</FONT></A>
+			telecommuter3 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://127.0.0.1:2721/config.cgi"><FONT FACE="verdana, helvetica">127.0.0.1</FONT></A>
+			telecommuter4 </FONT>
+			</P>
+			<P><FONT FACE="verdana, helvetica"><A HREF="http://192.168.1.246:2721/config.cgi"><FONT FACE="verdana, helvetica">192.168.1.246</FONT></A>
+			<FONT FACE="verdana, helvetica">w2kserver</FONT> </FONT>
+			</P>
+			<HR SIZE=1 COLOR="#333399" NOSHADE>
+			<P><FONT FACE="verdana, helvetica"><FONT FACE="verdana, helvetica">&copy;
+			2000-2003 HandsFree Networks<BR><FONT SIZE=1><FONT COLOR="#808080">Version
+			2.001.0938.BM<BR>Revision level 2195<BR></FONT></FONT></FONT><BR></FONT><BR><BR><BR>
+			</P>
+			<P><FONT SIZE=2>)</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

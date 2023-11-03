@@ -1,0 +1,579 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 111 &ndash; HandsFree Client Network Deployment</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20070327;10560160">
+	<META NAME="CHANGED" CONTENT="20070427;20111251">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 111 &ndash; HandsFree Client Network Deployment</H3>
+<P>Scrip 111 automatically installs the ASI client on all systems on
+the sub-net where the system on which Scrip 111 ran is located.</P>
+<P>Whenever it runs, Scrip 111 either runs a networks survey (the
+first time it runs), or updates a network survey. Please note that
+you can also run the network survey action independently of the ASI
+client deployment action by clicking on the <I>Run network survey now</I>
+Execute button in the Scrip's configuration page. 
+</P>
+<P>Whenever it runs, Scrip 111 generates a log reporting the actions
+it took and the contents of the survey of all network devices for
+which it found information in the system's ARP table, including
+additional information it retrieves from the devices directly.</P>
+<H4>HandsFree client network deployment function restrictions</H4>
+<P>Scrip 111 works on systems running a version of the Microsoft
+Windows 2000, XP, Server 2003, and Vista operating systems.</P>
+<P>At locations where systems are running a version of the Microsoft
+Windows XP operating system, the HandsFree client network deployment
+function (Scrip 111) works if:</P>
+<UL>
+	<LI><P>Systems are in a domain</P>
+	<LI><P>File and print sharing is enabled</P>
+</UL>
+<P>Please note the above restrictions apply only to systems running
+Microsoft Windows XP.</P>
+<P>On sub-nets where systems running Microsoft Windows XP are not in
+a domain, in order for the HandsFree Client network deployment
+function to work, the following conditions must be met:</P>
+<UL>
+	<LI><P>Simple file sharing is disabled</P>
+	<LI><P>The Microsoft XP firewall is configured to allow file and
+	print sharing</P>
+</UL>
+<P>In addition to the above, In order to use the HandsFree client
+network deployment, you will need to provide a user name and password
+for an administrative account that works on all systems on the
+sub-net. If this is a domain account, you will also need to provide
+the domain name for the account. You will also need to check and make
+sure that the system you run the HandsFree network deployment
+function on is a member of the domain where you want to install the
+ASI client.</P>
+<H4>Network survey output explained</H4>
+<P>For each system on the sub-net where the system on which Scrip 111
+runs is located, Scrip 111 will report information as in the
+following example:</P>
+<P><I>Name</I>: MNMS</P>
+<P><I>IP Address</I>: 192.168.0.36</P>
+<P><I>MAC Address</I>: 00:20:AF:CD:72:46</P>
+<P><I>Time</I>: 04/06/2007 13:40:38</P>
+<P><I>Client</I>: none</P>
+<P><I>Testing for Network Share</I>: \\MNMS\C$\Program Files</P>
+<P><I>Error</I>: Bad network path.</P>
+<P><I>Last changed from</I>: 04/04/2007 12:32:56 to: 04/06/2007
+13:40:38</P>
+<P>Below, you will find an explanation of the content of the network
+survey produced by Scrip 111.</P>
+<P><I>Name</I> - NetBIOS name of the system surveyedIP address - IP
+address of system being surveyed</P>
+<P><I>MAC address</I> - MAC address of network interface card where
+the TCP/IP connection to the sub-net on the system being surveyed is
+enabled and active.</P>
+<P><I>Time</I> - The time at which the system being surveyed (in this
+example MNMS) was seen by the ASI client. The time field reports when
+the machine was added to the ARP table of the system where Scrip 111
+ran. When the ASI client re-starts, it re-detects the ARP table. At
+that time, it re-detects the machine again, and sets the new time in
+its ARP table copy. The information in the log reports this change in
+time.</P>
+<P><I>Client</I> - The version of the client if it can be acquired at
+the time of the survey.</P>
+<P><I>Testing for Network Share</I> - The ASI client looks for the
+&quot;Programs Files&quot; directory on available network shares.
+This field shows the path that the ASI client used when it checked
+for the &quot;Program Files&quot; directory.</P>
+<P>The result of network share test can be:</P>
+<P>- <B>Directory exists.</B> or 
+</P>
+<P>- <B>Error:</B> followed by one of the following error messages: 
+</P>
+<P><B>Error: Directory does not exist.</B> 
+</P>
+<P>The ASI client was able to access the network share but the
+directory didn't exist. In this case the ASI client will attempt to
+test network share D$\ etc...</P>
+<P><B>Error: Bad network path.</B> 
+</P>
+<P>This error occurs when:</P>
+<UL>
+	<LI><P>The system being surveyed is turned off.</P>
+	<LI><P>The system being surveyed doesn't have Microsoft Windows
+	installed.</P>
+	<LI><P>When a firewall is blocking file and printer sharing.</P>
+</UL>
+<P><B>Error: Bad network password.</B> 
+</P>
+<P>This error is reported when the password entered for the
+administrative user does not work.</P>
+<P><B>Error: Access denied.</B> 
+</P>
+<P>Typically, this error is reported when one or more of the
+following is true:</P>
+<UL>
+	<LI><P>&quot;Simple file sharing&quot; is enabled on the system
+	being surveyed</P>
+	<LI><P>The administrative user account whose credentials you have
+	entered does not exist</P>
+	<LI><P>File and print sharing for Microsoft networks is not enabled</P>
+	<LI><P>The file and print sharing exception in the Microsoft XP
+	firewall has not been enabled.</P>
+</UL>
+<P><B>Error: Bad network name.</B> 
+</P>
+<P>This error occurs when the network share has been removed from the
+system being surveyed.</P>
+<P><B>The network request is not supported</B></P>
+<P>This error occurs when the device contacted by Scrip 111 although
+it is a valid IP device does not appear to run an operating system
+which supports the system access request performed by Scrip 111.</P>
+<P><B>Logon failure: unknown user name or bad password.</B> 
+</P>
+<P>This error is reported when the administrative user credentials
+either are incorrect, or the administrative user whose credentials
+you have entered is not active on the system being surveyed.</P>
+<H5>Network changes</H5>
+<P>After you trigger execution of the HandsFree client network
+deployment function (Scrip 111) either by using the /DEPLOY=1 ASI
+client installation executable command line option, or on demand by
+clicking on the Begin auto deploy Execute button in the Scrip 111
+configuration page, the Scrip will run once, execute a network survey
+and beginning the ASI client installation on systems in the sub-net. 
+</P>
+<P>After the initial execution, Scrip 111 will run every time a new
+device is added to the ARP table on the system where Scrip execution
+was triggered. 
+</P>
+<P>If you change the configuration of the network where you ran the
+HandsFree network deployment function in a way which you think may
+affect the ASI client deployment, you should run the HandsFree client
+network deployment function again on demand by clicking on the Begin
+auto deploy Execute button in the Scrip 111 configuration page.</P>
+<P>When Scrip 111 runs a second time, it will update the network
+survey, and report changes it finds with messages such as the
+following:</P>
+<UL>
+	<LI><P><B>Version installed changed from: 2.004.026.0177.00 to:
+	2.004.026.0182.00</B> 
+	</P>
+</UL>
+<P>or 
+</P>
+<UL>
+	<LI><P><B>NetBIOS name changed from: 192.168.0.116 to: AWIN</B> 
+	</P>
+</UL>
+<P>The two messages above are examples of changes in the network
+environment reported by Scrip 111. In the first case the ASI client
+was upgraded. In the second case Scrip 111 was able to resolve
+192.168.0.116 to AWIN, the NetBIOS name of the system being surveyed.</P>
+<P>Here is another example of the kinds of changes reported by Scrip
+111 when it runs. On the system listed below the ASI client was
+removed, and the system was re-started. When Scrip 111 ran the
+network survey after the ASI client was removed from the system, it
+detected the fact that the ASI client was removed, and that the DHCP
+server assigned a new IP address.</P>
+<P STYLE="margin-left: 0.5in"><B>IP address changed from:
+192.168.0.90 to: 192.168.0.125</B></P>
+<P STYLE="margin-left: 0.5in"><B>Last changed from: 04/06/2007
+13:28:58 to: 04/09/2007 09:10:52</B></P>
+<P STYLE="margin-left: 0.5in"><B>NetBIOS name changed from:
+WXP-9QMN331 to: 192.168.0.125</B></P>
+<P STYLE="margin-left: 0.5in"><B>Installed status changed from: 1 to:
+FALSE</B></P>
+<P STYLE="margin-left: 0.5in"><B>Version installed changed from:
+2.004.026.0176.00 to: none</B></P>
+<P><BR><BR>
+</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Message reporting action taken, and number of devices for which
+			survey information is reported, or on which automated network
+			deploy will be attempted.</P>
+			<P>(e.g.</P>
+			<P>Performing site wide survey. See Text 3 for details.<BR>Updating
+			profiles of: 25 devices. 
+			</P>
+			<P>)</P>
+			<P>or</P>
+			<P>(e.g.</P>
+			<P>Auto deploy period has begun.<BR>Updating profiles of: 25
+			devices. 
+			</P>
+			<P>)</P>
+			<P>or</P>
+			<P>(e.g.</P>
+			<P>Auto deploy period has begun.<BR>Updating profiles of: 27
+			devices.<BR>Auto propagating on: 1 device. 
+			</P>
+			<P>)</P>
+			<P>(e.g.</P>
+			<P>Auto deploy period has ended. 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Message reporting configuration and details of action taken.</P>
+			<P>(e.g.</P>
+			<P>Performing site wide survey. See Text 3 for details.</P>
+			<P>Impersonation is started</P>
+			<P>Site wide survey is complete.</P>
+			<P>Impersonation is ended</P>
+			<P>)</P>
+			<P>or</P>
+			<P>(e.g.</P>
+			<P>Auto deploy period will last for: 1 Day, 0 Hours, 0 Minutes, 0
+			Seconds</P>
+			<P>Performing site wide survey. See Text 3 for details.</P>
+			<P>Impersonation is started</P>
+			<P>Site wide survey is complete.</P>
+			<P>Selecting machines for propagation where the &quot;Programs
+			Files&quot; directory exists and an existing installation doesn't.</P>
+			<P>No machines matched the criteria for propagation.</P>
+			<P>Impersonation is ended</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Trace of tests performed</P>
+			<P>(e.g.</P>
+			<P>Updating system profiles.<BR>Name: Unresolvable<BR>IP Address:
+			192.168.1.3<BR>MAC Address: 00:10:83:1C:92:F0<BR>Time: 04/05/2007
+			13:51:02<BR>Client: none<BR>Testing for Network Share:
+			\\192.168.1.3\C$\Program Files<BR>New OS error: 50<BR><BR>Name:
+			corporateink.dnsalias.com<BR>IP Address: 192.168.1.249<BR>MAC
+			Address: 00:0B:6A:28:F4:65<BR>Time: 04/05/2007 13:42:56<BR>Client:
+			none<BR>Testing for Network Share:
+			\\corporateink.dnsalias.com\C$\Program Files<BR>Error: Bad network
+			path.<BR><BR>Name: Unresolvable<BR>IP Address: 192.168.1.240<BR>MAC
+			Address: 00:18:8B:B1:76:7A<BR>Time: 04/05/2007 13:37:23<BR>Client:
+			none<BR>Testing for Network Share: \\192.168.1.240\C$\Program
+			Files<BR>Error: Bad network path.<BR>Installed status changed
+			from: 1 to: FALSE<BR>Version installed changed from:
+			2.004.026.0176.00 to: none<BR><BR>Name: DENAII<BR>IP Address:
+			192.168.1.245<BR>MAC Address: 00:11:11:06:DA:FD<BR>Time:
+			04/05/2007 13:37:10<BR>Client: none<BR>Testing for Network Share:
+			\\DENAII\C$\Program Files<BR>Error: Access denied.<BR><BR>Name:
+			Unresolvable<BR>IP Address: 192.168.1.1<BR>MAC Address:
+			00:20:18:43:7F:4B<BR>Time: 04/05/2007 13:36:56<BR>Client:
+			none<BR>Testing for Network Share: \\192.168.1.1\C$\Program
+			Files<BR>Error: Bad network path.<BR><BR>Name: HAQPICD<BR>IP
+			Address: 192.168.1.254<BR>MAC Address: 00:13:72:90:EA:97<BR>Time:
+			04/05/2007 13:35:59<BR>Client: none<BR>Testing for Network Share:
+			\\HAQPICD\C$\Program Files<BR>Error: Access denied.<BR><BR>Name:
+			NODE19<BR>IP Address: 192.168.1.26<BR>MAC Address:
+			00:11:11:D1:9E:9C<BR>Time: 04/05/2007 13:35:31<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE19\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			nanoheal.org<BR>IP Address: 192.168.1.248<BR>MAC Address:
+			00:0C:F1:D7:F2:D1<BR>Time: 04/05/2007 13:34:56<BR>Client:
+			none<BR>Testing for Network Share: \\nanoheal.org\C$\Program
+			Files<BR>Error: Access denied.<BR><BR>Name: olivia-new<BR>IP
+			Address: 192.168.1.244<BR>MAC Address: 00:0C:F1:91:A7:DD<BR>Time:
+			04/05/2007 13:34:56<BR>Client: 2.004.026.0176.00<BR>Testing for
+			Network Share: \\olivia-new\C$\Program Files<BR>Directory
+			exists.<BR><BR>Name: NODE21<BR>IP Address: 192.168.1.28<BR>MAC
+			Address: 00:13:72:7D:61:75<BR>Time: 04/05/2007 13:34:55<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE21\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			NODE18<BR>IP Address: 192.168.1.25<BR>MAC Address:
+			00:13:20:4D:7E:06<BR>Time: 04/05/2007 13:34:34<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE18\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			SERVER1<BR>IP Address: 192.168.1.237<BR>MAC Address:
+			00:13:72:3D:7D:8C<BR>Time: 04/05/2007 13:34:17<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\SERVER1\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			NODE10<BR>IP Address: 192.168.1.16<BR>MAC Address:
+			00:B0:D0:2C:17:C4<BR>Time: 04/05/2007 13:34:01<BR>Client:
+			none<BR>Testing for Network Share: \\NODE10\C$\Program
+			Files<BR>Error: Bad network path.<BR><BR>Name: OLIVIA<BR>IP
+			Address: 192.168.1.252<BR>MAC Address: 00:50:04:9C:67:D4<BR>Time:
+			04/05/2007 13:33:59<BR>Client: none<BR>Testing for Network Share:
+			\\OLIVIA\C$\Program Files<BR>Error: Bad network path.<BR><BR>Name:
+			NODE22<BR>IP Address: 192.168.1.29<BR>MAC Address:
+			00:13:72:26:4E:63<BR>Time: 04/05/2007 13:33:51<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE22\C$\Program Files<BR>Error: Access denied.<BR><BR>Name:
+			NODE20<BR>IP Address: 192.168.1.27<BR>MAC Address:
+			00:11:11:70:92:AA<BR>Time: 04/05/2007 13:33:46<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE20\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			NODE23<BR>IP Address: 192.168.1.30<BR>MAC Address:
+			00:13:72:D1:61:6D<BR>Time: 04/05/2007 13:33:45<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE23\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			SUBWAY<BR>IP Address: 192.168.1.243<BR>MAC Address:
+			00:06:5B:90:2A:18<BR>Time: 04/05/2007 13:33:43<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\SUBWAY\C$\Program Files<BR>Error: Access denied.<BR><BR>Name:
+			NODE17<BR>IP Address: 192.168.1.24<BR>MAC Address:
+			00:13:20:03:F8:9F<BR>Time: 04/05/2007 13:33:38<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE17\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			NODE11<BR>IP Address: 192.168.1.18<BR>MAC Address:
+			00:01:02:6F:9A:E1<BR>Time: 04/05/2007 13:33:34<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE11\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			NODE16<BR>IP Address: 192.168.1.23<BR>MAC Address:
+			00:11:11:CA:B4:E2<BR>Time: 04/05/2007 13:33:30<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE16\C$\Program Files<BR>Error: Bad network path.<BR><BR>Name:
+			GABE<BR>IP Address: 192.168.1.247<BR>MAC Address:
+			00:60:97:AB:6C:D6<BR>Time: 04/05/2007 13:33:24<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share: \\GABE\C$\Program
+			Files<BR>Logon failure: unknown user name or bad password.<BR><BR>Name:
+			NODE15<BR>IP Address: 192.168.1.22<BR>MAC Address:
+			00:06:5B:95:F6:2A<BR>Time: 04/05/2007 13:33:18<BR>Client:
+			2.004.026.0176.00<BR>Testing for Network Share:
+			\\NODE15\C$\Program Files<BR>Directory exists.<BR><BR>Name:
+			TELECOMMUTER5<BR>IP Address: 192.168.1.238<BR>MAC Address:
+			00:15:C5:CC:2B:D8<BR>Time: 04/05/2007 13:33:10<BR>Client:
+			2.004.025.0490.BM<BR>Testing for Network Share:
+			\\TELECOMMUTER5\C$\Program Files<BR>Logon failure: unknown user
+			name or bad password.<BR><BR>Name: NODE13<BR>IP Address:
+			192.168.1.20<BR>MAC Address: 00:08:74:19:A5:DC<BR>Time: 04/05/2007
+			13:33:05<BR>Client: 2.004.026.0176.00<BR>Testing for Network
+			Share: \\NODE13\C$\Program Files<BR>Directory exists.<BR><BR>Selecting
+			machines for propagation.<BR>Auto propagating on: 1
+			device.<BR>Attempting install on:DENAII<BR>Creating:
+			\\DENAII\C$\Program Files\HandsFree<BR>Creating:
+			\\DENAII\C$\Program Files\HandsFree\Client<BR>File not found:
+			\\DENAII\C$\Program Files\HandsFree\Client\inst.exe<BR>Copying
+			file.<BR>Scheduling installation.<BR>Installation will run on:
+			Monday, April 9, 2007 13:42:00<BR>Scheduled task will execute:
+			\\DENAII\C$\Program Files\HandsFree\Client\inst.exe /VERYSILENT
+			/ID=XXXXXXXX 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<HR SIZE=1 COLOR="#333399" NOSHADE>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

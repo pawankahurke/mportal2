@@ -1,0 +1,56 @@
+How to use Scrip 222 to find out on which systems Veritas BE is installed and active
+=====================================================================================
+
+1) Log onto your ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below "user login" and date.
+
+3) In the "sites" navigation bar, click on the "wizard" link (https://asiservername/main/config/index.php?act=wiz)
+
+4) Click on the "Scrip configuration" wizard entry. The "Scrip Configuration - Select a Group " page will be displayed.
+
+5) Select the machine group type (All machines, A single site, A single machine, A group of machines)
+
+If you select "All machines" be extremely careful as the Scrip configuration change you are about to make will affect ALL systems.
+
+6) In this case, select "All machines", and click on the "Next" button. The "Scrip Configuration - Select Scrip" page will be displayed.
+
+7) Scroll down to the entry for Scrip 222 (Report File Attributes), and click on the Scrip name. The Scrip's configuration page will be displayed.
+
+8) If its parameter data entry box is not displayed, click on the "Configure" button for the "Directories or files to scan" configuration parameter. The Scrip 222 configuration page will be automatically re-displayed with the data entry box for the "Directories or files to scan" configuration parameter.
+
+9) In the "Directories or files to scan" configuration parameter data entry box, enter:
+
+1,1,*:\program files\veritas\,belog
+
+10) If its parameter data entry box is not displayed, click on the "Configure" button for the "File groups" configuration parameter. The Scrip 222 configuration page will be automatically re-displayed with the data entry box for the "File groups" configuration parameter.
+
+11) In the "File groups" configuration parameter data entry box, enter:
+
+belog,BEX*.xml,BEX*.txt
+
+12) Click on the "Execute for group" button for the "Generate report now" configuration parameter
+
+13) Click on the "Continue" button.
+
+14) Enter "yes" (without quotes) in the text box.
+
+15) Click on the "Continue" button.
+
+Next, you should check the event logs produced by Scrip 222, descripbed below. Before retrieving the Scrip 222 event logs, you will need to wait for the Scrip 222 action you executed following the steps above to be run on the systems at your sites. The time lag depends on the Scrip  177 (Scrip Configuration Update) schedule at each of your sites. Please keep in mind that the action will take place as soon as the system whose Scrip 177 is configured to run most frequently at each site contacts the ASI server.
+
+To retrieve Scrip 222 event logs, If you need to log onto the ASI server:
+
+1) Log onto your ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below "user login" and date.
+
+then,
+
+3) Click on the "ad-hoc query" link in the "events" navigation bar found at the top right-hand corner of any page of the extended ASI server interface (https://asiservername/main/event/event.php). The "Ad-hoc Event Query Form" page will be displayed.
+
+4) Select the entry for Scrip 222 from the "Scrip number" pull-down list in the "Narrow Your Search (optional):" section of the "Ad-hoc Event Query Form" page. 
+
+5) Select "2000" from the "Number of Results per Page:" pulld-down list in the "Select Display Options:" section of the "Ad-hoc Event Query Form" page (this step is optional).
+
+6) Click on the "Search" button. The "Event Query Results" page will be displayed.

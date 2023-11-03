@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 208 - Software Update</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 208 - Software Update</H3>
+
+<P>The ASI client uses Scrip 208 to retrieve software updates from the ASI server. </p>
+
+<p>When Scrip 208 is executed, it contacts the updates module in the ASI site management facility 
+identifying the site name, the system it originated from, and the version of 
+the ASI client running on that system.</p>
+
+<p>In response to contact from Scrip 208, the updates module gives the Scrip an action code that 
+determines which action the Scrip should take, the location of the software update executable, and 
+command parameters to be used when running it.</p>
+
+<p>Currently, the actions triggered by the action codes include:</p>
+
+<ul>
+
+<li>0 - no update. No action is taken. This can be the case when an ASI client from a
+new site contacts the updates module. In this case, new entries for the site and 
+the system are added to the sites and machines lists, respectively, in the updates module. 
+No action is taken also if no software update version is selected for the site the ASI client is 
+contacting the updates module from.</li>
+
+<li>1 - normal update. A software update will be downloaded and installed automatically by the 
+ASI client if the software version number reported by the client and that associated with the 
+site Scrip 208 originates from are different.</li>
+
+<li>4 - forced update. You have the option to "force" the download and 
+installation of a software update regardless of software version by 
+selecting the force update option in a site's machines configuration page on the updates module.</li>
+
+</ul>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>Text contained in Window title field of
+dialog box</P>
+
+<P>(e.g. HotSync Manager) </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD><p>Log of actions taken by Scrip</P>
+
+<p>(e.g
+
+<P>Preparing to perform a software update
+<br>Running software update
+<br>- C:\WINDOWS\TEMP\hfn-hn131582.exe -s -a /s
+<br><br>-------------------------------------------------------------
+<br><br>Preparing to perform a software update
+<br>Could not open file specified by URL.
+<br><br>-------------------------------------------------------------
+<br><br>Server(s) didn't respond
+<br><br>-------------------------------------------------------------
+<br><br>Preparing to perform a software update
+<br>Bad username or password for remote session.
+<br><br>-------------------------------------------------------------
+<br><br>Preparing to perform a software update
+<br><br>-------------------------------------------------------------
+<br><br>No Updates found
+<br><br>-------------------------------------------------------------
+<br><br>Preparing to perform a forced software update
+
+</p>
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD><p>Type of run</p>
+<P>(e.g. on demand)</p>
+</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

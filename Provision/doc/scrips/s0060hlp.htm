@@ -1,0 +1,142 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 60 - Clean folders </TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+
+<p><strong>Please note that this is the detail event log help file for Scrips 60, 217, 218, 219, 220, and 221.
+Scrips 217, 218, 219, 220, and 221 are exact copies of Scrip 89.</strong></p>
+
+
+
+
+<H3>Scrip 60 - Clean Folders </H3>
+
+<P>Scrip 60 deletes files and directories specified in the Scrip's configuration page.
+All the configuration settings for Scrip 60 can be changed including file mask, locations, deletion of 
+read-only files, and minimum age of files to be deleted.
+Its default settings are:</P>
+
+<UL>
+  <LI>Locations scanned: Those matching the TEMP environment variable</LI>
+  <LI>Search criteria: [~*.*] [*.tmp] [$*.*] </LI>
+  <LI>Removal criteria: older than 14 Days, 0 Hours, 0 Minutes, 0 Seconds</LI>
+  <li>Read-only files matching search criteria and aging criteria are <strong>not</strong> deleted</li>
+</UL>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>Creation date and time of the last file
+deleted by the Scrip 
+
+<P>(e.g. Friday, December 22, 2000 10:58:24)</TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>List of files and directories that met search and
+removal criteria and whose removal was
+attempted with success/failure of each
+attempted removal operation </P>
+
+<P>(E.g.</p>
+<p>
+C:\WINNT\TEMP\_ISTMP1.DIR\_ISTMP0.DIR<br>
+Removal successful<br>
+C:\WINNT\TEMP\_ISTMP1.DIR<br>
+Removal successful<br>
+C:\WINNT\TEMP\WMFA<br>
+Removal successful<br>
+C:\WINNT\TEMP\{609F7AC8-C510-11D4-A788-009027ABA5D0}.0\InstallScript.tmp<br>
+Removal successful<br>
+C:\WINNT\TEMP\pftA8B~tmp<br>
+Removal successful<br>
+1 files were removed successfully<br>
+4 directories were removed successfully<br>
+</p>
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD><p>Scrip 60 configuration parameters (location
+scanned for files, search criteria,
+removal criteria type of run), and results of search and
+removal operations </P>
+<P>(E.g.</p>
+<P>Folder: [C:\WINNT\TEMP]<br>
+Contained 20 files in 6 subdirectories<br>
+Search criteria: [~*.*] [$*.*] [*.tmp]<br>
+Removal criteria: 14 Days, 0 Hours, 0 Minutes, 0 Seconds old<br>
+1 file was found that met search criteria<br>
+1 file was found with a date older than Tuesday, March 11, 2003 14:00:01<br>
+19 additional files were found that didn't meet the search criteria<br>
+Type of run: Scheduled</p>
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

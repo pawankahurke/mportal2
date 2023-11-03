@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 10 - Scandisk dialog box creation</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+<BODY>
+
+
+<H3>Scrip 10 - Scandisk dialog box creation</H3>
+
+<P> Scrip 10 detects and reports the content of the Microsoft Scandiskw (the version of Scandisk running under Windows) program completion dialog box and any dialog boxes
+displayed by the Scandisk program during its execution.</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE)</TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Example 1</P>
+
+<P>ScanDisk Results - (G:)<BR>
+236,805 available allocation units<BR>
+311,865 total allocation units on disk<BR>
+4,096 bytes in each allocation unit<BR>
+969,953,280 bytes available on disk<BR>
+306,876,416 bytes in 782 user files<BR>
+28,672 bytes in 5 hidden files<BR>
+540,672 bytes in 126 folders<BR>
+0 bytes in bad sectors<BR>
+1,277,399,040 bytes total disk space<BR>
+ScanDisk did not find any errors on this
+drive.</P>
+
+<P>Example 2</P>
+
+<P>ScanDisk - (D:) ScanDisk has restarted 10
+times because Windows or another program
+has been writing to this drive. Quitting
+some running programs may enable
+ScanDisk to finish sooner. Do you want to
+continue receiving this warning?</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD><p>In case of Scandisk failure to execute, list of processes running on system at the time of the Scandisk failure.</p>
+<P>(e.g.</p>
+<p>Process: C:\WINDOWS\Scandskw.exe<br>
+Process version: 4.70.1998<br>
+Process size: 4896<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\PROGRAM FILES\NORTON ANTIVIRUS\NSCHED32.EXE<br>
+Process version: 5.0.0.48<br>
+Process size: 146944<br>
+Process creation date: Tuesday, January 27, 1998 04:04:00<br>
+Process: C:\WINDOWS\RunDLL.exe<br>
+Process version: 4.10.1998<br>
+Process size: 4960<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\PROGRAM FILES\HANDSFREE\CLIENT\CUST.EXE<br>
+Process version: 1.001.1477.LE<br>
+Process size: 815104<br>
+Process creation date: Tuesday, September 11, 2001 14:40:26<br>
+Process: C:\WINDOWS\SYSTEM\SYSTRAY.EXE<br>
+Process version: 4.10.2222<br>
+Process size: 32768<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\WINDOWS\TASKMON.EXE<br>
+Process version: 4.10.1998<br>
+Process size: 28672<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\WINDOWS\EXPLORER.EXE<br>
+Process version: 4.72.3110.1<br>
+Process size: 180224<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\WINDOWS\SYSTEM\mmtask.tsk<br>
+Process version: 4.03.1998<br>
+Process size: 1184<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\WINDOWS\SYSTEM\MSTASK.EXE<br>
+Process version: 4.71.1968.1<br>
+Process size: 111888<br>
+Process creation date: Friday, June 8, 2001 14:50:36<br>
+Process: C:\PROGRAM FILES\NORTON ANTIVIRUS\NAVAPW32.EXE<br>
+Process version: 5.0.0.26<br>
+Process size: 37376<br>
+Process creation date: Tuesday, January 27, 1998 04:04:00<br>
+Process: C:\WINDOWS\SYSTEM\MPREXE.EXE<br>
+Process version: 4.10.1998<br>
+Process size: 28672<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\WINDOWS\SYSTEM\MSGSRV32.EXE<br>
+Process version: 4.10.2222<br>
+Process size: 11920<br>
+Process creation date: Friday, April 23, 1999 22:22:00<br>
+Process: C:\WINDOWS\SYSTEM\KERNEL32.DLL<br>
+Process version: 4.10.2222<br>
+Process size: 471040<br>
+Process creation date: Friday, April 23, 1999 22:22:00</p>
+</TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

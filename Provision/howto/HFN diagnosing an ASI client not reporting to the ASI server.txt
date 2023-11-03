@@ -1,0 +1,74 @@
+How to diagnose problems preventing an ASI client from reaching the ASI server
+==============================================================================
+
+As long as the system is connected to the Internet, DNS is working (can you browse to your ASI server, or the installation server (https://nanoheal.otg/main/install from the system?), and the correct site registration code is entered, the ASI client should have been able to reach the installation server at nanoheal.org, retrieved the site information, complete the activation, and log to your ASI server.
+
+If this has not happened it could be for a number of reasons:
+a) If MS ISA 2004 or similar firewall software is running on the system, you would need to make sure that port 443 is open outbound (I would be very surprised if it were not), and a rule is set-up to allow outbound communication by the ASI client via port 443 (with MS ISA 2004 even though port 443 is open outbound by default, you still need a rule to allow outbound communication, believe it or not!)
+
+b) An incorrect registration code was used. In this case, however, the ASI client would periodically ask for the site registration code again.
+
+c) If you used the interactive installation, in the final installation dialog box, the option to automatically start the ASI client at the end of the installation was disabled.
+
+d) If there is a proxy server at the site, then you need to configure Scrip 43 with the proxy server URL and authentication.
+
+e) Somehow, the installation did not complete successfully
+
+Please browse to \Program Files\HandsFree\Client on the system where the ASI client cannot reach the ASI server, and look for a file called "errlog.txt". If you find it please send it to me, and wait for further instructions.
+
+If none of the above apply, you should perform the following steps:
+
+1) Make sure the ASI client process (cust.exe) and Services (HandsFree client) are running. If necessary re-start them (cust.exe is located in \Program Files\HandsFree\Client)
+
+2) Open a browser window
+
+3) In the address box, enter
+http://localhost:2721
+
+4) When the user id dialog box is displayed enter the site user id and password (user - , password - ...) for the site which you entered when defining a site record for the site on the installation server (https://nanoheal.org/main/install). If you did not enter a site specific user id and password, it is set to the default user id and password we assigned to you when you first evaluated ASI.
+
+5) Click on the name of the system displayed at the top of the page. The Scrip configurator page for the system will be displayed
+
+6) Scroll down to the Scrip 43 (HandsFree Client Tools) entry, and click on the Scrip name. The Scrip configuration page will be displayed
+
+7) In the "Site" configuration parameter, verify that the entry is that of the site the system belongs to.
+
+8) In the Scrip 43 "HandsFree event management server URL list" configuration parameter verify that the entry is
+
+https://servername/main/rpc/rpc.php
+(equal to the entry for your ASI server in the "ASI Server URL" parameter in the ASI server record on the installation server at https://www.nanoheal.org/main/install/servlist.php)
+
+If the the Scrip 43 "HandsFree event management server URL list" configuration parameter is empty, or the entry is different, please enter the value found in the "ASI Server URL" parameter in the ASI server record on the installation server.
+
+9) Scroll down to the "Dump failed logging attempts to error log file" configuration parameter, and click on the box to the right of the label, leaving the configuration parameter group selection set to the site (i.e. apply the change to all systems at the site).
+
+10) Click on the "Submit Changes" button
+
+11) Click on the "scrips" link found at the top right-hand corner of the page
+
+12) Scroll down to the Scrip 23 (Send Queued Event Logs) entry, and click on the Scrip name. The Scrip configuration page will be displayed
+
+13) Click on the "Send event logs now" Execute button found at the bottom of the Scrip 23 configuration page
+
+14) Close the browser window
+
+15) Wait a few minutes (3-5)
+
+16) Browse to c:\Program Files\HandsFree\Client
+
+17) Look for a file named "errlog.txt". If you do not find one please let me know. If you do, please send it to me.
+
+--------------------------------------------------------------------------------------------------------------------
+If in step 4) above, you were not able to log onto the ASI client using the credentials for direct ASI client access for the site, try to log on as user hfn (password hfn). If you can, then
+
+perform the above steps up to and including step 11), then:
+
+i) Scroll down to the entry for Scrip 223 (HandsFree Client Installation and Deployment), and click on the Scrip name
+
+ii) Enter the site registration code for site the system belongs to in the "Site registration code" configuration parameter
+
+iii) Click on the "Submit Changes" button
+
+Then, resume performing the steps above from 11).
+----------------------------------------------------------------------------------------------------------------------
+

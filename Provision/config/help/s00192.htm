@@ -1,0 +1,251 @@
+<HTML>
+<HEAD>
+<TITLE>Scrip 192 Configuration</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<body>
+
+<h3>Scrip 192 Configuration</h3>
+
+<h4>Default Configuration Parameters</h4>
+
+<ul>
+<li>Scrip disabled</li>
+<li><em>Use <STRONG>Stop
+      List</STRONG> parameters to terminate execution of selected programs
+      (checked)<BR>Use <STRONG>Run List</STRONG> parameters to allow execution
+      of selected programs (unchecked)</em> checked</li>
+<li><em><STRONG>Run
+      List</STRONG> - Allow these programs to run</em> list empty</li>
+<li><em><STRONG>Run
+      List</STRONG> - Include common programs</em> enabled</li>
+<li><em><STRONG>Run
+      List</STRONG> - Commonly running programs</em> empty</li>
+<li><em><STRONG>Run
+      List</STRONG> - Update list of common programs</em></li>
+<li><em><STRONG>Stop
+      List</STRONG> - Stop these programs from running</em> empty</li>
+<li><em>Display a message when a program is terminated</em> enabled</li>
+<li><em>Custom message text</em> empty</li>
+</ul>
+
+<h3>Run list parameters</h3>
+
+<p>Scrip 192 helps you control the programs end-users run on their systems. It can be a powerful ally in
+ensuring system stability and end-user productivity.</p>
+
+<p>However, like any other powerful tool, it needs to be used with care.</p> 
+
+<p>Specifically, this means that when
+Scrip 192 is used with the <em>Run list</em> options enabled, you should ensure that all the programs necessary for 
+end-users to do their job
+be included in the <em>Allow these programs to run</em> and in the <em>Commonly running programs</em> lists.</p>
+
+<p><strong>Please note that if you enable the <em>Use <STRONG>Run List</STRONG> parameters to allow execution of
+selected programs</em> option and leave the <em><STRONG>Run List</STRONG> - Allow these programs to run</em> list EMPTY,
+the system won't boot when the ASI client is running in as a service (the default mode of operation).<br>
+
+On Microsoft Windows ME based systems, users won't even get a login prompt.<br>
+On Microsoft Windows 2000 based systems, users will be able to login but will ony see a blue background.</strong></p>
+
+<p> To minimize potential end-user problems, we suggest the following approach:</p>
+
+<ul>
+<li>On one system where the Automated Support Infrastructure (ASI) client is running and on which Scrip 192 is enabled,
+start all the applications you want end-users to be able to run</li>
+
+<li>Through Scrip 192's configuration screen, enable the <em>Include common programs</em> parameter, and then 
+click on the <em>Execute</em> button next to the <em>Update list of common programs</em> parameter. This will populate
+the <em>Commonly running programs</em> list with the name of all the programs running at that time. It will also
+populate the <em>Commonly running programs</em> list on all systems on the local network with
+the same programs.</li>
+
+<li>Subsequently, you can use the <em>Update list of common programs</em> parameter to update the list of programs you
+want to allow end users to run.</li>
+
+<li>Use the <em>Allow these programs to run</em> parameter to customize the list of programs end-users are
+allowed to run on a system-by-sytem basis</li>
+</ul>
+
+<p>You should note that <u>unless included explicitly</u> either in the <em>Commonly running programs</em> or
+<em>Allow these programs to run</em> list, end-users will not be able to run executables such as:
+
+<ul>
+<li>setup.exe or any other installation executable</li>
+<li>taskmgr.exe</li>
+<li>Applets in the MS Windows <em>Control Panel</em></li>
+<li>autorun.exe</li>
+<li>winhelp.exe, the program necessary to access most applications' help files</li>
+<li>Screen savers (programs with .scr extension)</li>
+<li>rundll32.exe necessary, among other things, to change a system's date and time</li>
+
+</ul>
+
+<p>Before running Scrip 196 (<em>Software Patch Application</em>), you should disable Scrip 192 on all
+the systems you want to apply a software patch to.</p>
+
+
+<h4>Allow these programs to run</h4>
+
+<p>Here, you should enter the full name of the program(s), including extension, whose execution you want to allow.
+Location path should not be entered.</P>
+
+<p>When more than one program is entered, each name should be on a separate line.</p>
+
+<P>Scrip 192 detects the execution of the program(s) entered in the <em>Allow these programs to run</em>
+list by matching these names with those of processes that are active on the system.</p>
+
+<p>Version 1.0 of Scrip 192 detects all types of executables except for those with
+the .com and .bat extensions.</p>
+
+
+<h4>Include common programs</h4>
+
+<p>Enabling this option, allows users to run the programs included in the <em>Commonly running programs</em>
+list. </p>
+
+<h4>Commonly running programs</h4>
+
+<p>This list is populated automatically by Scrip 192. To do this, enable the <em>Include common programs</em>
+option, and then click on the <em>Execute</em> button next to the <em>Update list of common programs</em> parameter. </p>
+
+<h4>Very important note on program inclusion / exclusion</h4>
+
+<p>The ASI client has a built-in list of programs whose execution it allows by default.
+This list cannot be modified by a user.</p>
+
+<p>This also means that including these programs in the <em>Stop these programs from running</em> list will have no effect. </p>
+
+<p>At present this list consists of two programs:</p>
+
+<ul>
+<li>iexplore.exe</li>
+<li>netscape.exe</li>
+</ul>
+
+<p>The Scrip configurator can be accessed only with a browser. Accidental exclusion of the two programs listed above
+from the <em>Allow these programs to run</em> list or inclusion in the 
+<em>Stop these programs from running</em> list would make it very difficult to access the Scrip configurator and, 
+in all likelihood, require direct intervention by HandsFree Networks.</p>
+
+<h4>Update list of common programs</h4>
+
+When you click on the <em>Execute</em> button next to the <em>Update list of common programs</em> parameter,
+Scrip 192 will automatically retrieve the name of the programs running on the <u>local</u> system at that time.
+Scrip 192 will also populate the <em>Commonly running programs</em> list on all systems on the local network with
+the same programs.</p>
+
+<h3>Stop list parameters</h3>
+
+<h4>Stop these programs from running</h4>
+
+<p>Here, you should enter the full name of the program(s), including extension, whose execution you want Scrip 192 to terminate.
+Location path should not be entered.</P>
+
+<p>When more than one program is entered, each name should be on a separate line.</p>
+
+<P>Scrip 192 detects the execution of the program(s) entered in the <em>Allow these programs to run</em>
+list by matching these names with those of processes that are active on the system.</p>
+
+<p>Version 1.0 of Scrip 192 detects all types of executables except for those with
+the .com and .bat extensions.</p>
+
+
+<p>Version 1.0 of Scrip 192 allows the termination of multiple programs entered in
+the <em>Programs to prevent from running</em> window.</p>
+
+<p>You should enter the full name of the executable, including extension. Location path should not
+be entered. You can put arguments after an executable in the list and
+the Automated Support Infrastructure (ASI) client will only stop the executable
+if it is run with those arguments.</P>
+
+<p>This is one way to keep a particular script from running. The argument characters in the list are compared against
+the incoming argument characters (using a simple case insensitive compare).  If the compare succeeds for
+the length of the arguments in the list then a match occurs otherwise it fails.<br><br>
+For example:</p>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD>
+
+<P ALIGN="CENTER"><STRONG>Incoming Command Line</STRONG>   </TD>
+<TD>  </p>
+
+<P ALIGN="CENTER"><STRONG>Command Line in the Scrip 192 List</STRONG>    </TD>
+<TD>  </p>
+
+<p align="center"><STRONG>Matches?</STRONG>    </TD>
+<TD>  </p>
+</TR>
+<TR><TD>WScript.exe virus.vbx /B</TD><TD>wscript.exe virus.vbx</TD>
+<TD><p>Yes</p>
+</TD></TR>
+<TR><TD>wscript.exe virus.vbx</TD><TD>WScript.exe virus.vbx /B</TD>
+<TD>No</TD></TR>
+<TR><TD>wscript.exe virus.vbx strainA</TD><TD>wscript.exe VIRUS.vbx strain</TD>
+<TD>Yes</TD></TR>
+<TR><TD>wscript.exe virus.vbx</TD><TD>wscript.exe </TD>
+<TD>Yes</TD></TR>
+<TR><TD>calc.exe /A /B</TD><TD>calc.exe /B /A</TD>
+<TD>No</TD></TR>
+</TABLE>
+
+<p>All comparisons are case insensitive.</p>
+
+<P>There is no wildcard matching in either the arguments or the executable name. Spaces before the arguments are ignored; all
+other spaces are significant.</p>
+
+<p>You should also note that Scrip 192 doesn't filter what is entered in the <em>Stop these programs from running</em>
+list. However, it does filter out the path from incoming command lines. For example, if the entry in
+<em>Stop these programs from running</em> is <strong>wscript.exe  C:\WINDOWS\SAMPLES\WSH\NETWORK.VBS</strong>,
+and the incoming command line is <strong>D:\WIN2000\System32\WScript.exe "C:\WINDOWS\SAMPLES\WSH\NETWORK.VBS"</strong>, 
+Scrip 192 will not stop this process from running.</p>
+
+<p>This simply means that you should avoid entering the full path of both the executable and any command line arguments 
+when making entries in the <em>Stop these programs from running</em> list.</p>
+
+<P>Scrip 192 requires that any executable in the <em>Stop these programs from running</em> list should be entered
+with its extension. For example, you should enter <strong>wscrip.exe</strong>, not <strong>wscript</strong>. This also means
+that Scrip 192 will not terminate the execution of a command line where the executable is entered without its extent.</p>
+
+<h3>Parameters common to <em>stop list</em> and <em>run list</em> modes of operation</h3>
+
+
+<h4>Display a message when a program is terminated</h4>
+
+<p>If you enable this option upon termination of a program you don't want end-users to run, or an attempt to run
+a program end-users are not allowed to run, Scrip 192 will display a dialog box titled <em>Executable control</em> 
+with either a default message or a custom message (see below).</p>
+
+<p>If no custom text is entered in the <em>Custom message text</em> box, Scrip 192 will display the following
+default message:
+
+<p><strong>Execution of the following program(s) was terminated:</strong></p>
+
+<P>followed by the name(s) of the program(s) whose execution was terminated or prevented.</P>
+
+
+<h4>Custom message text</h4>
+
+<p>Here you enter the optional content of the message you want displayed in the <em>Custom message text</em> box. </p>
+
+
+
+<p><br><br><br><hr color="#333399" noShade SIZE="1"></p>
+<div align="right">
+  <table border="0" cellPadding="0" cellSpacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td width="50%" valign="top">
+	  <p><font size="0" face="verdana,helvetica">© 2000-2002 HandsFree Networks
+          </font></p>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<BODY>
+</HTML>
+

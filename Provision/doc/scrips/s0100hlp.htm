@@ -1,0 +1,374 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 100 - File Distribution and Retrieval</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 100 - File Distribution and Retrieval</H3>
+
+<P>Scrip 100 lets you retrieve and send any number of files,
+from anywhere on any system where the ASI client is installed and running, to the e-mail box(es) identified in the
+<em>Email address group definitions</em> parameter in the Scrip's configuration page, or to the default e-mail address
+group as defined in the ASI client initialization file.</p>
+
+<p>Optionally, you can also select files to be retrieve based on their content matching one or more keywords contained
+in the <em>Keyword group definitions</em> parameter.</p>
+
+<p>If the <em>Retrieve files by date</em> option is enabled, Scrip 100 will retrieve only files that match the files masks, and keywords, if any, and have a <em>Modified</em> date later than the date you set in the Scrips' configuration.</p>
+
+<p>Scrip 100 is also a powerful, yet simple, file distribution tool. If you want to distribute one ore more files, to one or more locations on one, some, or all systems at your site(s), all you need to do is use a location group instead of an e-mail group in the command line used by the Scrip.</P>
+
+<p>You can easily and quickly define as many location groups as you like directly in the <em>File distribution. File location group definitions</em> on the Scrip 100 configuration page.</P>
+
+<p>For each file retrieval and distribution operation, Scrip 100 generates one event log that summarizes the entire operation,
+listing all files retrieved based on the user defined criteria (Figure 1 below), and one event log for
+each individual file retrieval operation (Figure 2).
+
+
+<p>The tables below describe the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>File retrieval command line content and file retrieval operation results</P>
+
+<P>(Example 1 </p>
+<p>Retrieval
+<br>Folder: \\server5\e-drive\HandsFree Networks
+<br>Search Criteria: *.txt
+<br>Keyword Group: No Keywords Specified
+<br>103 file(s) did not match the criteria
+<br>11 file(s) did match the criteria
+<br>\\server5\e-drive\HandsFree Networks\A LITTLE PRINCESS 2.txt
+<br>\\server5\e-drive\HandsFree Networks\data extract.txt
+<br>\\server5\e-drive\HandsFree Networks\node11 hpsuppt.txt
+<br>\\server5\e-drive\HandsFree Networks\ms kb search script.txt
+<br>\\server5\e-drive\HandsFree Networks\NAV protect scripts.txt
+<br>\\server5\e-drive\HandsFree Networks\IT Assistant ReadMe.txt
+<br>\\server5\e-drive\HandsFree Networks\cust fault 111401.txt
+<br>\\server5\e-drive\HandsFree Networks\errlogn10.txt
+<br>\\server5\e-drive\HandsFree Networks\errlogn6.txt
+<br>\\server5\e-drive\HandsFree Networks\errlogn1.txt
+<br>\\server5\e-drive\HandsFree Networks\errlogn8.txt
+<br>Files were sent to: me</p>
+<p>)</p>
+
+<P>(Example 2 </p>
+<p>Retrieval
+<br>Folder: \\server5\e-drive\HandsFree Networks
+<br>Search Criteria: *.txt
+<br>Keyword Group: ErrorLogs
+<br>103 file(s) did not match the criteria
+<br>4 file(s) did match the criteria
+<br>\\server5\e-drive\HandsFree Networks\data extract.txt
+<br>\\server5\e-drive\HandsFree Networks\node11 hpsuppt.txt
+<br>\\server5\e-drive\HandsFree Networks\IT Assistant ReadMe.txt
+<br>\\server5\e-drive\HandsFree Networks\errlogn1.txt
+<br>Files were sent to: me
+</p>
+<p>)</p>
+
+</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+
+
+
+<p><strong>Figure 1</strong>
+
+</P>
+
+<p>Below you will find an example of a Scrip 100 detail log page when the file retrieved was incorporated in the log
+posted by the Scrip and stored in filed <em>text3</em> of the event database.</p>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>File retrieval command line content and file retrieval operation results</P>
+
+<P>(E.g. </p>
+<p>The File Attached Met the Following Criteria
+<br>Folder: \\server5\e-drive\HandsFree Networks
+<br>Search Criteria: *.txt
+<br>Keyword Group: No Keywords Specified
+<br>File \\server5\e-drive\HandsFree Networks\errlogn10.txt was sent to: LogServer </p>
+<p>)</p>
+
+</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD><p>Content of file retrieved by Scrip 100<p>
+<p>(E.g.</p>
+<p>Computer: NODE10
+<br>User: Tricia Burke
+<br>Time: Thu Jan 17 07:21:23 2002
+<br>
+<br>Timer queue dump
+<br>Base tick time for queue: 119
+<br>Current tick time is: 234570
+<br>Internal timer setup is: 65535
+<br>
+<br>Active timer queue:
+<br>ID Tick offset Tag Scrip
+<br>-- ----------- --- -----
+<br>30 241428 30 87
+<br>21 244486 20 60
+<br>43 287163 43 196
+<br>12 306238 10 15
+<br>25 315968 25 73
+<br>29 327842 29 86
+<br>10 565418 8 9
+<br>13 641084 11 19
+<br>23 773686 22 62
+<br>11 823566 9 12
+<br>22 1541018 21 61
+<br>
+<br>Mailer thread: not running
+<br>
+<br>----------
+<br>
+<br>Computer: NODE10
+<br>User: Tricia Burke
+<br>Time: Thu Jan 17 07:21:25 2002
+<br>
+<br>Scrip trace dump
+<br>Scrip: Num Time Action
+<br>70 1011270014 Dequeue
+<br>70 1011270014 Start
+<br>71 1011270014 Dequeue
+<br>71 1011270014 Start
+<br>17 1011270014 Dequeue
+<br>17 1011270014 Start
+<br>50 1011270014 Dequeue
+<br>50 1011270014 EnqueueFirst
+<br>51 1011270014 Stop
+<br>50 1011270014 Dequeue
+<br>50 1011270014 EnqueueFirst
+<br>70 1011270014 Stop
+<br>71 1011270014 Stop
+<br>17 1011270014 Stop
+<br>50 1011270014 Dequeue
+<br>50 1011270014 EnqueueFirst
+<br>50 1011270014 Dequeue
+<br>50 1011270014 EnqueueFirst
+<br>50 1011270014 Dequeue
+<br>50 1011270014 EnqueueFirst
+<br>26 1011270015 Start
+<br>50 1011270015 EnqueueLast
+<br>70 1011270015 Start
+<br>71 1011270015 Start
+<br>17 1011270015 Start
+<br>26 1011270015 Stop
+<br>50 1011270015 Dequeue
+<br>50 1011270015 EnqueueFirst
+<br>71 1011270015 Stop
+<br>50 1011270015 Dequeue
+<br>50 1011270015 EnqueueFirst
+<br>70 1011270015 Stop
+<br>50 1011270015 Dequeue
+<br>50 1011270015 EnqueueFirst
+<br>17 1011270015 Stop
+<br>50 1011270015 Dequeue
+<br>50 1011270015 EnqueueFirst
+<br>50 1011270015 Stop
+<br>50 1011270015 Dequeue
+<br>50 1011270015 Start
+<br>26 1011270015 Dequeue
+<br>26 1011270015 Start
+<br>50 1011270015 Dequeue
+<br>50 1011270015 EnqueueFirst
+<br>26 1011270015 Stop
+<br>50 1011270015 Dequeue
+<br>50 1011270015 EnqueueFirst
+<br>51 1011270015 Start
+<br>50 1011270016 Stop
+<br>50 1011270016 Dequeue
+<br>50 1011270016 Start
+<br>51 1011270016 Dequeue
+<br>51 1011270016 EnqueueFirst
+<br>51 1011270016 Stop
+<br>51 1011270017 Dequeue
+<br>51 1011270017 Start
+<br>50 1011270017 Dequeue
+<br>50 1011270017 EnqueueFirst
+<br>50 1011270017 Stop
+<br>50 1011270017 Dequeue
+<br>50 1011270017 Start
+<br>50 1011270017 Dequeue
+<br>50 1011270017 EnqueueFirst
+<br>51 1011270017 Stop
+<br>50 1011270017 Dequeue
+<br>50 1011270017 EnqueueFirst
+<br>50 1011270018 Stop
+<br>50 1011270018 Dequeue
+<br>50 1011270018 Start
+<br>50 1011270018 Dequeue
+<br>50 1011270018 EnqueueFirst
+<br>50 1011270018 Stop
+<br>50 1011270018 Dequeue
+<br>50 1011270018 Start
+<br>50 1011270019 Stop
+<br>51 1011270033 Start
+<br>51 1011270034 Stop
+<br>187 1011270054 Start
+<br>187 1011270057 Stop
+<br>10 1011270080 Start
+<br>13 1011270080 Start
+<br>20 1011270080 Start
+<br>94 1011270080 Start
+<br>26 1011270080 Start
+<br>50 1011270080 Start
+<br>70 1011270080 Start
+<br>71 1011270080 Start
+<br>17 1011270080 Start
+<br>51 1011270080 Start
+<br>10 1011270080 Stop
+<br>13 1011270080 Stop
+<br>20 1011270080 Stop
+<br>26 1011270080 Stop
+<br>70 1011270080 Stop
+<br>71 1011270080 Stop
+<br>17 1011270080 Stop
+<br>94 1011270080 Stop
+<br>50 1011270081 Stop
+<br>51 1011270081 Stop
+<br>
+<br>Contents of running queue:
+<br>Thread Scrip
+<br>-------- ----
+<br>
+<br>Contents of pending queue:
+<br>Thread Scrip
+<br>-------- ----
+<br>
+<br>----------
+</p>
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+
+<p><strong>Figure 2</strong></p>
+
+</BODY>
+</HTML>

@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20061213;16041266">
+	<META NAME="CHANGED" CONTENT="20070109;15144205">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>Event Reports</H3>
+<UL>
+	<LI><P><SPAN STYLE="text-decoration: none"><A HREF="How%20to%20enable%20event%20(and%20asset)%20reports.txt" TARGET="_blank">How
+	to enable event (and asset) reports</A>  </SPAN>
+	</P>
+	<LI><P><A HREF="#How to produce a report or notification covering one or more sites &aacute;top |outline">How
+	to produce a report or notification covering one or more sites</A> 
+	</P>
+	<LI><P><A HREF="#How to run a report immediately &aacute;top |outline">How
+	to run a report immediately</A> 
+	</P>
+	<LI><P><A HREF="#How to change/check the schedule of a report &aacute;top |outline">How
+	to change/check the schedule of an event report</A> 
+	</P>
+	<LI><P><A HREF="#How to omit 'zero event' reports &aacute;top |outline">How
+	to omit 'zero event' reports</A> 
+	</P>
+	<LI><P><A HREF="HFN%20asi%20deliverables.doc" TARGET="_blank">ASI
+	deliverables</A> 
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="report-notifxoneormoresites"></A><A NAME="How to produce a report or notification covering one or more sites &aacute;top |outline"></A>
+How to produce a report or notification covering one or more sites
+<A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Set up a <A HREF="HFN%20ASI%20user%20management%20how-to%2001.html" TARGET="_blank">new
+user</A> (via the admin module) with access only to the site(s) you
+want the new user to be able to access (with &quot;Normal&quot;
+privileges, and no additional rights). 
+</P>
+<P>a) Log onto your ASI server (https://asiservername/main)</P>
+<P>b) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>c) In the &quot;tools&quot; navigation bar, click on the &quot;admin&quot;
+link.</P>
+<P>d) Click on the &quot;new user&quot; link located above the table
+listing users defined on the ASI server.</P>
+<P>e) Fill in &quot;name&quot; (eg. acme), &quot;password&quot;, and
+&quot;confirm&quot; fields.</P>
+<P>f) In the &quot;Notify mail&quot;, and &quot;Report mail&quot;
+fields enter the e-mail address of the notification and report
+recipient(s). 
+</P>
+<P>g) In the &quot;Sites&quot; list, click on the entry for the site
+you want the new user to have access to. If you want to select more
+than one site, press the &quot;Ctrl&quot; key and click the mouse on
+the entry for each site you want the new user to have access to.</P>
+<P>h) Click on the &quot;Create&quot; button at the bottom of the
+page.</P>
+<P>After you have created a user following the above steps, all
+enabled global reports (both event and asset), and global event
+notifications, when executed as per their schedule, will run for each
+user covering only the sites accessible to that user.</P>
+<P>2) You can also produce a report (asset or event), and event
+notification covering one or more sites by configuring a report (or
+notification) to cover only selected sites. The following steps
+describe this procedure for an event report. The steps for defining
+an asset report, or event notification covering one or more sites are
+the same except for the fact that you would perform them on the
+&quot;Asset Reports&quot;, and &quot;Event Notifications&quot; pages
+respectively.</P>
+<P>a) Log onto your ASI server (https://asiservername/main)</P>
+<P>b) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>c) In the &quot;events&quot; navigation bar, click on the
+&quot;reports&quot; link
+(https://asiservername/main/event/report.php).</P>
+<P>d) Retrieve the report you want to configure to cover one or more
+site:</P>
+<P>In the &quot;Name Contains&quot; field in the &quot;Search
+Options&quot; panel enter one or more words from the report title,
+and click on the &quot;Search&quot; button.</P>
+<P>e) Scroll down to the entry for the report you want to configure
+to cover one or more site, and click on the &quot;copy&quot; link to
+the left of the report entry. 
+</P>
+<P>f) Change the report title entered in the &quot;Report title&quot;
+field, as desired.</P>
+<P>g) In the &quot;Include&quot; list, click on the entry for the
+site(s) you want the report to cover. If you want to select more than
+one site, press the &quot;Ctrl&quot; key and click the mouse on the
+entry for each site you want the report to cover.</P>
+<P>h) Click on the &quot;Add&quot; button at the bottom of the page.</P>
+<P>Note that once the new report has been added, it will run either
+at its scheduled time, or on-demand when you click on the &ldquo;run&rdquo;
+link to the left of the report name in its entry on the &ldquo;Event
+Reports&rdquo; page. In the case of an asset report, you would do the
+same on the &ldquo;Asset Reports&rdquo; page.</P>
+<P>Please also note that if you decided to change the schedule of the
+new report to type &ldquo;Immediate&rdquo; (and selected a period for
+the report to cover), once the report (event or asset) runs, it will
+be automatically deleted.</P>
+<H4><A NAME="reportrunimmediate"></A><A NAME="How to run a report immediately &aacute;top |outline"></A>
+How to run a report immediately <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Suppose you want to run an event report covering the period from
+July 1, 2006 until August 15, 2006, then you would:</P>
+<P>1) Log onto your ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the &quot;events&quot; navigation bar, click on the &quot;report&quot;
+link (https://asiservername/main/event/report.php)</P>
+<P>4) Retrieve the report you want to run immediately:</P>
+<UL>
+	<LI><P>In the &quot;Name Contains&quot; field in the &quot;Search
+	Options&quot; panel enter one or more words from the report title,
+	and click on the &quot;Search&quot; button.</P>
+</UL>
+<P>5) Scroll down to the entry for the report you want to run
+immediately, and click on the &quot;copy&quot; link to the left of
+the report entry. 
+</P>
+<P>6) Change the report title entered in the &quot;Report title&quot;
+field, as desired.</P>
+<P>7) Scroll down to the &quot;Schedule&quot; area of the report
+configuration page,on the lower right-hand side of the page</P>
+<P>8) Select &quot;Immediate&quot; from the &quot;Report cycle&quot;
+drop-down list.</P>
+<P>9) Enter 07/01/06 in the &quot;Start date&quot; field</P>
+<P>10) Enter 08/16/06 in the &quot;End date&quot; field</P>
+<P>11) Enable the report by selecting &quot;Yes&quot; from the
+&quot;Enabled&quot; configuration parameter pull-down list, if
+necessary.</P>
+<P>12) Click on the &quot;Add&quot; button at the bottom of the page
+(left side)</P>
+<P>The report will be produced within the next 5-15 minutes (on
+average). As soon as it is produced, its entry in the &quot;Event
+Reports&quot; page will be deleted. This is why you make a copy of
+the report that you want to run immediately (by changing its &quot;Report
+cycle&quot; to &quot;Immediate&quot;).</P>
+<P>Alternatively, if the reporting cycle of a report covers the
+period you want (i.e. the period you want a report to cover is the
+past month and its &quot;Report cycle&quot; is monthly), then all you
+need to do is perform steps 1) to 3) described above, and then click
+on the &quot;run&quot; link to the left of a report's entry. The
+report will run covering the past X days where X is equal to its
+reporting cycle. When run immediately in this way, an event report's
+entry in the &quot;Event Reports&quot; page will not be deleted.
+Please also note that running an event report via the &quot;run&quot;
+link works even in the case of reports that are disabled.</P>
+<P>Please note that you can follow the procedure described above to
+produce an asset report immediately. Instead of accessing the &quot;Event
+Reports&quot; page, you would go to the &quot;Asset Reports&quot;
+page (https://asiservername/main/asset/report.php).</P>
+<H4><A NAME="reportschedulechange"></A><A NAME="How to change/check the schedule of a report &aacute;top |outline"></A>
+How to change/check the schedule of a report <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>The instructions below are for the change of the schedule of an
+event report. They apply verbatim for asset reports with the
+exception of step 3) where you should click on the &ldquo;reports&rdquo;
+link in the &ldquo;assets&rdquo; navigation bar
+(https://asiservername/main/asset/report.php)</P>
+<P>1) Log onto your ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the &quot;events&quot; navigation bar, click on the
+&quot;reports&quot; link
+(https://asiservername/main/event/report.php)</P>
+<P>4) Retrieve the report you want to run immediately:</P>
+<UL>
+	<LI><P>In the &quot;Name Contains&quot; field in the &quot;Search
+	Options&quot; panel enter one or more words from the report title,
+	and click on the &quot;Search&quot; button.</P>
+</UL>
+<P>5) Scroll down to the entry for the report whose schedule you want
+to check/modify, and Click on the &quot;edit&quot; link to the left
+of the report entry</P>
+<P>6) Scroll down to the &quot;Schedule&quot; area of the report
+configuration page, on the lower right-hand side of the page</P>
+<P>7) Select &quot;Monthly&quot; from the &quot;Report cycle&quot;
+drop-down list.</P>
+<P>8) Select the hour from the &quot;Hour&quot; pull-down list</P>
+<P>9) Select the minute from the &quot;Minute&quot; pull-down list</P>
+<P>10) Select the day of the month from the &quot;Day of the month&quot;
+pull-down list</P>
+<P>11) Select &quot;Yes&quot; from the &quot;Enabled&quot; pull-down
+list in the &quot;Content&quot; section of the &quot;Edit a Report&quot;
+page (event reports), or in the &quot;Grouping; Sorting Options&quot;
+section (asset reports) found in the lower right-hand side of the
+&quot;Edit an Event Report&quot; (or &quot;Edit an Asset Report&quot;)
+page.</P>
+<P>12) Click on the &quot;Add&quot; button at the bottom of the page
+(left side)</P>
+<H4><A NAME="evenreports0eventsomit"></A><A NAME="How to omit 'zero event' reports &aacute;top |outline"></A>
+How to omit 'zero event' reports <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Log onto your ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) Go to the &quot;Event Reports&quot; page. In the &quot;events&quot;
+navigation bar, click on the &quot;report&quot; link 
+</P>
+<P>(https://asiservername/main/event/report.php)</P>
+<P>4) In the &quot;Search Options&quot; panel, select &quot;Enabled&quot;
+from the &quot;State&quot; search parameter (the second search
+parameter from the left in the first row)</P>
+<P>5) In the &quot;Display Options&quot; panel, select &quot;150&quot;
+from the &quot;Page Size&quot; parameter, to make sure entries for
+all enabled event reports are displayed.</P>
+<P>6) Click on the &quot;Search&quot; button</P>
+<P>7) Click on the &quot;manage&quot; link which you will find just
+above the &ldquo;Search Options&rdquo; panel</P>
+<P>8) Click on the &quot;Edit Multiple Event Reports&quot; link</P>
+<P>9) Click on the &quot;Check All&quot; button</P>
+<P>10) In the Edit Options panel, select &quot;yes&quot; from the
+&quot;Omit Zero&quot; edit option</P>
+<P>11) Click on the &quot;OK&quot; button.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

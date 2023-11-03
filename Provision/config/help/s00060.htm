@@ -1,0 +1,542 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 60, 217, 218, 219, 220, and 221 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20040116;10125053">
+	<META NAME="CHANGED" CONTENT="20061002;22222983">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 60, 217, 218, 219, 220, and 221 Configuration</H3>
+<H4>Configuration parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip enabled (By default, Scrips
+	217-221 are disabled)</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Impersonation enabled</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Directories or files to scan</EM>
+		</P>
+</UL>
+<UL>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>1,0,%temp%,default</STRONG>
+				</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>1,1,*:\Documents and
+		Settings\*\Local Settings\Temp\,default</STRONG></P>
+	</UL>
+</UL>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM>File groups</EM>
+	<STRONG>default,~*.*,$*.*,*.tmp</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Delete read-only files</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Minimum age of files to be
+	deleted (days)</EM> <B>14</B> days or older 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, by default Scrip
+	runs at 10am and 2pm daily 
+	</P>
+	<LI><P><EM>Run folder clean-up now</EM> 
+	</P>
+</UL>
+<P>For your convenience, we offer six Scrips that are exact copies of
+each other to perform folder and file clean-up operations. They are
+Scrips 60, 217, 218, 219, 220, and 221.</P>
+<P>In this way, you can manage clean-up operations of different
+classes of folders and files in a more straightforward, and less
+error-prone fashion.</P>
+<H4>Impersonation Support</H4>
+<P>On NT based systems (MS Windows NT4, 2000, XP, and Server 2003)
+the ASI client is logged in as local system administrator. This means
+that it cannot access shared resources on the local network.</P>
+<P>In order to enable ASI client's access to shared resources on the
+local network, we have implemented impersonation. Impersonation lets
+the ASI client log onto the system where the shared resource is
+located as a user known by that system enabling it to access that
+shared resource.</P>
+<P>You should enter the known user id and password in Scrip 43, as
+described below. With this information, the ASI client will be able
+to access shared resources on the local network as follows:</P>
+<H5>For Workgroups</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows 9x</STRONG> 
+			</P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows 9x</STRONG></P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on <EM>from</EM>
+			system</P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist both on <EM>from</EM>
+			and <EM>to</EM> systems</P>
+		</TD>
+	</TR>
+</TABLE>
+<H5>For Domains</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on domain controller</P>
+		</TD>
+	</TR>
+</TABLE>
+<H4>Impersonation enabled</H4>
+<P>When the <EM>Impersonation enabled</EM> parameter is enabled, ,
+using the impersonation user id and password (and domain if
+necessary) you entered in <EM>Impersonation Username</EM>,
+<EM>Impersonation Password and Confirmation</EM>, and <EM>Impersonation
+Domain</EM> parameters in the Scrip 43 configuration page, Scrip 60
+(and 217-221) can clean up folders that reside on shared resources on
+other systems on the the network, accessed either as mapped
+drives(e.g. <STRONG>x:\shared folder</STRONG>), or using UNC
+(Universal Naming Convention) syntax (e.g. <STRONG>\\server\\shared
+folder</STRONG>).</P>
+<H4>Directories or files to scan</H4>
+<P><EM>Directories or files to scan</EM> configuration parameter
+entries have the following format with each value in an entry
+separated by a comma, and no spaces before or after each comma:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Entry status with possible values
+	equal to 0, 1, or 2, corresponding respectively, to disabled,
+	enabled, or invalid. Scrip 60 (and 217-221) sets the status of any
+	entry where it finds an error to invalid. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Sub-directory deletion flag. If it
+	is set to 1, Scrip 60 (and 217-221) will delete all sub-directories
+	older than the number of days set in the <EM>Minimum age of files to
+	be deleted (days)</EM> parameter, which are empty after Scrip 60 has
+	deleted all files that match the criteria defined in the <EM>File
+	groups</EM> entry used by the <EM>Directories to clean</EM> entry,
+	and the aging criteria set in the <EM>Minimum age of files to be
+	deleted (days)</EM> parameter. When this flag is set to 0, Scrip 60
+	(and 217-221) will ignore any sub-directory contained in the
+	directory being cleaned. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">A directory specification that may
+	have an environment variable in it. For example 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">d:\database 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">%temp% 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">%temp%\vpmectmp 
+		</P>
+	</UL>
+	<LI><P>A file group name that matches one of the file group names in
+	the <EM>File groups</EM> parameter 
+	</P>
+</UL>
+<P>When specifying a directory, you can use wild cards (see section
+on directory wild cards at the end of this document).</P>
+<P>This means that in a <EM>Directories to clean</EM> entry you could
+specify the following path:</P>
+<UL>
+	<LI><P>*\Documents and Settings\*\Local Settings\Temp 
+	</P>
+</UL>
+<P>A <EM>Directories or files to scan</EM> entry with the above path
+specification would delete files matching the file group specified in
+the entry, in all user profiles' <I>temp</I> folders on all logical
+drives on a system.</P>
+<P>Please note that if a <EM>Directories to clean</EM> entry contains
+the full path for a file, you do not need to have a file group
+parameter. 
+</P>
+<P>The presence of a <I>file group</I> parameter in a <EM>Directories
+or files to scan</EM> entry, implies that the third parameter is a
+directory. In that case Scrip 60 (and 217-221) checks to see if the
+third parameter exists on the local machine as a directory. If it
+does, It will process it. If it doesn't, the Scrip will check to see
+if the third parameter exists as a file. If it does exist as a file
+the entry will be flagged as invalid and log posted by the Scrip will
+include an explanation of the error it found. If the third parameter
+doesn't exist as a file, and Scrip 60 (and 217-221) cannot find the
+directory. it assumes that the directory currently does not exist on
+the local machine, and leaves the <EM>Directories or files to scan</EM>
+entry enabled.</P>
+<P>You can have as many <EM>Directories or files to scan</EM>
+configuration parameter entries as you want, each entered on a new
+line.</P>
+<H4>File groups</H4>
+<P><EM>File groups</EM> configuration parameter entries have the
+following format with each value in an entry separated by a comma:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">File group name followed by a
+	comma 
+	</P>
+	<LI><P>file masks used by Scrip 60 (and 217-221) to find files you
+	want the Scrip to delete, separated by commas 
+	</P>
+</UL>
+<P>When specifying file masks, you can use the standard Microsoft
+MS-DOS wild card characters <STRONG>?</STRONG> and <STRONG>*</STRONG>
+in both the file name and extension.</P>
+<P>You can have as many <EM>File groups</EM> configuration parameter
+entries as you want with each file group entered on a new line.</P>
+<H4>Delete read-only files</H4>
+<P>When you enable the <EM>Delete read-only files</EM> configuration
+parameter, Scrip 60 (and 217-221) will delete all files and
+directories that match the criteria you set in the <EM>File groups</EM>
+and <EM>Minimum age of files to be deleted (days)</EM> configuration
+parameters 
+</P>
+<H4>Minimum age of files to be deleted (days)</H4>
+<P>In the <EM>Minimum age of files to be deleted (days)</EM>
+configuration parameter you enter the minimum age of deleted files
+measured in days. It can be any integer number equal to, or greater
+than <B>0</B>.</P>
+<H4>Run folder clean-up now</H4>
+<P>With the <I>Run folder clean-up now</I> <EM>Execute</EM> button,
+you can run Scrip 60 (and 217-221) on demand, even if it's not
+enabled. The <I>Run folder clean-up now</I> <EM>Execute</EM> button
+can be used to execute the Scrip on the local system, or on all
+supported systems.</P>
+<H4>A note on temporary files clean-up</H4>
+<P>You should note that on Microsoft Windows NT based systems (NT4,
+2000, XP, and Server 2003), there are two locations where temporary
+files accumulate:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">[root drive]:\winnt\temp 
+	</P>
+	<LI><P>[root drive]:\Documents and Settings\[user login]\Local
+	Settings\Temp 
+	</P>
+</UL>
+<P>The majority of temporary files will be found in the second
+location listed above.</P>
+<H4>A note on Internet browser files clean-up</H4>
+<P>Scrip 60 (and 217-221) can be used to clean-up an Internet brwoser
+temporary files, cookies, and history files.</P>
+<P>Below, you will find a list of locations of temporary files,
+cookies, and history files for Microsoft Internet Explorer grouped by
+the version of the Microsoft Windows operating system.</P>
+<H5>Systems running Microsoft Windows 9X operating system</H5>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">C:\WINDOWS\Application
+	Data\Microsoft\Internet Explorer\UserData<BR>(browser cache) 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">C:\WINDOWS\History<BR>(history
+	files) 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">C:\WINDOWS\Local
+	Settings\Temporary Internet Files<BR>(cookies) 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">c:\WINDOWS\Temporary Internet
+	Files\Content.IE5<BR>(browser cache) 
+	</P>
+	<LI><P>c:\WINDOWS\Cookies<BR>(cookies) 
+	</P>
+</UL>
+<H5>Systems running Microsoft Windows 2000 operating system</H5>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">c:\Documents and Settings\[user
+	name]\Cookies<BR>(cookies) 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">c:\Documents and Settings\[user
+	name]\Application Data\Microsoft\Internet Explorer\UserData<BR>(browser
+	cache) 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">c:\Documents and Settings\[user
+	name]\Local Settings\Temporary Internet Files\Content.IE5<BR>(browser
+	cache) 
+	</P>
+	<LI><P>c:\Documents and Settings\[user name]\Local
+	Settings\History\History.IE5<BR>(history) 
+	</P>
+</UL>
+<H5>Systems running Microsoft Windows XP operating system</H5>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">C:\Documents and Settings\[user
+	name]\UserData<BR>(browser cache) 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">C:\Documents and Settings\[user
+	name]\Local Settings\History<BR>(history) 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">C:\Documents and Settings\[user
+	name]\Local Settings\Temporary Internet Files<BR>(browser cache) 
+	</P>
+	<LI><P>C:\Documents and Settings\[user name]\Cookies<BR>(cookies) 
+	</P>
+</UL>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<H4>File Deletion</H4>
+<P>Scrip 60 (and 217-221) deletes files permanently. It does not send
+them to the recycle bin.</P>
+<H4>Directory path wild card support</H4>
+<P>Certain repetitive system maintenance and management tasks require
+access to sub-directories that have the same name but have different
+parent directories. For example, clean-up of temp directories on
+systems running the Microsoft Windows NT based operating systems
+(NT4, 2000, XP, and Server 2003), requires access to each user's temp
+directory located in <I>[drive}:\Documents and Settings\&lt;user
+name&gt;\Local Settings\Temp</I>. 
+</P>
+<P>In order to make it easier for you configure Scrips to perform
+such repetitive tasks, we have implemented wild card directory
+support, allowing wild cards anywhere in a directory path. This means
+that in the example above, specification of the path for the temp
+directory on all fixed and network drives would be reduced to a
+single line:</P>
+<PRE STYLE="margin-bottom: 0.2in">*:\Documents and Settings\*\Local Settings\Temp\</PRE><P>
+Wild card directory support applies to any Scrip where you may need
+to specify a directory path, including Scrips 60 (and 217-221), 61,
+100, 196, 222, 225, 229, and 230. It also extends to devices, meaning
+that you can use the wild card character for devices including:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Fixed drives (like hard disk
+	partitions)</P>
+	<LI><P STYLE="margin-bottom: 0in">Removable drives (like floppies)</P>
+	<LI><P STYLE="margin-bottom: 0in">Network drives</P>
+	<LI><P STYLE="margin-bottom: 0in">CD-ROMs</P>
+	<LI><P STYLE="margin-bottom: 0in">RAM disk drives</P>
+	<LI><P>Unknown drive types</P>
+</UL>
+<P>For example:</P>
+<PRE STYLE="margin-bottom: 0.2in">\\*\c:\Windows\**\temp</PRE><P>
+would scan the <I>temp</I> directory found zero or more levels below
+the <I>Windows</I> directory on the <I>c:</I> drive on all reachable
+systems on the local network.</P>
+<P>The notation used for wild card directory support is slightly
+different from the MS-DOS wild card notation. It consists of either <B>*</B>
+or <B>**</B>:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><B>*</B> matches exactly one
+	directory level.</P>
+	<LI><P><B>**</B> matches zero or more directory levels.</P>
+</UL>
+<P>For example:</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\**\Local Settings\Temp\</PRE><P>
+would cover all directory levels where the end path consists of
+<I>\Local Settings\Temp\</I> including:</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\Local Settings\Temp\</PRE><P>
+and</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\&lt;user name&gt;\Local Settings\Temp\</PRE><P>
+while</P>
+<PRE STYLE="margin-bottom: 0.2in">\Documents and Settings\*\Local Settings\Temp\</PRE><P>
+would cover only one directory level above <I>\Local Settings\Temp\</I></P>
+<P>You can use multiple instances of <B>*</B> and/or <B>**</B> in
+directory path specifications. When the directory wild card support
+software finds instances of multiple wild cards, it performs
+left-to-right scan that looks through directories 
+</P>
+<P>recursively. Please note that his means that multiple <B>**</B> or
+<B>*</B> in a directory path specification can cause a lot of
+multiple scans through the same directory structure, which will take
+a lot of time, but it will return the correct result.</P>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

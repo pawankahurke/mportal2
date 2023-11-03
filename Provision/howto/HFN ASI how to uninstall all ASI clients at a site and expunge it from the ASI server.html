@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070403;20141302">
+	<META NAME="CHANGED" CONTENT="20070403;20321856">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="asiclientremoveandexpunge"></A>How to uninstall all ASI
+clients at a site, and expunge it from the ASI server 
+</H3>
+<OL>
+	<LI><P>Log onto your ASI server (https://asiservername/main). The
+	ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>In the &quot;sites&quot; navigation bar, at the upper right
+	corner of any page in the ASI server extended interface, click on
+	the &quot;configuration&quot; link. The &quot;Select a Site&quot;
+	page will be displayed.
+	(https://asiservername/main/config/index.php?act=site)</P>
+	<LI><P>Click on the &quot;configure site&quot; link for the site
+	where you want to remove all ASI clients. The &quot;Scrip
+	Configuration - Select Scrip - Site &lt;site name&gt;&quot; page
+	will be displayed.</P>
+	<LI><P>Scroll down to the entry for Scrip 223 (HandsFree Client
+	Installation and Deployment), and click on it. The Scrip's
+	configuration page will be displayed.</P>
+	<LI><P>Make the following configuration changes:</P>
+</OL>
+<UL>
+	<LI><P>Clear the contents of the configuration parameter &quot;Scrips
+	enabled at start of follow-on phase&quot; (this is not strictly
+	necessary)</P>
+	<LI><P>Check the configuration parameter &quot;Check box if you want
+	follow-on action to uninstall ASI client&quot; box</P>
+</UL>
+<P STYLE="margin-left: 0.53in">Ensure that the site is selected from
+the &quot;Group&quot; pull-down list&quot; found to the left of both
+configuration parameters.</P>
+<OL START=7>
+	<LI><P>Click on the &quot;Submit Changes&quot; button.</P>
+</OL>
+<P>When you remove the ASI client from all systems at a site using
+Scrip 223 as described above, The Scrip 223 ASI client removal event
+log reporting &quot;Uninstalling client as follow-on action&quot; in
+field text1, is not necessarily produced because of the timing of the
+removal of all of the ASI client components.</P>
+<P>We have set up an event filter called &quot;Client removal&quot;
+to make it easier to retrieve Scrip 43 and 223 event logs reporting
+removal of the ASI client. If you do not find an entry for this
+filter on your ASI server, you can define it with the following SQL
+clause:</P>
+<UL>
+	<LI><P>((scrip = 43) AND (text1 LIKE '%Executing%') AND (text1 LIKE
+	'%uninstall%')) OR ((scrip = 223) AND (text1 LIKE '%Uninstalling
+	client%'))</P>
+</UL>
+<P>You can check indirectly if the ASI client was removed from a
+system by going to the census page of the site the system belongs to.
+There, check the last time the ASI client posted an event log
+compared to the time when the action to remove the ASI client was
+retrieved and run locally at the site.</P>
+<P>Once you are satisfied that all of the ASI clients have been
+removed from the site in question, you can expunge the site from the
+ASI server by performing the following steps:</P>
+<OL TYPE=i>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>In the &ldquo;tools&rdquo; navigation bar, at the upper right
+	corner of any page in the ASI server extended interface, click on
+	the &ldquo;census&rdquo; link. The &ldquo;Census&rdquo; page will be
+	displayed. (https://asiservername/main/acct/census.php)</P>
+	<LI><P>Scroll down to the entry for the site you want to expunge.</P>
+	<LI><P>Click on the &quot;delete&quot; link to the left of its name.
+	The &quot;Census - Delete &lt;site name&gt;&quot; page will be
+	displayed.</P>
+	<LI><P>Click on the &quot;expunge&quot; link.</P>
+</OL>
+<H4>Note &ndash; How to remove the ASI client from a group of systems</H4>
+<P><I>If you want to remove the ASI client from a group of systems
+within one site, or spanning multiple sites, you should perform the
+following steps:</I></P>
+<OL TYPE=a>
+	<LI><P><I>Log onto your ASI server (https://asiservername/main). The
+	ASI dashboard will be displayed.</I></P>
+	<LI><P><I>Click on the &quot;Use extended interface&quot; link on
+	the right side of the ASI Dashboard upper pane, below user login and
+	date. The &ldquo;Welcome&rdquo; page will be displayed.</I></P>
+	<LI><P><I>Define a group containing the systems you want to remove
+	the ASI client from. Access the group management module by clicking
+	on the &ldquo;groups&rdquo; link in the &ldquo;tools&rdquo;
+	navigation bar located at the upper right-hand corner of any page in
+	the ASI extended interface, and clicking on the &ldquo;Add a new
+	group&rdquo; button found at the top of the &ldquo;Group Management
+	- Select or Add a Group&rdquo; page below the page title.</I></P>
+	<LI><P><I>In the &quot;sites&quot; navigation bar, click on the
+	&quot;wizard&quot; link</I></P>
+	<LI><P><I>Click on the &quot;Scrip configuration&quot; wizard entry</I></P>
+	<LI><P><I>Click on the &ldquo;A group of machines&rdquo; radio
+	button. The &ldquo;Scrip Configuration - Select a Group &ldquo; page
+	will be displayed.</I></P>
+	<LI><P><I>Click on the &ldquo;use&rdquo; link for the group you
+	defined in step a) above. The &ldquo;Scrip Configuration - Select
+	Scrip - Group &lt;group name&gt;&rdquo; page will be displayed.</I></P>
+	<LI><P><I>Follow the instructions in steps 5.-7. above, except that
+	instead of clicking on the &ldquo;Submit Changes&rdquo; button, you
+	will need to click on the &ldquo;Next&rdquo; button.</I></P>
+</OL>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

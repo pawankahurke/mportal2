@@ -1,0 +1,62 @@
+How to troubleshoot "winvnc.exe" re-start problems
+====================================================
+
+When you run the ASI remote control function, if Scrip 236 (On-demand Remote Control) posts an event log indicating that it ran successfully but you cannot take remote control of the target system, access the event log detail for the Scrip 236 event log by clicking on the "detail" link for the event log on the "Event Query Results" page.
+
+Examine the content of field "text2" in the Scrip 236 event log. If it contains the following entry:
+
+UltraVNC is already running
+
+this means that when Scrip 236 ran, it found that the "winvnc.exe" process was running but was unable to re-start it. Therefore, the remote control session could not be started.
+
+In this case, you should use Scrip 227 (Process and Service Shutdown-Restart) to stop "winvnc.exe" as follows:
+
+1) Log onto your ASI server (https://asiservername/main/)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) In the "sites" navigation bar, click on the "configuration" link (https://asiservername/main/config/index.php?act=site)
+
+4) Click on the "view machines" link for the site of the system where you want to stop "winvnc.exe" execution. The "Configuration <site name> Machines" page will be displayed.
+
+5) Click on the "configure Scrips" link for the system where you want to stop "winvnc.exe" execution. The "Scrip configurator" page for the system whose "configure Scrips" link you clicked on will be displayed.
+
+6) Scroll down to the Scrip 227 (Process and Service Shutdown-Restart) entry, and click on the Scrip name. The Scrip's configuration page will be displayed.
+
+7) In the "Process groups" configuration parameter, paste the text between quotes (without the quotes) you will find below.  Leave the selection from the "Group" pull-down list to the left of the configuration parameter set to "site <name>".
+
+"
+ultravncsvr,winvnc.exe
+"
+
+8)  In the "On demand shutdown" configuration (leaving the site selected from the "Group" pull-down list to the left of the configuration parameter), paste the text between quotes (without the quotes) you will find below.
+
+"
+ultravncsvr
+"
+
+9) Click on the "Submit Changes" button found both above and below the Scrip configuration parameter table.  The "Changes Recorded" page will be displayed.
+
+-------------------------------------------------------------------------------------
+
+10) Click on the "machines" link on the second-level navigation bar (the one labeled "configuration"). The "Configuration - <site name> Machines" page will be displayed.
+
+11) The entry in the "Changed" column for the system you configured Scrip 227 on will show the date and time of the action you just took. Before being able to retrieve the Scrip 227 event log reporting completion of the "winvnc.ex" process shutdown action, you will need to wait until the entry in the "Changed" column changes to "No" (Use the refresh function in your browser). This is dependent on the frequency of execution of Scrip 177 (Scrip Configuration Update). Please refer to the "How to change the frequency with which the ASI client retrieves Scrip configuration changes from the ASI server" section of the "System management, maintenance, and problem management actions" Web page for instructions on how to change the Scrip 177 execution schedule.
+
+12) As soon as the entry in the "Changed" column for the system you configured Scrip 227 on changes to "No", click on the "ad-hoc" link in the "events" navigation bar found at the upper right-hand corner of any page on the ASI server (https://asiservername/main/event/event.php ). The "Ad-hoc Event Query Form" page will be displayed.
+
+In the "Select Additional Search Criteria for Events" section of the "Ad-hoc Event Query Form" page:
+13) From the "Site" pull-down list select the site of the system were Scrip 227 stopped "winvnc.exe" execution.
+
+14) From the "Machine" pull-down list select the system you ran Scrip 227 on.
+
+In the "Narrow Your Search (optional)" section of the "Ad-hoc Event Query Form" page:
+15) From the "Scrip number" pull-down list select Scrip 227.
+
+16) Click on the "Search" button. The "Event Query Results" page will be displayed.
+
+17) In the "Event Query Results" page click on the "detail" link for the Scrip 227 event log retrieved by the event query you just ran. Review the detail event log to verify that Scrip 227 stopped execution of "winvnc.exe".
+
+-------------------------------------------------------------------------------------
+
+Next, run the ASI remote control function again.

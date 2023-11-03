@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Configuring Impersonation</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20061214;20422588">
+	<META NAME="CHANGED" CONTENT="20071014;11314051">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana", "H4" }
+		H4 { color: #333399; font-family: "verdana" }
+		P.list-number-2-western { font-family: "verdana"; font-size: 10pt }
+		P.list-number-2-cjk { font-family: "verdana"; font-size: 10pt }
+		P.list-number-2-ctl { font-family: "Tahoma"; font-size: 10pt }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Configuring Impersonation</H3>
+<P>In order to perform actions that require access to systems across
+a local network, you need to configure impersonation in the ASI
+client. Functions that require impersonation include:</P>
+<UL>
+	<LI><P>Execution of programs that reside on network shared resources</P>
+	<LI><P>Access to files residing on network shared resources</P>
+	<LI><P>Automated deployment of the ASI client on systems in a local
+	network</P>
+</UL>
+<P>You will find impersonation configuration parameters in Scrip 43
+(HandsFree Client Tools). The following sections include instructions
+for configuring impersonation at one site and on one system.</P>
+<H4>Site</H4>
+<OL>
+	<LI><P CLASS="list-number-2-western">Log onto the ASI server
+	(https://asiservername/main ). The ASI dashboard will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/welcome.php" TARGET="_blank"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Use
+	extended interface</U></FONT></FONT></A> link on the right side of
+	the ASI Dashboard upper pane, below user login and date. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Welcome</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">At the upper right-hand corner
+	of any page on the ASI server extended interface, click on the
+	<A HREF="https://192.168.1.248/main/config/index.php?act=site"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>configuration</U></FONT></FONT></A>
+	link in the <FONT FACE="Verdana, sans-serif"><B>sites</B></FONT>
+	navigation bar (https://asiservername/main/config/index.php?act=site
+	). The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Select
+	a Site</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Locate the entry for the site
+	where you want to configure Scrip 43, and click on its <A HREF="https://192.168.1.249/main/config/scrpconf.php?act=scop&amp;cid=3&amp;custom=8&amp;scop=3&amp;mgroupid=4&amp;group_name=Corporate%20Ink&amp;hid=0&amp;pscop=3&amp;site=&amp;censusid=&amp;snum=&amp;level=1"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>[configure
+	site]</U></FONT></FONT></A> link. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select Scrip - Site &lt;site name&gt;</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Scroll down the page, locate
+	the entry for Scrip 43 (HandsFree Client Tools), and click on its
+	name. The Scrip 43 configuration page will be displayed. 
+	</P>
+	<LI><P>Scroll about three quarters down the Scrip 43 configuration
+	page until you see the &ldquo;Impersonation username&rdquo;
+	configuration parameter. Here, enter the name of the user the ASI
+	client can impersonate as to access resources across the network.
+	Leave the &ldquo;Group&rdquo; pull-down list to the left of the  the
+	&ldquo;Impersonation username&rdquo; configuration parameter label
+	set to &ldquo;site &lt;&rdquo;site name&rdquo;&gt;&rdquo;.</P>
+	<LI><P>In the &ldquo;Impersonation password&rdquo; configuration
+	parameter, found immediately below the &ldquo;Impersonation
+	username&rdquo; configuration parameter, enter (twice) the password
+	for the user name you entered in  the &ldquo;Impersonation username&rdquo;
+	configuration parameter. Leave the &ldquo;Group&rdquo; pull-down
+	list to the left of the  the &ldquo;Impersonation username&rdquo;
+	configuration parameter label set to &ldquo;site &lt;&rdquo;site
+	name&rdquo;&gt;&rdquo;.</P>
+	<LI><P>If the site you are configuring impersonation at is a
+	Microsoft Windows Domain, in the &ldquo;Impersonation domain&rdquo;
+	configuration parameter, enter the domain name for the site. Please
+	note that you may see the domain for a site referred to as, for
+	example, xxxxxx.domain.yyyyyy. In cases such as these, in  the
+	&ldquo;Impersonation domain&rdquo; configuration parameter, enter
+	&ldquo;domain&rdquo;. Leave the &ldquo;Group&rdquo; pull-down list
+	to the left of the  the &ldquo;Impersonation username&rdquo;
+	configuration parameter label set to &ldquo;site &lt;&rdquo;site
+	name&rdquo;&gt;&rdquo;.</P>
+	<LI><P>Click on the &ldquo;Submit Changes&rdquo; button found both
+	at the top and at the bottom of thhe Scrip 43 configuration page.</P>
+</OL>
+<H4>System</H4>
+<OL>
+	<LI><P CLASS="list-number-2-western">Log onto the ASI server
+	(https://asiservername/main ). The ASI dashboard will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/welcome.php" TARGET="_blank"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Use
+	extended interface</U></FONT></FONT></A> link on the right side of
+	the ASI Dashboard upper pane, below user login and date. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Welcome</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">At the upper right-hand corner
+	of any page on the ASI server extended interface, click on the
+	<A HREF="https://192.168.1.248/main/config/index.php?act=site"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>configuration</U></FONT></FONT></A>
+	link in the <FONT FACE="Verdana, sans-serif"><B>sites</B></FONT>
+	navigation bar (https://asiservername/main/config/index.php?act=site
+	). The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Select
+	a Site</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Locate the entry for the site
+	where the system whose Scrip 43 you want to configure is located,
+	and click on its <A HREF="https://192.168.1.248/main/config/index.php?cid=778&amp;act=host"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>[view
+	machines]</U></FONT></FONT></A> link. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Configuration
+	- &lt;site name&gt; Machines</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Locate the entry for the system
+	whose Scrip 43 you want to configure, and click on its <A HREF="https://192.168.1.248/main/config/config.php?hid=2003"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>[configure
+	Scrips]</U></FONT></FONT></A> link. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configurator - Select Scrip - Site &lt;site name&gt; - Machine
+	&lt;machine name&gt;</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Scroll down the page, locate
+	the entry for Scrip 43 (HandsFree Client Tools), and click on its
+	name. The Scrip 43 configuration page will be displayed. 
+	</P>
+	<LI><P CLASS="list-number-2-western">Follow steps 6. to 9. in the
+	&ldquo;Site&rdquo; section of this document, with one change. In the
+	&ldquo;Group&rdquo; pull-down list for each of the Scrip 43
+	configuration parameters you are configuring, select &ldquo;machine
+	&lt;&rdquo;machine name&rdquo;&gt;&rdquo;.</P>
+</OL>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,738 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20061212;17463067">
+	<META NAME="CHANGED" CONTENT="20070403;20211644">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>ASI client management</H3>
+<UL>
+	<LI><P><A HREF="HFN%20diagnosing%20an%20ASI%20client%20not%20reporting%20to%20the%20ASI%20server.txt" TARGET="_blank">How
+	to diagnose problems preventing an ASI client from reaching the ASI
+	server</A> 
+	</P>
+	<LI><P><A HREF="#activatedormantasiclient">How to activate an ASI
+	client which may be in dormant mode</A></P>
+	<LI><P><A HREF="HFN%20asi%20local%20i-f%20activation%20and%20use.html" TARGET="_blank">How
+	to activate the ASI client local user interface</A> 
+	</P>
+	<LI><P><A HREF="#asiclientrunningcheck">How to check whether the ASI
+	client is running</A></P>
+	<LI><P><A HREF="#stopasiclient">How to stop ASI client execution</A></P>
+	<LI><P><A HREF="#removeasinetdriver">How to remove the ASI network
+	driver</A></P>
+	<LI><P><A HREF="#removeasiregistrydriver">How to remove the ASI
+	registry driver</A></P>
+	<LI><P><A HREF="#How to retrieve a site's registration code &aacute;top |outline">How
+	to retrieve a site's registration code</A> 
+	</P>
+	<LI><P><A HREF="#How to change HandsFree event management server URL - locally &aacute;top |outline">How
+	to change HandsFree event management server URL &ndash; locally</A> 
+	</P>
+	<LI><P><A HREF="#How to change HandsFree event management server URL - from the ASI server &aacute;top |outline">How
+	to change HandsFree event management server URL - from the ASI
+	server</A> 
+	</P>
+	<LI><P><A HREF="#How to produce a &quot;Last ASI Client Contact&quot; Report &aacute;top |outline">How
+	to produce a &quot;Last ASI Client Contact&quot; Report</A> 
+	</P>
+	<LI><P><A HREF="#How to produce: Report - Machines whose ASI client has not reported for more than one week (configurable) &aacute;top |outline">How
+	to produce: Report - Machines whose ASI client has not reported for
+	more than one week (configurable)</A> 
+	</P>
+	<LI><P><A HREF="#How to diagnose connectivity issues that prevent the ASI client on one or more systems from communicating with the ASI server &aacute;top |outline">How
+	to diagnose connectivity issues that prevent the ASI client on one
+	or more systems from communicating with the ASI server</A> 
+	</P>
+	<LI><P><A HREF="#How to check whether the ASI client installation completed successfully on one system &aacute;top |outline">How
+	to check whether the ASI client installation completed successfully
+	on one system</A> 
+	</P>
+	<LI><P><A HREF="#Hot to edit-copy an ASI client update version record &aacute;top |outline">Hot
+	to edit-copy an ASI client update version record</A> 
+	</P>
+	<LI><P><A HREF="How%20to%20set%20the%20ASI%20client%20in%20safe%20mode.txt" TARGET="_blank">How
+	to set the ASI client in safe mode</A> 
+	</P>
+	<LI><P><A HREF="HFN%20asi%20asset%20survey%20and%20assessment%20service%20set-up.doc" TARGET="_blank">Asset
+	survey and assessment service set-up</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20how%20to%20move%20a%20system%20or%20a%20site.txt" TARGET="_blank">How
+	to move a system or a site, or rename a site</A> 
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="activatedormantasiclient"></A>How to activate an ASI
+client which may be in dormant mode<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Open a browser window.</P>
+<P>In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>In the user logon dialog enter either <B>&lt;direct access user
+id&gt;</B> / &lt;<B>direct access password</B>&gt;, or <B>hfn</B> /
+<B>hfn</B></P>
+<P>Click on the name of the system at the very top of the page. The
+<FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed.</P>
+<P>Click on the entry for Scrip 223 (<I>HandsFree Client Installation
+and Deployment</I>)</P>
+<P>Enter the site registration code for the site the system you are
+working on belongs to in the <I>Site registration code</I>
+configuration parameter.</P>
+<P>Click on the <I>Submit Changes</I> button.</P>
+<P><A NAME="activatelocalasiui"></A>Close the browser window.</P>
+<H4><A NAME="checkasiclientrunning"></A>How to check whether the ASI
+client is running<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<H5>Method A - Services console</H5>
+<P>- Right-click on <I>My Computer</I> 
+</P>
+<P>- Click on <I>Manage</I></P>
+<P>- Double-click on <I>Services and Applications</I> in right-hand
+panel</P>
+<P>- Double-click on <I>Services</I> icon in right-hand panel</P>
+<P>- Scroll down the list of services, and locate the <I>Handsfree
+client</I> service. If the ASI client is running normally, it should
+have <B>Automatic</B> <I>Startup Type</I> and <I>Status</I> should be
+<B>Started</B>.</P>
+<H5>Method B - Task manager</H5>
+<P>- Press simultaneously the <B>ctrl</B>, <B>alt</B>, and <B>del</B>
+keys</P>
+<P>- Click on the <I>Processes</I> tab</P>
+<P>- Click twice on the <I>Image Name</I> column heading</P>
+<P>- If the ASI client is running normally, you should be able to
+locate the following two entries:</P>
+<UL>
+	<LI><P><B>capp.exe</B></P>
+	<LI><P><B>cust.exe</B></P>
+</UL>
+<H5>Method C - ASI client direct access</H5>
+<P>- Open a browser window.</P>
+<P>- In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>- In the user logon dialog enter <B>&lt;direct access user
+id&gt;</B>/&lt;<B>direct access password</B>&gt;</P>
+<P>If you cannot log onto the ASI client using the direct access user
+id, it probably means that the ASI client is in dormant mode. Follow
+the instructions listed below for activating an ASI client out of
+dormant mode described in section <I>How to activate an ASI client
+which may be in dormant mode</I> of this document. 
+</P>
+<H4><A NAME="stopasiclient"></A>How to stop ASI client execution<A HREF="#top">
+<FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top </FONT></A>
+</H4>
+<H5>Method A - Services console</H5>
+<P>- Right-click on <I>My Computer</I> 
+</P>
+<P>- Click on <I>Manage</I></P>
+<P>- Double-click on <I>Services and Applications</I> in right-hand
+panel</P>
+<P>- Double-click on <I>Services</I> icon in right-hand panel</P>
+<P>- Scroll down the list of services, and locate the <I>Handsfree
+client</I> service.</P>
+<P>- Double-click on the <I>Handsfree client</I> entry</P>
+<P>- Click on the <I>Stop</I> button</P>
+<P>- Click on the <I>OK</I> button</P>
+<H5>Method B - Task manager</H5>
+<P>- Press simultaneously the <B>ctrl</B>, <B>alt</B>, and <B>del</B>
+keys</P>
+<P>- Click on the <I>Processes</I> tab</P>
+<P>- Click twice on the <I>Image Name</I> column heading</P>
+<P>- Locate the following two entries</P>
+<UL>
+	<LI><P><B>capp.exe</B></P>
+	<LI><P><B>cust.exe</B></P>
+</UL>
+<P>- Click on the entry for <B>cust.exe</B></P>
+<P>- Click on the <I>End Process</I> button</P>
+<H5>Method C - ASI client direct access (can be used if you are on
+site)</H5>
+<P>- Open a browser window.</P>
+<P>- In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>- In the user logon dialog enter <B>&lt;direct access user id&gt;</B>
+/ &lt;<B>direct access password</B>&gt;</P>
+<P>- Click on the name of the system at the very top of the page. The
+<FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed.</P>
+<P>- Scroll down to the entry for Scrip 18 (<I>Client Shut-down /
+Re-start</I>), and click on the Scrip name</P>
+<P>- Click on the <I>Shutdown this client</I> <B>Execute</B> button</P>
+<P>- Close the browser window.</P>
+<H5>Method D - ASI server (to be used if you are not on site)</H5>
+<P>- Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>- Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>- At the upper right-hand corner of any page on the ASI server, in
+the <I>sites</I> navigation bar click on the <I>configuration</I>
+link (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>- Click on the <I>view machines</I> link for the site where the
+system you want to remove the ASI driver from is located 
+</P>
+<P>- Click on the <I>configure Scrips</I> link for the system you
+want to remove the ASI driver from</P>
+<P>- Scroll down to the entry for Scrip 18 (<I>Client Shut-down /
+Re-start</I>), and click on the Scrip name</P>
+<P>- Click on the <I>Shutdown this client</I> <B>Execute</B> button</P>
+<P>- Close the browser window.</P>
+<H4><A NAME="removeasinetdriver"></A>How to remove the ASI network
+driver<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>When a system experiences a connectivity problem which you suspect
+is caused by the ASI client you do not need to remove or disable the
+ASI client. You should use one of the following methods to remove the
+ASI network driver. Please note that you can remotely re-install the
+network driver on any system it was removed from at any time using
+Scrip 201 (clicking on the <I>Install network driver</I> <B>Execute</B>
+button with the <I>Group</I> parameter set to <B>machine &lt;name&gt;</B>),
+and re-starting the system.</P>
+<P><B>Please note that when you install or remove the ASI network
+driver on a system, the operating system automatically resets the
+system's network connection. At this point in time, there is no way
+to prevent this action from taking place.</B></P>
+<H5>Method A - ASI server (to be used if you are not on site)</H5>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>4) Click on link <I>view machines</I> for the site where the
+system you want to remove the ASI network driver from is located 
+</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system you
+want to remove the ASI network driver from</P>
+<P>6) Scroll down to the entry for Scrip 201 (<I>Network Device
+Driver Management</I>), and click on the Scrip name 
+</P>
+<P>7) Set the <I>Uninstall network driver</I> Group parameter to the
+name of the system where you want to disable the ASI network driver
+by selecting the entry <B>machine &lt;name&gt;</B> from the pull-down
+list to the right of the <I>Uninstall network driver</I> Group
+parameter. Pay special attention to this step. It is VERY IMPORTANT.</P>
+<P>8) Click on the <I>Uninstall network driver</I> <B>Execute</B>
+button</P>
+<P>9) Wait until the change is processed by the ASI client on the
+system in question (as long as 20 minutes but check on the
+configuration page the site where the system you are removing the ASI
+network driver from is located to make sure that the change has been
+processed by making sure that the <I>Changed</I> entry for the system
+is <B>No</B>).</P>
+<P>10) To make sure that the ASI network driver has been removed on
+the system in question, you might want to ask the user to restart it,
+although this should not be necessary.</P>
+<H5>Method B - Direct ASI client access (can be used if you are on
+site)</H5>
+<P>1) Open a browser window.</P>
+<P>2) In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>3) In the user logon dialog enter <B>&lt;direct access user id&gt;</B>
+/ &lt;<B>direct access password</B>&gt;</P>
+<P>4) Click on the name of the system at the very top of the page.
+The <FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed.</P>
+<P>5) Scroll down to the entry for Scrip 201 (<I>Network Device
+Driver Management</I>), and click on the Scrip name 
+</P>
+<P>6) Set the <I>Uninstall network driver</I> Group parameter to the
+name of the system where you want to disable the ASI network driver
+by selecting the entry <B>machine &lt;name&gt;</B> from the pull-down
+list to the right of the <I>Uninstall network driver</I> Group
+parameter. Pay special attention to this step. It is VERY IMPORTANT.</P>
+<P>7) Click on the &quot;Uninstall network driver&quot; Execute
+button</P>
+<P>8) Close the browser window.</P>
+<P>9) To make sure that the ASI network driver has been removed on
+the system in question, you might want restart the system, although
+this should not be necessary.</P>
+<H4><A NAME="removeasiregistrydriver"></A>How to remove the ASI
+registry driver<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>When a system experiences a problem which you suspect is caused by
+interference by the ASI client with registry operations, you do not
+need to remove or disable the ASI client. You should use one of the
+following methods to remove the ASI registry driver. Please note that
+you can remotely re-install the registry driver on any system it was
+removed from at any time using Scrip 248 (clicking on the <I>Enable
+driver to be loaded on startup</I> <B>Execute</B> button with the
+<I>Group</I> parameter set to <B>machine &lt;name&gt;</B>), and Scrip
+18 as described below.</P>
+<H5>Method A - ASI server (to be used if you are not on site)</H5>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>4) Click on the <I>view machines</I> link for site where the
+system you want to remove the ASI registry driver from is located 
+</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system you
+want to remove the ASI registry driver from</P>
+<P>6) Scroll down to the entry for Scrip 248 (<I>Registry Device
+Driver Management</I>), and click on the Scrip name 
+</P>
+<P>7) Set the <I>Group</I> selection for the <I>Prevent driver from
+being loaded on startup</I> configuration parameter to the system
+where you want to remove the registry driver by selecting <B>machine
+&lt;name&gt;</B> from the <I>Group</I> pull-down list. Pay special
+attention to this step. It is VERY IMPORTANT.</P>
+<P>8) Click on the <I>Prevent driver from being loaded on startup</I>
+<B>Execute</B> button</P>
+<P>9) Wait until the change is processed by the ASI client on the
+system in question (as long as 20 minutes but check on the
+configuration page the site where the system you are removing the ASI
+network driver from is located to make sure that the change has been
+processed by making sure that the <I>Changed</I> entry for the system
+is <B>No</B>).</P>
+<P>10) Re-start the ASI client as follows:</P>
+<P>- On the navigation bar at the upper right-hand corner of any page
+on the ASI server, click on the &quot;configuration&quot; link in the
+&quot;sites&quot; navigation bar
+(<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>- Click on the <I>view machines</I> link for the site where the
+system whose ASI client you want to re-start is located 
+</P>
+<P>- Click on the <I>configure Scrips</I> link for the system you
+want to re-start the ASI client on</P>
+<P>- Scroll down to the entry for Scrip 18 (<I>Client Shut-down /
+Re-start</I>), and click on the Scrip name</P>
+<P>- Click on the <I>Restart this client</I> <B>Execute</B> button</P>
+<P>- Click on the <I>machines</I> link in the <I>configuration</I>
+navigation bar about 1/3 down on the right side of the page you are
+viewing</P>
+<H5>Method B - Direct ASI client access (can be used if you are on
+site)</H5>
+<P>1) Open a browser window</P>
+<P>2) In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>3) In the user logon dialog enter <B>&lt;direct access user id&gt;</B>
+/ &lt;<B>direct access password</B>&gt;</P>
+<P>4) Click on the name of the system at the very top of the page.
+The <FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed</P>
+<P>5) Scroll down to the entry for Scrip 248 (<I>Registry Device
+Driver Management</I>), and click on the Scrip name 
+</P>
+<P>6) Set the <I>Group</I> selection for the <I>Prevent driver from
+being loaded on startup</I> configuration parameter to the system
+where you want to remove the registry driver by selecting <B>machine
+&lt;name&gt;</B> from the <I>Group</I> pull-down list. Pay special
+attention to this step. It is VERY IMPORTANT.</P>
+<P>7) Click on the <I>Prevent driver from being loaded on startup</I>
+<B>Execute</B> button</P>
+<P>8) Click on the <I>Scrips</I> link at the upper right-hand corner
+of the page you are viewing</P>
+<P>9) Scroll down to the entry for Scrip 18 (<I>Client Shut-down /
+Re-start</I>), and click on the Scrip name</P>
+<P>10) Click on the <I>Restart this client</I> <B>Execute</B> button</P>
+<P>11) Close the browser window.</P>
+<H4><A NAME="siteregcoderetrieve"></A><A NAME="How to retrieve a site's registration code &aacute;top |outline"></A>
+How to retrieve a site's registration code <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>You can get the site registration code in one of three ways:</P>
+<P>1) If you are physically at a system where the ASI client is
+installed with the site registration code you are looking for:</P>
+<P>a) Open a browser window</P>
+<P>b) Log onto the ASI client at http://localhost:2721</P>
+<P>c) Click on the name of the system</P>
+<P>d) Click on the entry for Scrip 223 (HandsFree Client Installation
+and Deployment)</P>
+<P>e) Read the entry in the &quot;Site registration code&quot;
+configuration parameter</P>
+<P>2) Log onto the ASI server (https://asiservername/main), and click
+on the &quot;Use extended interface&quot; link on the right side of
+the ASI Dashboard upper pane, below user login and date.</P>
+<P>a) Click on the &quot;configuration&quot; link in the &quot;sites&quot;
+navigation bar</P>
+<P>b) Click on the &quot;view machines&quot; link for the site whose
+registration code you want to find</P>
+<P>c) Click on the &quot;configure Scrips&quot; link for any system
+in the machine list for the site</P>
+<P>d) Click on the entry for Scrip 223 (HandsFree Client Installation
+and Deployment)</P>
+<P>e) Read the entry in the &quot;Site registration code&quot;
+configuration parameter</P>
+<P>3) Log onto the installation server at
+https://nanoheal.org/main/install with your usual user id and
+password, then click on the &quot;Sites&quot; link. The Sites page
+lists all sites for which you have defined a site record, and their
+registration codes.</P>
+<H4><A NAME="eventlogserverchangelocal"></A><A NAME="How to change HandsFree event management server URL - locally &aacute;top |outline"></A>
+How to change HandsFree event management server URL - locally <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Please take extreme care when changing the URL for the ASI server
+you want an ASI client to log to. Before you make the change, taking
+the steps described below, test the URL as follows:</P>
+<P>1) Open a browser window</P>
+<P>2) In the browser address box enter:</P>
+<P>https://&lt;asiservername&gt;:&lt;HTTPS port
+number&gt;/main/rpc/rpc.php</P>
+<P>3) Click on the &quot;Enter&quot; key on your keyboard. (After
+clicking on the &quot;Yes&quot; button in the security alert dialog,
+if 
+</P>
+<P>necessary). If the following message is NOT displayed do NOT use
+the URL as the entry in the &quot;HandsFree event management server
+URL list&quot; configuration parameter in Scrip 43.</P>
+<P>&quot;</P>
+<P>The XML page cannot be displayed 
+</P>
+<P>Cannot view XML input using XSL style sheet. Please correct the
+error and then click the Refresh button, or try again later. 
+</P>
+<P>--------------------------------------------------------------------------------</P>
+<P>The stylesheet does not contain a document element. The stylesheet
+may be empty, or it may not be a well-formed XML document. 
+</P>
+<P>&quot;</P>
+<P>If you do not see the above message, do not change the the
+&quot;HandsFree event management server URL list&quot; configuration
+parameter. Contact HandsFree Networks.</P>
+<P>After having confirmed that the &quot;HandsFree event management
+server URL&quot; entry is correct, as described above, you can
+proceed with the change of the &quot;HandsFree event management
+server URL&quot; entry, as follows:</P>
+<P>a) Open a browser window</P>
+<P>b) Log onto the ASI client at http://localhost:2721 (using your
+user id and password)</P>
+<P>c) Click on the name of the system. The Scrip configurator page
+for the system will be displayed.</P>
+<P>d) Click on the entry for Scrip 43 (HandsFree Client Tools)</P>
+<P>e) Scroll down to the &quot;HandsFree event management server URL
+list&quot; configuration parameter</P>
+<P>f) If you want to change the HandsFree event management server URL
+for the entire site, leave the &quot;HandsFree event management
+server URL list&quot; configuration parameter set to the site (i.e.
+the site should be selected from the &quot;Group&quot; pull-down
+list&quot; found to the left of the configuration parameter).
+Otherwise, in the the &quot;Group&quot; pull-down list&quot; select
+the machine whose Scrip 43 configuration page you are viewing.</P>
+<P>g) Delete the current entry</P>
+<P>h) Enter the &quot;HandsFree event management server URL&quot; you
+confirmed to be correct</P>
+<P>i) Click on the &quot;Submit Changes&quot; button</P>
+<P>j) Close the browser window</P>
+<H4><A NAME="eventlogserverchangeserver"></A><A NAME="How to change HandsFree event management server URL - from the ASI server &aacute;top |outline"></A>
+How to change HandsFree event management server URL - from the ASI
+server <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Please take extreme care when changing the URL for the ASI server
+you want an ASI client to log to. Before you make the change, taking
+the steps described below, test the URL as follows:</P>
+<P>1) Open a browser window</P>
+<P>2) In the browser address box enter:</P>
+<P>https://&lt;asiservername&gt;:&lt;HTTPS port
+number&gt;/main/rpc/rpc.php</P>
+<P>3) Click on the &quot;Enter&quot; key on your keyboard. (After
+clicking on the &quot;Yes&quot; button in the security alert dialog,
+if 
+</P>
+<P>necessary). If the following message is NOT displayed do NOT use
+the URL as the entry in the &quot;HandsFree event management server
+URL list&quot; configuration parameter in Scrip 43.</P>
+<P>&quot;</P>
+<P>The XML page cannot be displayed 
+</P>
+<P>Cannot view XML input using XSL style sheet. Please correct the
+error and then click the Refresh button, or try again later. 
+</P>
+<P>--------------------------------------------------------------------------------</P>
+<P>The stylesheet does not contain a document element. The stylesheet
+may be empty, or it may not be a well-formed XML document. 
+</P>
+<P>&quot;</P>
+<P>If you do not see the above message, do not change the the
+&quot;HandsFree event management server URL list&quot; configuration
+parameter. Contact HandsFree Networks.</P>
+<P>After having confirmed that the &quot;HandsFree event management
+server URL&quot; entry is correct, as described above, you can
+proceed with the change of the &quot;HandsFree event management
+server URL&quot; entry, as follows:</P>
+<P>1) Log onto your ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the &quot;sites&quot; navigation bar, click on the
+&quot;configuration&quot; link
+(https://asiservername/main/config/index.php?act=site)</P>
+<P>4) Click on the &quot;view machines&quot; link for the site where
+you want to change the HandsFree event management server URL. The
+&quot;Configuration &lt;site name&gt; Machines&quot; page will be
+displayed.</P>
+<P>5) If you want to change the HandsFree event management server URL
+for the entire site, click on the &quot;configure Scrips&quot; link
+for any system in the site's machine list. Otherwise, click on the
+&quot;configure Scrips&quot; link for the system where you want to
+change the HandsFree event management server URL. The &quot;Scrip
+configurator&quot; page for the system whose &quot;configure Scrips&quot;
+link you clicked on will be displayed.</P>
+<P>6) Scroll down to the entry for Scrip 43 (HandsFree Client Tools),
+and click on the Scrip name.</P>
+<P>7) Scroll down to the &quot;HandsFree event management server URL
+list&quot; configuration parameter, and enter the URL for the ASI
+server you want the ASI client for the system (or entire site) to
+post event logs to, which you tested as described above.</P>
+<P>8) If you want to change the HandsFree event management server URL
+for the entire site, leave the &quot;HandsFree event management
+server URL list&quot; configuration parameter set to the site (i.e.
+the site should be selected from the &quot;Group&quot; pull-down
+list&quot; found to the left of the configuration parameter).
+Otherwise, in the the &quot;Group&quot; pull-down list&quot; select
+the machine whose Scrip 43 configuration page you are viewing.</P>
+<P>9) Click on the &quot;Submit Changes&quot; button found both above
+and below the Scrip configuration parameter table. The page
+confirming the action you took will be displayed.</P>
+<H4><A NAME="lastclientcontactreport"></A><A NAME="How to produce a &quot;Last ASI Client Contact&quot; Report &aacute;top |outline"></A>
+How to produce a &quot;Last ASI Client Contact&quot; Report <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Log onto your ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the &quot;sites&quot; navigation bar click on the &quot;wizard&quot;
+link (https://asiservername/main/config/index.php?act=wiz)</P>
+<P>4) In the &quot;Configuration Wizard&quot; page, click on the
+&quot;Export data&quot; entry
+(https://asiservername/main/acct/export.php)</P>
+<P>5) Click on the &quot;core&quot; radio button, then click on the
+&quot;Next&quot; button</P>
+<P>6) Click on the &quot;Census&quot; radio button, then click on the
+&quot;Next&quot; button</P>
+<P>7) De-select the &quot;id&quot;, &quot;uuid&quot;, &quot;code&quot;,
+&quot;censusuniq&quot;, &quot;born&quot;, &quot;deleted&quot;,
+&quot;censussiteuniq&quot;, &quot;revhost&quot;, and &quot;cksum&quot;
+fields</P>
+<P>8) Select 0 from the &quot;Select a maximum number of records to
+export:&quot; pull-down list</P>
+<P>9) Select the desired date format from the &quot;Format time&quot;
+pull-down list</P>
+<P>10) Click on the &quot;Next&quot; button</P>
+<P>11) Enter the desired file name in the &quot;Filename&quot; data
+entry box</P>
+<P>12) Click on the &quot;Text&quot; button</P>
+<P>13) Save the file to the desired location.</P>
+<H4><A NAME="clientnotreportxmorendays"></A><A NAME="How to produce: Report - Machines whose ASI client has not reported for more than one week (configurable) &aacute;top |outline"></A>
+How to produce: Report - Machines whose ASI client has not reported
+for more than one week (configurable) <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Log onto the ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the sites navigation bar click on the &quot;wizard&quot;
+link (https://asiservername/main/config/index.php?act=wiz)</P>
+<P>4) In the &quot;Configuration Wizard&quot; page, click on the
+&quot;Export data&quot; entry
+(https://asiservername/main/acct/export.php)</P>
+<P>5) Click on the &quot;core&quot; radio button, then click on the
+&quot;Next&quot; button</P>
+<P>6) Click on the &quot;Census&quot; radio button, then click on the
+&quot;Next&quot; button</P>
+<P>7) De-select the &quot;id&quot;, &quot;uuid&quot;, &quot;code&quot;,
+&quot;censusuniq&quot;, &quot;born&quot;, &quot;deleted&quot;,
+&quot;censussiteuniq&quot;, &quot;revhost&quot;, and &quot;cksum&quot;
+fields</P>
+<P>8) Select 0 from the &quot;Select a maximum number of records to
+export:&quot; pull-down list</P>
+<P>9) Enter</P>
+<P>last &lt; (unix_timestamp() - 604800)</P>
+<P>in the Optional SQL data entry box</P>
+<UL>
+	<LI><P>last -- the last time the ASI client on a system contacted
+	the ASI server (stored as the number of seconds since January 1,
+	1970)</P>
+	<LI><P>unix_timestamp -- today's date stored as the number of
+	seconds since January 1, 1970</P>
+	<LI><P>604800 -- the number of seconds in one week</P>
+</UL>
+<P>10) Select the desired date format from the &quot;Format time&quot;
+pull-down list</P>
+<P>11) Click on the &quot;Next&quot; button</P>
+<P>12) Enter the desired file name in the &quot;Filename&quot; data
+entry box</P>
+<P>13) Click on the &quot;Text&quot; button</P>
+<P>14) Save the file to the desired location.</P>
+<H4><A NAME="connectivityissuesasiclientserver"></A><A NAME="How to diagnose connectivity issues that prevent the ASI client on one or more systems from communicating with the ASI server &aacute;top |outline"></A>
+How to diagnose connectivity issues that prevent the ASI client on
+one or more systems from communicating with the ASI server <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Ensure that the ASI client process (cust.exe) and Services
+(HandsFree client) is running. If necessary re-start them 
+</P>
+<P>(cust.exe is located in \Program Files\HandsFree\Client)</P>
+<P>2) Open a browser window</P>
+<P>3) In the address box, enter</P>
+<P>http://localhost:2721</P>
+<P>4) When the user id dialog box is displayed enter the ASI client
+direct access user id and password for the site as entered in the
+site record on the installation server
+(https://nanoheal.org/main/install)</P>
+<P>5) Once you have logged onto the ASI client, click on the system
+entry displayed at the top of the page. This should consist of the
+name and IP address of the system where you installed the ASI client.
+The Scrip Configurator page should be displayed.</P>
+<P>6) Scroll down to the Scrip 43 (HandsFree Client Tools) entry, and
+click on the Scrip name. The Scrip's configuration page will be
+displayed</P>
+<P>7) Scroll down to the &quot;Dump failed logging attempts to error
+log file&quot; configuration parameter, and click on the box to the
+right of the label, leaving the configuration parameter group
+selection set to the site (i.e. apply the change to all systems at
+the site).</P>
+<P>8) Click on the &quot;Submit Changes&quot; button</P>
+<P>9) Click on the &quot;scrips&quot; link found at the top
+right-hand corner of the page</P>
+<P>10) Scroll down to the Scrip 23 (Send Queued Event Logs) entry,
+and click on the Scrip name. The Scrip's configuration page will be
+displayed</P>
+<P>11) Click on the &quot;Send event logs now&quot; Execute button
+found at the bottom of the Scrip 23 configuration page</P>
+<P>12) Close the browser window</P>
+<P>13) Wait a few minutes (2-3), then browse to the ASI client
+directory (\Program Files\HandsFree\Client), retrieve a copy of a
+file named errlog.txt, and send it to HandsFree Networks.</P>
+<H4><A NAME="asiclientinstallsuccess"></A><A NAME="How to check whether the ASI client installation completed successfully on one system &aacute;top |outline"></A>
+How to check whether the ASI client installation completed
+successfully on one system <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Ensure that the ASI client process (cust.exe) and Services
+(HandsFree client) are running on the system where you installed the
+ASI client. If necessary re-start them (cust.exe is located in
+\Program Files\HandsFree\client)</P>
+<P>2) On the system where you installed the ASI client, open a
+browser window</P>
+<P>3) In the address box, enter</P>
+<P>http://localhost:2721</P>
+<P>4) When the user id dialog box is displayed enter your user id and
+password. If you cannot log onto the ASI client with your user id and
+password try hfn/hfn. If you still cannot log onto the ASI client,
+please contact HandsFree Networks.</P>
+<P>5) Once you have logged onto the ASI client, click on the system
+entry displayed at the top of the page. This should consist of the
+name and IP address of the system where you installed the ASI client.
+The Scrip Configurator page should be displayed.</P>
+<P>6) Scroll down to the entry for Scrip 43 (HandsFree Client Tools),
+and click on the name of the Scrip. The Scrip's configuration page
+will be displayed.</P>
+<P>7) Verify that the name of the site in the &quot;Site&quot;
+configuration parameter is correct.</P>
+<P>8) Click on the &quot;scrips&quot; link at the top right-hand
+corner of the page. The Scrip Configurator page will be displayed.</P>
+<P>9) Scroll down to the entry for Scrip 223 (HandsFree Client
+Installation and Deployment), and click on the name of the Scrip. The
+Scrip's configuration page will be displayed.</P>
+<P>10) Verify that the the content of the &quot;Site registration
+code&quot; configuration parameter is correct. Please let me know.</P>
+<P>11) Close the browser window.</P>
+<P>12) If the entries in the &quot;Site&quot; configuration parameter
+in Scrip 43 (HandsFree Client Tools), and the &quot;Site registration
+code&quot; configuration parameter in Scrip 223 (HandsFree Client
+Installation and Deployment) are correct, then the ASI client
+installation on the system completed successfully.</P>
+<H4><A NAME="editcopyversionrecord"></A><A NAME="Hot to edit-copy an ASI client update version record &aacute;top |outline"></A>
+Hot to edit-copy an ASI client update version record <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Log onto the ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) Go to the Updates module
+(https://asiservername/main/updates/index.php). The &quot;Set Site
+Version&quot; page will be displayed. (Click on the &quot;updates&quot;
+link in the &quot;sites&quot; navigation bar displayed in the top
+right-hand corner area of every page in the ASI extended interface.)</P>
+<P>4) In the second-level navigation bar labeled &quot;updates&quot;
+found on the right side of the page at the same level as the page
+title, click on the &quot;versions&quot; link. The &quot;Available
+Versions&quot; page will be displayed.</P>
+<P>5) Click on the &quot;edit&quot; link for the version record you
+want to edit. The &quot;Edit a Version Record&quot; page will be
+displayed.</P>
+<P>If you did not create the version record (i.e. you cannot edit it)
+you want to modify, or want to copy an existing version record, just
+click on the &quot;copy&quot; link. The &quot;Copy a Version Record&quot;
+page will be displayed. Change the version record name, and proceed
+with steps 6)-11) below.</P>
+<P>6) In the &quot;Download URL&quot; field enter the URL pointing to
+the installation executable for the latest point release of the ASI
+client (e.g. hfn-inst-2.004.024.0312.BM.exe).</P>
+<P>7) From the name of the installation executable for the point
+release of the ASI client in the &quot;Download URL&quot; field (e.g.
+hfn-inst-2.004.024.0312.BM.exe) select and copy (Ctrl+c) the version
+number (e.g. 2.004.024.0312.BM). Paste the version number (e.g.
+2.004.024.0312.BM) in the &quot;Version number&quot; number field
+(replacing the existing entry).</P>
+<P>8) Verify that the value of the &quot;Username&quot; field is the
+one required to access the location specified in the &quot;Download
+URL&quot; field.</P>
+<P>9) If the the entry in the &quot;Username&quot; field is correct
+you do not need to modify the value of the &quot;Password&quot;
+parameter (although it would not hurt to re-enter it). Otherwise,
+enter the password for the user name entered in the &quot;Username&quot;
+field.</P>
+<P>10) Check and make sure that the value of the &quot;Command Line&quot;
+parameter is &quot;/VERYSILENT&quot; (without quotes). If you wish,
+you can add other installation executable command line parameters
+separating each command line parameter with a single space.</P>
+<P>11) Click on the &quot;Update&quot; button (if you are copying a
+version record, click on the &quot;Copy&quot; button).</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

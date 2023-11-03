@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Update Search Option Parameters</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20040321;8150381">
+	<META NAME="CHANGED" CONTENT="20061006;10183639">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Search and Display Options Panel Parameters</H3>
+<P>Any field used to filter software update entries will be displayed
+in the software update table. In order to have a field displayed in
+the table even if you do not use it as a search parameter, select the
+(all) option from its pull down list in the <FONT COLOR="#000080">Search
+and Display Options</FONT> panel. If you do not want a field
+displayed in the table, simply select (not displayed) from its pull
+down list in the <FONT COLOR="#000080">Search and Display Options</FONT>
+panel.</P>
+<P>Dates can only be selected in daily increments up to two weeks
+from the current date, weekly increments from two weeks up to one
+month, monthly increments from the second month up to six months, and
+up to one year beyond six months. You cannot select an end date
+different from the current date.</P>
+<P>If you want to sort software update table entries by more than one
+parameter (e.g. site/machine/update), you should use the Sort-by
+options in the <FONT COLOR="#000080">Search and Display Options</FONT>
+panel. To sort table entries by a single parameter, simply click on
+the column heading corresponding to that parameter (e.g. Status).
+Clicking once sorts entries in descending order, twice sorts them in
+ascending order.</P>
+<H4>Name Contains</H4>
+<P>In the <I>Name Contains</I> search parameter, you can enter a
+single string of alphanumeric characters. The search performed will
+be a non-case sensitive sub-string match.</P>
+<H4>Update Group</H4>
+<P>The <I>Search and Display Options</I> panel includes the <I>Update
+Group</I> field. Currently, none of the software update wizards give
+you the option to define software update groups. The wizards define
+software update groups automatically in order to perform software
+update tasks. The names of these software update groups, e.g.
+<B>Wiz_CRIT_PG $MGRP</B> , are not meaningful to you. The membership
+of these software update groups changes every time the software
+update task they were created for is executed again. ASI also
+features a number of built-in software groups:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><B>All</B> This patch category
+	should contain only one group, <B>All</B>. The group should contain
+	every patch known to the server. 
+	</P>
+	<LI><P><B>Updates</B> This category contains one patch group for
+	every patch known to the server. Each group will have the same name
+	as its associated patch, and should contain just that one patch. 
+	</P>
+</UL>
+<H4>Detected</H4>
+<P>Filtering software updates using the <I>Detected</I> search
+parameter, lets you quickly identify the software updates that have
+been detected as applicable to the systems you selected for the
+update wizard action, but have not yet been downloaded or installed.</P>
+<H4>Installed</H4>
+<P>Filtering software updates using the <I>Installed</I> search
+parameter, lets you quickly identify the software updates that have
+been installed on the systems you selected for the update wizard
+action, without having to access the MUM status page
+(https://asiservername/main/patch/wu-stats.php).</P>
+<H4>Type</H4>
+<P>The software update <B>type</B> built-in group includes all
+Microsoft software update types. The group has the following six
+members:</P>
+<UL>
+	<LI><P>Update</P>
+	<LI><P>Service Pack</P>
+	<LI><P>Rollup</P>
+	<LI><P>Security</P>
+	<LI><P>Critical</P>
+	<LI><P>Mandatory 
+	</P>
+</UL>
+<P>Please note that since the <B>type</B> software update group is
+built-in you cannot change it in any way.</P>
+<H4>Internal Priority</H4>
+<P>Scrip 237 assigns internal priorities to Microsoft software
+updates. Internal priority values tell you which updates Scrip 237
+treats as more important than others. The higher the value of the
+internal priority, the more important the update is. More important
+updates must be installed or declined before less important updates
+can be installed or declined.</P>
+<P>For example, suppose that Microsoft software update A has an
+internal priority of 4. At one time on one machine, Scrip 237
+<B>detected</B> update A. It was displayed on the MUM status page as
+<B>detected</B>. Then, sometime later, before update A was installed,
+Microsoft released update B which has an internal priority of 5. Once
+Scrip 237 detects update B, it gives <B>waiting</B> status to update
+A, and update B becomes <B>detected</B> instead. Update A will not be
+installed (transition to <B>detected</B> state) until update B is
+installed.</P>
+<P>Below, is the list of internal priority values used by Scrip 237
+(Microsoft Update Management):</P>
+<UL>
+	<LI><P>0 - Drivers</P>
+	<LI><P>1 - Updates</P>
+	<LI><P>3 - Service Packs</P>
+	<LI><P>4 - Update Rollups</P>
+	<LI><P>4 - Security Updates</P>
+	<LI><P>4 &ndash; Critical Updates</P>
+	<LI><P>5 &ndash; Mandatory Updates</P>
+</UL>
+<P>Mandatory and critical software updates are always detected,
+downloaded, and installed before any other software updates are even
+detected. Service packs will not be detected, downloaded, or
+installed until both of the following conditions are met:</P>
+<OL>
+	<LI><P>All mandatory updates are installed.</P>
+	<LI><P>All critical, security, and update rollups are either
+	declined or installed. If an update is declined, Scrip 237 will
+	ignore the update and proceed down to one with a lower internal
+	priority, if there are none with equal internal priority.</P>
+</OL>
+<P>Please note that since drivers have the precedence value of 0,
+they will never be detected, downloaded, or installed.</P>
+<H4>Update Size</H4>
+<P>The <I>Update Size</I> search parameter lets you filter updates by
+size in the following ranges:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">0 - 100 KB 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">100 KB - 500 KB 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">500 KB - 1 MB 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">1 MB - 10MB 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">10 MB - 50 MB 
+	</P>
+	<LI><P>over 50 MB 
+	</P>
+</UL>
+<P>Please note that you cannot select updates by size <B>across</B>
+the above ranges. For example, you cannot search for updates with
+size ranging between 100 Kbytes and 1 Mbyte.</P>
+<HR>
+<P>The values for each of the following search parameters in the
+<I>Search and Display Options</I> panel comes from different sources
+depending on the version of the Microsoft AU (automated update)
+client installed on the machines the information comes from. Please
+note that the values for all of these fields are extracted from the
+software update records downloaded from Microsoft. Scrip 237 does not
+use or change any of these values, and they cannot be changed on the
+ASI server either.</P>
+<H4>Date</H4>
+<P>The <I>Date</I> field has two meanings, depending on the version
+of the Microsoft AU client. This parameter is machine-independent.</P>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+equal to, or lower than 5.4.3790.21, this date is the file last
+modified timestamp of the update installation executable. It can only
+be found after an update has been downloaded on the machine. After
+download completes, Scrip 237 reports this date to the server.</P>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+higher than 5.4.3790.21, this date is the last deployment changed
+date property of an update, retrieved by a COM API call. Scrip 237
+reports this date as part of the detection process.</P>
+<H4>Platform</H4>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+equal to, or lower than 5.4.3790.21, the value of the <I>Platform</I>
+field comes from details.xml. Usually, it's equal to
+ver_platform_win32_nt.</P>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+higher than 5.4.3790.21, Scrip 237 reports the <I>Platform</I> field
+as blank.</P>
+<H4>Component</H4>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+equal to, or lower than 5.4.3790.21, the value of the <I>Component</I>
+field comes from details.xml. It specifies the part of the operating
+system the software update applies to.</P>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+higher than 5.4.3790.21, Scrip 237 reports the <I>Component</I> field
+as blank.</P>
+<H4>Priority</H4>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+equal to, or lower than 5.4.3790.21, the value of the <I>Priority</I>
+field comes from details.xml. Scrip 237 does not use it.</P>
+<P>On machines where the Microsoft AU client iuengine.dll version is
+higher than 5.4.3790.21, the <I>Priority</I> field is always 0. Scrip
+237 does not use this field.</P>
+<P>Please note that Scrip 237 does not use the value of the <I>Priority</I>
+field to prioritize the download of software updates, as the
+Microsoft AU client does. You have control over both the download and
+installation of software update via the Approve updates wizard.</P>
+<H4>Uninstallable</H4>
+<P>If an uninstall string exists for an update, then the value of the
+<I>Uninstallable</I> field is reported as true to the ASI server. The
+value of the <I>Uninstallable</I> field is machine independent. Once
+any machine installs an update and detects the uninstall string in
+the registry, it will set this value to true on the ASI server in the
+Microsoft Update Status page on the ASI server. The meaning of the
+uninstall string is the same for all versions of the Microsoft AU
+client.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

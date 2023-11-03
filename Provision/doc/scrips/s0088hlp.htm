@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 88 - Network Devices and Services Availability</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+<BODY>
+
+
+<H3>Scrip 88 - Network Devices and Services Availability</H3>
+
+<P>Scrip 88 can be used to monitor the availability of all TCP/IP devices and services accessible 
+from the local network</p>
+
+<p>This Scrip generates a log only when a device or service it is configured to monitor fails 
+to respond.</p>
+
+<p>Scrip 88 supports ICMP and TCP/IP. The availability of devices you wish to monitor can be 
+tested from one or more systems on the network eliminating dependence on a single point for 
+monitoring network availability.</p>
+
+<p>The table below describes the information contained in the logs produced by Scrip 88.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD><p>Message describing type of failure to respond</P>
+
+<P>(e.g. Network polling failure)</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD><p>Command line used by Scrip 88 and log of tests performed</p>
+<p>(e.g.</P>
+<p>
+Network polling failure: 1,nanoheal.org,TCP,37,4,10<br>
+Retrieving address of default gateway<br>
+Address of default gateway: 192.168.1.1<br>
+Subnet mask of default gateway: 0.0.0.0<br>
+Pinging gateway<br>
+Response received from: 192.168.1.1<br>
+Retrieving address of DNS server<br>
+Address of DNS: 192.168.1.1<br>
+Pinging host of domain name server<br>
+The DNS at 192.168.1.1 is responding to ping.<br>
+Attempting to resolve hostname using DNS<br>
+Hostname nanoheal.org resolved to: 216.167.121.12<br>
+Pinging host of failed service<br>
+No response at address 216.167.121.12<br>
+Checking status of failed service at: 216.167.121.12<br>
+No service responded on port 37 at 216.167.121.12<br>
+</P>
+<p>)</P>
+</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a</TD></TR>
+</TABLE>
+</BODY>
+</HTML>

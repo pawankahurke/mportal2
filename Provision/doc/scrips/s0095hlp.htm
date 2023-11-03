@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 95 - Logical Disk Statistics</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 95 - Logical Disk Statistics</H3>
+
+<P>Scrip 95 reports the following logical disk (drive letters) statistics:
+</p>
+
+<ul>
+
+<li>Total disk space (KBytes)
+
+<li>Used (KBytes)
+
+<li>Percentage used (%)
+
+<li>Free (KBytes)
+
+<li>Percentage free (%)
+
+</ul>
+
+<p>
+
+Note that all of these statistics are an instantaneous sample taken
+at the time the Scrip is run.</p>
+
+<p>Scrip can be used to alert about high disk capacity utilization conditions thus averting 
+problems that could cripple a system. </p>
+
+<p>You can set a minimum free disk space threshold. If disk capacity falls below this threshold, 
+Scrip 95 will instantly generate a log and send it to the log server where appropriately set 
+notifications will generate an e-mail message for the designated support provider contact.</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Logical disk statistics at the time Scrip 95 was executed</P>
+
+<P>(e.g.</p>
+
+<pre>
+Drive: C:\
+KBytes total: 2053600
+KBytes used: 903584
+Percentage used: 44
+KBytes free: 1150016
+Percentage free: 56
+Drive: D:\
+KBytes total: 3742256
+KBytes used: 2395044
+Percentage used: 64
+KBytes free: 1347212
+Percentage free: 36
+Drive: E:\
+KBytes total: 3742256
+KBytes used: 2395044
+Percentage used: 64
+KBytes free: 1347212
+Percentage free: 36
+</pre>
+
+<p>)</p>
+
+</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a</TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

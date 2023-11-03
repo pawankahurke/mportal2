@@ -1,0 +1,163 @@
+Please note that when moving a system from one site to another, or moving an entire site, or changing a site name, all information (including events, assets, patch management) will be stored under the "old" entries (i.e. the site you moved systems from, (or with the old name)). This means that when you expunge the record for the sytem(s) at the "old" site all information stored for thos systems in the ASI server databases will be deleted.
+
+The expunge operation does NOT affect Scrip configurations.
+
+Please also note that there is no requirement to expunge system records by a fixed point in time. This means that before executing the expunge operation you can wait until you do not need to access the information sotred under the "old" entries any longer.
+
+
+How to move one system from one site to another
+================================================
+1) Log onto the ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) In the "sites" navigation bar, click on the "configuration" link (https://asiservername/main/config/index.php?act=site)
+
+4) Click on the "view machines" link for the site where the system you want to move is located.
+
+5) Click on the "configure Scrips" link for the system you want to move. The "Scrip configurator" page for the system whose "configure Scrips" link you clicked on will be displayed.
+
+6) Scroll down to the entry for Scrip 43 (HandsFree Client Tools), and click on the Scrip name. The Scrip's configuration page will be displayed.
+
+7) Scroll down to the "Site registration code flush" configuration parameter, near the bottom of the page.
+
+8) Enter the site regsitration code for the site you want to move the system to in the  "Site registration code flush" configuration parameter.
+
+9) Click on the "Submit Changes" button.
+
+10) Click on the "Continue" button.
+
+11) Enter "yes" (without quotes) in the text box.
+
+12) Click on the "Continue" button.
+
+----------------------------------------------------------------------------------
+
+Once the site registration code change has been processed byt the ASI client on the system you want to move, check the census page system page for the site you have moved the system to to ensure that it is included in that site.
+
+Then, go to the census page for the site you moved the system from, and expunge the system entry from that site.
+
+a) Log onto the ASI server (https://asiservername/main)
+
+b) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+c) In the "tools" navigation bar, click on the "census" link (https://asiservername/main/acct/census.php)
+
+d) Click on the "machines" link for the site you have moved systems to (or the new site name if you have changed site name).
+
+e) Check the list of systems included in the site to confirm that the system move has taken place successfully, and the system is listed under the site you wanted to move it to.
+
+Please note that depending on a number of factors including:
+i) The Scrip configuration change cycle at the site as determined by the Scrip 177 (Scrip Configuration Update) schedule
+ii) Whether systems at the site whose systems you are moving (which you are renaming) are turned on or connected to the Internet
+iii) Whether the ASI client on systems at the site whose systems you are moving (which you are renaming) is running or not (i.e. has been disabled/stopped),
+the site move (or rename) operation may take from less than one hour to several days (or longer in rare cases).
+
+This means that before expunging the record of the system you want to move from its old site you should wait until the system move (or site rename) operation is completed. Otherwise, you will have to repeat steps 1)-12) above.
+
+When you are ready to expunge the record for the systems you moved:
+
+A) Log onto the ASI server (https://asiservername/main)
+
+B) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+C) In the "tools" navigation bar, click on the "census" link (https://asiservername/main/acct/census.php)
+
+D) Click on the "machines" link for the site where the system you moved was located.
+
+E) Scroll down to the entry for the system, and click on the its "delete" link. The "Census - Delete Machine" page will be displayed.
+
+F) Click on the "Expunge" link.
+
+
+
+Please note that before you change a site's name, you need to set up a site record for the new site name on the installation server, as described in the "Automated Support Infrastructure Adding a Site User Guide" (click on the "ASI Client Installation and Removal" link in the main "how to" page. 
+
+How to move all systems from one site to another, or change a site's name
+==========================================================================
+
+You can move all systems from one site to another, or change the name of a site, in one step using the "Updates" module, forcing the installation of the ASI client at the site using the /ID= command line parameter.
+
+1) Log onto the ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) Go to the Updates module (https://asiservername/main/updates/index.php). The "Set Site Version" page will be displayed.
+(Click on the "updates" link in the "sites" navigation bar displayed in the top right-hand corner area of every page in the ASI extended interface.)
+
+4) In the second-level navigation bar labeled "updates" found on the right side of the page at the same level as the page title, click on the "versions" link. The "Available Versions" page will be displayed.
+
+5) Click on the "copy" link for the version record currently assigned to the site whose systems you want to move, or whose name you want to change. The "Copy a Version Record" page will be displayed.
+
+If there is no version record currently assigned to the site, select another version record you previously set up.
+
+If you have no version records defined, then click on the "add" link you will find under the "Available Versions"  page title, and follow the instructions which you will find below.
+
+6) If you are copying an existing version record, change the name of the version record. If you are adding a version record, enter the desired version record name.
+
+7) Make sure that the URL entered in the "Download URL" field points to the installation executable for the latest point release of the ASI client or, the installation executable for the same point release of the ASI client installed at the site whose systems you want to move, or whose name you want to change.
+
+8) From the name of the installation executable for the point release of the ASI client in the "Download URL" field (e.g. hfn-inst-2.004.024.0312.BM.exe) select and copy (Ctrl+c) the version number (e.g. 2.004.024.0312.BM). Paste the version number (e.g. 2.004.024.0312.BM) in the "Version number" number field (replacing the existing entry).
+
+9) Verify that the value of the "Username" field is the one required to access the location specified in the "Download URL" field.
+
+10) If the the entry in the "Username" field is correct you do not need to modify the value of the "Password" parameter (although it would not hurt to re-enter it). Otherwise, enter the password for the user name entered in the "Username" field.
+
+11) In the "Command Line" parameterenter "/VERYSILENT /ID=<site regiistration code of site you are moving systems to, or registration code of new site name>" (without quotes). If you wish, you can add other installation executable command line parameters separating each command line parameter with a single space.
+
+12) Click on the "Copy" button (if you are adding a version record, click on the "Add" button).
+
+13) In the second-level navigation bar labeled "updates" found on the right side of the page at the same level as the page title, click on the "sites" link. The "Set Site Versions" page will be displayed.
+
+14) Scroll down (if necessary) to the entry for the site whose systems you want to move, or whose name you want to change, and click on its "edit" link. The "Edit a Site Update Record" page will be displayed.
+
+15) From the "Version Name" pull-down list select the version record you just copied (or added) in steps 5)-12) above, and click on the "Update" button. The "Site Update Record Updated" page will be displayed.
+
+16) In the second-level navigation bar labeled "updates" found on the right side of the page at the same level as the page title, click on the "sites" link. The "Set Site Versions" page will be displayed.
+
+17) Scroll down (if necessary) to the entry for the site whose systems you want to move, or whose name you want to change, and click on its "view machines" link. The "<site name> Machine Update Status " page will be displayed.
+
+18) Scroll down to the bottom of the page and click in the "Force All" box found at the bottom right-hand corner of the table listing the systems at the site.
+
+19) Click on on the "Submit Changes" button.
+
+The next time the "Software Update" Scrip (#208) runs (by default at 4 PM and 5 AM daily), it will download and run the installation executable specified in the version record you copied (or added) in steps 6)-12) above with the new site registration code (as specified in the "Command line" filed in the version record), and the systems will be moved to the site whose registration code you entered in the /ID= command line parameter.
+
+----------------------------------------------------------------------------------
+
+Once the site registration code change has been processed by the ASI client on the system you want to move, check the census page system page for the site you have moved the systems to (or the new site name if you have changed site name), to ensure that they are included in that site.
+
+Then, go to the census page for the site you moved the system from, and expunge the system entry from that site.
+
+a) Log onto the ASI server (https://asiservername/main)
+
+b) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+c) In the "tools" navigation bar, click on the "census" link (https://asiservername/main/acct/census.php)
+
+d) Click on the "machines" link for the site you have moved systems to (or the new site name if you have changed site name).
+
+e) Check the list of systems included in the site to confirm that the system move is taking place (or the system list for the new site is being populated).
+
+Please note that depending on a number of factors including:
+i) The Scrip configuration change cycle at the site as determined by the Scrip 177 (Scrip Configuration Update) schedule
+ii) When the  "Software Update" Scrip (#208) is scheduled to run next
+iii) Whether systems at the site whose systems you are moving (which you are renaming) are turned on or connected to the Internet
+iv) Whether the ASI client on systems at the site whose systems you are moving (which you are renaming) is running or not (i.e. has been disabled/stopped),
+the site move (or rename) operation may take from less than one hour to several days (or longer in rare cases).
+
+This means that before expunging the site whose systems you want to move, or whose name you want to change, you should wait until the site move (or site rename) operation is completed. Otherwise, you will have to repeat steps 1)-12) above.
+
+When you are ready to expunge the site whose systems you moved, or whose name you changed:
+
+A) Log onto the ASI server (https://asiservername/main)
+
+B) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+C) In the "tools" navigation bar, click on the "census" link (https://asiservername/main/acct/census.php)
+
+D) Click on the "delete" link for the site you have moved systems to (or the new site name if you have changed site name). The "Census - Delete <site name>" page will be displayed.
+
+E) Click on the "Expunge" link.
+
+

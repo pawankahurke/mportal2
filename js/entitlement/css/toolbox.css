@@ -1,0 +1,415 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	font-family: "Segoe UI","Tahoma","Verdana","Arial","sans-serif";
+	font-size:13px;
+}
+
+@font-face {
+	font-family: museo for dell;
+	src: url('../fonts/MuseoForDell-Regular.eot');
+	src: local('MuseoForDell Regular'), local('museo'), url('../fonts/MuseoForDell-Regular.eot') format('embedded-opentype');
+}
+
+.centerTdChg{
+	padding:5px;
+}
+
+.topTD{
+}
+
+.rightTd{
+	
+}
+
+.rightMenuItems{
+	float:left;
+}
+
+.rightMenuItems :hover {
+	color:#0085C3;
+}
+
+#rightmenu{
+	font-size:17px;
+}
+
+.menuTd{
+	border-bottom:solid 1px #C8C8C8;
+}
+
+.menuNameChg{
+	float:center;
+}
+.menuNameChg td{
+	text-align:center;
+}
+.menuNameChg td Div{
+	text-align:center;
+	padding-top:9px;
+	font-weight:100;
+}
+
+.tileDiscrptionChg{ 
+	width:615px; 
+	position:absolute; 
+	vertical-align:top; 
+	top:0; 
+	margin-left:15px;
+	cursor:default; 
+}
+.tileDiscrptionChg p { 
+	font-family: museo for dell,trebuchet ms,Arial; 
+	margin-bottom: 5px;
+    margin-top: 5px; cursor:default; 
+}
+
+.nanohealLogo{
+	float:right; 
+	width:105px; 
+	position:absolute; 
+	right:2px; 
+	top:11px;
+}
+
+.centermenulistChg{
+	display:none;
+	font-size:12px;
+	/*position:absolute;*/
+}
+
+.topHeader{
+	color:#0099FF;
+	font-family:museo for dell,trebuchet ms,Arial;
+	font-size:18px;
+	margin-bottom:5px;
+	margin-left:32px;
+	float:left;
+}
+
+.sequencelistChg{
+	cursor:pointer;  
+	margin:5px;  
+	float:left;  
+	text-align:center; 
+	position:relative; 
+}
+
+.sequencelist_Description{
+	margin-left:5px; 
+	border:1px thick #666666; 
+	width:200px; 
+	height:200px; 
+	display:none; 
+	position:absolute; 
+	float:left; 
+	margin-top:120px;
+}
+
+.sequenceBoxClass{
+	cursor:pointer;
+	margin-left:10px; margin-top:10px;
+}
+.runSequence{
+	cursor:pointer; 
+	margin:3px; 
+	float:left;
+	text-align:center;
+}
+#backTODiv{
+	display:none; 
+	width:30px; 
+	float:left; 
+	position:absolute; 
+	margin-top:-30px;
+}
+
+.titleImage{
+	position:absolute;
+	left:5px;
+	top:50px;
+}
+.titleImageL3{
+	position:absolute;
+	margin-left:5px;
+	margin-top:50px;
+}
+
+/* by anil */
+.profileHeaderchg{
+	width:640px; 
+	float:left; 
+	margin: 38px 53px -8px 73px;
+	font-family: museo for dell,trebuchet ms,Arial; 
+	cursor:default;
+}
+
+.profileHeaderchg p{
+	font-family: museo for dell,trebuchet ms,Arial; 
+}
+
+.loading{
+	/*position:relative;
+	top:50%;
+	left:50%;*/
+}
+
+.loading1{
+	position:absolute;
+	top:50%;
+	left:50%;
+	overflow:hidden;
+}
+
+/* @end */
+
+.space{
+	width:50px; 
+	float:left; 
+	height:200px;
+	position:static;
+    width: 50px;
+}
+.headerPChg{
+	font-family: museo for dell,trebuchet ms,Arial ;  
+	font-size:16px; 
+	padding-bottom:10px;
+}
+
+.clientlogo{
+	float:left; 
+	padding-top:10px; 
+	padding-left:11px; 
+	width:100px;  
+}
+
+.langMain{
+	position:absolute; 
+	float:right; 
+	right:2px; 
+	z-index:2;  
+}
+
+.lang{
+	-moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #CDCDCD;
+    border-style: dashed;
+    border-width: 1pt 1pt 0;
+    font-size: 10px;
+	right:0px;
+	top:20px;
+	display:none;
+    background-color:#666666; opacity: .3; 
+    list-style-type: none;
+	float:right;
+    padding-top: 0;
+    position: absolute;
+    text-align: left;
+    width: 100px;
+    z-index: 10;}
+	
+.lang li{
+	font-family: museo for dell,trebuchet ms,Arial ; 
+	font-size:12px;
+	color:#F5F5F5;
+	opacity: .3; 
+}
+.lang li a{
+	font-family: museo for dell,trebuchet ms,Arial ; 
+	font-size:12px;
+	color:#F5F5F5;
+}
+/* css for title box sliding  */
+.tileText{ 
+	margin: 3px; 
+	color:#FFF;  
+	text-align:right;  
+}
+
+p {
+	font-family: museo for dell,trebuchet ms,Arial ; 
+	font-size:11px;
+}
+			
+.boxgrid{ 
+	margin:0px; 
+	float:left; 
+	overflow: hidden; 
+	position: relative; 
+}
+
+.boxgrid img{ 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	border: 0; 
+}
+
+.boxgrid p{ 
+	padding: 0 0px; 
+	color:#FFFFFF;
+	font-weight:200; 
+	font:8pt; 
+}
+				
+.boxcaption{ 
+	float: left; 
+	position:relative;
+	background-color:#333333;
+	
+	width: 100%; 
+	opacity: .3; 
+	/* For IE 5-7 */
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+	/* For IE 8 */
+	-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+.captionfull .boxcaption {
+	top: 0;
+	left: 0;
+}
+
+.caption .boxcaption {
+	left: 0;
+}
+
+
+/*  csss for main containerChg box sliding     */
+#containerChg
+{
+	width: 750px; /* need to change here if scrolling comes */
+	overflow: hidden;
+	position:relative;
+}
+
+/* SET TO THE TOTAL WIDTH OF ALL DIVS */
+.slider-wrapperChg
+{
+	overflow-y:hidden;
+}
+
+.frameclass{
+	background-color: transparent;
+}
+
+/* THESE ARE THE INDIVIDUAL SLIDE PROPERTIES */
+
+#allSlides{
+
+}
+
+.tileDivChg{ 
+ 	width: 638px;
+   	height: 225px;
+	float:right;
+}
+
+.slideChg
+{
+    width: 708px;
+    height: 325px;
+    overflow: hidden;
+    float: left;
+	position:relative;
+	
+}
+.slidingLeftSideChg{
+	width:30px;  
+	float:left;  
+	margin-left:-71px; 
+	margin-top: -80px; /* by anil */
+}
+
+#slidingRightSideChg{
+	width:30px; 
+	position:absolute; 
+	height:300px;
+ 	margin-left:495px;
+}
+
+.db_toolbox{
+	height: 48px;
+	width: 470px;
+	color:#000000;
+	font-weight:bold;
+	padding-left: 20px;
+}
+
+.setIcon{
+	width:45px;
+	cursor:pointer;
+}
+
+.setIconText{
+	vertical-align:middle;
+}
+
+.textCls{
+	cursor:pointer;
+}
+
+.breadcrumbs a:hover{
+	color:#0085C3;
+	cursor:pointer;
+}
+
+span.breadcrumbs:hover{
+	color:#0085C3;
+	cursor:pointer;
+}
+
+#navigation{
+	font-size:13px;
+	height:16px;
+}
+
+#toolNav{
+	font-size:13px;
+	height:16px;
+	margin-left: 5%;
+        margin-top:  5px;
+}
+
+.breadcrumbs{
+	font-size:13px;
+	padding-top:7px;
+}
+
+
+a#back{
+	text-decoration:none;
+	color:#000000;
+}
+
+.subBut{
+	margin:-21px 7px 4px 38px;
+}
+
+.loginTab{
+}
+
+.formFld{
+	width:50%;
+}
+
+.alertHeadText{
+	font-size:13px;
+	color:#444444;
+	width:40%;
+}
+
+#ChatArrow{position:fixed; top:0px; right:0; height:400px;}
+#FlipReport{float:right; margin-bottom:10px; margin-right:50px;}
+#serverReportDiv{margin-top:20px; display:none;}
+#clientReportDiv{margin-top:20px; display:none;}
+.aterlBox{padding:5px;}
+.aterlBox p {font-family:'museo for dell',trebuchet ms,Arial ; margin-left:5px; }
+.alertHead1{font-size:16px; color:#0085C3; font-family: 'museo for dell',trebuchet ms,Arial;}
+.alertHead2{font-size:13px; color:#444444; font-family: 'museo for dell',trebuchet ms,Arial;}
+.inputFeild {border:1pt solid #dededa; font-size:12px; color:#333333; width:150px;}
+.popupButton{font-family:museo for dell,trebuchet ms,Arial; font-size:14px;}

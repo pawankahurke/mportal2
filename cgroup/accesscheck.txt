@@ -1,0 +1,24 @@
+Array
+(
+    [groupname] => bangalore
+    [grpid] => 50
+    [global] => 1
+    [userlist] => Array
+        (
+            [0] => 27
+            [1] => 28
+            [2] => 29
+            [3] => 23
+            [4] => 26
+        )
+
+    [stylelist] => 4
+    [function] => get_editgroupcsv
+    [csrfMagicToken] => 4ce1fd9be554ce4407dac4572f0eabe724b4caa9
+)
+Array
+(
+    [mgroupid] => 50
+    [mgroupuniq] => 2df5bbffff8856a26be923c39579ccdd
+)
+bangalore,Leonard.Alexanderselect mgroupid,mgroupuniq from core.MachineGroups where name=? and username=?

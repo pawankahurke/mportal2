@@ -1,0 +1,640 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 100 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20031112;7512250">
+	<META NAME="CHANGED" CONTENT="20071113;14571956">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 100 Configuration</H3>
+<H4>Configuration Parameters</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Impersonation enabled</EM> is
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Send to default email group</EM>
+	is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Email address group
+	definitions</EM> is empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Keyword group definitions</EM>
+	contains the following keyword groups: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><B>ErrorLogs,Error,Problem,Failure</B>
+				</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>AlertLogs,Warning,Caution</B> 
+		</P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM>File distribution. File
+	location group definitions</EM> 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><B>host9x,C:\\windows</B> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>hostnt,C:\\WINNT\\SYSTEM32\\DRIVERS\\ETC</B>
+				</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>hostxp,C:\\WINDOWS\\System32\\drivers\\etc\\hosts</B>
+				</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>root,C:\\</B> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>wintemp,C:\\windows\\temp</B> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>winnttemp,C:\\winnt\\temp</B> 
+		</P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>URL group definitions</I> empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>File distribution. Overwrite
+	existing file(s)</EM> is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Retrieve files by date</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>What is the latest date you
+	want to retrieve files by? (MM/DD or MM/DD/YY, leave blank if you
+	want current date)</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>How many days back from the
+	latest date do you want to retrieve files for?</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>File distribution and
+	retrieval command line(s)</EM></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>0,http://checkip.dyndns.org,LogServer</STRONG></P>
+		<P STYLE="margin-bottom: 0in">When enabled, the above command line
+		will report in Scrip 100's event log the current external IP
+		address of the system where Scrip 100 was executed.</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>0,http://handsfreenetworks.com/download/shutdown.exe,wintemp,,0</B>
+				</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>0,http://handsfreenetworks.com/download/shutdown.exe,winnttemp,,0</B>
+				</P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, by default Scrip 100
+	runs at 2 AM, once per hour on the hour between 6 AM and 6 PM, and
+	at 9 PM, on weekdays 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Log each file in separate event
+	logs</I> is disabled</P>
+	<LI><P><EM>Distribute / Retrieve file(s) now</EM> 
+	</P>
+</UL>
+<H4>Impersonation Support</H4>
+<P>On NT based systems (MS Windows NT4, 2000, XP, and Server 2003)
+the ASI client is logged in as local system administrator. This means
+that it cannot access shared resources on the local network.</P>
+<P>In order to enable ASI client's access to shared resources on the
+local network, we have implemented impersonation. Impersonation lets
+the ASI client log onto the system where the shared resource is
+located as a user known by that system enabling it to access that
+shared resource.</P>
+<P>You should enter the known user id and password in Scrip 43, as
+described below. With this information, the ASI client will be able
+to access shared resources on the local network as follows:</P>
+<H5>For Workgroups</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows 9x</STRONG> 
+			</P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows 9x</STRONG></P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on <EM>from</EM>
+			system</P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist both on <EM>from</EM>
+			and <EM>to</EM> systems</P>
+		</TD>
+	</TR>
+</TABLE>
+<H5>For Domains</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on domain controller</P>
+		</TD>
+	</TR>
+</TABLE>
+<H4>Impersonation enabled</H4>
+<P>When the <EM>Impersonation enabled</EM> parameter is enabled,
+using the impersonation user id and password (and domain if
+necessary) you entered in <EM>Impersonation Username</EM>,
+<EM>Impersonation Password and Confirmation</EM>, and <EM>Impersonation
+Domain</EM> parameters in the Scrip 43 configuration page, Scrip 100
+can retrieve files that reside on shared resources on other systems
+on the network, accessed either as mapped drives(e.g. <STRONG>x:\shared
+folder</STRONG>), or using UNC (Universal Naming Convention) syntax
+(e.g. <STRONG>\\server\\shared folder</STRONG>).</P>
+<H4>Send to default email group</H4>
+<P>When you enable the <EM>Send to default email group</EM>
+parameter, Scrip 100 will send the file(s) you wish to retrieve to
+the e-mail address(es) entered in the <EM>Email address for
+administration group </EM>parameter in the Scrip 43 (HandsFree Client
+Tools) configuration.</P>
+<P>The default value of the <EM>Email address for administration
+group </EM>parameter is <STRONG>support@handsfreenetworks.com</STRONG>.
+You can change this value easily in the Scrip 43 configuration page.
+You can enter multiple e-mail addresses, each separated by a comma,
+as the value of parameter<EM> Email address for administration group</EM>.</P>
+<P>This will give you the ability to identify one or more email
+addresses that can be used globally by any Scrip in one place. When
+one or more of these e-mail addresses changes you will have to make
+that change in only one place rather than having to modify all the
+Scrips that use that e-mail address.</P>
+<H4>Email address group definitions</H4>
+<P><EM>Email address group definitions</EM> parameter entries have
+the following format:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Name of the email group, followed
+	by a comma 
+	</P>
+	<LI><P>Email address(es) separated by commas 
+	</P>
+</UL>
+<P>You can have as many email groups defined as you want with each
+group entered on a new line.</P>
+<P>Instead of having file(s) sent to an e-mail box, you can have the
+ASI client include the file(s)in the log posted by Scrip 100 on your
+log server. You do this by entering in your file retrieval command
+line <EM>LogServer</EM> as the name of the e-mail group you want
+files sent to. Please note that you do not need to create an e-mail
+group called <EM>LogServer</EM>. It's built in the ASI client.</P>
+<P>If, based on your selection criteria, Scrip 100 retrieves more
+than one file, and the <I>Log each file in separate event logs</I>
+configuration parameter is enabled, it will generate one log for each
+file retrieved.</P>
+<P>When sent to e-mail group <EM>LogServer</EM>, the content of the
+file retrieved is stored in field <EM>text3</EM> in the event
+database on your log server. Please keep in mind that the size of a
+file incorporated in a log sent to the log server via the <EM>LogServer</EM>
+e-mail group is limited to 64 KBytes.</P>
+<H4>Keyword group definitions</H4>
+<P><EM>Keyword group definitions</EM> configuration parameter entries
+have the following format:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Name of the Keyword group,
+	followed by a comma 
+	</P>
+	<LI><P>keyword(s) separated by commas 
+	</P>
+</UL>
+<P>You can have as many keyword groups defined as you want with each
+group entered on a new line.</P>
+<H4>File distribution. File location group definitions</H4>
+<P>In configuration parameter <EM>File distribution. File location
+group definitions</EM> you define each location where you might want
+to distribute files.</P>
+<P>Entries in <EM>File distribution. File location group definitions</EM>,
+called location groups, are on separate lines. Each entry has two
+components separated by commas, with no spaces:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The first is the name you choose
+	to give the location, e.g. <STRONG>hosts</STRONG> 
+	</P>
+	<LI><P>The second is the actual location on each system where you
+	want Scrip 100 to place the file(s) to be distributed, e.g.
+	<STRONG>c:\windows</STRONG> 
+	</P>
+</UL>
+<P>Please note that a location group can contain multiple locations.
+For example,</P>
+<P><STRONG>everywhere,c:\windows\application data,c:\program
+files\common files,d:\program files\common files</STRONG></P>
+<H4>URL group definitions</H4>
+<P>In configuration parameter <EM>URL group definitions</EM> you
+define each location where you might want to send files from the
+system where Scrip 100 runs via a file transfer method different from
+e-mail or, because of file size and other constraints, when you may
+not want or be able to include the file in an event log posted on the
+ASI server.</P>
+<P>Currently, we only support file transfer via FTP.</P>
+<P>Configuration parameter <EM>URL group definitions</EM> may have
+multiple entries, each on a separate line. A configuration parameter
+<EM>URL group definitions</EM> entry has two components separated by
+commas with no spaces:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The first is the name you choose
+	to give the URL group, e.g. <STRONG>disasterbackup</STRONG> 
+	</P>
+	<LI><P>The second is URL for the file transfer, e.g.
+	<STRONG><A HREF="ftp://nanoheal.org/">ftp://nanoheal.org/</A> </STRONG><STRONG><SPAN STYLE="font-weight: medium">-
+	The URL must not include a file name.</SPAN></STRONG></P>
+</UL>
+<P>Please note that a location group can contain multiple URLs. For
+example:</P>
+<UL>
+	<LI><P><STRONG>allbackups,ftp://nanoheal.org,ftp://hfndev.com,ftp://corporateink.dnsalias.com</STRONG></P>
+</UL>
+<P>If you authentication is required in order to access the target
+server, you need to embedded it in the URL. For example:</P>
+<UL>
+	<LI><P><B>securebackup,ftp://upload:abcdefgh@nanoheal.org/</B></P>
+</UL>
+<H4>File distribution. Overwrite existing file(s)</H4>
+<P>When the  <EM>File distribution. Overwrite existing file(s)</EM>
+configuration parameter is enabled, the file(s) to be distributed
+will overwrite file(s) with the same name.</P>
+<H4>Retrieve files by date</H4>
+<P>When you enable the <EM>Retrieve files by date</EM> configuration
+parameter, Scrip 100 will only retrieve files, matching the mask in
+the <EM>File retrieval command lines</EM> configuration parameter,
+whose <EM>last modified date</EM> falls in the time interval starting
+from the date you enter in the <EM>What is the latest date you want
+to retrieve files by? (MM/DD or MM/DD/YY, leave blank if you want
+current date)</EM> configuration parameter going backward for a
+number of days equal to the value you enter in the <EM>How many days
+back from the latest date do you want to retrieve files for?</EM>
+Configuration parameter.</P>
+<H4>What is the latest date you want to retrieve files by? (MM/DD or
+MM/DD/YY, leave blank if you want current date)</H4>
+<P>Please note that when you leave the <EM>What is the latest date
+you want to retrieve files by? (MM/DD or MM/DD/YY, leave blank if you
+want current date)</EM> configuration parameter blank, Scrip 100 will
+set the value of this parameter to the date on which it runs (what we
+refer to as the current date.</P>
+<H4>How many days back from the latest date do you want to retrieve
+files for?</H4>
+<P>If you set the value of the <EM>How many days back from the latest
+date do you want to retrieve files for?</EM> configuration parameter
+to <STRONG>0</STRONG>, Scrip 100 will only retrieve files whose <EM>last
+modified date</EM> is equal to the date you entered in the <EM>What
+is the latest date you want to retrieve files by? (MM/DD or MM/DD/YY,
+leave blank if you want current date)</EM> parameter.</P>
+<H4>Log each file in separate event logs</H4>
+<P>When you select <I>LogServer</I> as the retrieved file
+destination, and the <I>Log each file in separate event logs</I>
+configuration parameter is enabled, Scrip 100 will post N + 1 event
+logs, N, each containing one of the N files it retrieves, and one
+containing the Scrip's configuration at the time of execution, and a
+report of the actions taken. In each of the N event logs, each
+containing a file retrieved:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Field <I>text1</I> will consist
+	of: <B>Attachment #X</B> (X = 1 to the number of files retrieved by
+	Scrip 100), followed by the string path identifying the file
+	contained in the log.</P>
+	<LI><P>Field <I>text3</I> will consist of the content of one of the
+	files retrieved by Scrip 100 
+	</P>
+</UL>
+<H4>File distribution and retrieval command line(s)</H4>
+<P>The <EM>File retrieval command line(s)</EM> configuration
+parameter contains one or more command lines separated by a carriage
+return, or new line feed.</P>
+<P>The components of a file retrieval command line are separated by a
+comma, with no spaces. Each command line has the following format:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">0 (disable) or 1 (enable) - this
+	makes it possible to temporarily stop retrieving certain file(s)
+	without deleting the corresponding file retrieval command line from
+	the list. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">The name of the file(s) you would
+	like Scrip 100 to retrieve and send. You can use the standard
+	Microsoft MS-DOS wild card characters <STRONG>?</STRONG> and <STRONG>*</STRONG>
+	in both the file name and extension. Please note that you need to
+	enter the complete path for the file(s) you want retrieved. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">the name of the email group, or
+	location, you want to send the file(s) to. Please note that each
+	file entry, potentially containing multiple files, can only go to
+	one email group. <BR>When using the Scrip 100 file distribution
+	function, file(s) will be distributed to the locations listed in the
+	location group entry in parameter <EM>File distribution. File
+	location group definitions</EM>. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">1 - if you want the file(s) to be
+	deleted after sending is completed, 0 - if you don't want the
+	file(s) to be deleted. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">1 - if you want Scrip 100 to
+	perform a keyword search to decide whether to send the file(s) in
+	the file entry, 0 - if you do not want a keyword search performed 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">The name of the keyword search
+	group you want Scrip 100 to use if you entered <STRONG>1</STRONG> in
+	the preceding field. You can enter only one keyword group per
+	command line. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">1 &ndash; if you want the current
+	setting of the <EM>File distribution. Overwrite existing file(s)</EM>
+	configuration parameter to apply to a command line, 0 - if you do
+	not.</P>
+	<LI><P STYLE="margin-bottom: 0in">1 &ndash; if you want the current
+	setting of the <EM>Retrieve files by date</EM> configuration
+	parameter to apply to a command line, 0 - if you do not.</P>
+	<LI><P STYLE="margin-bottom: 0in">The date (MM/DD or MM/DD/YY) value
+	which you want to use instead of the value entered in the <EM>What
+	is the latest date you want to retrieve files by? (MM/DD or
+	MM/DD/YY, leave blank if you want current date)</EM> configuration
+	parameter</P>
+	<LI><P STYLE="margin-bottom: 0in">The number of days back which you
+	want to use instead of the value entered in  the <EM>How many days
+	back from the latest date do you want to retrieve files for?</EM>
+	configuration parameter</P>
+	<LI><P>1 &ndash; if you want the current setting of the Log each
+	file in separate event logs configuration parameter to apply to a
+	command line, 0 - if you do not.</P>
+</UL>
+<P><B>If in a file distribution or retrieval command line you do not
+want to enter a value for a parameter located between two parameters
+you want to use, you should simply enter a comma with no spaces in
+the place in the command line where the parameter you do not want to
+use is located. If the parameters you do not want to use are at the
+end of a command line, you can ignore them. Please see below for some
+examples. </B>
+</P>
+<P>If you choose to send files retrieved by Scrip 100 only to the
+<EM>default email group</EM>, the file retrieval command line should
+contain two commas after the entry for the name of the file(s) you
+would like the Scrip to retrieve and send. For example:</P>
+<UL>
+	<LI><P><STRONG>1,\\server5\e-drive\HandsFree Networks\*.txt,,,0</STRONG>
+	- Will send files matching the mask *.txt to the <EM>default email
+	group</EM> without deleting them, and without searching for keywords
+		</P>
+</UL>
+<P>In the file retrieval command line, if you don't specify a value
+for file deletion or keyword search group, Scrip 100 will use the
+default values of 0, and 0, respectively.</P>
+<P>Scrip 100 can retrieve and distribute files located on local
+network accessible shared resources, FTP, and Web servers (both HTTP
+and HTTPS).</P>
+<P>Following are examples of file retrieval command lines and how the
+Scrip would process them:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,\\server5\e-drive\HandsFree
+	Networks\*.txt,me,,0</STRONG> - Will send files matching the mask
+	*.txt to &quot;me&quot; without deleting them, and without searching
+	for keywords 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,\\server5\e-drive\HandsFree
+	Networks\*.txt,me</STRONG> - Will send files matching the mask *.txt
+	to &quot;me&quot; without deleting them, and without searching for
+	keywords 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,\\server5\e-drive\HandsFree
+	Networks\*.txt,me,1,ErrorLogs</STRONG> - Will send files matching
+	the mask *.txt to &quot;me&quot;, delete the files and NOT look for
+	any keywords 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,\\server5\e-drive\HandsFree
+	Networks\*.txt,me,,</STRONG> - Will send files matching the mask
+	*.txt to &quot;me&quot; without deleting them, and without searching
+	for keywords 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,ftp://texaco.tellink.net/pub/cfg.ini,windows</STRONG>
+	- Will distribute file <STRONG>cfg.ini</STRONG> to location(s)
+	specified in the location group <STRONG>windows</STRONG> downloading
+	it from the ftp server at <STRONG>texaco.tellink.net</STRONG>. 
+	</P>
+	<LI><P><STRONG>1,http://texaco.tellink.net/pub/cfg.ini,windows</STRONG>
+	- Will distribute file <STRONG>cfg.ini</STRONG> to location(s)
+	specified in the location group <STRONG>windows</STRONG> downloading
+	it from the Web server at <STRONG>texaco.tellink.net</STRONG>.
+	Please note that the file <STRONG>cfg.ini</STRONG> could also have
+	been downloaded from a secure Web server (using HTTPS). 
+	</P>
+</UL>
+<P>Please note the following limitations in the use of the Scrip 100
+command line options:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The file(s) delete-after-sending
+	option is not applicable to the file retrieval function when the
+	file(s) being retrieved/distributed is/are on an FTP or Web server
+	(via HTTP/HTTPS). 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">The file(s) delete-after-sending
+	option is not applicable to the file distribution function. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Wildcards are not supported when
+	retrieving/distributing files from an FTP or Web server (via
+	HTTP/HTTPS). 
+	</P>
+	<LI><P>The keyword matching option is not applicable to the file
+	distribution function. 
+	</P>
+</UL>
+<H4>Distribute / Retrieve file(s) now</H4>
+<P>Clicking on the <I>Distribute / Retrieve file(s) now</I> <EM>Execute</EM>
+button, will trigger Scrip 100 execution on demand, even if it's not
+enabled. In Scrip 100, the <EM>Execute</EM> button can be used to
+execute the Scrip on the local system or on all systems at a site.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

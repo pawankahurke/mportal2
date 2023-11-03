@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>Scrips 4 and 58 Configuration</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<body>
+
+<h3>Scrips 4 and 58 Configuration</h3>
+
+<p>Scrip 4 manages the process of retrying the process of sending
+email logs when the email fails.  When the email fails, after a
+certain delay, it is retried.  Every time it fails, that delay is
+doubled before the next retry, up to a maximum delay.  Once the
+decision is made to actually send the email, the actual send process
+is scheduled at a random time in the future between a minimum and
+maximum value.  Scrip 58 is run to actually send the email.
+</p>
+
+<h4>Scrip 4 Default Configuration Parameters</h4>
+
+<ul>
+<li>Scrip enabled</li>
+<li>The range for random additional delay in seconds is set between 1 and 5 minutes</li>
+<li>Initial delay in seconds before retrying failed web logs is set to 60 seconds</li>
+<li>Maximum delay in seconds before retrying failed web logs is set to one hour</li>
+</ul>
+
+<p>These parameters are configurable.</p>
+
+<h4>Scrip 58 Default Configuration Parameter</h4>
+
+<p>Scrip 58 is a utility scrip that actually sends email logs after a delay,
+either when they are first sent (by the engine), or when the operation is
+being retried by Scrip 4 because of a failure. Its default configuration parameter is:</p>
+
+<ul>
+<li>Scrip enabled</li>
+</ul>
+
+<p><br><br><br><hr color="#333399" noShade SIZE="1"></p>
+<div align="right">
+  <table border="0" cellPadding="0" cellSpacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td width="50%" valign="top">
+	  <p><font size="0" face="verdana,helvetica">© 2000-2002 HandsFree Networks
+          </font></p>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<BODY>
+</HTML>
+

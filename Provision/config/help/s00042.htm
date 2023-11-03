@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<TITLE>Scrip 42 Configuration</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<body>
+
+<h3>Scrip 42 Configuration</h3>
+
+<h4>Default Configuration Parameters</h4>
+
+<ul>
+<li>Scrip enabled</li>
+<li><em>Timeout for Ctl-Alt-Del (seconds)</em> 60</li>
+<li><em>Dialog text</em> <strong>You have been locked out of your system because of a wrong password.
+Please click on OK, then press the Ctrl, Alt, and Del keys simultaneously
+to automatically reset your password.</strong></li>
+</ul>
+
+<h4>Timeout for Ctl-Alt-Del (seconds)</h4>
+
+<p>The parameter <em>Timeout for Ctl-Alt-Del (seconds)</em> lets you
+define the amount of time the Scrip will wait for the user to type Ctl-Alt-Del after he/she
+has clicked <em>OK</em> in the dialog box containing the <em>Dialog text</em>.
+If the user waits longer than that, Scrip 42 just completes execution and reports that the password was not
+reset.</p>
+
+<h4>Dialog text</h4>
+
+<p>This parameter is used to enter the content of the message displayed when a user is locked out of his/her 
+system because of having entered an incorrect password for a number of times that exceeeds the number of
+failures allowed as defined in the system's security policy.</p>
+
+<h4>Important note</h4>
+
+<p>Please note that in the default configuration on
+Microsoft Windows 2000 and XP based systems, the need to press simultaneously the Ctrl-Alt-Del keys at
+start-up before logging onto a system is disabled. In this case, Scrip 42 automatically initiates the Courier Direct 
+password reset procedure without displaying the dialog box with the message contained in <em>Dialog text</em>.
+In order to account for this system configuration, Scrip 42 delays taking action for 1-2 seconds, 
+to see if the Courier Direct dialog comes up, before displaying the dialog box with the <em>Dialog text</em> message.</p>
+
+<p>We should also note that on Microsoft Windows XP based systems
+Scrip 42 will not work when the "Welcome Screen" feature is enabled
+This is also true for the Courier Direct application. In fact, it disables the "Welcome Screen" feature.</p>
+
+
+<p><br><br><br><hr color="#333399" noShade SIZE="1"></p>
+<div align="right">
+  <table border="0" cellPadding="0" cellSpacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td width="50%" valign="top">
+	  <p><font size="0" face="verdana,helvetica">© 2000-2002 HandsFree Networks
+          </font></p>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<BODY>
+</HTML>
+

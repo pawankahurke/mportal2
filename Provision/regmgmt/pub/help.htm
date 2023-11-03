@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>ASI Site and System Status Dashboard</title>
+    
+    <style type="text/css">
+        BODY, TD, TH, P  {font-family: Arial, Helvetica, sans-serif;
+                          font-size: 8pt;}
+        .blue         {font-family: Arial, Helvetica, sans-serif;
+                       color:333399;}
+        .red          {font-family: Arial, Helvetica, sans-serif;
+                       color:FF0000;}
+        .heading      {font-family: Arial, Helvetica, sans-serif;
+                       font-size: larger;
+                       color:333399;}
+        .subheading   {font-family: Arial, Helvetica, sans-serif;
+                       color:333399; font-weight:bold;}
+        .footnote     {font-family: Arial, Helvetica, sans-serif;
+                       font-size: x-small;}
+        .faded        {font-family: Arial, Helvetica, sans-serif;
+                       color: #666666}
+        .hide         {position:absolute; top:200; left:250; visibility:hidden}
+        .bold         {font-weight:bold}
+        a.hidelink:link     {color: #000000; text-decoration: none;}
+        a.hidelink:visited  {color: #000000; text-decoration: none;}
+        a.hidelink:hover    {color: #0000ff; text-decoration: underline;}
+        a.hidelink:active   {color: #000000; text-decoration: none;}
+ 
+    </style>
+</head>
+<body>
+<IMG border=0 id=IMG3 src="viewinfo.gif" style="HEIGHT: 30px; WIDTH: 28px">&nbsp;<font color=blue size=6><b>Registry Managment Help</b></font><br><br>
+<table><IMG border=0 id=5 src="keys.gif" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;A <b>BaseKey</b> contains the beginning portion of the Key name.  For Example:<br><br>
+<ol><li>&nbsp;&nbsp; <b>Root Key</b> is the first part of the Key name.  These are defined in windows and can be selected from a pull down menu in the BaseKeys wizard.<br><li>&nbsp;&nbsp; <b>Sub Key</b> is the second part of the Key name.  This is a part of the Key name that the user can edit and is dependent on the desired range of this BaseKey.<br>
+</li></ol></table><br><br>
+<table><IMG border=0 id=4 src="usetools.gif" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;A <b>Filter</b> contains the attributes of the Registry Key the user wants to take an action with. For Example:<br><br>
+<ol><li>&nbsp;&nbsp;The <b>Filter Type</b> is what controls the kind of Registry Types effected by an action.  The user may choose either to only effect Registry Keys or to effect both Keys and Values.<br><li>&nbsp;&nbsp; <b>BaseKey</b> Name links this Filter to a previosly made BaseKey which will give the user a starting point for the Key that is intended on being effected.<br><li>&nbsp;&nbsp; <b>Key</b> is the last portion of then Key Name.  This when linked together as shown  (Root Key\Sub Key\Key) forms the starting point at which any Registry Key that has this string as a hierarchy of it will be effected. Key Must be started with a \<br>
+    <li>&nbsp;&nbsp; <b>Key Wild</b> when sellected,  allows the user to input a Key and the scrip will find all Keys that this Value Name is a subset of. For Example:<br>
+<ol>&nbsp;&nbsp;Key =   (\Microsoft\Windows\CurrentVersion\<b>U</b>)<br>
+ &nbsp;&nbsp;the scrip would return both,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(\Microsoft\Windows\CurrentVersion\<b>U</b>RL) <BR> AND <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(\Microsoft\Windows\CurrentVersion\<b>U</b>ninstall)<br>
+</ol><li>&nbsp;&nbsp; <b>Value Name</b> is the part of the Filter that will allow the user to specify a single Value found in the Key to take an action upon.<br><li>&nbsp;&nbsp; <b>Value Name Wild</b> is just like the Key Wild but applies for Value Name.<br><li>&nbsp;&nbsp; <b>Value Type</b> allows the user to specify there search by types of Values in the Registry.  These are defined in windows so they are represented as a pull down menu.<br><li>&nbsp;&nbsp; <b>Value Data</b> allows the user to specify there search by types of Value Data in the Registry.<br><li>&nbsp;&nbsp; <b>Value Name Wild</b> is just like the Key Wild but applies for Value Name.<br><li>&nbsp;&nbsp; <b>Globald</b> field is only allowed to admin users. This will allow those users to make a Filter that will appear in all users LeftPane as a Filter.  These Global Filters can only be edited by the user who created it.<br><li>&nbsp;&nbsp; <b>Recursive</b> field allowed users to specify a Key but then to have the action that they want to take upon that Key also apply for any Keys that are under it in the hierarchy.<br>
+</li></ol></table></TABLE><br><br>
+<table><IMG border=0 id=11 src="arrow.gif" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;<b> Action</b> in the general sense will allow the user to take action on the selected attribute. For Example:<br><br>
+<ol><li> &nbsp;&nbsp;an user selected the action button  adjacent to a BaseKey then the RightPane  would get populated with all Actions that apply to that BaseKey.<br><li> &nbsp;&nbsp;the user selected the action button  adjacent to a Machine then the RightPane  would get populated with all Actions that apply to that Machine. For Example:<br>
+<ol> &nbsp;&nbsp;the user then selected the <b>List Action. </b> Then they would be prompted with:<br>
+<li> &nbsp;&nbsp;A pull down box of all the Filters that  they own to select from.  If the user selected 'FilterA' a List would be  generated from the Registry Keys that  apply to information from FilterA.<br><li>&nbsp;&nbsp;A <b> Max Effected </b> box that will limit the amount of Registry Keys effected by this Action.<br><li>&nbsp;&nbsp;A <b> Clear </b> check box that will clear all values our of the database before returning any values from this Action.<br></li>
+</ol></li></ol></table><br><br>
+<table><IMG border=0 id=2 src="settings.jpg" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;<b> Settings</b> control some visual settings of the LeftPane. For Example:<br><br>
+<ol><li> &nbsp;&nbsp;the user where to select the <b> Restore Factory Settings </b> link then all the information that is used to generate the LeftPane would be deleted and it would appear as it did the very first time a user browsed to the Registry Manager.  This is a fail safe device that should be used if the Database where to become corrupt.<br>
+</li></ol></table><br><br>
+<table><IMG border=0 id=10 src="list.jpg" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;<b> List Action</b> 
+  will populate the RightPane with all the properties for that specific action.<br><br>
+</table><br><br>
+<table><IMG border=0 id=6 src="machine.gif" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;<b> Machine</b> 
+  will populate the RightPane with all of the Actions and there descriptions that have been ran on that Machine. ( NOTE: Previosly ran Actions that have been deleted will not appear.<br><br>
+</table><br><br>
+<table><IMG border=0 id=1 src="view.gif" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;<b> Site</b> will populate the RightPane with all of the Actions and there descriptions that have been ran on that Site. ( NOTE: Previosly ran Actions that have been deleted will not appear.<br><br>
+</table><br><br>
+<table><IMG border=0 id=9 src="folderclosed.jpg" style="HEIGHT: 18px; WIDTH: 17px" >&nbsp;&nbsp;<b> Registry Key</b> will populate the RightPane with all of the returned Values for that specific Key. (NOTE: what Machine and User those Values belong to depends on the hierarchy preceeding that folder.<br><br>
+</table>
+</body>
+</html>

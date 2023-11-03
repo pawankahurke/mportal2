@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 89 - Scheduled Program Execution</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<p><strong>Please note that this is the detail event log help file for Scrips 89, 212, 213, 214, and 215.
+Scrips 212, 213, 214, and 215 are exact copies of Scrip 89.</strong></p>
+
+
+
+<H3>Scrip 89 - Scheduled Program Execution</H3>
+
+<P>Scrip 89 executes the program entered in its configuration file on the schedule defined in the Scrip's schedule entry 
+in its configuration file. You can enter just the executable 
+name (ftp.exe) or a specified path (C:\download\internet\ftp.exe), and any combination of command 
+line parameters allowed by the program you want to execute.</p>
+
+<p>If the 
+file name does not contain a directory path, the system searches for the executable file in the 
+following sequence:</p> 
+
+<ul>
+<li>The directory from which the application loaded</li>
+
+<li>The current directory for the parent process</li> 
+
+<li>Windows 95/98: The Windows system directory using the GetSystemDirectory call function to get 
+the path of this directory.</li>
+<li>Windows NT/2000: The 32-bit Windows system directory using the 
+GetSystemDirectory function to get the path of this directory. The name of this 
+directory is System32</li>
+
+<li>Windows NT/2000: The 16-bit Windows system directory. There is no Win32 
+function that obtains the path of this directory, but it is searched. The name 
+of this directory is System</li>
+
+<li>The Windows directory using the GetWindowsDirectory function to get the path 
+of this directory</li>
+
+<li>The directories that are listed in the PATH environment variable</li>
+</ul>
+
+<p>MS-DOS commands can be executed by Scrip 89 using the command.com executable. For example, 
+if you wanted to copy some files using the <em>copy</em> command, you would type:<br><br>
+<strong>command /c copy ...</strong><br><br>
+Note that using the <em>/c</em> option will close the MS-DOS window 
+as soon as the command is completed.</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD><p>Complete command line executed by Scrip 89.<br>
+(e.g.<br><br>
+xcopy \\server5\e-drive\handsf~1\product\cust.ini c:\progra~1\handsf~1\client /y<br><br>
+)
+</p></TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD><p>Name of program executed by Scrip 89.<br>
+(e.g.<br><br>
+xcopy<br><br>
+)
+</p></TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Program completion message</P>
+
+<P>(e.g. </P>
+
+Successful<br>
+
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>Program execution type</P>
+
+<P>(e.g. </P>
+
+Type of run: Scheduled <br>
+
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD><p>Program execution log<br>
+(e.g.<br><br>
+Data: Attempting to execute: C:\Program Files\GRBakPro\GRBakPro.exe /S alex /B /M /QE<br>
+Data: The executable has exited cleanly<br>
+Data: Execution Time: 1 Minute, 37 Seconds<br><br>
+)
+</p>
+</TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

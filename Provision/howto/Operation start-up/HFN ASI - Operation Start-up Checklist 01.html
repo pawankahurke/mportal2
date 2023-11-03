@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Automated Support Infrastructure - Operation Start-up Checklist</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20071203;12370434">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Automated Support Infrastructure - Operation Start-up Checklist</H3>
+<P>This document lists the tasks which you should perform to lay the
+foundation for optimal use of Automated Support Infrastructure (ASI)
+functions. 
+</P>
+<OL>
+	<LI><P>Identify servers and non-server systems at each site, and
+	place them in non-server and server groups. If so desired, place
+	them also in site specific server and non-server groups.
+	(<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Identify%20and%20group%20server%20systems%2001.html" TARGET="_blank">Identifying
+	and Grouping Server Systems</A>)</P>
+	<LI><P>Using the Scrip execution frequency wizard, configure Scrip
+	177 (Scrip Configuration Changes) to run every three minutes on 1-3
+	systems per sub-net at each new site including the servers
+	identified in 1. (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20configure%20Scrip%20execution%20frequency%2001.html" TARGET="_blank">Configuring
+	Scrip Execution Frequency</A>)</P>
+	<LI><P>Pre-configure the ASI on-demand remote control function
+	(Scrip 236) on all systems at each new site. On as needed basis,
+	using the ASI on-demand remote control function, install the remote
+	control utility (UltraVNC). (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Pre-configure%20the%20ASI%20on-demand%20remote%20control%20function%2001.html" TARGET="_blank">Pre-configuring
+	the ASI On-demand Remote Control Function</A>)</P>
+	<LI><P>Configure The ASI Process and Service Shutdown-restart
+	function (Scrip 227) on all systems to run daily, and prevent a
+	known problem where the disk defragmentation utility hangs.
+	(<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Schedule%20a%20Shutdown%20of%20Disk%20Defragmentation%20Services%2001.html" TARGET="_blank">Scheduling
+	a Shutdown of Disk Defragmentation Processes</A>)</P>
+	<LI><P>Retrieve the public IP address of the Internet gateway at
+	each site. Configure two systems at your home site to monitor
+	gateway availability, and enable the corresponding e-mail
+	notification. (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Configure%20Internet%20gateway%20monitoring%2001.html" TARGET="_blank">Configuring
+	Internet Gateway Monitoring</A>)</P>
+	<LI><P>Identify the systems at each new site where Symantec Backup
+	Exec, and Microsoft NT Backup are installed. Please note that this
+	same procedure, with the appropriate configuration changes, can be
+	used to identify whether any application is installed on systems at
+	the new site. (<A HREF="HFN%20ASI%20operation%20start-up%20-%20How%20to%20find%20out%20on%20which%20systems%20a%20back-up%20application%20is%20installed%20and%20active%2001.html" TARGET="_blank">Finding
+	out on Which Systems a Back-up Application is Installed and Active</A>)</P>
+	<LI><P>Update &quot;Permitted items&quot; list in Scrip 27 (System
+	Start-up Environment Control) and 232 (Intrusion Protection Control)
+	on all systems using the list contained in the &quot;HFN ASI
+	permitted items list master.xls&quot; spreadsheet. (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Update%20permitted%20items%20for%20system%20start-up%20and%20intrusion%20protection%20control%2001.html" TARGET="_blank">Updating
+	Permitted Items for System Start-up and Intrusion Protection
+	Control</A>)</P>
+	<LI><P>Even if initially it is disabled, check and ensure that
+	Microsoft Update Management (Scrip 237) configuration is as per ASI
+	client default on all systems. (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Verify%20the%20configuration%20for%20Scrip%20237%20(Microsoft%20Update%20Management)%2001.html" TARGET="_blank">Verifying
+	the Configuration for Scrip 237 (Microsoft Update Management)</A>)</P>
+	<LI><P>Enable the &quot;ASI client not reporting&quot; notification
+	for critical devices only (servers to start with).(<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Monitor%20ASI%20Clients%20on%20critical%20devices%2001.html" TARGET="_blank">Monitoring
+	ASI Clients on Critical Devices </A>)</P>
+	<LI><P>Set up a version record for ASI client update (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20configure%20a%20version%20record%20for%20the%20remote%20ASI%20client%20upgrade%2001.html" TARGET="_blank">Configuring
+	a Version Record the Remote ASI Client Upgrade</A>)</P>
+	<LI><P>Configure impersonation (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20configure%20impersonation%2001.html" TARGET="_blank">Configuring
+	Impersonation</A>)</P>
+	<LI><P>Enable a baseline set of e-mail notifications (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20enable%20baseline%20event%20notifications%2001.html" TARGET="_blank">Enabling
+	Baseline Event Notifications</A>)</P>
+	<LI><P>Configure availability monitoring of all servers (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20configure%20device%20availability%20monitoring%2001.html" TARGET="_blank">Configuring
+	Device Availability Monitoring</A>)</P>
+	<LI><P>Configure the system survey to run weekly (<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Change%20System%20Survey%20(Scrip%2061)%20Schedule%2001.html" TARGET="_blank">Changing
+	System Survey (Scrip 61) Schedule</A>)</P>
+</OL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

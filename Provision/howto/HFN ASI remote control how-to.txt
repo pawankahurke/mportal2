@@ -1,0 +1,151 @@
+ASI remote control operation user instructions
+===============================================
+
+When you want to take remote control of a system, before following the instructions in the rest of this document, you should start the UltraVNC viewer on the system you are taking control from, and:
+a) Enter the session id for the target system in the "VNC Server" box in the UltraVNC viewer connection dialog box (ID:<session id number>). You can retrieve the connection id for a system by going to its site census page and clicking on the "connection ids" link at the top of the page just above the table listing the systems at the site.
+b) Check the "Proxy/Repeater" check box
+c) Enter the name of your ASI server in the "Proxy/Repeater" address box (if you are not using your ASI server enter the name of the system where the UltraVNC intermediate server is running)
+d) Click on the "Connect" button
+
+If the UltraVNC server is already running on the target system, you will be able to start the remote control session immediately. If the UltraVNC server is not running on the target system, and the UltraVNC viewer connection attempt times out before you can start the remote control session, simply re-start it following the instructions in the rest of this document.
+
+
+Please note that in addition to accessing the ASI remote control function as described below, you can also take control of a system via the ASI Dashboard by:
+
+i) Clicking on a system's name in the left pane, and then on the "connect" link at the top of the right pane display for that system, or
+ii) Clicking on a site name in the left pane, and then on the "connect" link to the left of the name of the system you want to take control of.
+
+Then follow the instructions starting with step 5) below.
+
+Please also note that when you use the remote control function the first time to take control of a system, depending on how the remote control function is configured at the site where the system is located, the remote control wizard may ask you to select a remote control method (Citrix GoToAssist, or UltraVNC). 
+
+After selecting UltraVNC, the remote control wizard will take you to the same page displayed when you want to change the remote control configuration as described in step 5) below. Please follow the instructions in step 5) below.
+
+
+Procedure for taking remote control of a system using the UltraVNC intermediate server connection function - automatic initiation
+======================================================================================================================
+
+1) Log onto your ASI server (https://asiservername/main/)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) Click on the "remote control" link in the "tools" navigation bar
+
+4) Perform the first two steps of the wizard to select the system you want to take remote control of
+
+5) Carefully review the UltraVNC configuration settings on the "UltraVNC Connection Confirmation - <Site Name> - <Machine Name>" page for the system you want to take remote control of
+They should be as follows:
+Site 	<Site Name>
+Machine 	<Machine Name>
+Method 	UltraVNC
+Connection initiation 	automatic
+Listener port 	default to 5500
+Use intermediate server 	yes
+Domain or IP of intermediate server 	use ASI server
+Connection ID 	generate automatically
+
+If the UltraVNC configuration settings are not like the ones listed above, or if you want to change the UltraVNC configuration settings, clicking on the "Change configuration" link below the UltraVNC configuration settings table in the "UltraVNC Connection Confirmation - <Site Name> - <Machine Name>" page will take you to the "UltraVNC Setup" page. In order to configure the UltraVNC remote control function to use the intermediate server, on this page:
+a) Click on the "Use intermediate server" radio button
+b) Make sure that the "Listener port" parameter (the last one at the bottom of the page) is empty
+c) Click on the "Next" button
+d) On the "Finished Configuration" page, click on the "Take control of this machine" link
+
+6) Once the UltraVNC configuration settings are the same as those in the table in 4) above, click on the "Yes, initiate remote control" link in the "UltraVNC Connection Confirmation - <Site Name> - <Machine Name>" page.
+
+7) The "UltraVNC Connecting ..." page will be displayed. Please read, and follow the instructions on this page very carefully.
+
+8) Please make sure that you have only one copy of the UltraVNC viewer running on the system taking remote control of the target system. Before you click on the "Connect" button on the UltraVNC viewer configuration panel (displayed after you start the UltraVNC viewer), you should click on the "Query" button and wait to see the Scrip 236 event log from the target system reporting successful execution of the Scrip, and of the UltraVNC server, on the target system. Click on the "Refresh/Reload" button in your browser to update the query results page until you see the Scrip 236 event log.
+
+Please keep in mind that the amount of time it takes to establish a remote control session is composed of two parts:
+i) The amount of time that it takes for the ASI client to retrieve the command to start a remote control session which is determined by the frequency of execution of Scrip 177 (Scrip configuration update). For example, suppose that on systems at your sites Scrip 177 is configured to run every three minutes with a 3-minute random minute interval. This means that the average amount of time taken for an ASI client to retrieve the command to start a remote control session is about 4.5 minutes. This can be reduced by increasing the Scrip 177 execution frequency to once 2 minutes with a one-minute random minute interval. This would reduce the average amount of time required to establish a remote control session to 2 minutes.
+
+ii) The amount of time for Scrip 236 to start UltraVNC and for UltraVNC to start the remote control session. Based on our experience to date, this typically takes about one minute. However, in cases where UltraVNC needs to be installed on the target system, the amount of time necessary for the UltraVNC server to start running can increase to 2-3 minutes, or more depending on where Scrip 236 needs to download the UltraVNC installation executable from.
+
+On average, in this example, the amount of time currently required to establish a remote control session currently is 5.5 minutes. It could be reduced to about one half as much by increasing the Scrip 177 execution frequency (adding, however, load on your ASI server). Most of this time is taken by the retrieval of the remote control session start command by the ASI client. 
+
+9) After you click on the "Connect" button on the UltraVNC viewer configuration panel (displayed after you start the UltraVNC viewer) on the system taking remote control of the target system, the "VNC Viewer Status for ID" panel will appear. It reports the status of the connection with the target system. It will disappear once the connection is established.
+
+
+TWO IMPORTANT NOTES
+====================
+
+A) When you complete a remote control session shut down the UltraVNC server on the target system by right-clicking on the UltraVNC server icon in the system tray and selecting the "Close VNC" option. If you do not do this, and simply close the remote session window, the UltraVNC server will continue to run on the target system. The next time you try to take remote control of the target system and the UltraVNC server is still running, you will be able to momentarily take control of the target system but the remote control session will be terminated as soon as Scrip 236 runs as it shuts down running instances of the UltraVNC server before running the UltraVNC server again to initiate the remote control session.
+
+B) Before you proceed with step 6) above, rather than wait for the query described in step 8) to report a Scrip 236 event log indicating that the UltraVNC server was successfully started on the target system, you can start the UltraVNC viewer (configured with the session ID (ID:XXXXXXX) for the target system, the repeater/proxy option enabled, and the name of your ASI server entered in the repeater/proxy box), and click on the "Connect" button. The UltraVNC viewer will open a session with the intermediate server using the session id for the target system. This session will time out after ten minutes. If by chance, the last time you took remote control of the target system you did not shut down the UltraVNC server, then a remote control session with the target system will start immediately obviating the need to complete execution of the remote control wizard (i.e. run Scrip 236).
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Procedure for taking remote control of a system using the UltraVNC intermediate server connection function - end-user initiation
+======================================================================================================================
+
+You can use the ASI UltraVNC remote control function with intermediate server support, and have the remote control session initiated by a system's end user. The first time you use the function in this way, the steps you follow are the same as those listed above, with two changes:
+
+A) The value of the "Connection initiation" configuration parameter should be set to "by end user". If it is not, clicking on the "Change configuration" link below the UltraVNC configuration settings table in the "UltraVNC Connection Confirmation - <Site Name> - <Machine Name>" page will take you to the "UltraVNC Setup" page. On this page:
+a) Click on the "End user will initiate the connection" radio button
+b) Click on the "Next" button
+c) On the "Finished Configuration" page, click on the "Take control of this machine" link
+
+B) After you follow the instructions on the "UltraVNC Connecting ..." page (step 6 above), and perform step 7), the remote control session will start only when the end-user of the target system (the one you are taking control of) clicks on the remote support desktop icon. Only then, will Scrip 236 run on the target system, triggering the execution of the UltraVNC server on the target system, kicking off the remote control session.
+
+Please note that because it is based on the UUID (Unique Universal ID) of the system where Scrip 236 is running, the session id number for a system will always be the same. This means, that after the first time you take remote control of a system using the intermediate server, you will know that system's connection id, and it will never change, unless that system's UUID changes. 
+
+After the first time, when taking control of a system via the intermediate server with user initiation (clicking on the remote support desktop icon), the only steps you will need to perform will be to follow the instructions in the "UltraVNC Connecting ..." page, followed by 7) and 8) as described above, because the connection id for the system where the end-user will initiate the remote control session will not need to be generated, and you will already know it.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Procedure for accessing connection IDs for systems at your customer sites
+======================================================================================================================
+
+Because of the way it is generated, the connection id number for a system will always be the same. it changes only if the ASI assigned system UUID changes. This can happen if a system is re-built/re-imaged, or if you run the "Generate new HandsFree Client UUID" function in Scrip 43 (HandsFree Client Tools).  
+
+The connection ID for systems at your sites are generated regardless of whether Scrip 236 ever ran on that system.
+
+In order to find out the connection id for a system you want to take remote control of please follow these steps:
+
+1) Log onto your ASI server (https://asiservername/main/)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) Click on the "remote control" link in the "tools" navigation bar
+
+4) On the "Remote Control - Select Site" page click on the "Click here" link
+
+or
+
+1) Log onto your ASI server (https://asiservername/main/)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) Click on the "census" link in the "tools" navigation bar
+
+4) On the "Census" page, click on the "connection ids" link in the series of links found below the page title
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Procedure for ensuring that the UltraVNC server is running on target systems at all times
+======================================================================================================================
+
+If the UltraVNC server is always running on a target system, in order to take control of it, all you need to do is retrieve its connection ID, start the UltraVNC viewer, and enter the target system's connection ID. The remote control session will start immediately, assuming that there are no connectivity related problems.
+
+1) Log onto the ASI server (https://asiservername/main )
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) At the upper right-hand corner of any page on the ASI server, click on the "configuration" link in the sites navigation bar (https://asiservername/main/config/index.php?act=site )
+
+4) Click on the "view machines" link for the site of the system where you want to ensure that the UlraVNC server is running at all times on one or more systems. The "Configuration - <site name> Machines" page will be displayed.
+
+5) Click on the "configure Scrips" link for the system where you want to ensure that the UlraVNC server is running at all times. If you want to ensure that the UlraVNC server is running at all times on all systems at the site, click on the "configure" Scrips" link for any system. The "Scrip Configurator" page will be displayed.
+
+6) Scroll down to the entry for Scrip 236 (On-demand Remote Control), and click on the Scrip name. The Scrip 236 configuration page will be displayed.
+
+7) Scroll to the bottom of the Scrip configuration page, and enable (check the box) the "Maintain connection with intermediate server" configuration parameter.
+
+8) If you want to ensure that the UlraVNC server is running at all times on all systems at the site, leave the "Maintain connection with intermediate server" configuration parameter set to the site (i.e. the site should be selected from the "Group" pull-down list" found to the left of the configuration parameter). Otherwise, in the the "Group" pull-down list" select the machine whose Scrip 236 configuration page you are viewing.
+
+9) Click on the "Submit Changes" button. Scrip 236 will run (one one system, or all systems), as soon as Scrip 177 (Scrip Configuration Changes) from any system at the site contacts the ASI server, and retrieves the Scrip 236 configuration change.
+

@@ -1,0 +1,297 @@
+input[type="radio"],
+input[type="radio"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position:relative !important;
+}
+
+.table-wrap .dataTable tbody tr.selected {
+    background-color: #f1f1f1;
+}
+
+.table-wrap .dataTable tbody tr td .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ellipsis {
+    max-width: 150px;
+}
+
+
+/*only css*/
+
+.sourcetypebox{
+    margin-top: 30px;
+}
+
+.h5label{
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    color: #525f7f !important;
+    text-align: left;
+}
+
+textarea#configg{
+    height: 360px !important;
+    max-height: 600px !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-right: 20px;
+}
+
+#posKeywords,
+#distTypeDiv,
+#packExpiryDiv,
+#policyEnforceDiv,
+#andPreCheckDiv,
+#andPostCheckDiv,
+#installTypeDiv,
+#fileTypeDiv {
+    margin-bottom: 26px;
+}
+
+#packageAndVersionDiv div.col-sm-8,
+#packAndVersDiv div.col-sm-8,
+#preDownloadMsgDiv div.col-sm-8,
+#postDownloadMsgDiv div.col-sm-8,
+#installMsgDiv div.col-sm-8,
+#freqIntActMsgDiv div.col-sm-8,
+#sourceDestinationDiv div.col-sm-8 {
+    margin-bottom: 6px;
+}
+
+.selectpicker-wrap{
+    margin-bottom: 20px !important;
+}
+
+.val_spcl_chars,
+.val_spcl_chars1 {
+    height: 32px;
+}
+
+#platformwrap1,
+#posKeywords1,
+#distTypeDiv1,
+#packExpiryDiv1,
+#policyEnforceDiv1,
+#andPreCheckDiv1,
+#andPostCheckDiv1,
+#installTypeDiv1,
+#fileTypeDiv1,
+#manifestDiv,
+#siteDiv div.col-sm-8,
+#categoryDiv,
+#pRootKeyWrap,
+#pTypeWrap,
+#peerDistributionWrap,
+#manifestDiv1,
+#edit-rootkey-wrap,
+#edit-type-wrap {
+    margin-bottom: 26px;
+}
+
+#packageAndVersionDiv1 div.col-sm-8,
+#packAndVersDiv1 div.col-sm-8,
+#preDownloadMsgDiv1 div.col-sm-8,
+#postDownloadMsgDiv1 div.col-sm-8,
+#installMsgDiv1 div.col-sm-8,
+#freqIntActMsgDiv1 div.col-sm-8,
+#sourceDestinationDiv1 div.col-sm-8 {
+    margin-bottom: 6px;
+}
+
+#rsc-conf-runas,
+#rsc-conf-session {
+    margin-bottom: 26px;
+}
+
+.configureSource,
+.configureSource1 {
+    margin-left: 0px;
+}
+
+.configureSource div.radio,
+.configureSource1 div.radio {
+    margin-left: 10px;
+}
+
+.inslider-feed{
+    font-size: 10px;
+    position: relative;
+    top: -10px;
+    text-align: center;
+    left: 3.80%;
+    float: left;
+}
+
+.inslider-feed.error{
+    color: red;
+}
+
+.inslider-feed.success{
+    color: green;
+}
+
+.inslider-btn{
+    float:right;
+}
+
+.cnftype-seln{
+    padding-left: 47px !important;
+}
+
+.cnf-sln-clps-ftp{
+    padding: 0px 29px !important;
+}
+
+.cnf-sln-clps-cdn {
+    padding: 0px 35px !important;
+}
+
+#ftpViewing ul.dropdown-menu,
+#cdnViewing ul.dropdown-menu {
+    margin-left:16px
+}
+
+.btn-inselected {
+    color: #fa0f4b !important;
+    border: 1px solid #fa0f4b;
+    border-color: #fa0f4b !important;
+    background: transparent !important;
+    border-radius: 30px !important;
+    padding: 4px 14px !important;
+}  
+
+
+/* radio and checkbox css start */
+
+.form-check.nhl-form-check .form-check-label{
+    padding-left: 24px !important;
+}
+
+.form-check.nhl-form-check{
+    margin-bottom: 32px !important;
+    padding-top: 6px !important;
+}
+
+.form-check.nhl-form-check.nhl-inps-group{
+    margin-left: 15px !important;
+}
+
+.nhl-row-inps{
+    margin-top: -10px;
+}
+
+.form-check.form-check-radio.nhl-form-check{
+    margin-bottom: -10px !important;
+}
+
+.form-check.nhl-form-check .form-check-label input[type=radio]{
+    opacity: 0 !important;
+    margin-top: 1px;
+    margin-right: 4px;
+}
+
+
+/* radio and checkbox css end */
+
+.slider-feedwrapper{
+    height: 60px;
+    background-color: #fff;
+    top: -12px;
+}
+
+.tm0{
+    top: 0px !important; 
+}
+
+#rsc-ftp-cdn-configuration .form-check .form-check-label, 
+#rsc-distribute-execute-slider .form-check .form-check-label,
+#rsc-distribute-package .form-check .form-check-label,
+#rsc-mac-config .form-check .form-check-label,
+#rsc-config .form-check .form-check-label,
+#rsc-add-container .form-check .form-check-label,
+#rsc-edit-container .form-check .form-check-label {
+    padding-left: 30px !important;
+}
+
+#rsc-add-container .form-check .form-check-label {
+    padding-left: 35px !important;
+    padding-top: 0px;
+}
+
+#rsc-add-container .form-check .form-check-label input.form-check-input {
+    margin-top: 3px;
+}
+
+.form-check.form-check-radio input[type="radio"] {
+    opacity: 0 !important;
+}
+
+.select-wrapper{
+    margin-bottom: 26px;
+}
+
+.global-value-group{
+    margin-top: -20px;
+}
+
+.my-form-inline-radio .form-check.form-check-radio{
+    float:left;
+    width: 10%;
+}
+
+.my-form-inline-radio .form-check.form-check-radio:last-child{
+    margin-left: 10px;
+}
+
+.my-form-inline-radio .form-check-radio .form-check-label{
+    padding-top: 0px !important;
+}
+
+.comm-type-group{
+    margin-left: -50px;
+    margin-top: -10px;
+}
+
+#rsc-add-container #files{
+    margin-left:3px;
+}
+
+.edit-global-label-wrap {
+    margin-top:10px;
+}
+
+.distributionPath1{
+    margin-top: 10px;
+}
+
+.configureSource1 .form-check {
+    /*    padding-left: 1.25rem;*/
+}
+
+#ftpspan1,
+#cdnspan1 {
+    color: red;
+    font-size: 12px;
+    left: -110px;
+    top: 18px;
+    position: relative;
+}
+
+.sstu-wrap{
+    margin-top: -10px;
+}
+
+#packageGrid_processing{
+    background-color: #ffffff;
+    width: 100%;
+    margin-left: -50%;
+    z-index: 10;
+    position:absolute;
+}
+
+#editSwdDataLoader{display:none;width:100%;position: absolute;z-index: 1000;left: 41%;}

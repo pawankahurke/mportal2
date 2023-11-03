@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>The instructions that you will find below should give you sufficient information for installing the ASI client at a brand new </TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20040929;13000953">
+	<META NAME="CHANGED" CONTENT="20070621;16594698">
+	<META NAME="ProgId" CONTENT="Word.Document">
+	<META NAME="Originator" CONTENT="Microsoft Word 9">
+	<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Alessandro Donnini</o:Author>
+  <o:LastAuthor>Alessandro Donnini</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>3</o:TotalTime>
+  <o:Created>2004-10-06T23:26:00Z</o:Created>
+  <o:LastSaved>2004-10-06T23:26:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>522</o:Words>
+  <o:Characters>2976</o:Characters>
+  <o:Lines>24</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3654</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { color: #000000; font-family: "verdana"; font-size: 10pt }
+		P { color: #000000; font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+		A:visited { color: #800080 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#333399" VLINK="#800080" DIR="LTR">
+<H3>ASI Client Installation Instructions</H3>
+<H4>ASI client interactive installation</H4>
+<P STYLE="margin-bottom: 0.17in">Below, you will find step-by-step
+instructions for installing the ASI client interactively on a new
+system. Please refer to the <I>Automated Support Infrastructure
+Client Installation User Guide</I> for additional information on the
+ASI client installation process. 
+</P>
+<P STYLE="margin-bottom: 0.17in">1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You
+must remember the site registration code for the site the system you
+are about to install the ASI client on belongs to. If you do not
+have, or forget the correct site registration code, you will have to
+return to the system at a later date to enter it. Otherwise, you
+won't be able to complete deployment of the ASI client on the system.
+</P>
+<P STYLE="margin-bottom: 0.17in"><FONT FACE="Verdana, sans-serif">Please
+note that first-time ASI client installation on a system always
+requires the entry of a site registration code, even at sites where
+the ASI client is already installed, and the system where the ASI
+client is being installed is connected to a sub-net with systems
+where the ASI</FONT> <FONT FACE="Verdana">client is already installed
+and running.</FONT> 
+</P>
+<P STYLE="margin-bottom: 0.17in">2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Please note that as the ASI client runs as a service, first-time
+installation on systems running Microsoft Windows NT4, 2000, XP, or
+Server 2003 operating systems has to take place with a user with full
+administrative rights logged in. Otherwise, the ASI service cannot be
+installed, and the ASI client will not run correctly. 
+</P>
+<P STYLE="margin-bottom: 0.17in">3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run
+the ASI client installation executable on the new system. For
+example:</P>
+<P STYLE="margin-left: 0.79in">a) Map <A HREF="../How-to">\\server\shared-drive</A>
+to the desktop.</P>
+<P STYLE="margin-left: 0.79in">b) Go to Start/Run, and browse to:
+<A HREF="//server/shared-drive/HandsFreeNetworks">\\server\shared-drive\HandsFreeNetworks,</A>
+and then select the &ldquo;hfn-inst-xxxxxx.exe&rdquo; file.</P>
+<P STYLE="margin-left: 0.79in">c) Click on the <B>Next</B> button.
+Accept the license. On the last installation screen <B>do not</B>
+uncheck the box labeled <I>Launch HandsFree client</I>, just click on
+the <B>Finish</B> button. Ignore the message suggesting that you
+restart the system.</P>
+<P>After execution of the ASI client installation executable on the
+new system is completed, and the ASI client starts running, it is in
+a <I>dormant</I> configuration with a minimum number of functions
+enabled. After an interval that could last as long as 15-30 seconds,
+the ASI client generates a dialog box asking for the ten-digit site
+registration code.</P>
+<P STYLE="margin-bottom: 0.17in">4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Registration code entry.</P>
+<P STYLE="margin-left: 0.79in">a) If the site registration code entry
+box is empty, enter the correct code, and click on the <B>OK</B>
+button.</P>
+<P STYLE="margin-left: 0.79in">b) If a site registration code is
+present in the site registration code entry box, and it is the same
+as the site registration code of the site you want the new system to
+belong to, click on the <B>OK</B> button.</P>
+<P STYLE="margin-left: 0.79in">c) If the site registration code
+present in the site registration code entry box is <B>not</B> the
+same as the site registration code of the site you want the new
+system to belong to, enter the correct site registration code, and
+click on the <B>OK</B> button.</P>
+<P>The ASI client checks the internal consistency of the site
+registration code, using a check digit. If you make a mistake in
+entering the code, it keeps asking until it gets a site registration
+code that is internally consistent. 
+</P>
+<H4>Missing registration code</H4>
+<P>If you do not have, or do not remember the correct registration
+code for the system, the dialog box asking for the registration code
+will automatically go away after 60 minutes unless it is canceled
+sooner than that. Then, after 15 minutes from the time the dialog box
+went away (because of timeout or cancellation) the ASI client will
+generate the dialog box asking for a site registration code again.
+This cycle is repeated until a valid site registration code is either
+entered or approved by a user.</P>
+<H4>ASI client command line installation</H4>
+<P>You can automate ASI client installation running the The ASI
+client installer from a command line using one or more of its command
+line parameters. They are:</P>
+<P>a) /VERYSILENT</P>
+<P>It makes the ASI client installation silent. The only exception
+are 
+</P>
+<P>* The progress dialog boxes displayed when the ASI network driver
+is installed for the first time on Microsoft Windows NT4 systems
+during the &quot;driver binding&quot; step that occurs twice.</P>
+<P>* The system function that installs the driver on Microsoft
+Windows 2000, XP, or Server 2003 displays progress dialog boxes about
+the copy of the driver files. These appear only for a few seconds (in
+some cases less than one second).</P>
+<P>Both types of dialog boxes above are system dialog boxes and are
+therefore unaffected by the /VERYSILENT command line switch of the
+installer.</P>
+<P>b) /ID=XXXXXXXXXX</P>
+<P>It lets you enter the registration code for a site in the
+installer's command line eliminating the need for any user
+interaction. The letters in ID are not case sensitive. You can have
+iD, Id, id etc... There should not be any spaces in the string. There
+should only be a space that separates the name of the ASI client
+installation executable file from the command line argument. 
+</P>
+<P>For example:</P>
+<P>hfn-inst-160665.exe /ID=XXXXXXXXXX</P>
+<P>c) /CI controlling the request of end-user contact information</P>
+<P>Adding /CI=1 variable to the ASI client installation executable
+command line will cause the ASI client to generate a dialog box, as
+soon as the installation process is completed, asking a system's user
+to enter the contact information you selected when you configured
+Scrip 241. By default, the only information requested is first name
+and last name. Using /CI=0 prevents the request for contact
+information explicitly. Not including the /CI variable in the ASI
+client installation executable command line is equivalent to using
+/CI=0. CI stands for &quot;contact information&quot;. The letters in
+CI are not case sensitive.</P>
+<P>Please note that regardless of whether you use the CI command line
+variable at installation time or not, you can always ask for an
+end-user's contact information at any time by running Scrip 241 on
+demand. Doing this will cause Scrip 241 to generate a dialog box
+requesting the contact information. Please refer to the Scrip 241
+configuration help file for detailed information about Scrip 241.</P>
+<P>d) /DEPLOY controlling the ASI client network deployment function
+(Scrip 111) -- CASE SENSITIVE</P>
+<P>/DEPLOY=1 enables the HandsFree network deployment function at
+start-up.</P>
+<P>/DEPLOY=0 disables the HandsFree network deployment function at
+start-up. You can run it later by directly accessing the Scrip 111
+configuration page (not using a /DEPLOY command line option has the
+same effect as using /DEPLOY=0).</P>
+<P>If you used the /DEPLOY=1 command line option when running the ASI
+client installation executable, the ASI client network deployment
+function (Scrip 111) will run on ASI client startup. Upon (one-time)
+execution, Scrip 111 generates a dialog box with three text fields.
+In these text fields you enter the user name, domain, and password
+for a user with administrative rights on all systems where you want
+the ASI client installed. Once the requested information is entered,
+and you click on the &quot;OK&quot; button, the Scrip will initiate
+ASI client deployment on the sub-net. The dialog box generated by
+Scrip 111 persists until you enter the requested information, and
+click on the &quot;OK&quot; button, or click on the &quot;Cancel&quot;
+button.</P>
+<P>e) /NDS controlling the installation of the ASI network driver</P>
+<P>/NDS=0</P>
+<P>If present in the ASI client installation executable command line,
+the /NDS=0 switch will prevent the installation of the ASI network
+driver on systems where the ASI client is not yet installed, or where
+the ASI network driver was not previously installed. On systems where
+the ASI network driver is installed, using the /NDS=0 switch in the
+ASI client installation executable command line will result in the
+removal of the ASI network driver. The letters in NDS are not case
+sensitive. 
+</P>
+<P>PLEASE NOTE THAT REMOVING THE ASI NETWORK DRIVER FROM A SYSTEM
+WHERE IT SI ALREADY INSTALLED WILL CAUSE THE NETWORK CONNECTIONS ON
+THE SYSTEM WHERE IT IS BEING REMOVED FROM TO BE RESET. THIS ACTION IS
+PERFORMED BY THE OPERATING SYSTEM INDEPENDENTLY OF ANY ACTION TAKEN
+BY THE ASI SOFTWARE.</P>
+<P>/NDS=1</P>
+<P>If present in the ASI client installation executable command line,
+the /NDS=1 switch will force the installation of the ASI network
+driver on systems where the ASI client is not yet installed, or where
+the ASI network driver was not previously installed. The letters in
+NDS are not case sensitive.</P>
+<P>For example:</P>
+<P>hfn-inst-173228.exe /NDS=0</P>
+<P>If neither the /NDS=0 or /NDS=1 options are used, the ASI client
+installation executable will install the ASI network driver on
+systems where the ASI client was not previously installed, and on
+system where the ASI client is already installed it will leave the
+ASI client in its current state with regard to the ASI network
+driver.</P>
+<P>The /VERYSILENT, /ID, /CI, /DEPLOY, and /NDS=0 command switches
+can be used in the same command line. When using any of the ASI
+client installer command line switches, there should not be any
+spaces in the command line switch string. There should only be a
+space separating the name of the ASI client installation executable
+file from the command line argument, and the command line switches
+from each other, if you are using more than one. 
+</P>
+<H4>ASI client installation completion</H4>
+<P STYLE="margin-bottom: 0.17in"><FONT FACE="Verdana, sans-serif">Once
+you have entered the ten-digit site registration code directly or via
+command line execution, The ASI client contacts the ASI installation
+server (the server you accessed to set up the site record for the
+site your are installing the ASI client at, and which generated the
+site&rsquo;s unique 10-digit registration code) asking for the site
+installation and deployment information. This is the information you
+entered when you created the record for this site. This information
+allows the ASI client to be activated for operational use. </FONT>
+</P>
+<H4>ASI client upgrades</H4>
+<P STYLE="margin-bottom: 0.17in"><FONT FACE="Verdana, sans-serif">When
+running the ASI client installation executable on systems where the
+ASI client is already installed only the information in the <I>ASI
+client command line installation</I> section of this document
+applies.</FONT></P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P STYLE="margin-bottom: 0.17in"><BR><BR>
+</P>
+</BODY>
+</HTML>

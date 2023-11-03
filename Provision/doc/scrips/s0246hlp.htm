@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 246 - Network Device Discovery</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20050725;18401396">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050725;22302534">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 246 &ndash; Network Device Discovery</H3>
+<P>Scrip 246 reports the content of the ARP table listing all devices
+on the LAN the system where Scrip 246 runs is connected to.</P>
+<P>Scrip 246 can run in one of three modes</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">On a user defined schedule</P>
+	<LI><P STYLE="margin-bottom: 0in">On demand, triggered by a user</P>
+	<LI><P>Triggered when the ASI network driver dynamically detects a
+	change in the ARP table</P>
+</UL>
+<P>For each device on the LAN, Scrip 246 reports:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The NetBIOS name or fully
+	qualified domain name</P>
+	<LI><P STYLE="margin-bottom: 0in">The IP address</P>
+	<LI><P>The MAC address of the devices's network interface card</P>
+</UL>
+<P>The table below describes the information contained in the logs
+produced by Scrip 246.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Version of program used to install the software application</P>
+			<P>(e.g. 1.5 Build 14)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of program used to install the software application in
+			bytes</P>
+			<P>(e.g. 218624)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Creation date of program used to install the software
+			application</P>
+			<P>(e.g. Friday, June 5, 1998 04:01:08)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P><FONT SIZE=2>Type of Scrip execution, whether it ran as
+			scheduled, or triggered by the detection of a change in the ARP
+			table by the ASI network driver</FONT></P>
+			<P><FONT SIZE=2>(e.g. Type of run: network device change (event) )</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P><FONT SIZE=2>ARP table content at the time Scrip 246 random</FONT></P>
+			<P><FONT SIZE=2>(e.g.</FONT></P>
+			<P><FONT SIZE=2>Name: server2.tellink.net<BR>IP Address:
+			192.168.0.64<BR>MAC Address: 00:01:03:C2:9F:FE<BR>Time: 05/13/2005
+			19:03:57<BR><BR>Name: backerup.tellink.net<BR>IP Address:
+			192.168.0.199<BR>MAC Address: 00:A0:CC:32:3B:34<BR>Time:
+			05/13/2005 18:56:30<BR><BR>Name: dewalt.tellink.net<BR>IP Address:
+			192.168.0.17<BR>MAC Address: 00:20:AF:12:9F:D5<BR>Time: 05/13/2005
+			18:52:14<BR><BR>Name: SPYVSSPY<BR>IP Address: 192.168.0.2<BR>MAC
+			Address: 00:20:AF:41:85:3A<BR>Time: 05/13/2005 18:49:57<BR><BR>Name:
+			valvoline.tellink.net<BR>IP Address: 192.168.0.6<BR>MAC Address:
+			08:00:17:08:4D:5F<BR>Time: 05/13/2005 18:47:26<BR><BR>Name:
+			TARGET<BR>IP Address: 192.168.0.51<BR>MAC Address:
+			00:A0:C9:B1:38:98<BR>Time: 05/13/2005 18:45:09<BR><BR>Name:
+			SHARPIE<BR>IP Address: 192.168.0.12<BR>MAC Address:
+			00:11:11:73:C7:CB<BR>Time: 05/13/2005 18:45:02<BR><BR>Name:
+			SUBWAY<BR>IP Address: 192.168.0.16<BR>MAC Address:
+			00:06:5B:90:2A:18<BR>Time: 05/13/2005 18:42:35<BR><BR>Name:
+			BRAWNY<BR>IP Address: 192.168.0.45<BR>MAC Address:
+			00:90:27:AB:4E:04<BR>Time: 05/13/2005 18:40:54<BR><BR>Name:
+			kmart.tellink.net<BR>IP Address: 192.168.0.26<BR>MAC Address:
+			00:20:AF:B9:C2:63<BR>Time: 05/13/2005 18:40:22<BR><BR>Name:
+			ASTRO<BR>IP Address: 192.168.0.77<BR>MAC Address:
+			00:00:1B:4F:8E:C9<BR>Time: 05/13/2005 18:40:04<BR><BR>Name:
+			LOTTERY<BR>IP Address: 192.168.0.139<BR>MAC Address:
+			00:50:04:16:97:8F<BR>Time: 05/13/2005 18:40:01<BR><BR>Name:
+			FRIENDLYS<BR>IP Address: 192.168.0.142<BR>MAC Address:
+			00:50:04:74:12:80<BR>Time: 05/13/2005 18:39:59<BR><BR>Name:
+			kelloggs.tellink.net<BR>IP Address: 192.168.0.5<BR>MAC Address:
+			00:10:5A:A5:54:A3<BR>Time: 05/13/2005 18:39:46<BR><BR>Name:
+			napa.tellink.net<BR>IP Address: 192.168.0.15<BR>MAC Address:
+			00:B0:D0:11:38:10<BR>Time: 05/13/2005 18:39:22<BR><BR>Name:
+			server3.tellink.net<BR>IP Address: 192.168.0.65<BR>MAC Address:
+			00:A0:C9:AD:18:81<BR>Time: 05/13/2005 18:39:21<BR><BR>Name:
+			SUPER<BR>IP Address: 192.168.0.52<BR>MAC Address:
+			00:40:05:2F:A9:A7<BR>Time: 05/13/2005 18:39:07<BR><BR>Name:
+			MOTOROLA<BR>IP Address: 192.168.0.135<BR>MAC Address:
+			00:A0:CC:5E:08:13<BR>Time: 05/13/2005 18:38:16<BR><BR>Name:
+			tide.tellink.net<BR>IP Address: 192.168.0.32<BR>MAC Address:
+			00:60:97:6B:F7:F9<BR>Time: 05/13/2005 18:37:59<BR><BR>Name:
+			caterpillar.tellink.net<BR>IP Address: 192.168.0.22<BR>MAC
+			Address: 00:A0:CC:5E:07:88<BR>Time: 05/13/2005 18:37:49<BR><BR>Name:
+			BUDWEISER<BR>IP Address: 192.168.0.3<BR>MAC Address:
+			00:01:02:46:C6:4C<BR>Time: 05/13/2005 18:37:13<BR><BR>Name:
+			interstate.tellink.net<BR>IP Address: 192.168.0.18<BR>MAC Address:
+			00:20:AF:19:99:DE<BR>Time: 05/13/2005 18:36:27<BR><BR>Name:
+			Unresolvable<BR>IP Address: 192.168.0.99<BR>MAC Address:
+			00:A0:24:54:31:24<BR>Time: 05/13/2005 18:36:15<BR><BR>Name:
+			Unresolvable<BR>IP Address: 192.168.0.1<BR>MAC Address:
+			00:80:AE:D5:19:40<BR>Time: 05/13/2005 18:36:08<BR><BR>Name:
+			texaco.tellink.net<BR>IP Address: 192.168.0.28<BR>MAC Address:
+			00:A0:C9:1E:C9:58<BR>Time: 05/13/2005 18:35:44<BR><BR>Name:
+			mayo.tellink.net<BR>IP Address: 192.168.0.33<BR>MAC Address:
+			00:60:08:A1:BA:02<BR>Time: 05/13/2005 18:35:41</FONT></P>
+			<P><FONT SIZE=2>)</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

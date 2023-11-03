@@ -1,0 +1,64 @@
+How to enable event (and asset) reports
+========================================
+
+Method A - preferred
+---------------------
+1) Log onto your ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) Click on the “legacy” link in the “reports” navigation bar found the at upper right-hand corner of any page in the ASI server extended interface. The “Reports – legacy” page will be displayed.
+
+4) In the The “Reports – legacy” page, you will find two links:
+  - event reports (legacy). Click on this link to access the “legacy” event reports page at
+    https://asiservername/main/event/report.php 
+  - asset reports (legacy). Click on this link to access the “legacy” asset reports page at
+    https://asiservername/main/asset/report.php 
+
+Click on the "event reports (legacy)" link. The "Event Reports" page will be displayed.
+
+5) Retrieve the entries for the event reports you want to enable
+    - Enter the appropriate key word in the "Name Contains" parameter in the "Search Options" panel
+    - Click on the "Search" button
+
+6) If entries for all of the event reports retrieved in step 4) are not displayed on the page, change the value of the "Page Size" parameter in the "Display Options" panel to make sure that they are.
+
+7) Click on the "manage" link found right about the "Search Options" panel. The "Manage Event Reports" page will be displayed.
+
+7) Click on the "Edit Multiple Reports" link. The "Edit Multiple Reports" page will be displayed.
+
+9) Click on the boxes for the event reports you want to enable (if you want to enable all of the event reports whose entries you retrieved in step 5), click on the "Check all" button.
+
+10) Select "Enabled" from the "State" option pull-down list in the "Edit Options" panel
+
+11) Click on the "OK" button
+
+
+Method B
+---------
+1) Log onto your ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) Click on the “legacy” link in the “reports” navigation bar found the at upper right-hand corner of any page in the ASI server extended interface. The “Reports – legacy” page will be displayed.
+
+4) In the The “Reports – legacy” page, you will find two links:
+  - event reports (legacy). Click on this link to access the “legacy” event reports page at
+    https://asiservername/main/event/report.php 
+  - asset reports (legacy). Click on this link to access the “legacy” asset reports page at
+    https://asiservername/main/asset/report.php 
+
+Click on the "event reports (legacy)" link. The "Event Reports" page will be displayed.
+
+5) Retrieve the entries for the event reports you want to enable
+    - Enter the appropriate key word in the "Name Contains" parameter in the "Search Options" panel
+    - Click on the "Search" button
+
+6) Right-click on the "enable" link for the event report you want to enable, and select the "Open in a new window" option
+
+7) Close the new window
+
+8) Repeat steps 5) to 7) until all the reports you wish to enable are enabled
+
+Repeat the above procedure for asset reports except that instead of going to the "Event Reports" page, you should go to the "Asset Reports" as described in steps 3) and 4) above.
+

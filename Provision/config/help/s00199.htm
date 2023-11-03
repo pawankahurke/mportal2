@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Scrip 199 Configuration</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<body>
+
+<h3>Scrip 199 Configuration</h3>
+
+<h4>Default Configuration Parameters</h4>
+
+<ul>
+<li>Scrip disabled</li>
+<li><em>Registry keys to monitor</em> list empty</li>
+</ul>
+
+<p>Scrip 199 will check for changes in the registry keys listed in the <em>Registry keys to monitor</em> list
+when one of the following is true:
+<ul>
+<li>The client is starting up</li>
+<li>The scrip has just been enabled</li>
+<li>The scrip is already enabled and the list of registry keys has changed</li>
+</ul>
+
+
+<h4>Registry keys to monitor</h4>
+
+<p>This parameter is used to list all the registry keys you would like Scrip 199 to monitor.
+The full name of each key should be entered on a separate line.</p>
+
+<p>To facilitate the process of entering the name of each registry key you want monitored, and minimize the probability 
+of making a mistake, you can follow these steps:</p>
+
+<ul>
+<li>run regedit</li>
+<li>Locate the key you want to monitor by using regedit's <em>find</em> function</li>
+<li>Once you have found the registry key you want to monitor, click on <em>Edit</em> on the regedit menu, the click on 
+<em>Copy Key Name</em></li>
+<li>Click the mouse in the <em>Registry keys to monitor</em> list box first open line</li>
+<li>Paste the registry key copied by pressing simultaneously the <em>ctrl</em> and <em>v</em> keys</li>
+<li>Repeat the above steps until all the registry keys you want to monitor are listed in 
+the <em>Registry keys to monitor</em> list.</li>
+</ul>
+
+<p>Please note that Scrip 199 will detect and report changes in the registry keys entered in the <em>Registry keys to monitor</em> 
+list, and all their sub-keys. This means that selecting the registry key for a frequently used application like
+Microsoft Internet Explorer, with many sub-keys, will generate a large number of event logs, most of them not 
+very relevant from a system management and support standpoint.</p>
+
+<p>Because of the above consideration, in general it is advisable to select registry keys that address specific,
+and significant, system, and application configuration parameters.</p>
+
+
+<p><br><br><br><hr color="#333399" noShade SIZE="1"></p>
+<div align="right">
+  <table border="0" cellPadding="0" cellSpacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td width="50%" valign="top">
+	  <p><font size="0" face="verdana,helvetica">© 2000-2002 HandsFree Networks
+          </font></p>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<BODY>
+</HTML>
+

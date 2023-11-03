@@ -1,0 +1,1182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20061213;15530973">
+	<META NAME="CHANGED" CONTENT="20080101;22384012">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana"; font-size: 11pt; font-style: italic }
+		H5 { color: #333399; font-family: "verdana"; font-size: 11pt }
+		P.text-body-indent { margin-left: 1in; font-family: "verdana"; font-size: 10pt }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>System management, maintenance, and problem
+management actions</H3>
+<P>Please note that this document contains instructions for
+configuring Scrips for one system or a site accessing Scrip
+configuration pages via the configuration module via the link on the
+sites navigation bar. The same Scrip configuration instructions apply
+when configuring Scrips for user defined groups, or all systems. You
+can access Scrip configuration pages via one of several different
+access points. You can find detailed information and instructions
+about Scrip configuration in the <I>Automated Support Infrastructure
+Remote ASI Client Scrip Configuration User Guide</I> (Click on the
+<I>How to</I> button found on the right-hand side of any ASI server
+page below the navigation bars, click on <I>System management,
+maintenance, and problem management actions</I> entry, then click on
+<I>Scrip configuration primer</I>).</P>
+<UL>
+	<LI><P><A HREF="HFN%20asi%20client%20server%20based%20Scrip%20configuration.pdf" TARGET="_blank">Scrip
+	configuration primer</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20how%20to%20define%20a%20group%20of%20systems.txt" TARGET="_blank">How
+	to define a group</A> 
+	</P>
+	<LI><P><A HREF="#disableenablemalwareprot">How to disable and enable
+	malware protection</A></P>
+	<LI><P><A HREF="HFN%20ASI%20How%20to%20update%20virus%20definitions%20on%20demand.html" TARGET="_blank">How
+	to update virus definitions on a system on demand</A></P>
+	<LI><P><A HREF="#scripschedulechange">How to change the frequency
+	with which the ASI client retrieves Scrip configuration changes from
+	the ASI server</A></P>
+	<LI><P><A HREF="#processorutilmonitoring">How to enable resource
+	utilization monitoring</A></P>
+	<LI><P><A HREF="#runningprocesses">How to find out remotely which
+	processes are running on a system</A></P>
+	<LI><P><A HREF="HFN%20ASI%20how%20to%20find%20the%20name%20of%20user%20logged%20onto%20a%20system.html" TARGET="_blank">How
+	to find the name of the user logged onto a system</A></P>
+	<LI><P><A NAME="DDE_LINK4"></A><A HREF="#runprogramremotely">How to
+	run a program, batch file, script, or MS-DOS command remotely</A></P>
+	<LI><P><A HREF="#retrievefiles">How to retrieve files remotely</A></P>
+	<LI><P><A HREF="#retrieveipaddress" NAME="How to retrieve the current IP address of a system">How
+	to retrieve the current external IP address of a system</A></P>
+	<LI><P><A HREF="#stoprestartprocsvce"><U>How to stop, re-start
+	processes and services</U></A></P>
+	<LI><P><A HREF="#preventprogramexecution">How to prevent execution
+	of a program</A></P>
+	<LI><P><A NAME="stoprestartprocsvce21"></A><A HREF="#cleanupmsiefiles">How
+	to configure clean-up of MS Internet Explorer related files</A></P>
+	<LI><P><A HREF="#How to retrieve Scrip configuration parameter values for selected systems &aacute;top |outline">How
+	to retrieve Scrip configuration parameter values for selected
+	systems</A> 
+	</P>
+	<LI><P><A HREF="#How to retrieve the Scrip 177 (Scrip Configuration Update) execution frequency &aacute;top |outline">How
+	to retrieve the Scrip 177 (Scrip Configuration Update) execution
+	frequency</A> 
+	</P>
+	<LI><P><A HREF="How%20to%20modify%20Scrip%20176%20configuration.txt" TARGET="_blank">How
+	to modify Scrip 176 configuration (Service Restart)</A> / <A HREF="Scrip%20176%20service%20display%20and%20internal%20names.xls" TARGET="_blank">Scrip
+	176 services display and internal names</A> 
+	</P>
+	<LI><P><A HREF="How%20to%20resolve%20HPBPRO.EXE%20stop-start%20execution%20problem.txt" TARGET="_blank">How
+	to resolve HPBPRO.EXE stop-start execution problem</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20how%20to%20install%20and%20run%20a%20utility%20remotely%20on%20one%20or%20more%20systems.txt" TARGET="_blank">How
+	to install and run a utility remotely on one or more systems</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20how%20to%20automate%20the%20change%20of%20local%20administrator%20password%20using%20ASI.txt" TARGET="_blank">How
+	to automate the change of local administrator password using ASI</A>
+		</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="disableenablemalwareprot"></A><SPAN STYLE="font-style: normal">How
+to disable and enable malware protection<A HREF="#top"> </A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>Please note that the ASI configuration steps below will let you
+easily disable and enable the ASI malware protection Scrips ( 27
+System Start-up Environment Control, and 232 &ndash; Intrusion
+Protection Control). You should do this in order to avoid potential
+Scrip 27 and 232 interference with the installation or upgrade of
+software applications, or changes to items such as MS Internet
+Explorer start pages. You will need to disable Scrips 27 and 232 only
+if you have previously configured them to protect systems at your
+site (as described in the <I>HFN malware removal instructions.htm</I>
+document).</P>
+<P>If you did not configure Scrips 27 and 232 to protect systems at
+your site, you do not need to disable them when installing upgrading
+software applications. 
+</P>
+<P>Please note that enabling Scrips 27 and 232 will not automatically
+enable malware protection. To do that, you will need to follow the
+instructions in the <I>HFN asi malware removal instructions.html</I>
+document.</P>
+<P>When Scrips 27 and 232 are configured to protect a system against
+malware, stopping the ASI client does stops malware protection
+(Scrips 27 and 232), but it will not work as a way to let you make
+changes to the areas protected by Scrips 27 and 232. When you
+re-start the ASI client after making any changes to the areas
+protected by Scrips 27 and 232, the Scrips use the snapshots of the
+environment they took before the ASI client was disabled to check the
+system areas they protect. As these snapshots do not include the
+changes you made while the ASI client was disabled, Scrip 27 and 232
+will disable them.</P>
+<P>Disabling Scrips 27 and 232, making the desired changes, and then
+re-enabling Scrips 27 and 232 will cause the Scrips to take new
+snapshots of the areas they protect as soon as they are enabled. In
+this way, any changes made to areas protected by Scrips 27 and 232
+while they were disabled will not be disallowed.</P>
+<P>Please remember that if you disable malware protection (Scrips 27
+and 232) via the ASI server, before making any changes on the
+system(s) where you disabled the Scrips without interference from
+Scrips 27 and 232, you will need to wait until the disable action has
+been retrieved by the ASI client on the system(s) in question, and
+applied locally on the system(s). As you know, the timing of this
+action depends on frequency of execution of Scrip 177 (Scrip
+Configuration Update). Please refer to section <A HREF="#scripschedulechange">How
+to change the frequency with which the ASI client retrieves Scrip
+configuration changes from the ASI server</A> of this document for
+step-by-step instructions for changing the Scrip 177 execution
+schedule.</P>
+<H5>Method A - ASI server (to be used if you are not on site)</H5>
+<P>1) Log onto the ASI server (https/asiservername/main ). The ASI
+dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) Click on the &quot;wizard&quot; link in the &quot;sites&quot;
+navigation bar (<A HREF="https://asiservername/main/config/index.php?act=wiz">https://asiservername/main/config/index.php?act=wiz</A>)
+located at the upper right-hand corner of any page of the ASI server
+extended interface.</P>
+<P>4) Click on the <I>Enable-disable malware protection</I> wizard
+entry</P>
+<P>5) Follow the on-screen instructions</P>
+<H5>Method B - Direct ASI client access (can be used if you are on
+site)</H5>
+<P>1) Open a browser window.</P>
+<P>2) In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>3) In the user logon dialog enter <B>&lt;direct access user id&gt;</B>
+/ &lt;<B>direct access password</B>&gt;</P>
+<P>4) Click on the name of the system at the very top of the page.
+The <FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed.</P>
+<P>5) Scroll down to the entry for Scrip 27 (<I>System Start-up
+Environment Control</I>), and click on the Scrip name</P>
+<P>6) If you want to disable Scrip 27 only on the system you are
+using, select <B>machine &lt;name&gt;</B> from the <I>Group</I>
+pull-down list for the <I>Scrip enabled</I> configuration parameter.
+If you want to disable Scrip 27 on all systems at the site, select
+<B>site &lt;name&gt;</B> from the <I>Group</I> pull-down list for the
+<I>Scrip enabled</I> configuration parameter is on. 
+</P>
+<P>7) Uncheck the <I>Scrip enabled</I> box</P>
+<P>8) Click on the <I>Submit Changes</I> button</P>
+<P>9) Click on the <I>Scrips</I> link at the upper right-hand corner
+of the page you are viewing</P>
+<P>10) Scroll down to the entry for Scrip 232 (<I>Intrusion
+Protection Control</I>), and click on the Scrip name</P>
+<P>11) Repeat steps 6)-8) for Scrip 232</P>
+<P>12) Close the browser window. 
+</P>
+<H5>Method C - Local ASI user interface (can be used if the local
+user interface is activated)</H5>
+<P>- Double-click on the ASI client icon in the system tray</P>
+<P>- Click on the <I>Enable-disable malware protection</I> wizard
+entry</P>
+<P>- Follow the on-screen instructions 
+</P>
+<H4><A NAME="scripschedulechange"></A><SPAN STYLE="font-style: normal">How
+to change the frequency with which the ASI client retrieves Scrip
+configuration changes from the ASI server<A HREF="#top"> </A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>Please note that performing this action means changing the
+schedule of Scrip 177 (Scrip Configuration Update). The same steps
+can be used to change the schedule of any Scrip.</P>
+<H5>Method A - ASI server (to be used if you are not on site)</H5>
+<P>1) Log onto the ASI server (https/asiservername/main ). The ASI
+dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) Click on the &quot;wizard&quot; link in the &quot;sites&quot;
+navigation bar (<A HREF="https://asiservername/main/config/index.php?act=wiz">https://asiservername/main/config/index.php?act=wiz</A>)
+located at the upper right-hand corner of any page of the ASI server
+extended interface.</P>
+<P>4) Click on the <I>Scrip Execution Frequency</I> wizard entry</P>
+<P>5) Follow the on-screen instructions</P>
+<H5>Method B - Direct ASI client access (can be used if you are on
+site)</H5>
+<P>1) Open a browser window.</P>
+<P>2) In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>3) In the user logon dialog enter <B>&lt;direct access user id&gt;</B>
+/ &lt;<B>direct access password</B>&gt;</P>
+<P>4) Click on the name of the system at the very top of the page.
+The <FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed.</P>
+<P>5) Scroll down to the entry for Scrip 177 (<I>Scrip Configuration
+Update</I>), and click on the Scrip name</P>
+<P>6) In the Schedule parameter, change the value of the <I>Minute</I>
+field from the default value of <B>0</B> to whichever frequency you
+prefer. For example, if you wanted Scrip 177 to run once very three
+minutes, you would enter</P>
+<P CLASS="text-body-indent"><B>0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57</B></P>
+<P CLASS="text-body-indent">(You can cut and paste the above string
+into the <FONT FACE="Verdana, sans-serif"><I>Minute</I></FONT> field
+in the of the Schedule parameter in Scrip 177)</P>
+<P CLASS="text-body-indent" STYLE="margin-left: 0in">7) Next, change
+the value of the <I>Random minute</I> field in the <I>Schedule</I>
+parameter from <B>50</B> to <B>2</B>.</P>
+<P>8) Click on the <I>Submit</I> button. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<H4><A NAME="processorutilmonitoring"></A><SPAN STYLE="font-style: normal">How
+to enable resource utilization monitoring<A HREF="#top"> </A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>Please note that by default, Scrip 6 (<I>Memory Statistics</I>),
+Scrip 96 (<I>Processor Statistics</I>), and Scrip 98 (<I>Network
+Statistics</I>), the Scrips used to monitor resources utilization,
+are enabled by default with a configuration already well suited to
+alert you about unusual levels of resource utilization.</P>
+<P>The goal of example below, where you will find instructions for
+modifying the configuration of Scrip 96 (<I>Processor Statistics</I>),
+is to show you how you can change the configuration of a resource
+monitoring Scrip. You can replace the processor resource monitoring
+thresholds used in the example with others which you believe to be
+better suited to your requirements.</P>
+<H5>Method A - ASI server (to be used if you are not on site)</H5>
+<P>1) Log onto the ASI server (<A HREF="http://https/asiserverurl/main">https/asiservername/main</A>
+). The ASI dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+). The &ldquo;select a Site&rdquo; page will be displayed.</P>
+<P>4) Click on the <I>view machines</I> link for the site of the
+system where you want to monitor processor statistics. The
+&quot;Configuration - &lt;site name&gt; Machines&quot; page will be
+displayed.</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system where
+you want to monitor processor statistics</P>
+<P>6) Scroll down to the entry for Scrip 96 (<I>Processor
+Statistics</I>), and click on the Scrip name 
+</P>
+<P>7) If you want to enable Scrip 96 only on the system where you
+want to monitor processor statistics, select <B>machine &lt;name&gt;</B>
+from the <I>Group</I> pull-down list for the <I>Scrip enabled</I>
+configuration parameter. If you want to enable Scrip 96 on all
+systems at the site, select <B>site &lt;name&gt;</B> from the <I>Group</I>
+pull-down list for the <I>Scrip enabled</I> configuration parameter
+is on. 
+</P>
+<P>8) Click in the <I>Scrip enabled</I> box</P>
+<P>9) We<FONT COLOR="#000000"> suggest you use the following </FONT><FONT COLOR="#000000"><B>site
+&lt;name&gt;</B></FONT><FONT COLOR="#000000"> group settings:</FONT></P>
+<P><FONT COLOR="#000000">- </FONT>Processor queue length above which
+to report - <B>10</B> (Please note that 2-5 is considered normal)</P>
+<P>- Processor interrupts per second above which to report - <B>5000</B>
+(This is highly dependent on the processor, and on the applications
+running on the system)</P>
+<P>- Percent processor usage above which to report - <B>75</B> (This
+is subjective)</P>
+<P>- Sampling period in milliseconds - <B>15000</B> (leave the
+default unchanged)</P>
+<P>10) If you are troubleshooting a problem enable the <I>Report
+running processes</I> configuration parameter on the system(s) you
+are troubleshooting. In general, you should minimize the number of
+systems from which the complete list of processes running on them is
+posted on the ASI server to minimize bandwidth, and mass storage
+consumption.</P>
+<P>11) Configure Scrip 96 to run once per minute (enter a <B>*</B> in
+the minute field in the Schedule configuration parameter), and set
+the <I>Random minute</I> interval to <B>0</B>.</P>
+<P>12) Scroll down to the bottom of the Scrip 96 configuration page,
+and click on the <I>Submit Changes</I> button. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P>Please note that you can enable memory utilization monitoring by
+following the above instructions for Scrip 6 (<I>Memory Statistics</I>),
+and Scrip 98 (<I>Network Statistics</I>) instead of Scrip 96. The key
+Scrip 6 configuration parameter is <I>Number of page reads per second
+above which to report</I> which we suggest you set to <B>300</B>.</P>
+<H5>Method B - Direct ASI client access (can be used if you are on
+site)</H5>
+<P>1) Open a browser window.</P>
+<P>2) In the address box, enter <A HREF="http://localhost:2721/">http://localhost:2721/</A>
+</P>
+<P>3) In the user logon dialog enter <B>&lt;direct access user id&gt;</B>
+/ &lt;<B>direct access password</B>&gt;</P>
+<P>4) Click on the name of the system at the very top of the page.
+The <FONT COLOR="#666699">Scrip Configurator</FONT> page will be
+displayed.</P>
+<P>5) Scroll down to the entry for Scrip 96 (<I>Processor
+Statistics</I>), and click on the Scrip name</P>
+<P>6) If you want to enable Scrip 96 only on the system where you
+want to monitor processor statistics, select <B>machine &lt;name&gt;</B>
+from the <I>Group</I> pull-down list for the <I>Scrip enabled</I>
+configuration parameter. If you want to enable Scrip 96 on all
+systems at the site, select <B>site &lt;name&gt;</B> from the <I>Group</I>
+pull-down list for the <I>Scrip enabled</I> configuration parameter
+is on. 
+</P>
+<P>7) Click in the <I>Scrip enabled</I> box</P>
+<P>8) We<FONT COLOR="#000000"> suggest you use the following </FONT><FONT COLOR="#000000"><B>global</B></FONT><FONT COLOR="#000000">
+settings:</FONT></P>
+<P><FONT COLOR="#000000">- </FONT>Processor queue length above which
+to report - <B>10</B> (Please note that 2-5 is considered normal)</P>
+<P>- Processor interrupts per second above which to report - <B>5000</B>
+(This is highly dependent on the processor, and on the applications
+running on the system)</P>
+<P>- Percent processor usage above which to report - <B>75</B> (This
+is subjective)</P>
+<P>- Sampling period in milliseconds - <B>15000</B> (leave the
+default unchanged)</P>
+<P>9) If you are troubleshooting a problem enable the <I>Report
+running processes</I> configuration parameter ONLY on the system(s)
+you are troubleshooting. It is very important that you minimize the
+number of systems from which the complete list of processes running
+on them is posted on the ASI server to minimize bandwidth, and mass
+storage consumption.</P>
+<P>10) Configure Scrip 96 to run once per minute (enter a <B>*</B> in
+the minute field in the Schedule configuration parameter), and set
+the <I>Random minute</I> interval to <B>0</B>.</P>
+<P>11) Click on the <I>Submit Changes</I> button. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<H4><A NAME="runningprocesses"></A><SPAN STYLE="font-style: normal">How
+to find out remotely which processes are running on a system<A HREF="#top">
+</A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>1) Log onto the ASI server (<A HREF="http://https/asiserverurl/main">https/asiservername/main</A>
+). The ASI dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+). The &ldquo;Select a Site&rdquo; page will be displayed.</P>
+<P>4) Click on the <I>view machines</I> link for the site of the
+system you want to retrieve the list of running processes from. The
+&quot;Configuration - &lt;site name&gt; Machines&quot; page will be
+displayed.</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system where
+you want to retrieve the list of running processes</P>
+<P>6) Scroll down to the entry for Scrip 93 (<I>Report Running
+Processes</I>), and click on the Scrip name 
+</P>
+<P>7) Scroll to the bottom of the Scrip configuration page, and 
+</P>
+<P>8) Change the Group selection for the <I>Report running processes
+now</I> Execute button from <B>site &lt;name&gt;</B> to <B>machine
+&lt;name</B>.</P>
+<P>9) Click on the <I>Report running processes now</I> Execute button</P>
+<P>10) Click on the <I>machines</I> link on the second-level
+navigation bar (the one labeled <I>configuration</I>). The
+&quot;Configuration - &lt;site name&gt; Machines&quot; page will be
+displayed.</P>
+<P>11) The entry in the <I>Changed</I> column for the system you
+retrieved the list of running processes from will show the date and
+time of the action you just took. Before being able to view the list
+of running processes, you will need to wait until the entry in the
+<I>Changed</I> column changes to <B>No</B> (Use the refresh function
+in your browser). This is dependent on the frequency of execution of
+Scrip 177 (Scrip Configuration Update). Please refer to the <A HREF="#scripschedulechange">How
+to change the frequency with which the ASI client retrieves Scrip
+configuration changes from the ASI server</A> section of this
+document for instructions on how to change the Scrip 177 execution
+schedule.</P>
+<P>12) As soon as the entry in the <I>Changed</I> column for the
+system you retrieved the list of running processes from changes to
+<B>No</B>, click on the <I>ad-hoc</I> link in the <I>events</I>
+navigation bar found at the upper right-hand corner of any page on
+the ASI server (<A HREF="https://asiserverurl/main/event/event.php">https://asiservername/main/event/event.php</A>
+).</P>
+<P>In the <I>Select Additional Search Criteria for Events</I> section
+of the <FONT COLOR="#666699">Ad-hoc Event Query Form</FONT> page:</P>
+<P>13) From the <I>Site</I> pull-down list select the site of the
+system you retrieved the list of running processes from</P>
+<P>14) From the <I>Machine</I> pull-down list select the system you
+retrieved the list of running processes from</P>
+<P>In the <I>Narrow Your Search</I> (optional) section of the <FONT COLOR="#666699">Ad-hoc
+Event Query Form</FONT> page:</P>
+<P>15) From the <I>Scrip number</I> pull-down list select Scrip 93</P>
+<P>16) Click on the <I>Search</I> button</P>
+<P>17) In the <FONT COLOR="#666699">Event Query Results</FONT> page
+click on the detail link for the Scrip 93 event log retrieved by the
+event query you just ran.</P>
+<H4><A NAME="runprogramremotely"></A><SPAN STYLE="font-style: normal">How
+to run a program, batch file, script, or MS-DOS command remotely<A HREF="#top">
+</A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>1) Log onto the ASI server (<A HREF="http://https/asiserverurl/main">https/asiservername/main</A>
+). The ASI dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+). The &ldquo;Select a Site&rdquo; page will be displayed.</P>
+<P>4) Click on the <I>view machines</I> link for the site of the
+system where you want to run the executable. The &quot;Configuration
+- &lt;site name&gt; Machines&quot; page will be displayed. Please
+note that if you want to run an executable on all systems at a site,
+you can pick any system at the site.</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system where
+you want to run the executable</P>
+<P>6) Scroll down to the entry for one of Scrips 89, 151-157, or
+212-215 (<I>Scheduled Program Execution 1, </I>or <I>Scheduled
+Program Execution 2-5</I>, or <I>Scheduled Program Execution 7-12</I>),
+and click on the Scrip name. The Scrip configuration page will be
+displayed.</P>
+<P>7) If you want to run the command line once, do not enable the
+Scrip, otherwise click in the <I>Scrip enabled</I> box. If you want
+to run the command line only on the system whose Scrip 89
+configuration page you are viewing, select <B>machine &lt;name&gt;</B>
+from the <I>Group</I> pull-down list for the <I>Scrip enabled</I>
+configuration parameter. If you want to run the command line on all
+systems at the site, select <B>site &lt;name&gt;</B> from the <I>Group</I>
+pull-down list for the <I>Scrip enabled</I> configuration parameter. 
+</P>
+<P>8) If the executable you want to run resides on a networked
+resource, or needs to access a networked resource, click on the
+<I>Impersonation enabled</I> box (you can leave <I>Group</I>
+selection for the <I>Impersonation enabled</I> configuration
+parameter set to <B>site &lt;name&gt;</B>). Please refer to the Scrip
+89 (151-157, and 212-215) configuration help file for detailed
+information and configuration instructions for enabling impersonation
+support (<A HREF="https://asiserverurl/main/config/help/s00089.htm">https://asiservername/main/config/help/s00089.htm</A>
+).</P>
+<P>9) If you want to run the program once, ignore the schedule
+parameter, otherwise set the schedule as required. For example, if
+you want to run an executable on Wednesdays at 5.30 AM, you would set
+the <I>Minute</I> field (the first field from the top) to <B>30</B>,
+the <I>Hour</I> field (the second field) to <B>5</B>, and the <I>Weekday</I>
+field (the fifth field) to <B>3</B>, skipping the <I>Day</I> and
+<I>Month</I> fields. In all likelihood, you would leave the <I>Random
+minute</I> field (the sixth field) to <B>0</B>. You would probably
+also leave the <I>Type</I> field (the seventh field) set to <B>2</B>,
+unless you wanted the executable to run immediately when the system
+starts-up in case the system was shut down when the executable was
+scheduled to run (at 5.30 AM on Wednesdays). If you left the value of
+the <I>Fail limit</I> field (the eight field from the top) set to <B>0</B>,
+and the <I>Type</I> field set to <B>2</B>, Scrip 89 (or one of
+151-157, or 212-215) would post an event log reporting failure to run
+because the system was turned off, or the ASI client was not running,
+the first time such a failure occurs.</P>
+<P>10) In the <I>Executable</I> configuration parameter, enter the
+complete command line for the program, MS-DOS command, batch file, or
+script you want to run. Please note that you can enter only one
+command line. If you want to run the command line only on the system
+where you are configuring the program execution Scrip, select <B>machine
+&lt;name&gt;</B> from the Group pull-down list. Otherwise, <B>select
+site &lt;name&gt;</B>.</P>
+<P>11) If you want to run the program once, Click on the <I>Run
+process now</I> Execute button taking care to select <B>machine
+&lt;name&gt;</B> from the pull-down list to the right of the <I>Execute</I>
+button if you want to run the executable only on the system whose
+Scrip 89 (or one of 151-157, or 212-215) configuration page you are
+viewing.</P>
+<P>12) If you configured Scrip 89 (or one of 151-157, or 212-215) to
+run periodically, Click on the <I>Submit Changes</I> button. The
+<FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P>13) Click on the <I>machines</I> link in the second-level
+navigation bar (the one labeled <I>configuration</I>). The
+<FONT SIZE=2 STYLE="font-size: 11pt">Configuration - &lt;site name&gt;
+Machines</FONT> page will be displayed.</P>
+<P>14) The entry in the <I>Changed</I> column for the system you
+configured Scrip 89 (or one of 151-157, or 212-215) to run the
+executable on will show the date and time of the action you just
+took. Before being able to retrieve the Scrip 89 event log reporting
+completion of the executable processing, you will need to wait until
+the entry in the <I>Changed</I> column changes to <B>No</B> (Use the
+refresh function in your browser). This is dependent on the frequency
+of execution of Scrip 177 (Scrip Configuration Update). Please refer
+to the <A HREF="#scripschedulechange">How to change the frequency
+with which the ASI client retrieves Scrip configuration changes from
+the ASI server</A> section of this document for instructions on how
+to change the Scrip 177 execution schedule.</P>
+<P>15) As soon as the entry in the <I>Changed</I> column for the
+system you retrieved the list of running processes from changes to
+<B>No</B>, click on the <I>ad-hoc</I> link in the <I>events</I>
+navigation bar found at the upper right-hand corner of any page on
+the ASI server (<A HREF="https://asiserverurl/main/event/event.php">https://asiservername/main/event/event.php</A>
+).</P>
+<P>In the <I>Select Additional Search Criteria for Events</I> section
+of the <FONT COLOR="#666699"><FONT SIZE=2 STYLE="font-size: 11pt">Ad-hoc
+Event Query Form</FONT></FONT> page:</P>
+<P>16) From the <I>Site</I> pull-down list select the site of the
+system you retrieved the list of running processes from</P>
+<P>17) From the <I>Machine</I> pull-down list select the system you
+retrieved the list of running processes from</P>
+<P>In the <I>Narrow Your Search</I> (optional) section of the <FONT COLOR="#666699"><FONT SIZE=2 STYLE="font-size: 11pt">Ad-hoc
+Event Query Form</FONT></FONT> page:</P>
+<P>18) From the <I>Scrip number</I> pull-down list select Scrip 89
+(or one of 151-157, or 212-215)</P>
+<P>19) Click on the <I>Search</I> button</P>
+<P>20) In the <FONT COLOR="#666699">Event Query Results</FONT> page
+click on the detail link for the Scrip 89 (or one of 151-157, or
+212-215) event log retrieved by the event query you just ran.</P>
+<P>Please note that when executing a command line that uses a file
+(including its path) as a command line parameter, the file name and
+path should be enclosed between double quotes (&ldquo;). For example,
+</P>
+<P><B>regedit /s &quot;c:\DefwatchQSOff.reg&quot;</B></P>
+<P>You should also note that at this point in time, completion status
+information reported by Scrip 89 event logs is limited to reporting
+successful or failed execution. If you want to get more information
+about the execution and the executable you just ran remotely can
+produce an output or log file, you can use Scrip 100 to retrieve such
+a file. Please refer to section <A HREF="#retrievefiles">How to
+retrieve files remotely</A> in this document.</P>
+<H4><A NAME="retrievefiles"></A><SPAN STYLE="font-style: normal">How
+to retrieve files remotely<A HREF="#top"> </A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>Scrip 100 is a powerful and highly configurable Scrip. Below, you
+will find instructions for getting to the Scrip 100 configuration
+page and guiding you in the configuration Scrip to retrieve a file.
+These instructions do not include detailed information about each
+Scrip 100 configuration parameter The instructions do not include
+detailed information about each Scrip 100 configuration parameter.
+Clicking on the <FONT COLOR="#000080">help</FONT> link on the
+second-level navigation bar (labeled <B>configuration</B> on the
+right side of the Scrip 100 configuration page) will open the Scrip
+100 configuration help file in a new window on your desktop
+(<A HREF="https://asiserverurl/main/config/help/s00100.htm">https://asiservername/main/config/help/s00100.htm</A>
+).</P>
+<P>Please also note that we have comprehensive guides for the
+configuration of Scrip 100 to retrieve log files produced by a
+variety of applications including Veritas Backup Exec, AVG anti
+virus, and Spybot. You can access these guides on your ASI server
+(Click on the <I>How to</I> button found on the right-hand side of
+any ASI server page below the navigation bars. Click on the
+<I>Application monitoring</I> entry).</P>
+<P>1) Log onto the ASI server (<A HREF="http://https/asiserverurl/main">https/asiservername/main</A>
+). The ASI dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+). The &ldquo;Select a Site&rdquo; page will be displayed.</P>
+<P>4) Click on the <I>view machines</I> link for the site of the
+system you want to retrieve files remotely from. The &quot;Configuration
+- &lt;site name&gt; Machines&quot; page will be displayed. 
+</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system you
+want to retrieve file(s) from. Please note that if you want to
+retrieve files from all systems at a site, you can pick any system at
+the site.</P>
+<P>6) Scroll down to the entry for one of Scrips 100 (<I>File
+Distribution and Retrieval</I>), and click on the Scrip name. The
+Scrip 100 configuration page will be displayed.</P>
+<P>7) If you want to retrieve one or more files once, do not enable
+the Scrip, otherwise click in the <I>Scrip enabled</I> box. If you
+want to retrieve one or more files only on the system whose Scrip 100
+configuration page you are viewing, select <B>machine &lt;name&gt;</B>
+from the <I>Group</I> pull-down list for the <I>Scrip enabled</I>
+configuration parameter. If you want to retrieve one or more files
+from all systems at the site, select <B>site &lt;name&gt;</B> from
+the <I>Group</I> pull-down list for the <I>Scrip enabled</I>
+configuration parameter is on. 
+</P>
+<P>8) If the files you want to retrieve resides on a networked
+resource with access control enabled, or needs to access a networked
+resource, click on the <I>Impersonation enabled</I> box (you can
+leave the <I>Group</I> setting for the <I>Impersonation enabled</I>
+configuration parameter set to <B>site &lt;name&gt;</B>). Please
+refer to the Scrip 100 configuration help file for detailed
+information and configuration instructions for enabling impersonation
+support (<A HREF="https://asiserverurl/main/config/help/s00100.htm">https://asiservername/main/config/help/s00100.htm</A>
+).</P>
+<P>9) If you want to have Scrip 100 send the retrieved file(s) to one
+ore more e-mail recipients, enter the e-mail recipient information in
+the <EM>Email address group definitions</EM> parameter.</P>
+<P>10) If you want Scrip 100 to upload retrieved files to one or more
+FTP servers, enter the FTP servers URL, including authentication
+information if necessary, in the <I>URL group definitions</I>
+configuration parameter.</P>
+<P>11) If you want retrieve files based on key word filtering, enter
+the key words in the <EM>Keyword group definitions</EM> configuration
+parameter. Scrip 100 will only retrieve files which contain the key
+words entered in the key word groups defined in the <EM>Keyword group
+definitions</EM> configuration parameter, and used in the file
+retrieval command line (see below). Please note that at this point in
+time, file retrieval based on key word filtering is only possible
+with files in ASCII text format.</P>
+<P>12) Next, you can configure Scrip 100 to retrieve files based on
+their last modified date. To do so, first you enable the <EM>Retrieve
+files by date</EM> configuration parameter, then you enter the date
+in the <EM>What is the latest date you want to retrieve files by?
+(MM/DD or MM/DD/YY, leave blank if you want current date)</EM>
+configuration parameter. You can also use the <EM>How many days back
+from the latest date do you want to retrieve files for?</EM>
+configuration parameter to limit the number of files retrieved. For
+example if you set the <EM>How many days back from the latest date do
+you want to retrieve files for?</EM> Configuration parameter to <B>0</B>,
+Scrip 100 will only retrieve files whose last modified date match the
+date entered in the <EM>What is the latest date you want to retrieve
+files by? (MM/DD or MM/DD/YY, leave blank if you want current date)</EM>
+configuration parameter.</P>
+<P>13) In the <I>File distribution and retrieval command line(s)</I>
+configuration parameter, you combine all of the information entered
+in the other Scrip 100 configuration parameters into the command
+line(s) Scrip 100 will use to retrieve files for you. You can enter
+as many f<EM>ile retrieval command lines as you like, enabling and
+disabling them as needed. Please refer to the Scrip 100 configuration
+help file for detailed information on file distribution and retrieval
+command line format.</EM></P>
+<P>Please note that In the <EM>File distribution and retrieval
+command line(s)</EM> configuration parameter, you can enter both file
+retrieval and distribution command lines, in any order. Scrip 100
+will automatically detect whether a command line is for retrieving or
+distributing a file based on the contents of the command line, e.g.
+whether the command line contains an e-mail group, or a file location
+group entry.</P>
+<P>14) If the file retrieval you want Scrip 100 to perform is a
+one-time operation, ignore the schedule parameter. Otherwise set the
+schedule as required. For example, if you want to retrieve a file
+every day at 7 AM, you would set the <I>Minute</I> field (the first
+field from the top) to <B>0</B>, the <I>Hour</I> field (the second
+field) to <B>7</B>, and the <I>Weekday</I> field (the fifth field) to
+<B>*</B>, skipping the <I>Day</I> and <I>Month</I> fields. In all
+likelihood, you would leave the <I>Random minute</I> field (the sixth
+field) to <B>0</B>. You would probably also leave the <I>Type</I>
+field (the seventh field) set to <B>2</B>, unless you wanted the file
+retrieval operation to occur immediately when the system starts-up in
+case the system was shut down when the file retrieval was scheduled
+to occur (at 7 AM every day). If you left the value of the <I>Fail
+limit</I> field (the eight field from the top) set to <B>0</B>, and
+the <I>Type</I> field set to <B>2</B>, Scrip 100 would post an event
+log reporting failure to run because the system was turned off, or
+the ASI client was not running, the first time such a failure occurs.</P>
+<P>If you want to the Scrip 100 schedule to apply only to the system
+whose Scrip 100 configuration page you are viewing, select <B>machine
+&lt;name&gt;</B> from the <I>Group</I> pull-down list for the Scrip
+enabled configuration parameter. If you want to distribute one ore
+more files to all systems at the site, select <B>site &lt;name&gt;</B>
+from the <I>Group</I> pull-down list for the schedule configuration
+parameter.</P>
+<P>15) If you configured Scrip 100 to upload the file(s) it retrieves
+to your ASI server, for ease of processing, transfer, and taking into
+account the default 64 KB limit on event log size (configurable), you
+may want to have the Scrip create a separate event log for each file
+retrieved. If you want to do this, enable the the <I>Log each file in
+separate event logs</I> configuration parameter.</P>
+<P>16) Click on the <I>Distribute / Retrieve file(s) now</I> Execute
+button taking care to select <B>machine &lt;name&gt;</B> from the
+pull-down list to the right of the Execute button if you want to run
+the file(s) only on the system whose Scrip 100 configuration page you
+are viewing.</P>
+<P>17) If you configured Scrip 100 to perform a periodic file
+retrieval operation, click on the <I>Submit Changes</I> button. The
+<FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P>18) Click on the <I>machines</I> link in the second-level
+navigation bar (the one labeled <I>configuration</I>). The
+<FONT SIZE=2 STYLE="font-size: 11pt">Configuration - &lt;site name&gt;
+Machines</FONT> page will be displayed.</P>
+<P>19) The entry in the <I>Changed</I> column for the system you
+configured Scrip 100 on will show the date and time of the action you
+just took. Before being able to retrieve the Scrip 100 event log
+reporting completion of the file retrieval action, you will need to
+wait until the entry in the <I>Changed</I> column changes to <B>No</B>
+(Use the refresh function in your browser). This is dependent on the
+frequency of execution of Scrip 177 (Scrip Configuration Update).
+Please refer to the <A HREF="#scripschedulechange">How to change the
+frequency with which the ASI client retrieves Scrip configuration
+changes from the ASI server</A> section of this document for
+instructions on how to change the Scrip 177 execution schedule.</P>
+<P>20) As soon as the entry in the <I>Changed</I> column for the
+system you configured Scrip 100 on changes to <B>No</B>, click on the
+<I>ad-hoc</I> link in the <I>events</I> navigation bar found at the
+upper right-hand corner of any page on the ASI server
+(<A HREF="https://asiserverurl/main/event/event.php">https://asiservername/main/event/event.php</A>
+). The <FONT COLOR="#666699"><FONT SIZE=2 STYLE="font-size: 11pt">Ad-hoc
+Event Query Form</FONT></FONT> page will be displayed.</P>
+<P>In the <I>Select Additional Search Criteria for Events</I> section
+of the <FONT COLOR="#666699"><FONT SIZE=2 STYLE="font-size: 11pt">Ad-hoc
+Event Query Form</FONT></FONT> page:</P>
+<P>21) From the <I>Site</I> pull-down list select the site of the
+system you retrieved the list of running processes from</P>
+<P>22) If you ran Scrip 100 only on one system, from the <I>Machine</I>
+pull-down list select the system you ran Scrip 100 on. Otherwise,
+leave the <I>Machine</I> pull-down list selection set to <B>All</B>.</P>
+<P>In the <I>Narrow Your Search</I> (optional) section of the <FONT COLOR="#666699"><FONT SIZE=2 STYLE="font-size: 11pt">Ad-hoc
+Event Query Form</FONT></FONT> page:</P>
+<P>23) From the <I>Scrip number</I> pull-down list select Scrip 100</P>
+<P>24) Click on the <I>Search</I> button. The <FONT COLOR="#666699"><FONT SIZE=2 STYLE="font-size: 11pt">Event
+Query Results</FONT></FONT> page will be displayed.</P>
+<P>25) In the <FONT COLOR="#666699"><FONT SIZE=2 STYLE="font-size: 11pt">Event
+Query Results</FONT></FONT> page click on the detail link for the
+Scrip 100 event log retrieved by the event query you just ran. Review
+the detail event log to verify that Scrip 100 ran successfully.</P>
+<H4><A NAME="retrievefiles1"></A><A NAME="retrieveipaddress"></A><SPAN STYLE="font-style: normal">How
+to retrieve the current external IP address of a system<A HREF="#top">
+</A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>You can use Scrip 100 to retrieve the current external IP address
+of any system where the ASI client is installed. To do this:</P>
+<P>1) Follow the instructions in steps 1)-7) of the How to retrieve
+files remotely section of this document 
+</P>
+<P>2) In the <EM>File retrieval command line(s)</EM> configuration
+parameter, <EM>enter the following command line</EM></P>
+<UL>
+	<LI><P><EM><SPAN STYLE="font-style: normal"><B>1,http://checkip.dyndns.org,logserver</B></SPAN></EM></P>
+</UL>
+<P STYLE="margin-left: 0.25in">Please note that the above command
+line may already be entered in the <EM>File retrieval command line(s)</EM>
+configuration parameter. If this is the case, just make sure it is
+enabled (the first parameter in the command line should be a <B>1</B>)</P>
+<P>3) Click on the <I>Distribute / Retrieve file(s) now</I> <B>Execute</B>
+button taking care to select <B>machine &lt;name&gt;</B> from the
+pull-down list to the right of the Execute button if you want to run
+the file(s) only on the system whose Scrip 100 configuration page you
+are viewing. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P>4) Click on the <I>machines</I> link on the second-level
+navigation bar (the one labeled <I>configuration</I>).</P>
+<P>5) The entry in the <I>Changed</I> column for the system you
+configured Scrip 100 to retrieve file(s) from will show the date and
+time of the action you just took. Before being able to retrieve the
+Scrip 100 event log reporting completion of the file retrieval
+action, you will need to wait until the entry in the <I>Changed</I>
+column changes to <B>No</B> (Use the refresh function in your
+browser). This is dependent on the frequency of execution of Scrip
+177 (Scrip Configuration Update). Please refer to the <A HREF="#scripschedulechange">How
+to change the frequency with which the ASI client retrieves Scrip
+configuration changes from the ASI server</A> section of this
+document for instructions on how to change the Scrip 177 execution
+schedule.</P>
+<P>6) As soon as the entry in the <I>Changed</I> column for the
+system you retrieved the list of running processes from changes to
+<B>No</B>, click on the <I>ad-hoc</I> link in the <I>events</I>
+navigation bar found at the upper right-hand corner of any page on
+the ASI server (<A HREF="https://asiserverurl/main/event/event.php">https://asiservername/main/event/event.php</A>
+).</P>
+<P>In the <I>Select Additional Search Criteria for Events</I> section
+of the <FONT COLOR="#666699">Ad-hoc Event Query Form</FONT> page:</P>
+<P>7) From the <I>Site</I> pull-down list select the site of the
+system you retrieved the list of running processes from</P>
+<P>8) From the <I>Machine</I> pull-down list select the system you
+retrieved the list of running processes from</P>
+<P>In the <I>Narrow Your Search</I> (optional) section of the <FONT COLOR="#666699">Ad-hoc
+Event Query Form</FONT> page:</P>
+<P>9) From the <I>Scrip number</I> pull-down list select Scrip 100</P>
+<P>10) Click on the <I>Search</I> button</P>
+<P>11) In the <FONT COLOR="#666699">Event Query Results</FONT> page
+click on the detail link for the Scrip 100 event log retrieved by the
+event query you just ran.</P>
+<H4><A NAME="stoprestartprocsvce"></A><SPAN STYLE="font-style: normal">How
+to stop, re-start processes and services<A HREF="#top"> </A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>From time to time, you may want to stop running services or
+processes which you suspect may be causing performance problems on
+one or more systems, or you may want to stop execution of suspected
+malware processes.</P>
+<P>To perform this operation remotely on one, some, or all systems at
+a site, without having to take remote control of these systems, you
+can use Scrip 227 as described below. Please note that Scrip 227 will
+not start stopped processes or services. You can use Scrip 176 to
+start stopped services, and one of Scrips 89, and 212-215 to start
+stopped processes (please refer to section <A HREF="#runprogramremotely">How
+to run a program, batch file, script, or MS-DOS command remotely</A>
+of this document).</P>
+<P>Scrip 227 is a powerful and highly configurable Scrip. Below, you
+will find instructions for getting to the Scrip 227 configuration
+page and guiding you to the relevant configuration parameters,
+depending on what you want to do. The instructions do not include
+detailed information about each Scrip 227 configuration parameter.
+Clicking on the <FONT COLOR="#000080">help</FONT> link on the
+second-level navigation bar (labeled <B>configuration</B> on the
+right side of the Scrip 227 configuration page) will open the Scrip
+227 configuration help file in a new window on your desktop
+(<A HREF="https://asiserverurl/main/config/help/s00227.htm">https://asiservername/main/config/help/s00227.htm</A>
+).</P>
+<P>1) Log onto the ASI server (https/asiservername/main ). The ASI
+dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the configuration link in the sites navigation bar
+(https://asiservername/main/config/index.php?act=site ). The &ldquo;Select
+a Site&rdquo; page will be displayed.</P>
+<P>4) Click on the <I>view machines</I> link for the site of the
+system where you want to stop execution of services and/or processes.
+The &quot;Configuration - &lt;site name&gt; Machines&quot; page will
+be displayed. Please note that if you want to stop and/or re-start
+processes and services on all systems at a site, you can pick any
+system at the site.</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system you
+want to stop and/or re-start processes / services on.</P>
+<P>6) Scroll down to the entry for Scrip 227 (<I>Process and Service
+Shutdown-Restart</I>), and click on the Scrip name 
+</P>
+<P>7) If you want to stop or re-start processes and/or services once,
+do not enable the Scrip, otherwise click in the <I>Scrip enabled</I>
+box. If you want to stop or re-start processes and/or services only
+on the system whose Scrip 227 configuration page you are viewing,
+select <B>machine &lt;name&gt;</B> from the <I>Group</I> pull-down
+list for the <I>Scrip enabled</I> configuration parameter. If you
+want to stop or re-start processes and/or services on all systems at
+the site, select <B>site &lt;name&gt;</B> from the <I>Group</I>
+pull-down list for the <I>Scrip enabled</I> configuration parameter
+is on. 
+</P>
+<P>8) Enter the process(es) and/or services(es) you want to stop or
+re-start in the <I>Process groups</I> and <I>Services groups</I>
+configuration parameters respectively, following the instructions in
+the Scrip 227 configuration help file
+(<A HREF="https://asiserverurl/main/config/help/s00227.htm">https://asiservername/main/config/help/s00227.htm</A>
+). 
+</P>
+<P>Unless you have a very clear reason to do otherwise, you should
+leave the <I>Process groups</I> and <I>Services groups</I>
+configuration parameters <I>Group</I> parameter pull-down list
+selection set to <B>site &lt;name&gt;</B>. In this way, you will have
+to enter information about processes and services which you might
+want to stop or re-start at some point on any system at your sites,
+only once. For example, suppose you want to stop a malware process
+which you found running on a system (using the instruction in the <A HREF="#runningprocesses">How
+to find out remotely which processes are running on a system</A>
+section of this document). You can use Scrip 227 to do that. By
+leaving the <I><SPAN STYLE="font-weight: medium">Group</SPAN></I>
+<SPAN STYLE="font-weight: medium">parameter pull-down list selection
+set to </SPAN><B>site &lt;name&gt;</B>, Scrip 227 on every other
+system at the site will be automatically configured with the same
+malware process group information, and using the export function you
+can export the Scrip 227 global configuration parameters to all of
+your sites.</P>
+<P>9) Initially, you can leave the <I>Max number of seconds to wait
+for processes to close</I>, and <I>Max number of dialogs to close for
+a process</I> configuration parameters unchanged.</P>
+<P>10) If you are performing a one-time process / service shutdown /
+re-start operation, enter the names of the process and/or services
+groups in the <I>On demand shutdown</I> and/or <I>On demand restart</I>
+respectively, and click on the <I>Process on demand items now</I>
+<B>Execute</B> button. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P>11) If you want to configure Scrip 227 to perform a periodic
+process / service shutdown / re-start operation, enter the names of
+the process and/or services groups in the <I>Scheduled shutdown</I>
+and/or <I>Scheduled restart</I> respectively, and enter the desired
+schedule information in the Schedule parameter. For example, if you
+want to retrieve a file every day at 1 AM, you would set the <I>Minute</I>
+field (the first field from the top) to <B>0</B>, the <I>Hour</I>
+field (the second field) to <B>*</B>, and the <I>Weekday</I> field
+(the fifth field) to <B>*</B>, skipping the <I>Day</I> and <I>Month</I>
+fields. In all likelihood, you would leave the <I>Random minute</I>
+field (the sixth field) to <B>0</B>. You would probably also leave
+the <I>Type</I> field (the seventh field) set to <B>2</B>, unless you
+wanted the process and/or service shutdown / re-start operation to be
+performed immediately when the system starts-up in case the system
+was shut down when the process and/or service shutdown / re-start
+operation was scheduled to run (at 1 AM every day). If you left the
+value of the <I>Fail limit</I> field (the eight field from the top)
+set to <B>0</B>, and the <I>Type</I> field set to <B>2</B>, Scrip 227
+would post an event log reporting failure to run because the system
+was turned off, or the ASI client was not running, the first time
+such a failure occurs.</P>
+<P>12) If you configured Scrip 227 to perform a periodic process /
+service shutdown / re-start operation, Click on the <I>Submit Changes</I>
+button. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<H4><A NAME="preventprogramexecution"></A><A NAME="stoprestartprocsvce1"></A>
+<SPAN STYLE="font-style: normal">How prevent execution of a program<A HREF="#top">
+</A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>1) Log onto the ASI server (https/asiservername/main ). The ASI
+dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the configuration link in the sites navigation bar
+(https://asiservername/main/config/index.php?act=site ). The &ldquo;Select
+a Site&rdquo; page will be displayed.</P>
+<P>4) Click on the <I>view machines</I> link for the site of the
+system where you want to prevent execution of a program. The
+&quot;Configuration - &lt;site name&gt; Machines&quot; page will be
+displayed. Please note that if you want to prevent execution of one
+ore or more programs on all systems at a site, you can pick any
+system at the site.</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system you
+want to stop and/or re-start processes / services on.</P>
+<P>6) Scroll down to the entry for Scrip 192 (<I>Program Execution
+Control</I>), and click on the Scrip name 
+</P>
+<P>7) Click in the <I>Scrip enabled</I> box. If you want to prevent
+execution of one ore more programs only on the system whose Scrip 192
+configuration page you are viewing, select <B>machine &lt;name&gt;</B>
+from the <I>Group</I> pull-down list for the <I>Scrip enabled</I>
+configuration parameter. If you want to prevent execution of one ore
+more programs on all systems at the site, select <B>site &lt;name&gt;</B>
+from the <I>Group</I> pull-down list for the <I>Scrip enabled</I>
+configuration parameter is on. 
+</P>
+<P>8) <B>Make sure that The </B><I><B>Use Stop List parameters to
+terminate execution of selected programs (checked) /Use Run List
+parameters to allow execution of selected programs (unchecked)</B></I>
+<B>configuration parameter is enabled (box checked). This is very
+important. If by mistake this configuration parameter is disabled and
+the </B><I><B>Run List - Allow these programs to run</B></I>
+<B>configuration parameter is empty, after you enable Scrip 192, the
+system(s) where you enabled it will be unusable.</B></P>
+<P>9) Enter the complete name of the processes you want to prevent
+from running in the <I>Stop List - Stop these programs from running</I>
+configuration parameter each on a new line. No path is required.</P>
+<P>10) Depending on the reason for enabling Scrip 192, you may want
+to disable (box unchecked) <I>The Display a message when a program is
+terminated.(Applies to both Stop List and Run List modes)</I>
+configuration parameter, or leave it enabled. For example, if you are
+using Scrip 192 to prevent execution of a malware process, you should
+probably disable (box unchecked) the <I>The Display a message when a
+program is terminated.(Applies to both Stop List and Run List modes)</I>
+configuration parameter, while if you want to use it to prevent
+execution of an unauthorized program, you may want to leave it
+enabled.</P>
+<P>11) Click on the <I>Submit Changes</I> button. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<H4><A NAME="cleanupmsiefiles"></A><A NAME="stoprestartprocsvce2"></A>
+<SPAN STYLE="font-style: normal">How to configure clean-up of MS
+Internet Explorer related files<A HREF="#top"> </A></SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>By default, Scrip 221 is configured to remove all files from the
+Microsoft Internet Explorer cache. All you need to do is review the
+Scrip configuration, and enable the Scrip. However, if you would like
+to configure more than one Scrip to clean up Microsoft Internet
+Explorer related files, for example using one Scrip to clean up the
+browser cache, and another Scrip to clean up the cookies and history
+files, you can follow the instructions below.</P>
+<P>1) Log onto the ASI server (https/asiservername/main ). The ASI
+dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) At the upper right-hand corner of any page on the ASI server,
+click on the configuration link in the sites navigation bar
+(https://asiservername/main/config/index.php?act=site ). The &ldquo;Select
+a Site&rdquo; page will be displayed.</P>
+<P>4) Click on the <I>view machines</I> link for the site of the
+system where you want to clean up MS Internet Explorer related files.
+The &quot;Configuration - &lt;site name&gt; Machines&quot; page will
+be displayed. Please note that if you want to prevent execution of
+one ore or more programs on all systems at a site, you can pick any
+system at the site.</P>
+<P>5) Click on the <I>configure Scrips</I> link for the system you
+want to stop and/or re-start processes / services on.</P>
+<P>6) Scroll down to the entry for one of Scrips 217-221 (<I>Clean
+Folders 2 - 6</I>), and click on the Scrip name 
+</P>
+<P>7) Click in the <I>Scrip enabled</I> box. If you want to configure
+the clean-up of MS Internet Explorer related files only on the system
+whose Scrip 217-221 configuration page you are viewing, select
+<B>machine &lt;name&gt;</B> from the <I>Group</I> pull-down list for
+the <I>Scrip enabled</I> configuration parameter. If you want to
+configure the clean-up of MS Internet Explorer related files on all
+systems at the site, select <B>site &lt;name&gt;</B> from the <I>Group</I>
+pull-down list for the <I>Scrip enabled</I> configuration parameter
+is on. 
+</P>
+<P>8)In the File groups, enter</P>
+<P><B>all,*.*</B></P>
+<P>9) Click on the <I>help</I> link in the navigation bar labeled
+<I>configuration</I> which you will find on the right side of the
+page you are viewing below the group of navigation bars at the top
+right-hand corner of the page.</P>
+<P>10) Scroll down to the section titled <I>A note on Internet
+browser files clean-up</I>. In this section, you will find the path
+for the MS Internet Explorer cookies, history, and cache. You can
+copy these paths and then paste them when adding entries to the
+<I>Directories or files to scan</I> configuration parameter in one of
+Scrips 217-221. 
+</P>
+<P>Below, you will find <I>Directories or files to scan</I>
+configuration parameter entries for MS Internet Explorer folder/file
+clean up for all MS Windows Operating versions as of the beginning of
+2007. You can copy and paste the entries below in the <I>Directories
+or files to scan</I> configuration parameter &ldquo;as is&rdquo;.</P>
+<P><B>/* Microsoft Windows 9x */</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,C:\WINDOWS\Application Data\Microsoft\Internet
+Explorer\UserData,all</B></P>
+<P><B>/* (history files) */</B></P>
+<P><B>0,1,C:\WINDOWS\History,all</B></P>
+<P><B>/* (cookies) */</B></P>
+<P><B>0,1,C:\WINDOWS\Local Settings\Temporary Internet Files,all</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,c:\WINDOWS\Temporary Internet Files\Content.IE5,all</B></P>
+<P><B>/* (cookies) */</B></P>
+<P><B>0,1,c:\WINDOWS\Cookies,all</B></P>
+<P><B>/* (cookies) */</B></P>
+<P><B>0,1,c:\Documents and Settings\*\Cookies,all</B></P>
+<P><B>/* Microsoft Windows 2000, XP, and Server 2003*/</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,c:\Documents and Settings\*\Application
+Data\Microsoft\Internet Explorer\UserData,all</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,c:\Documents and Settings\*\Local Settings\Temporary
+Internet Files\Content.IE5,all</B></P>
+<P><B>/* (history) */</B></P>
+<P><B>0,1,c:\Documents and Settings\*\Local
+Settings\History\History.IE5,all</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,C:\Documents and Settings\*\UserData,all</B></P>
+<P><B>/* (history) */</B></P>
+<P><B>0,1,C:\Documents and Settings\*\Local Settings\History,all</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,C:\Documents and Settings\*\Local Settings\Temporary
+Internet Files\,all</B></P>
+<P><B>/* (cookies) */</B></P>
+<P><B>0,1,C:\Documents and Settings\*\Cookies,all</B></P>
+<P><B>/* Microsoft Windows Vista */</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,C:\Users\*\AppData\Local\Microsoft\Windows\Temporary
+Internet Files\,all</B></P>
+<P><B>/* (browser cache) */</B></P>
+<P><B>1,1,C:\Users\*\AppData\Local\Microsoft\Windows\Temporary
+Internet Files\Low\,all</B></P>
+<P><B>/* (cookies) */</B></P>
+<P><B>0,1,C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies\,all</B></P>
+<P><B>/* (cookies) */</B></P>
+<P><B>0,1,C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies\Low\,all</B></P>
+<P>Please note that you can add entries for the clean up of MS
+Internet Explorer related files for all MS Windows variants without
+having to know which ones are applicable to which system. The Scrip
+will execute only the applicable ones depending on the operating
+system running on each system.</P>
+<P>Please also note that the above <I>Directories or files to scan</I>
+configuration parameter entries, will remove all files from the
+Microsoft Internet Explorer browser cache. In the list above, the
+<I>Directories or files to scan</I> configuration parameter entries
+for the cookies and history files are disabled (entires starting with
+a <B>0</B>).</P>
+<P>11) Change the value of the <I>Minimum age of files to be deleted
+(days)</I> configuration parameter to <B>0</B>.</P>
+<P>12) If you the file retrieval you want one of Scrips 217-221 to
+perform is a one-time MS Internet Explorer folder/file clean-up
+operation, ignore the schedule parameter. Otherwise, set the schedule
+as required. For example, if you want to clean-up MS Internet
+Explorer related folders and files every day at 5 AM, you would set
+the <I>Minute</I> field (the first field from the top) to <B>0</B>,
+the <I>Hour</I> field (the second field) to <B>5</B>, and the <I>Weekday</I>
+field (the fifth field) to <B>*</B>, skipping the <I>Day</I> and
+<I>Month</I> fields. In all likelihood, you would leave the <I>Random
+minute</I> field (the sixth field) to <B>0</B>. You would probably
+also leave the <I>Type</I> field (the seventh field) set to <B>2</B>,
+unless you wanted the file retrieval operation to occur immediately
+when the system starts-up in case the system was shut down when the
+file retrieval was scheduled to occur (at 5 AM every day). If you
+left the value of the <I>Fail limit</I> field (the eight field from
+the top) set to <B>0</B>, and the <I>Type</I> field set to <B>2</B>,
+on of Scrips 217-221 would post an event log reporting failure to run
+because the system was turned off, or the ASI client was not running,
+the first time such a failure occurs.</P>
+<P>13) Click on the <I>Run folder clean-up now</I> Execute button
+taking care to select <B>machine &lt;name&gt;</B> from the pull-down
+list to the right of the Execute button if you want to run the
+file(s) only on the system whose Scrip 217-221 configuration page you
+are viewing.</P>
+<P>14) If you configured one of Scrips 217-221 to perform periodic MS
+Internet Explorer folder/file clean-up, click on the <I>Submit
+Changes</I> button. The <FONT FACE="Arial, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<H4><A NAME="scripcfgparamvalueretrieve"></A><A NAME="How to retrieve Scrip configuration parameter values for selected systems &aacute;top |outline"></A>
+<SPAN STYLE="font-style: normal">How to retrieve Scrip configuration
+parameter values for selected systems </SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>1) Log onto the ASI server (https/asiservername/main ). The ASI
+dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) Click on the &quot;wizard&quot; link in the &quot;sites&quot;
+navigation bar (<A HREF="https://asiservername/main/config/index.php?act=wiz">https://asiservername/main/config/index.php?act=wiz</A>)
+located at the upper right-hand corner of any page of the ASI server
+extended interface.</P>
+<P>4) Click on the &quot;Scrip configuration&quot; wizard entry</P>
+<P>5) Select the systems whose Scrip configuration parameter value
+you want to retrieve by clicking on the corresponding radio button
+(e.g. <I>All machines</I>, <I>A single site</I>, <I>A single machine</I>,
+or <I>A group of machines</I>)</P>
+<P>6) After you select the systems whose Scrip configuration
+parameter value you want to retrieve, the &quot;Scrip Configuration -
+Select Scrip&quot; page will be displayed</P>
+<P>7) Scroll down to the entry for the Scrip whose configuration
+parameter value you want to retrieve, and click on the Scrip name.
+The Scrip's configuration page will be displayed.</P>
+<P>8) Scroll down to the configuration parameter whose values you
+want to retrieve, and click on the &quot;Assigned values&quot; link
+for the desired Scrip configuration parameter</P>
+<P>9) The 
+</P>
+<P>&quot;Scrip &lt;number&gt; - &lt;Scrip name&gt; - 
+</P>
+<P>&lt;Scrip configuration parameter name&gt; - Values for all
+systems in group &quot;&lt;name of group of the systems whose Scrip
+configuration parameter values you want to retrieve&gt;&quot;&quot;</P>
+<P>page will be displayed listing the Scrip configuration parameter
+values for the systems whose Scrip configuration parameter values you
+want to retrieve.</P>
+<H4><A NAME="scrip177executionfrequency"></A><A NAME="How to retrieve the Scrip 177 (Scrip Configuration Update) execution frequency &aacute;top |outline"></A>
+<SPAN STYLE="font-style: normal">How to retrieve the Scrip 177 (Scrip
+Configuration Update) execution frequency </SPAN><A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1><SPAN STYLE="font-style: normal">&aacute;</SPAN></FONT></FONT><FONT SIZE=1><SPAN STYLE="font-style: normal">top
+</SPAN></FONT></A>
+</H4>
+<P>1) Log onto the ASI server (https/asiservername/main ). The ASI
+dashboard will be displayed.</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+<P>3) Click on the &quot;wizard&quot; link in the &quot;sites&quot;
+navigation bar (<A HREF="https://asiservername/main/config/index.php?act=wiz">https://asiservername/main/config/index.php?act=wiz</A>)
+located at the upper right-hand corner of any page of the ASI server
+extended interface.</P>
+<P>4) Click on the &quot;Scrip execution frequency&quot; wizard entry</P>
+<P>5) If it is not selected, click on the &quot;All machines&quot;
+radio button (or click on the radio button that will let you select
+the systems whose Scrip 177execution frequency you want to retrieve)</P>
+<P>6) After you select the systems for whom you want to retrieve the
+Scrip 177 execution frequency, the &quot;Scrip Execution Frequency -
+&lt;name of group of machines&gt;&quot; page will be displayed
+listing the Scrip 177 execution frequency for the systems you
+selected in step 5).</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

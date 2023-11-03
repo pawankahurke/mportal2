@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<TITLE>Scrip 87 Configuration</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<body>
+
+<h3>Scrip 87 Configuration</h3>
+
+<h4>Default Configuration Parameters</h4>
+
+<ul>
+<li>Scrip enabled</li>
+<li><em>Only use log server to get time</em> enabled</li>
+<li><em>Minimum difference (minutes) to report</em> Scrip 87 reports differences of at least 15 minutes between the system's clock and a certified time server</li>
+<li><em>Time Servers</em>
+<ul><li>time.nist.gov</li>
+<li>time-a.nist.gov</li>
+<li>time-nw.nist.gov</li>
+<li>ntp2.usno.navy.mil</li></ul>
+<li>Scrip runs at 9am on Tuesday, Thursday and Saturday</>
+</ul>
+
+<h4>Only use log server to get time</h4>
+
+<p>When this option is enabled, Scrip 87 gets the time from the system where the ASI log server is located
+using HPC. The default time servers normally used by the Scrip are ignored.</p>
+
+<p>Using this option produces two main benefits:</p>
+<ul>
+<li>We no longer put such a high load on a central time server.</li>
+<li>We no longer require firewall changes to the firewall at an end-user site to allow
+traffic through port 37 (used exclusively for time server communication).</li>
+</ul>
+
+
+<h4>Minimum difference (minutes) to report</h4>
+
+<p>If the time reported by a system's clock is slower than the atomic time retrieved by Scrip 87 by a number of
+minutes greater than or equal to the value of the <em>Minimum difference (minutes) to report</em> paramter, Scrip 87
+will reset the system's clock to match the atomic time.</p>
+
+<h4>Time Servers</h4>
+
+<p>Scrip 87 can use port 37 to access the default certified time servers to adjust a system's clock.</p>
+
+<p>It tries to reach them in the order in which they are entered in the <em>Time Servers</em> list.
+If none of the time servers is available, the synchronization operation will be attempted again the
+next time Scrip 87 is scheduled to run.</p>
+
+<p>You can modify the list of default time servers used by Scrip 87, adding
+or deleting time servers from the list. All newly added time server entries
+should be on a separate line. </p>
+
+
+
+<h4>Schedule</h4>
+
+<P>The Schedule parameter has a command line with eight fields, each entered on a new line.</p>
+
+<p>The table below describes each field in detail.</P>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD>  
+
+<P ALIGN="CENTER"><STRONG>Field Number</STRONG>   </TD>
+<TD>  </p>
+
+<P ALIGN="CENTER"><STRONG>Field Name</STRONG>    </TD>
+<TD>  </p>
+
+<p align="center"><STRONG>Field Values and Description</STRONG>    </TD>
+<TD>  </p>
+</TR>
+
+<TR><TD>1</TD><TD>Minutes</TD>
+<TD><p>0-60</p>
+</TD></TR>
+<TR><TD>2</TD><TD>Hours</TD>
+<TD>1-24</TD></TR>
+<TR><TD>3</TD><TD>Day of the Month</TD>
+<TD>1-31, depending on the month; a value of * means that the Scrip should be run every day.</TD></TR>
+<TR><TD>4</TD><TD>Month</TD>
+<TD>1-12; a value of * means that the Scrip should be run every month.</TD></TR>
+<TR><TD>5</TD><TD>Day of the Week</TD>
+<TD>0, Sunday - 6, Saturday; a value of * means that the Scrip should be run every day of the week.</TD></TR>
+<TR><TD>6</TD><TD>Minute Randomizer</TD>
+<TD>N; the size of the time interval in minutes over which the Scrip should be randomly executed. We multiply N*60, then calculate a random number X between 1 and N*60, and run the Scrip X seconds after its scheduled time.</TD></TR>
+<TR><TD>7</TD><TD>Conditional Execution</TD>
+<TD>N; N=1 means that if the Scrip is past due, it will be run immediately, N=2 means that If the Scrip is past due, it will be run at the next scheduled execution time. If the value is set to 2, the actual Scrip execution time will be within 3 minutes (either way) of the scheduled time. This is necessary to prevent the case where a process will not be executed if it is a little slow to start, or if the scheduler starts it a few seconds too early.</TD></TR>
+<TR><TD>8</TD><TD>Failed Run Limit</TD>
+<TD>N, where N is the number of times that Scrip execution is allowed to fail before notification is sent to the support provider; N=0, the Scrip will NEVER report a failure, N=1, the Scrip will report EVERY failure, N=2, the Scrip will report if it failed twice in a row, and so on.</TD></TR></TABLE>
+
+<p>The <em>Minutes</em>, <em>Hours</em>, <em>Day of the Month</em>, <em>Month</em>, and <em>Day of the Week</em> 
+fields can have multiple values and ranges of values separating them with commas.</p>
+<p>For example, a 1,3,5 entry for the <em>Minutes</em> parameter would mean that a Scrip would be executed at 
+minutes 1, 3, and 5.</p>
+<p>A 10-14 entry for the <em>Hours</em> parameter would mean that a Scrip would be executed starting at 10 AM and ending at 
+2 PM.</p>
+<p>Multiple value and range entries can be used together separated by commas.</p>
+
+
+<h4>Time Servers</h4>
+
+<p>Scrip 87 uses the following Internet time servers to compare a system's time to:</p>
+
+<ul>
+<li>time.nist.gov</li>
+<li>time-a.nist.gov</li>
+<li>time-nw.nist.gov</li>
+<li>nist1.sjc.certifiedtime.com</li>
+<li>ntp2.usno.navy.mil</li>
+</ul>
+
+<p>It tries to reach them in the order listed above. If none of the time servers is available, the time comparison operation will be attempted again the next time Scrip 87 is scheduled to run.</p>
+
+<p><br><br><br><hr color="#333399" noShade SIZE="1"></p>
+<div align="right">
+  <table border="0" cellPadding="0" cellSpacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td width="50%" valign="top">
+	  <p><font size="0" face="verdana,helvetica">© 2000-2002 HandsFree Networks
+          </font></p>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<BODY>
+</HTML>
+

@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 87 - Difference between System and Time Server Clock Exceeds Configured Threshold 
+Since Last Checked Twelve Hours Ago</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 87 - Difference between System and Time Server Clock Exceeds Configured Threshold 
+Since Last Checked Twelve Hours Ago</H3>
+
+<P>Scrip 87 detects and reports the difference between a System's clock and an Internet time server's,
+or the ASI server's clock when it exceeds the threshold, measured in minutes, you set in the Scrip's
+configuration page during the 12 hours since it was last executed.</p>
+
+<p>When it detects a slow clock, as defined by the threshold set in the Scrip's configuration page,
+Scrip 87 resets the clock to the correct time.</p>
+
+
+<P>In order to determine whether a system's clock is slow, Scrip 87 retrieves atomic time in one of two ways:</p>
+
+<ul>
+
+<li>Using HCP from the system where the ASI log server is located (this is the default option)</li>
+
+<li>Accessing a certified time server on the Internet.
+It uses port 37 to access the following time servers to adjust a system's clock:</li>
+
+<ul>
+<li>time.nist.gov</li>
+<li>time-a.nist.gov</li>
+<li>time-nw.nist.gov</li>
+<li>ntp2.usno.navy.mil</li>
+</ul>
+
+<p>In case of failure to reach the first time server on the list above, it will attempt to
+reach the others in sequential order (i.e. 2<SUP>nd</SUP>, 3<SUP>rd</SUP>, etc., etc.)
+If none of the time servers is available, the synchronization operation will be attempted again
+the next time Scrip 87 is scheduled to run.</p>
+
+<p>You can modify the list of time servers used by Scrip 87,
+adding or deleting time servers.</p>
+
+</ul>
+
+<p>The number of minutes used by Scrip 87 to determine whether a system's clock is slow or not is a
+configurable parameter.</p>
+
+
+<p>If the time reported by a system's clock is slower than the atomic time retrieved by Scrip 87 by a number of
+minutes greater than or equal to the value of the <em>Minimum difference (minutes) to report</em> parameter, Scrip 87
+will reset the system's clock to match the atomic time.</p>
+
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Date and time on user system; date and
+time on time server; difference </P>
+
+<P>(e.g. </P>
+
+<P>The system clock: Friday, March 16, 2001 06:29:26<BR>
+The server clock, time-a.nist.gov: Friday,
+March 16, 2001 06:55:32<BR>
+Time difference of 0 Days, 0 Hours, 26
+Minutes, 6 Seconds was found<BR>
+The system time has been synced with
+time-a.nist.gov</P>
+
+<P>) </TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

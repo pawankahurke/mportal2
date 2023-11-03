@@ -1,0 +1,783 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 43 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Win32)">
+	<META NAME="CREATED" CONTENT="20040405;8401487">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20080415;15394504">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 43 Configuration</H3>
+<H4>Configuration Parameters</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Site</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>User name for configuration
+	authentication</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Configuration password</EM>
+	and confirmation</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Machine identifier type</EM>
+	is set to <STRONG>0</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Friendly name when machine
+	identifier type = 2 empty</EM></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Proxy URL</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Domain for proxy
+	authentication</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI event management server
+	URL list</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI asset management server
+	URL list</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI client update management
+	server URL list</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI configuration management
+	server URL list</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI Microsoft update
+	management server URL list</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI provisioning and metering
+	management server URL list</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Verdana, sans-serif"><FONT SIZE=2><I>Management
+	server fail-over scheme (1 - Client always tries to log to the
+	server listed first in the list, 2 - Client logs to the last server
+	it was able to reach)</I> by default set to 1</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Use HTTP/HTTPS for event
+	logging</EM> is enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Use email for event logging</EM>
+	is enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Site domain for email logging</EM>
+		</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Email address for
+	administration group</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Email address for technical
+	support group</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Email address for engineering
+	group</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Return address for bounced
+	email messages</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>SMTP server for email logging</EM>
+		</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Window hooks enabled</EM> is
+	enabled 
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT FACE="verdana, helvetica"><FONT SIZE=2><I>Enable
+	client access from the network if system firewall is active</I> is
+	enabled</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Enable Scrip time-out checking</EM>
+	is enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Dump failed logging attempts
+	to error log file</EM> is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Put window text into dialog
+	box event logs</EM> is enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Password for simple
+	configuration interface</I> and confirmation is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Impersonation username</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Impersonation password</EM>
+	and confirmation</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Impersonation domain</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Maximum number of Scrip errors
+	within threshold time before disabling Scrip</EM> by default set to
+	<B>3</B></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Threshold time for Scrip
+	errors (seconds)</EM> by default set to <B>60</B> seconds</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Verdana, sans-serif"><I>Scrip
+	timeout when unspecified</I></FONT><I> </I><FONT FACE="Verdana, sans-serif"><I>(seconds)</I></FONT>
+	<FONT FACE="verdana, helvetica">by default set to </FONT><FONT FACE="verdana, helvetica"><B>43200</B></FONT><FONT FACE="verdana, helvetica">
+	seconds</FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="verdana, helvetica"><I>McAFee
+	VS version override</I> set to <B>0</B>. It should be changed only
+	by HandsFree Networks personnel.</FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Comm dump</EM> is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Alist dump</EM> is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Sync dump</EM> is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Scrip dump</EM> is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Timer dump</EM> is disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="verdana, helvetica"><I>Site
+	registration code flush (only change when instructed to do so by
+	technical support)</I></FONT> empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Generate new HandsFree Client
+	UUID</I> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Clear configuration database
+	and restart</I></P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Send error log file</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Send mail</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI client uninstall</EM> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>ASI client uninstall - Silent</EM>
+		</P>
+</UL>
+<H4>Site</H4>
+<P><EM>Site</EM> contains the name of the site used for all ASI logs
+posted and activties performed by the ASI client at a site.</P>
+<P>Please note that the first time an ASI client from the site
+contacts the ASI event management facility on the ASI server, it will
+look for an existing site name that matches the one contained in
+<EM>Site</EM>. If it does not find one, the ASI event management
+facility will create a site name that matches the one contained in
+<EM>Site</EM>, and will store all event logs using that newly created
+site name.</P>
+<P>The same sequence of events will occur the first time an ASI
+client from the site contacts the ASI asset management and site
+management facilities.</P>
+<P>We strongly advise against changing the name of a site by changing
+the content of the <EM>Site</EM> parameter in Scrip 43 because it
+would be difficult for you to uniformity of site name particularly
+where systems belonging to a site are distributed across multiple
+local networks over a widely distributed area, or simply consist of
+remotely connected and/or mobile systems.</P>
+<P>Additional complexity comes from having to make sure that when you
+change the value of the <EM>Site</EM> parameter, it is set to <STRONG>global</STRONG>,
+or <STRONG>local</STRONG>, as needed, otherwise you would end up with
+systems reporting incorrect site information.</P>
+<P>If you want to change the name of a site, the easiest and simplest
+way to do it is to change the site's name in its profile on the ASI
+installation management facility. Doing it this way, avoids all the
+issues described in the two paragraphs above.</P>
+<H4>User name for configuration authentication</H4>
+<P>In the <EM>User name for configuration authentication</EM>
+parameter, you enter the user name used to access the ASI client
+directly by logging onto it via a browser session from any computer
+with direct access to the network where systems where the ASI client
+is installed are located.</P>
+<P>Please note that the system from which you access the ASI client
+does not have to have the client installed.</P>
+<H4>Configuration password</H4>
+<P>The <I>Configuration password</I> configuration parameter lets you
+change the password for directly accessing the ASI client.</P>
+<P>Because the <EM>Configuration password</EM> parameter can be
+global or local, you can effectively and simply control access to
+Scrip configuration conforming to your organization's security and
+control policies.</P>
+<P>The configuration password is used in conjunction with the user
+name entered in the <EM>User name for configuration authentication</EM>
+parameter.</P>
+<H4>Machine identifier type</H4>
+<P><A NAME="DDE_LINK1"></A>When <EM>Machine identifier type</EM> is
+set to <STRONG>0</STRONG>, the ASI client will use a system's NetBIOS
+name as the value of field <EM>machine</EM> in event logs sent either
+to the server(s) listed in <EM>ASI event management server URL list</EM>,
+or via e-mail. If <EM>Machine identifier type</EM> is set to <STRONG>1</STRONG>,
+The ASI client will use the <EM>Universally Unique Identifier (UUID)</EM>
+it generates upon first-time installation as the value of field
+<EM>machine</EM>. When <EM>Machine identifier type</EM> is set to <STRONG>2</STRONG>,
+the ASI client will append the value you enter in the <I>Friendly
+name when machine identifier type = 2</I> configuration parameter to
+the system's NetBIOS name.</P>
+<P>By default, <EM>Machine identifier type</EM> is set to <STRONG>0</STRONG>.</P>
+<H4>Friendly name when machine identifier type = 2</H4>
+<P>The <I>Friendly name when machine identifier type = 2</I>
+configuration parameter lets you easily modify the NetBIOS name of a
+system by appending a label of your choice right after it. For
+example, if the NetBIOS name of a system is <B>node1</B>, and the
+value you enter in the <I>Friendly name when machine identifier type
+= 2</I> configuration parameter is <B>John Smith</B>, then the name
+of the system used by the ASI client and all Scrips, and on the ASI
+server will be <B>node1John Smith</B>.</P>
+<P>If the value of the <EM>Machine identifier type</EM> is set to <STRONG>2</STRONG>,
+and the <I>Friendly name when machine identifier type = 2</I>
+configuration parameter is blank, it's as if the value <EM>Machine
+identifier type</EM> were set to <STRONG>0</STRONG>. No <I>friendly
+name</I> will be appended to a system's Net BIOS name.</P>
+<P><B>Because the <I>Friendly name when machine identifier type = 2</I>
+configuration parameter can be either local or global, before setting
+its value it's very important that you set it to either global or
+local, depending on what you want to do.</B></P>
+<P>The value of the <I>Friendly name when machine identifier type = 2</I>
+configuration parameter is stored in a registry key. Please note that
+this parameter does not change or affect in any way a system's
+NetBIOS name.</P>
+<H4>Proxy URL</H4>
+<P>If the site your are configuring the ASI client for uses a proxy
+server, you enter the proxy server information in the <EM>Proxy URL</EM>
+parameter.</P>
+<P>An entry in <EM>Proxy URL</EM> has the following format:</P>
+<P><STRONG>http://[user name]:[user password]@[proxy server
+name]:[proxy port] </STRONG>
+</P>
+<P>If user authentication is not required, you do not need <STRONG>[user
+name]</STRONG> and <STRONG>[user password]</STRONG>.</P>
+<H4>Domain for proxy authenticaton</H4>
+<P>If the site you are configuring uses a proxy server that requires
+NTLM (NT LAN Manager) authentication, then you may need to enter the
+<EM>Domain for proxy authentication</EM> parameter. For example,
+Microsoft ISA Proxy requires NTLM authentication by default.</P>
+<P>The <EM>Domain for proxy authenticaton</EM> parameter is the NT
+domain for which the proxy user name and password specified in the
+<EM>Proxy URL</EM> parameter are valid. If you only have one NT
+domain, use that domain. If you are using workgroups rather than NT
+domains, you do not need to fill in this parameter.</P>
+<H4>ASI event management server URL list</H4>
+<P>In <EM>ASI event management server URL list</EM> you should enter
+the URL of the server(s), ASI clients at the site should log events
+to. If you have back-up event management server(s) that ASI clients
+can use to log events to in case the primary event management server
+is not accessible, <EM>ASI event management server URL list</EM> will
+consist of the URLs of the servers each on a different line, with no
+blank lines between entries.</P>
+<P>Please note that for each server, you will have to enter the full
+HTTPS or HTTP command line depending on whether you want the ASI
+client-to-server transactions to be SSL encrypted or not. For
+example:</P>
+<P><STRONG>https://asi.myevents.com</STRONG></P>
+<H4>ASI site configuration management server URL list</H4>
+<P>In <EM>ASI configuration management server URL list</EM> you
+should enter the URL of the server(s), ASI clients at the site should
+contact for configuration updates. If you have back-up site
+configuration management server(s) that ASI clients can contact for
+configuration changes in case the primary site configuration
+management server is not accessible, <EM>ASI site configuration
+management server URL list</EM> will consist of the URLs of the
+servers each on a different line, with no blank lines between
+entries.</P>
+<P>Please note that for each server, you will have to enter the full
+HTTPS or HTTP command line depending on whether you want the ASI
+client-to-server transactions to be SSL encrypted or not. For
+example:</P>
+<P><STRONG>https://asi.myconfigs.com</STRONG></P>
+<H4>ASI asset management server URL list</H4>
+<P>In <EM>ASI asset management server URL list</EM> you should enter
+the URL of the server(s), ASI clients at the site should send asset
+logs to. If you have back-up asset management server(s) that ASI
+clients can send asset logs to in case the primary asset management
+server is not accessible, <EM>ASI asset management server URL list</EM>
+will consist of the URLs of the servers each on a different line,
+with no blank lines between entries.</P>
+<P>Please note that for each server, you will have to enter the full
+HTTPS or HTTP command line depending on whether you want the ASI
+client-to-server transactions to be SSL encrypted or not. For
+example:</P>
+<P><STRONG>https://asi.myassets.com</STRONG></P>
+<H4>ASI client update management server URL list</H4>
+<P>In <EM>ASI software update management server URL list</EM> you
+should enter the URL of the server(s), ASI clients at the site should
+contact for ASI software updates. If you have back-up software update
+management server(s) that ASI clients can contact for ASI software
+updates in case the primary software update management server is not
+accessible, <EM>ASI software update management server URL list</EM>
+will consist of the URLs of the servers each on a different line,
+with no blank lines between entries.</P>
+<P>Please note that for each server, you will have to enter the full
+HTTPS or HTTP command line depending on whether you want the ASI
+client-to-server transactions to be SSL encrypted or not. For
+example:</P>
+<P><STRONG>https://asi.myupdates.com</STRONG></P>
+<H4>ASI site Microsoft update management server URL list</H4>
+<P>In <EM>ASI Microsoft update management server URL list</EM> you
+should enter the URL of the server(s), ASI clients at the site should
+contact for Microsoft update management functions. If you have
+back-up Microsoft update management server(s) that ASI clients can
+contact to perform Microsoft update management functions in case the
+primary Microsoft update management server is not accessible, <EM>ASI
+site Microsoft update management server URL list</EM> will consist of
+the URLs of the servers each on a different line, with no blank lines
+between entries.</P>
+<P>Please note that for each server, you will have to enter the full
+HTTPS or HTTP command line depending on whether you want the ASI
+client-to-server transactions to be SSL encrypted or not. For
+example:</P>
+<P><STRONG>https://asi.myconfigs.com</STRONG></P>
+<H4>ASI site provisioning and metering management server URL list</H4>
+<P>In <EM>ASI provisioning and metering management server URL list</EM>
+you should enter the URL of the server(s), ASI clients at the site
+should contact to perform provisioning and metering functions. If you
+have back-up provisioning and metering management server(s) that ASI
+clients can contact to perform provisioning and metering functions in
+case the primary provisioning and metering management server is not
+accessible, <EM>ASI site provisioning and metering management server
+URL list</EM> will consist of the URLs of the servers each on a
+different line, with no blank lines between entries.</P>
+<P>Please note that for each server, you will have to enter the full
+HTTPS or HTTP command line depending on whether you want the ASI
+client-to-server transactions to be SSL encrypted or not. For
+example:</P>
+<P><STRONG>https://asi.myconfigs.com</STRONG></P>
+<H4>Management server fail-over scheme</H4>
+<P>You can use the <I>Management server fail-over scheme</I>
+configuration parameter to decide which strategy the ASI client
+should use when there are multiple entries in any of the management
+server URL list configuration parameters. Please note that the
+<I>Management server fail-over scheme</I> configuration parameter
+applies to ALL management server URL list configuration parameters.</P>
+<P>If the <I>Management server fail-over scheme</I> configuration
+parameter is set to 1, its default value, the ASI client always tries
+to log to the server listed first in the <I>Management server
+fail-over scheme</I> configuration parameter. If it is not available,
+it will try to log to the second server on the list, and so on, until
+it finds a server which is available. If <I>Management server
+fail-over scheme</I> is set to 2, the ASI client logs to the last
+server it was able to reach.</P>
+<H4>Use HTTP/HTTPS for event logging</H4>
+<P>When the <EM>Use HTTP/HTTPS for event logging</EM> option is
+enabled, the ASI client will send logs to the server(s) listed in <EM>ASI
+event management server URL list</EM> via HTTP or HTTPS depending on
+the URL entered in <EM>ASI event management server URL list</EM>.</P>
+<P><EM>Use HTTP/HTTPS for event logging</EM> is enabled by default.
+if both <EM>Use HTTP/HTTPS for event logging</EM> and <EM>Use email
+for event logging</EM> are enabled, the former overrides the latter.</P>
+<H4>Use email for event logging</H4>
+<P>When the <EM>Use email for event logging</EM> option is enabled,
+and the <EM>Use HTTP/HTTPS for event logging</EM> option is disabled,
+the ASI client will send logs to the e-mail addresse(s) listed in the
+<EM>Email address for administration group</EM>, <EM>Email address
+for technical support group</EM>, <EM>Email address for engineering
+group</EM>, or <EM>Return address for bounced email messages</EM>
+parameters, depending on the Scrip that produced the log. <STRONG>Please
+note that you do not have the option to change which Scrip send logs
+to which e-mail address</STRONG>.</P>
+<H4>Site domain for email logging</H4>
+<P><EM>Site domain for email logging</EM> is the domain used to
+generate the return email addresses when the ASI client sends logs
+via e-mail. For example, if the site domain is <STRONG>company.com</STRONG>
+and the machine name is <STRONG>nodeN</STRONG>, the return address
+would be <STRONG>nodeN@company.com</STRONG>.</P>
+<H4>Destination e-mail addresses for e-mail logging</H4>
+<P><EM>Email address for administration group</EM>, <EM>Email address
+for technical support group</EM>, and <EM>Email address for
+engineering group</EM>, are the addresses to which event logs are
+sent when the <EM>Use email for event logging</EM> option is enabled.
+</P>
+<H4>Return address for bounced email messages</H4>
+<P>When ASI client logs sent via e-mail do not reach any one of the
+addresses entered in the <EM>Email address for administration group</EM>,
+<EM>Email address for technical support group</EM>, <EM>Email address
+for engineering group</EM>, and <EM>Return address for bounced email
+messages</EM> parameters, they will be returned to the e-mail address
+you enter in the <EM>Return address for bounced email messages</EM>
+parameter.</P>
+<H4>SMTP server for email logging</H4>
+<P>When sending logs via e-mail, the ASI client will use the SMTP
+server whose name or IP address you enter in <EM>SMTP server for
+email logging</EM>.</P>
+<P>If <EM>SMTP server for email logging</EM> is empty, The ASI client
+first tries to retrieve the name of the authoritative mail server for
+the domain by using DNS. If that fails, the ASI client tries to use
+the sub-net's gateways as mail servers.</P>
+<H4>Window hooks enabled</H4>
+<P>The <EM>Window hooks enabled</EM> option lets you enable or
+disable detection of Microsoft Windows messages. It is enabled by
+default and you should disable it only under exceptional
+circumstances. When it is disabled, as significant portion of the ASI
+client's event detection capabilities would not be operational.</P>
+<P>Disabling the <EM>Window hooks enabled</EM> option will affect the
+following Scrips:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip 38 will no longer detect
+	faults. However, the ASI client will still trap its own faults. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">There are a few Scrips that close
+	dialog boxes after running maintenance tasks. These will no longer
+	close those dialog boxes. They are: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 10 -- closes &quot;ScanDisk
+		Results&quot; dialog after Scandisk completes execution. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 13 -- closes &quot;Please
+		Read&quot; and &quot;Norton Anti Virus&quot; dialogs after running
+		Norton Anti Virus. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 20 -- closes dialog after
+		defrag. 
+		</P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in">The following Scrips won't be
+	triggered: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 68 -- detects and corrects
+		time/date change 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 94 -- detects and logs
+		dialog boxes 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrips 46, 47, 48, 49 -- detect
+		and disable error, warning, information and question dialog boxes
+		(These Scrips are disabled by default) 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 192 -- controls execution
+		of programs on a system 
+		</P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in">The Scrips listed below also won't
+	be triggered: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 14 -- detects &quot;Internet
+		Accounts&quot; dialog 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 16 -- detects &quot;Delete
+		history&quot; IE dialog 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 21 -- detects &quot;Confirm
+		File Delete&quot; and &quot;Confirm Folder Delete&quot; dialogs for
+		recycle bin 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 25 -- detects dialogs that
+		are created by the client itself 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 76 -- detects Netscape
+		preferences change 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Scrip 79 -- detects Eudora
+		preferences change 
+		</P>
+		<LI><P>Scrip 80 -- detects Pegasus preferences change 
+		</P>
+	</UL>
+</UL>
+<H4>Enable client access from the network if system firewall is
+active</H4>
+<P>The <EM>Enable client access from the network if system firewall
+is active</EM> configuration parameter applies only to systems
+running the Microsoft Windows XP operating system. When the Microsoft
+Windows XP native firewall is enabled, enabling the <EM>Enable client
+access from the network if system firewall is active</EM>
+configuration parameter lets ASI clients continue to be able to
+communicate with each other via port 2721.</P>
+<H4>Enable Scrip time-out checking</H4>
+<P><EM>When the Enable Scrip time-out checking configuration
+parameter is enabled, an execution time threshold is set for selected
+Scrips. This threshold varies with each Scrip. If one of these
+Scrips' execution time exceeds its threshold, the ASI client
+restarts.</EM></P>
+<H4>Dump failed logging attempts to error log file</H4>
+<P>When <EM>Dump failed logging attempts to error log file</EM> is
+enabled, The ASI client will write all HTTP/HTTPS errors detected
+when sending logs to the ASI server to a log file called <EM>errlog.txt</EM>
+that resides in the ASI client directory.</P>
+<P>When the ASI client detects the presence of <EM>errlog.txt</EM> in
+its directory, it automatically sends it to the ASI server. The
+information contained in <EM>errlog.txt</EM> is very helpful in
+diagnosing HTTP/HTTPS communication problems. <EM>errlog.txt</EM> is
+in plain text format. The data it contains is traceback information
+and HTML messages the ASI server generates when an error occurs.</P>
+<P>Please note that you should not enabled the <EM>Dump failed
+logging attempts to error log file</EM> parameter unless necessary
+for diagnosing a problem. Otherwise, any failure to log events to the
+ASI server will trigger the dump, even when the failure is not caused
+by a problem but to conditions such as a system not being connected
+to the Internet by choice.</P>
+<H4>Put window text into dialog box event logs</H4>
+<P>When <EM>Put dialog box content into dialog box event logs</EM> is
+disabled, the ASI client will include only the dialog box title in
+the dialog box event logs. This parameter is enabled by default.</P>
+<H4>Password for local user interface</H4>
+<P>The <I>Password for local user interface</I> configuration
+parameter lets you manage and control the password for accessing the
+local ASI client user interface. By default The <I>Password for local
+user interface</I> configuration parameter, is empty. In this case,
+the ASI client will give access to the local user interface using
+<B>dilbert</B> as the password.</P>
+<H4>Impersonation Support</H4>
+<P>On NT based systems (MS Windows NT4, 2000, XP, and Server 2003)
+the ASI client is logged in as local system administrator. This means
+that it cannot access shared resources on the local network.</P>
+<P>In order to enable ASI client's access to shared resources on the
+local network, we have implemented impersonation. Impersonation lets
+the ASI client log onto the system where the shared resource is
+located as a user known by that system enabling it to access that
+shared resource.</P>
+<P>You should enter the known user id and password in Scrip 43, as
+described below. With this information, the ASI client will be able
+to access shared resources on the local network as follows:</P>
+<H5>For Workgroups</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows 9x</STRONG> 
+			</P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows 9x</STRONG></P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on <EM>from</EM>
+			system</P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist both on <EM>from</EM>
+			and <EM>to</EM> systems</P>
+		</TD>
+	</TR>
+</TABLE>
+<H5>For Domains</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on domain controller</P>
+		</TD>
+	</TR>
+</TABLE>
+<H4>Impersonation username</H4>
+<P>The <EM>Impersonation username</EM> contains the name of the user
+that can be used by Scrips that need to access shared resources on NT
+based systems (systems running the Microsoft Windows NT4, 2000, XP,
+or Server 2003 operating system).</P>
+<H4>Impersonation password</H4>
+<P>The <EM>Impersonation password</EM> configuration parameter holds
+the password that in conjunction with the <EM>Impersonation username</EM>
+lets Scrips access shared resources on other systems on the network,
+either as mapped drives(e.g. <STRONG>x:\shared folder</STRONG>), or
+using UNC (Universal Naming Convention) syntax (e.g. <STRONG>\\server\\shared
+folder</STRONG>).</P>
+<H4>Impersonation domain</H4>
+<P>The <EM>Impersonation domain</EM> contains the name of the domain
+that can be used, if necessary, by Scrips that need to access shared
+resources on other systems on the network either as mapped
+drives(e.g. <STRONG>x:\shared folder</STRONG>), or using UNC
+(Universal Naming Convention) syntax (e.g. <STRONG>\\server\\shared
+folder</STRONG>).</P>
+<H4><FONT FACE="verdana, helvetica"><FONT SIZE=3>Maximum number of
+Scrip errors within threshold time before disabling Scrip</FONT></FONT></H4>
+<P><FONT FACE="verdana, helvetica">When the number of errors that
+occur during a Scrip's execution within the time interval set in the
+</FONT><EM><FONT FACE="verdana, helvetica"><I>Threshold time for
+Scrip errors (seconds)</I></FONT></EM><FONT FACE="verdana, helvetica">
+configuration parameter, exceeds the value set in the </FONT><FONT FACE="verdana, helvetica"><I>Maximum
+number of Scrip errors within threshold time before disabling Scrip</I></FONT><FONT FACE="verdana, helvetica">
+configuration parameter, a Scrip's execution will terminate. The
+value of this configuration parameter applies to all Scrips. By
+default it is set to </FONT><FONT FACE="verdana, helvetica"><B>3</B></FONT><FONT FACE="verdana, helvetica">
+errors.</FONT></P>
+<H4>Threshold time for Scrip errors (seconds</H4>
+<P>In the <I>Threshold time for Scrip errors (seconds)</I>
+configuration parameter you set the interval of time during which the
+number of errors that occur during any Scrip's execution cannot
+exceed the number you set in the <I>Maximum number of Scrip errors
+within threshold time before disabling Scrip</I> configuration
+parameter. The value of this configuration parameter applies to all
+Scrips. By default it is set to <B>60</B> seconds.</P>
+<H4>Scrip timeout when unspecified (seconds</H4>
+<P>In the <I>Scrip timeout when unspecified(seconds</I> configuration
+parameter you set the interval of time after which execution of a
+Scrip (including both queue and execution time) is terminated. When
+this happens, a traceback that includes a stack trace for the
+timed-out Scrip is generated and uploaded to the ASI server, and the
+ASI client will restart. A few Scrips set their own time limit. We
+also have a mechanism for Scrips like Scrip 23 (Send Queued Event
+Logs) to extend their time limit as long as they know that they are
+doing useful work (this is a common technique called a &quot;watchdog
+timer&quot;).</P>
+<P>Execution of any Scrip that doesn't explicitly set its own time
+limit is terminated when the time specified in the <I>Scrip timeout
+when unspecified (seconds</I> configuration parameter is exceeded.
+The default value for this configuration parameter is set at 12 hours
+(43200 seconds). If you set it to zero, then Scrips that don't set
+their own time limit will never time out (in other words, zero means
+infinite).</P>
+<P>The <I>Scrip timeout when unspecified (seconds)</I> configuration
+parameter can also be used to terminate the execution of Scrips that
+may be stuck in the run queue. If a Scrip is stuck in the run queue
+(which you can see using a Scrip dump), then you can set the value of
+the <I>Scrip timeout when unspecified (seconds)</I> configuration
+parameter to something less than the time the Scrip you want to take
+out of the run queue has been in the queue. The next time the ASI
+client compares the value of the <I>Scrip timeout when unspecified
+(seconds)</I> configuration parameter with the time the Scrip has
+been in the queue, it will take the Scrip out of the queue. A
+traceback that includes a stack trace for the timed-out Scrip will be
+generated and uploaded to the ASI server, and the ASI client will
+restart. The stack trace will show us where the Scrip was stuck. Of
+course, you usually want to set the default time limit back up once
+the client restarts. This entire operation can be performed remotely.</P>
+<H4>McAFee VS version override</H4>
+<P>If we determine that the current scrip is compatible with a newer
+release of McAfee, then by setting the value of the <I>McAfee VS
+version override</I> configuration parameter equal to the current
+major build number for the new release, Scrips 90 (McAfee Virus
+Definition Management), and 175 (McAfee VirusScan Execution) will
+continue to work without any changes.</P>
+<P><B>Please note that the value of the <I>McAfee VS version override</I>
+configuration parameter should be changed only by HandsFree Networks
+personnel.</B></P>
+<H4>Logs Overview</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Comm dump: A list a recent network
+	communications between clients and or the server. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Alist dump: A list of recent calls
+	to add and remove machines from the client machine list. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Sync dump: A list of sync objects
+	in use. Used in client resource management. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Scrip dump: A list of recently
+	executed scrips, scrips currently being executed, and scrips waiting
+	to be run. 
+	</P>
+	<LI><P>Timer dump: A list of scrips in the timer queue scheduled to
+	be run. 
+	</P>
+</UL>
+<H4 STYLE="font-style: normal"><FONT FACE="verdana, helvetica"><FONT SIZE=3>Site
+registration code flush (only change when instructed to do so by
+technical support)</FONT></FONT></H4>
+<P><B>You should not use the <FONT FACE="verdana, helvetica"><I>Site
+registration code flush (only change when instructed to do so by
+technical support)</I></FONT> configuration parameter without first
+consulting HandsFree Networks. </B>
+</P>
+<P>Here is how the <FONT FACE="verdana, helvetica"><I>Site
+registration code flush (only change when instructed to do so by
+technical support)</I></FONT> configuration parameter works. You fill
+in the new site registration code and submit the change. This causes
+Scrip 43 to run. It copies the site registration code into a special
+registry key, clears the <FONT FACE="verdana, helvetica"><I>Site
+registration code flush (only change when instructed to do so by
+technical support)</I></FONT> configuration parameter, and restarts
+the ASI client. When the ASI client starts, it copies that registry
+key into the site registration code and flushes the password list.
+This causes the ASI client to behave as it always does on a site
+registration code change, but prevents it from communicating with
+other ASI clients.</P>
+<P>the <FONT FACE="verdana, helvetica"><I>Site registration code
+flush (only change when instructed to do so by technical support)</I></FONT>
+configuration parameter needs to be local-only because it wouldn't
+propagate anyway, or at least it wouldn't propagate reliably, because
+the ASI client shuts down right after it changes. Also, the whole
+point is that this change is supposed to isolate the system where
+Scrip 43 is run in this mode from the others at the site, so you
+wouldn't want it to propagate.</P>
+<P>You can use the <FONT FACE="verdana, helvetica"><I>Site
+registration code flush (only change when instructed to do so by
+technical support)</I></FONT> configuration parameter to just clear
+the password list by setting the new value of the site registration
+code to be the same as the current site registration code.</P>
+<P>Note that the <FONT FACE="verdana, helvetica"><I>Site registration
+code flush (only change when instructed to do so by technical
+support)</I></FONT> configuration parameter also affects how the /ID
+command line parameter in the ASI client installation executable
+works. If you use the /ID command-line parameter when installing the
+ASI client to set the site registration code, if the ASI client is
+being run on a system where the ASI client is already installed, it
+will replace the current site registration code, and flush the
+password cache. So, the /ID command line parameter can also be used
+to isolate a system from the others. 
+</P>
+<H4>Generate new HandsFree Client UUID</H4>
+<P>Under certain circumstances, you could end up with multiple
+systems have the same UUID (unique universal identifier) generated by
+the ASI client upon installation. For example, if you include the ASI
+client in a standard image, every system where you install that image
+will have the same UUID. This causes a number of problems including
+degraded ASI server performance. Should it arise, to correct this
+situation you can use the <I>Generate new HandsFree Client UUID</I>
+function. Clicking on the <I>Generate new HandsFree Client UUID</I>
+<B>Execute</B> button will archive and delete a system's current
+UUID, and generate a new one.</P>
+<H4>Clear configuration database and restart</H4>
+<P>Clicking on the <STRONG>Execute</STRONG> button to the right of
+the Clear configuration database and restart label will delete the
+ASI client and Scrip configuration database, and re-start the ASI
+client. Upon restarting, the ASI client will automatically re-create
+the ASI client and Scrip configuration database and re-populates it
+with configuration values drawn from other copies of the ASI client
+and configuration database either on the sub-net or on the ASI
+server.</P>
+<H4>Send error log file</H4>
+<P>Clicking on the <EM>Send error log file</EM> button will
+immediately send the Errlog.txt file found in the ASI client
+directory to the log server for the local site, or e-mail it to the
+designated recipient if e-mail logging is enabled.</P>
+<H4>Send mail</H4>
+<P>When e-mail logging is set to true, clicking on the <EM>Send mail</EM>
+button will immediately sen any e-mail logs found in the email queue
+to the designated recipient.</P>
+<H4>ASI client uninstall</H4>
+<P>Clicking on the <STRONG>Execute</STRONG> button to the right of
+the <EM>ASI client uninstall</EM> label will remove the ASI client
+from the system where the Scrip 43 configuration page is being
+accessed.</P>
+<H4>ASI client uninstall - silent</H4>
+<P>Clicking on the <STRONG>Execute</STRONG> button to the right of
+the <EM>ASI client uninstall - silent</EM> label will remove the ASI
+client from the system where the Scrip 43 configuration page is being
+accessed. This uninstall mode is called silent because no dialog
+boxes will appear on the screen during the uninstall process.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

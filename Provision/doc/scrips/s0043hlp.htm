@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 43 - HandsFree Client Tools</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20050307;8412125">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050307;8481350">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 43 - HandsFree Client Tools</H3>
+<P>Scrip 43 performs five functions:</P>
+<UL>
+	<LI><P>ASI client configuration 
+	</P>
+	<P>Via the Scrip 43 configuration page you can change all ASI client
+	configuration parameters including the user id and password used to
+	access the Scrip configurator directly, on a system-by-system basis.
+	This means that security policies for accessing the Scrip
+	configurator can match those you use for your organization as a
+	whole.</P>
+	<P>Scrip 43 lets you also change the name of a site. We strongly
+	advise against doing this because it would be difficult for you to
+	uniformity of site name particularly where systems belonging to a
+	site are distributed across multiple local networks over a widely
+	distributed area, or simply consist of remotely connected and/or
+	mobile systems.</P>
+	<P>Additional complexity comes from having to make sure that when
+	you change the name of the site via Scrip 43, the site parameter is
+	set to global, or local, as needed, otherwise you would end up with
+	systems reporting incorrect site information.</P>
+	<P>If you want to change the name of a site, the easiest and
+	simplest way to do it is to change the site's name in its profile on
+	the ASI installation management facility. Doing it this way, avoids
+	all the issues described in the two paragraphs above.</P>
+	<P>Please refer to the Scrip 43 configuration help files for a
+	detailed description of all ASI client configuration parameters, and
+	instructions on how to change them, if necessary.</P>
+	<LI><P>Impersonation management 
+	</P>
+	<P>On NT based systems (MS Windows NT4, 2000, XP, and Server 2003)
+	the ASI client is logged in as local system administrator. This
+	means that it cannot access shared resources on the local network.</P>
+	<P>In order to enable ASI client's access to shared resources on the
+	local network, we have implemented impersonation. Impersonation lets
+	the ASI client log onto the system where the shared resource is
+	located as a user known by that system enabling it to access that
+	shared resource.</P>
+	<P>You manage a site's impersonation settings including user id,
+	password, and domain, if one is needed, via the impersonation
+	parameters in the Scrip 43 configuration page.</P>
+	<LI><P>ASI client configuration maintenance</P>
+	<P>Scrip 43 lets you perform a number of ASI client confiiguration
+	maintenance functions including clearing and resetting of the
+	configuration database, generating a new system UUID (unique
+	universal identifier), and changing a system's site registration
+	code.</P>
+	<LI><P>ASI client diagnostic information management 
+	</P>
+	<P>By simply checking boxes for the diagnostic information you need,
+	and clicking on a few buttons, Scrip 43 will deliver to the ASI
+	server in-depth diagnostic and error trace information from one,
+	some, or all systems at a site. The diagnostic information logs
+	produced include:</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">Dumps of information related to
+		the operation of the Automated Support Infrastructure (ASI) Client.
+		Dumps produced are: 
+		</P>
+		<UL>
+			<LI><P STYLE="margin-bottom: 0in">Comm Dump: A list a recent
+			network communications between clients and or the server. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0in">Alist Dump: A list of recent
+			calls to add and remove machines from the client machine list. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0in">Sync Dump: A list of sync
+			objects in use. Used in client resource management. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0in">Scrip Dump: A list of recently
+			executed scrips, scrips currently being executed, and scrips
+			waiting to be run. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0in">Timer Dump: A list of scrips in
+			the timer queue scheduled to be run. 
+			</P>
+		</UL>
+		<LI><P>Error log files 
+		</P>
+	</UL>
+	<P>Scrip 43 posts dumps and error log files onto the event log
+	database on the ASI server as SSL HTTP logs sent via port 80.
+	Alternatively, it can also send dumps and error log files via
+	e-mail.</P>
+	<LI><P>ASI client uninstall 
+	</P>
+	<P>Scrip 43 lets you remove the ASI Client from the system where the
+	Scrip 43 configuration page is being accessed. Removal can be
+	silent. ASI client uninstall is not a site wide operation. This
+	minimizes the risk of unintentionally removing the ASI client from
+	an entire site.</P>
+</UL>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Action taken by Scrip 43 
+			</P>
+			<P>(Example 1</P>
+			<P>Writing out a &quot;Timer Dump&quot; Send &quot;errlog.txt&quot;</P>
+			<P>)</P>
+			<P>(Example 2</P>
+			<P>Executing a ASI Client uninstall User has confirmed uninstall 
+			</P>
+			<P>)</P>
+			<P>(Example 3</P>
+			<P>Generating new HandsFree Client UUID 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Detail information about action taken by Scrip 43</P>
+			<P>(Example 1</P>
+			<P>Generating new HandsFree Client UUID<BR>The current UUID
+			(81484f00-2cc8-11d7-9646-00600896ce22) is being archived in
+			UUID-1110135149<BR>-Archive successful<BR>HandsFree Client will
+			now delete UUID: 81484f00-2cc8-11d7-9646-00600896ce22<BR>-The UUID
+			was deleted<BR>The new UUID is:
+			faba2b60-8e46-11d9-9646-00600896ce22 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

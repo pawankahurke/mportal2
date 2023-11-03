@@ -1,0 +1,79 @@
+ASI MUM - When to use the Scrip 237 (Microsoft Update Management) "Reset Configuration now" function
+=====================================================================================================
+
+The "Reset configuration now" function in Scrip 237 (Microsoft Update Management) can be used to troubleshoot situations where the Microsoft update management process on one or more systems may not be working normally.
+
+By default, Scrip 237 automatically resets the MUM configuration on every system where it is enabled every four weeks. This use of the "Reset configuration now" function is not configurable. 
+
+In general, although you should not abuse it, there is no harm in running the "Reset configuration now" function. However, you should be aware, that when you run it on all systems at one or more sites, depending on the total number of systems involved, it may cause significant bandwidth consumption on the ASI server as the configuration reset operation involves the download of the all of the MUM configuration information by all the systems involved.  Also, please be aware that any pending scheduled delays will be reset and pushed into the future when you run the "Reset configuration now" function manually (the four-weekly execution of the "Reset configuration now" function by Scrip 237 will not reset the scheduled delay).
+
+Instances when you should run the  "Reset configuration now" function include:
+
+1. If Scrip 237 is enabled on a system, or at a site but information about the system/site on the ASI server Microsoft Update Management (MUM) pages is either incomplete or missing.
+
+2. When Scrip 237 is getting tracebacks and the event logs appear empty (or close to empty) the reset button may correct the problem.
+
+3. If you see the text "There is a configuration problem on the ASI server." in the Scrip 237 event log.
+
+4. To reset the attempted install counter for individual updates that have failed to install too many times. 
+
+5. To clear the action queue on one or more systems of software update related items that are no longer of interest.
+
+
+When does Scrip 237  (Microsoft Update Management) run?
+========================================================
+
+The question of when Scrip 237 runs comes up often because every time it runs, Scrip 237 triggers at least one MS AU client detect operation. Because of a known bug in svchost.exe, AU detect operations consume most a processor's capacity. If they are performed frequently, this results in significant performance problems. We have worked hard to minimize the occurrence of AU detect operations on systems where ASI Microsoft Update Management (MUM) is enabled, and will continue to do so in the future.
+
+1. When it is scheduled to run
+
+2. When a detection operation fails (Scrip 237 includes a detect retry configuration parameter)
+
+3. when Scrip 237 is unable to successfully complete a transaction with the ASI server (Binary backoff timer)
+
+4. At the time of a software update installation cycle
+
+5. When you run a software update removal
+
+6. When you push one of the "Execute" buttons in the Scrip 237 configuration page
+
+7. When a new Microsoft Windows software update related system event log is detected
+
+8. When the following Microsoft Automated Update events occur:
+
+- COM API detection completed
+- COM API download completed
+- COM API install completed
+- BITS transfer completed.
+- BITS transfer got an error.
+- BITS job was modified.
+- A new BITS job was submitted.
+
+9. When the value of a Scrip 237 configuration parameter changes (such as a change in the Scrip schedule or one of the other configuration parameters).  
+
+10. When you run the "Install critical update" wizard.
+
+11. When the ASI Client starts up (there is a built-in 10 minute delay before the Scrip runs).
+
+12. Right after the Scrip is disabled (in this instance it does not perform a software update detect operation).  Disabling the Scrip restores the Microsoft Automatic Updates client to its system defaults.
+
+13. When a notification is scheduled to run (in this instance it does not perform a software update detect operation).
+
+14. When it performs a software update transfer to another system on the same sub-net (in this instance it does not perform a software update detect operation). (Download propagation timer) 
+
+15. When an user cancels the system re-start dialog displayed after a software update installation completes (in this instance it does not perform a software update detect operation).
+
+16. When the "Reset configuration now" action scheduled every four weeks runs (if this happens in the middle of a critical operation, the "Reset configuration now" action is re-scheduled to run after a fixed interval expires.)
+
+
+When to enable the "Disable client startup offline scan" option in Scrip 237
+=============================================================================
+
+In some cases, for example on less powerful systems, or on those with a heavily loaded start-up environment, you may want to enable the "Disable client startup offline scan" option in Scrip 237 to eliminate the execution of one or more Microsoft update detect operations which as described in the previous section of this document, consume most of a system's processor capacity.
+
+In its default configuration, Scrip 237 runs at ASI client start-up to maximize the likelihood that at least one detect operation occurs
+ on a system because no Microsoft software updates will be installed unless at least one detection operation occurs.
+
+If you decide to enable  the "Disable client startup offline scan" option in Scrip 237, you should ensure that systems are running when the default daily execution of Scrip 237 is scheduled to occur, at 1 PM every day with a two-hour random interval, i.e. that systems are running between 1 and 3 PM. If you have changed the Scrip 237 daily execution schedule, you will need to make sure that systems are running at the time Scrip 237 is scheduled to run.
+
+

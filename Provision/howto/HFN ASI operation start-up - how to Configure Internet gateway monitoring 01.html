@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Configuring Internet Gateway Monitoring</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20061214;20422588">
+	<META NAME="CHANGED" CONTENT="20071212;16271767">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Configuring Internet Gateway Monitoring 
+</H3>
+<P>You can use ASI to monitor the internet gateways at your customer
+sites. First, configure Scrip 100 to retrieve the gateway IP
+addresses, using the servers group (for example, <B>Servers - All</B>)
+you have already defined (see the document &quot;<A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Identify%20and%20group%20server%20systems%2001.html" TARGET="_blank">Identifying
+and Grouping Server Systems</A>&quot;). 
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0in">Log onto your ASI server
+	(https://asiservername/main). 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click on the &quot;Use extended
+	interface&quot; link on the right side of the ASI Dashboard upper
+	pane, below &quot;user login&quot; and date. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">In the &quot;sites&quot;
+	navigation bar, click on the &quot;wizard&quot; link
+	(https://asiservername/main/config/index.php?act=wiz). 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click on the &quot;Scrip
+	configuration&quot; wizard entry. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Select the machine group type &quot;A
+	group of machines&quot;. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click the &quot;use&quot; link for
+	the group to be configured. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click the link for Scrip 100 (File
+	Distribution and Retrieval). 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click &quot;Configure&quot; button
+	for &quot;File distribution and retrieval command line(s)&quot;. By
+	default, this line is
+	present:<BR><CODE>0,http://checkip.dyndns.org,logserver</CODE><BR>If
+	so, enable the command line by changing the 0 to a 1. If the line is
+	not present, add it:<BR><CODE>1,http://checkip.dyndns.org,logserver</CODE><BR>If
+	other entries are present, they should begin with a 0, that is, they
+	should be disabled. 
+	</P>
+	<LI><P>Click the &quot;Next&quot; button when finished. 
+	</P>
+</OL>
+<P>Allow some time for clients to synchronize configuration with
+server; this may take an hour or more, depending on the configuration
+of Scrip 177 (Scrip Configuration Update) at your sites. Once the
+clients are configured with the new Scrip 100 command line, run the
+Scrip for all machines in the group: 
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0in">In the &quot;sites&quot;
+	navigation bar, click on the &quot;wizard&quot; link
+	(https://asiservername/main/config/index.php?act=wiz). 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click on the &quot;Scrip
+	configuration&quot; wizard entry. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Select the machine group type &quot;A
+	group of machines&quot;. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click the &quot;use&quot; link for
+	the group to be configured. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click the link for Scrip 100 (File
+	Distribution and Retrieval). 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click &quot;Configure&quot; button
+	for &quot;File distribution and retrieval command line(s)&quot;. 
+	</P>
+	<LI><P>Click &quot;Execute for group&quot; button for &quot;Distribute
+	/ Retrieve file(s) now&quot;. 
+	</P>
+</OL>
+<P>Allow time for the clients to synchronize with the server and
+retrieve the gateway IP information before running the report that
+lists the IP addresses. You may want to do the Scrip 100 run early in
+the day, and run the report later that day, or on the next day. When
+the report is run, it will show any IP addresses that have been
+collected by Scrip 100 in the 2-3 days prior to running the report. 
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0in">In the &quot;reports&quot;
+	navigation bar, click on the &quot;reports&quot; link. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click the reset button to clear
+	old search settings. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">In the &quot;Name contains&quot;
+	box, type &quot;gateway&quot; and click the Search button. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Click the &quot;run now&quot; link
+	for the report &quot;Gateway IP Address Report&quot;. 
+	</P>
+	<LI><P>A new window will open the &quot;Run a Report&quot; page;
+	click &quot;yes&quot; to confirm. Wait for the report data to be
+	displayed. The gateway IP addresses will be listed, categorized by
+	site. 
+	</P>
+</OL>
+<P>Gateways at your sites can be monitored by configuring Scrip 88 on
+one or (preferably) two machines at your home site. You may be able
+to use ping (ICMP) to monitor a gateway, but if the gateway does not
+respond to ping you will have to test the availability of a TCP
+service (a port) such as HTTP (port 80), SMTP (port 25), or Microsoft
+Remote Desktop Connection (port 3389). 
+</P>
+<P>You will need to configure Scrip 88 on each ASI client machine
+that will be performing availability testing. Choose a machine or
+machines at your home site that are normally left running, to
+maximize monitoring coverage. To configure the Scrip: 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">In the &quot;sites&quot;
+	navigation bar, click on the &quot;configuration&quot; link. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Find the site name corresponding
+	to the machine you wish to configure. Click the &quot;view machines&quot;
+	link to the left of the site name. The machine list will be
+	displayed. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Find the name of the machine whose
+	Scrip 88 you want to configure, then click the &quot;configure
+	Scrips&quot; link to the left of the machine name. The list of
+	Scrips will be displayed. 
+	</P>
+	<LI><P>Click the link for Scrip 88 (Network Devices and Services
+	Availability). 
+	</P>
+</UL>
+<P><B>Important:</B> The <I>Group</I> parameter allows you to select
+the system(s) which you want the configuration parameter setting to
+apply to, or the operation to be performed on. In the <I>Group</I>
+parameter pull-down list for the &quot;Machines to perform tests&quot;,
+and &quot;Machines to be tested&quot; configuration parameters,
+select the system whose Scrip 88 configuration page you are viewing.
+Do not click the &quot;Submit Changes&quot; button yet; do this when
+the configuration is completed. Configure Scrip 88 as follows: 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>Scrip enabled</I>: By default,
+	the Scrip is not enabed. Leave it disabled until we're finished with
+	the Scrip configuration. 
+	</P>
+	<LI><P><I>Schedule</I>: The default values should provide a good
+	initial configuration. If you wish to make changes, here are some
+	guidelines. Fields 1 through 5 (Minute, Hour, Day, Month, Weekday)
+	specify when the tests will be performed. The Scrip configuration
+	screen shows the acceptable range of values for each field. For
+	example, in the Minute field: 
+	</P>
+	<TABLE BORDER=1 CELLPADDING=2 CELLSPACING=2>
+		<TR>
+			<TD>
+				<P>(Single value) 
+				</P>
+			</TD>
+			<TD>
+				<P><CODE>10</CODE> 
+				</P>
+			</TD>
+			<TD>
+				<P>Perform the test at 10 minutes after the hour 
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P>(Series of values) 
+				</P>
+			</TD>
+			<TD>
+				<P><CODE>1,16,31,46</CODE> 
+				</P>
+			</TD>
+			<TD>
+				<P>Perform the test at 1, 16, 31 and 46 minutes after the hour 
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P>(Range of values) 
+				</P>
+			</TD>
+			<TD>
+				<P><CODE>1-4</CODE> 
+				</P>
+			</TD>
+			<TD>
+				<P>Perform the test at 1, 2, 3 and 4 minutes after the hour 
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P>(Combination) 
+				</P>
+			</TD>
+			<TD>
+				<P><CODE>10,40,55-57</CODE> 
+				</P>
+			</TD>
+			<TD>
+				<P>Perform the test at 10, 40, 55, 56 and 57 minutes after the
+				hour 
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P>(Wildcard) 
+				</P>
+			</TD>
+			<TD>
+				<P><CODE>*</CODE> 
+				</P>
+			</TD>
+			<TD>
+				<P>Perform the test every minute of the hour 
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+	<P>The remaining fields in this column (Random minute, Type, and
+	Fail limit) typically should not need to be changed from their
+	default values. (For more information on these fields, click the
+	&quot;help&quot; link at the top right of the Scrip 88 configuration
+	page.) 
+	</P>
+</UL>
+<UL>
+	<LI><P><I>Machines to perform tests</I>: Enter the name of the
+	machine being configured. The machine name is displayed near the top
+	at the right of the configuration page, just below the ASI client
+	software version number. 
+	</P>
+	<LI><P><I>Machines to be tested</I>: Enter one line for each test to
+	be performed. Each line will have six fields, separated by commas: 
+	</P>
+	<OL>
+		<LI><P STYLE="margin-bottom: 0in">0 = disable, 1 = enable. Useful
+		for testing or for temporarily disabling an entry. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Name or IP address of the system
+		being tested. Must be reachable from the machine performing the
+		test. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Protocol to Test. TCP or ICMP
+		(ping). You will probably want to try ICMP first. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Port Number. If the protocol is
+		TCP, enter the port number; if ICMP, enter 0. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">Number of Retries. The test fails
+		if the system being tested does not respond for this number of
+		consecutive attempts. Try 4 as an initial setting. 
+		</P>
+		<LI><P>Timeout delay. Number of milliseconds allowed for a
+		response. Try 1000 as an initial setting. 
+		</P>
+	</OL>
+	<P>Examples: 
+	</P>
+	<P><CODE>0,server5.handsfreenetworks.com,TCP,443,4,1000</CODE><BR><CODE>1,192.168.0.5,ICMP,0,4,1000</CODE>
+		</P>
+	<P>Enter one line for each machine to be monitored. 
+	</P>
+</UL>
+<P>When you have made all entries in the <I>Machines to be tested</I>
+configuration parameter, check one more time the content of the
+<I>Machines to perform tests</I> configuration parameter, and check
+the <I>Scrip enabled</I> box. Then, click on the &quot;Submit
+Changes&quot; button at the bottom (or top) of the Scrip Configurator
+page. The next time Scrip 177 runs on a system at the site where you
+configured Scrip 88, it will retrieve the Scrip 88 configuration
+changes. 
+</P>
+<P>If you are using one machine to do all the monitoring, you're done
+with Scrip configuration and you should proceed to the next section
+on configuring the event notification. To configure an additional
+machine to perform monitoring tests, click the &quot;Sites:
+Configuration&quot; link which appears near the top of the page. This
+brings you back to the page where sites are listed, and you can
+repeat the Scrip configuration process for another machine. 
+</P>
+<P>When you have finished configuring Scrip 88, you will need to set
+up the corresponding event notification on the ASI server. You can
+use the pre-defined global event notification called <I>device
+status</I>. 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">In the &quot;events&quot;
+	navigation bar, click on the &quot;notifications&quot; link. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Find the <I>device status</I>
+	notification, and click the &quot;edit&quot; link to the left of the
+	notification name. The &quot;Edit a Notification&quot; page for this
+	notification will be displayed. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Find the <I>Default email
+	recipients</I> configuration parameter. Use the pull-down to make
+	your selection. Choose &quot;yes&quot; if you want the notification
+	sent to the default address(es) for notifications. (If you don't
+	know which address(es) are set as the default, right-click the
+	&quot;tools: admin&quot; link at the right upper-hand corner of the
+	page, and open the &quot;Admin&quot; page in a new window. Find your
+	user login name in the left column, and look to the right for the
+	default email address(es) for notifications.) Choose &quot;no&quot;
+	if you do not want the notification sent to the default address(es).
+		</P>
+	<LI><P STYLE="margin-bottom: 0in">Find the <I>Email recipients</I>
+	configuration parameter. In the box, type in the email addresses
+	where notifications will be sent in the event a machine to be tested
+	does not respond. Separate addresses with commas and no spaces. If
+	you have chosen to have the notification sent to the default
+	address(es), you may not need to enter those addresses here, and any
+	addresses you enter in the <I>Email recipients</I> configuration
+	parameter will receive the notification along with the default
+	recipients. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Find the <I>Enabled</I>
+	configuration parameter. Use the pull-down to select &quot;Yes&quot;.
+		</P>
+	<LI><P STYLE="margin-bottom: 0in">Find the <I>Email</I>
+	configuration parameter, and use the pull-down to select &quot;Yes&quot;.
+		</P>
+	<LI><P>Click on the &quot;Update&quot; button to save the changes. 
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

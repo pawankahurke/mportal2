@@ -1,0 +1,326 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 92 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20050727;17410531">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050727;17425117">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 92 Configuration</H3>
+<H4>Configuration Parameters</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip Enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Disks to defragment</EM> set
+	to <STRONG>All</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Maximum run time (minutes)</EM>
+	120 minutes 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Names of processes to shutdown</EM>
+	list empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Max number of seconds to wait
+	for the process to close</EM> 30 seconds 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Max number of dialogs to close</EM>
+	five 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Names of processes to startup</EM>
+	list empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Reboot system</EM> disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Scrip runs at 12.01am every
+	Tuesday 
+	</P>
+	<LI><P><EM>Run disk defragmenter (MS Windows NT4, 2000) now</EM> 
+	</P>
+</UL>
+<H4>Disks to defragment</H4>
+<P>You can change the value of this parameter by simply deleting the
+default value and entering the drive letter of each drive you want
+defragmented followed by a colon, e.g. <STRONG>c:</STRONG>. The entry
+for each drive you want defragmented should be on a separate line.</P>
+<H4>Command Line Parameters</H4>
+<P>By default, Scrip 92 executes disk defragmenter in unattended
+mode. It does not stop and display confirmation messages (/noprompt
+command line parameter). All files and free space on all local,
+non-removable drives are defragmented (/all, /f command line
+parameters).</P>
+<P>In order to defragment drives selectively, the drive selection
+parameter can be changed from /all to <STRONG>[drive]:</STRONG> where
+<STRONG>[drive]</STRONG> should be replaced with the drive letter of
+each logical drive you want to have defragmented.</P>
+<P>When more than one drive letter is used, each <STRONG>[drive]:</STRONG>
+should be entered on a separate line.</P>
+<P>Scrip 92 does not allow the addition of any Defragmenter command
+line parameters to the execution of Defragmenter except for drive
+selection.</P>
+<P>The /noprompt and /f parameters (Windows NT4 only) cannot be
+deleted.</P>
+<H4>Maximum run time (minutes)</H4>
+<P>This parameter lets you control the maximum amount of time
+defragmenter will be allowed to run. When setting a value keep in
+mind that if a drive or drive(s) have not been defragmented for a
+long time, disk defragmentation will take a significant amount of
+time. If the disk drives are large and close to capacity, it could
+take several hours.</P>
+<P>In setting a value for this parameter you should also keep in mind
+other Scrips that may be scheduled to run during the same time of day
+to avoid conflict.</P>
+<H4>Names of processes to shutdown</H4>
+<P>The <EM>Names of processes to shutdown</EM> parameter can be used
+to list all the processes you would like Scrip 92 to shut down in an
+orderly fashion before starting disk defragmentation. The full name
+of each process to be terminated, including extension, should be
+entered on a separate line. Full location paths are not required.</P>
+<P>This configuration entry should be used with care. For example,
+you should not use either of the masks <STRONG>*</STRONG> or <STRONG>*.*</STRONG>
+because they would have the effect of terminating both the ASI Client
+and other processes (e.g. explorer.exe) that are necessary for
+executing Scrip 92 (the ASI Client), and keep the system running
+(explorer.exe).</P>
+<P>One or more of the processes running at the time disk
+defragmentation is scheduled to start that need to be shut down may
+require user action or response in order to be terminated. For
+example:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Open network connections that in
+	order to be closed require user approval 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Applications like Microsoft Word
+	that require a user to save or close without saving files that have
+	been changed and not saved at the time Word is terminated, or 
+	</P>
+	<LI><P>Information agents like Intuit Quickbooks' qbdagent.exe. 
+	</P>
+</UL>
+<P>Scrip 92 handles these situations automatically. You can control
+process shut-down with the <EM>Max number of seconds to wait for the
+process to close</EM> and <EM>Max number of dialogs to close</EM> 
+</P>
+<H4>Max number of seconds to wait for the process to close</H4>
+<P>This parameter lets you control how long Scrip 92 should wait
+before shutting down each process that was active at the time disk
+defragmentation was scheduled to start.</P>
+<H4>Max number of dialogs to close</H4>
+<P>In many instances, requests for user action communicated via
+dialog boxes are part of process shut down sequences. Scrip 92
+handles these requests automatically.</P>
+<P>Whenever a dialog box requesting user input appears during a
+process' shut down sequence, Scrip 92 closes it taking the default
+action. For example, if the dialog box requests whether a file should
+be saved or not, and the default response is <STRONG>Yes</STRONG>,
+Scrip 92 will automatically click on the <STRONG>Yes</STRONG> button.</P>
+<H4>Names of processes to startup</H4>
+<P>This parameter can be used to list all the processes you would
+like Scrip 92 to start up after disk defragmentation is completed.
+The full name of each process to be started, including extension,
+should be entered on a separate line. Full location paths are not
+required.</P>
+<H4>Reboot system</H4>
+<P>When this parameter is enabled, Scrip 92 will restart the system
+after disk dfragmentation is completed.</P>
+<P>Parameters <EM>Names of processes to startup</EM> and <EM>Reboot
+system</EM> are independent of each other. If you want to restart the
+system after disk defragmentation is completed, Scrip 92 will ignore
+the list of processes to start up after disk defragmentation is
+completed. If you don't want to restart the system after disk
+defragmentation is completed, then Scrip 92 will look for process(es)
+to start once disk defragmentation is completed.</P>
+<H4>Run disk defragmenter (MS Windows NT4, 2000) now</H4>
+<P>With the <EM>Execute</EM> button, you can run Scrip 92 on demand,
+even if it's not enabled. In Scrip 92, the <EM>Execute</EM> button
+can be used to execute the Scrip on the local system or on all
+supported systems.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=47>
+	<COL WIDTH=98>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=47>
+			<P ALIGN=CENTER><STRONG>Field</STRONG></P>
+		</TD>
+		<TD WIDTH=98>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<H4>Microsoft defragmenter limitations</H4>
+<P>Quoting from article Q223146 from the Microsoft knowledge base
+(http://support.microsoft.com/support/kb/articles/q223/1/46.asp) <EM>&quot;The
+Windows 2000 Disk Defragmenter tool does not provide support for
+command-line parameters or switches to automate the disk
+defragmentation process.&quot;</EM></P>
+<P>This means that the Automated Support Infrastructure provides an
+inexpensive way to automate this task on systems running Microsoft
+Windows 2000 without having to purchase a third-party disk
+defragmentation utility.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20061213;15583976">
+	<META NAME="CHANGED" CONTENT="20070204;12385017">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>Microsoft Update Management</H3>
+<UL>
+	<LI><P><A HREF="HFN%20ASI%20MUM%20configuration%20sample.txt" TARGET="_blank">Sample
+	Microsoft Update Management (MUM) configuration instructions</A> 
+	</P>
+	<LI><P><A HREF="#How to enable Microsoft Update Management (MUM)|outline">How
+	to enable Microsoft Update Management (MUM)</A> 
+	</P>
+	<LI><P><A HREF="#mumswupdatecfgchange">How to change a previously
+	taken Microsoft Update Management (MUM) action</A> 
+	</P>
+	<LI><P><A HREF="#How to retrieve Microsoft update status &aacute;top |outline">How
+	to retrieve Microsoft update status</A> 
+	</P>
+	<LI><P><A HREF="#How to change a Microsoft Update Management (MUM) machine configuration &aacute;top |outline">How
+	to change a Microsoft Update Management (MUM) machine configuration</A>
+		</P>
+	<LI><P><A HREF="HFN%20ASI%20MUM%20notes.txt" TARGET="_blank">Notes
+	on MUM configuration reset and on Scrip 237 (Microsoft Update
+	Management) execution</A> 
+	</P>
+	<LI><P><A HREF="HFN%20asi%20microsoft%20update%20management%20release%20notes.txt" TARGET="_blank">MUM
+	release notes</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20MUM%20priorities.html" TARGET="_blank">Note
+	on MUM priorities</A> 
+	</P>
+	<LI><P><A HREF="HFN%20ASI%20MUM%20notes.txt" TARGET="_blank">Notes
+	on MUM configuration reset, and Scrip 237 (Microsoft Update
+	Management) execution</A>  
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="How to enable Microsoft Update Management (MUM)|outline"></A>
+How to enable Microsoft Update Management (MUM) <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Log onto the ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) Go to the MUM wizard page
+(https://asiservername/patch/wu-confg.php). Please read the text on
+this page carefully.</P>
+<P>4) To enable MUM on one system, a group of systems, a site, or all
+sites, please click on the &quot;enable the Microsoft Update
+management Scrip (#237)&quot; link</P>
+<P>5) Follow the on-screen instructions</P>
+<P>6) Once you complete execution of the MUM activation wizard (Step
+5)), the Microsoft Update Management function will be enabled in
+automated mode on the systems you selected when running the wizard.
+This means that every morning at 3 AM, software updates will be
+installed for up to two hours, and systems will be re-started
+automatically if required by a software update.</P>
+<P>7) MUM lets you decide if software updates should be installed
+automatically (as described in step 6)), or only when you approve
+them. You make this choice using the &quot;Select update method&quot;
+wizard on the MUM wizard page
+(https://asiservername/patch/wu-confg.php). Please note that by
+&quot;manual update method&quot; we mean that when you select this
+method, MS software updates will be installed only after you approve
+them using the &quot;Approve updates&quot; wizard also on the MUM
+wizard page (https://asiservername/patch/wu-confg.php).</P>
+<H4><A NAME="mumswupdatecfgchange"></A>How to change a previously
+taken Microsoft Update Management (MUM) action <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Below you will find instructions for changing a previously taken
+Microsoft software update &ldquo;Approve updates&rdquo; action. To
+change other previously taken Microsoft software update actions, 
+</P>
+<UL>
+	<LI><P>Select update method 
+	</P>
+	<LI><P>Remove updates 
+	</P>
+	<LI><P>Decline updates 
+	</P>
+	<LI><P>Install critical updates 
+	</P>
+	<LI><P>Select test machines to install updates before other machines
+		</P>
+	<LI><P>Configure update download and propagation 
+	</P>
+</UL>
+<P>you should follow the instructions for changing a previously taken
+&ldquo;Approve updates&rdquo; action, applied to those actions.</P>
+<H5>How to change a previously taken MUM &ldquo;Approve updates&rdquo;
+action</H5>
+<P>1) Log onto your ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) Go to the MUM wizard page
+(https://asiservername/main/patch/wu-confg.php)</P>
+<P>4) In the second paragraph on the MUM wizard page, click on the
+&quot;See wizard actions taken to date&quot; link. The &quot;Microsoft
+</P>
+<P>Update Wizard Status&quot; will be displayed</P>
+<P>5) Scroll down the &quot;Microsoft Update Wizard Status&quot; page
+to the &quot;Status for:&quot; section, and click on the &quot;Approve
+updates&quot; link</P>
+<P>Identify the &ldquo;Approve updates&rdquo; action you want to
+modify. If you want to:</P>
+<P>a) Change the composition of the group the &ldquo;Approve updates&rdquo;
+action was applied to</P>
+<UL>
+	<LI><P>Click on the entry in the &ldquo;Machines&rdquo; column for
+	the &ldquo;Approve updates&rdquo; action you want to change, The
+	&ldquo;Machine Group Details&rdquo; will be displayed in a new
+	window</P>
+	<LI><P>Click on the &ldquo;Change machine selection.&rdquo; link.
+	The &ldquo;Wizard - Edit Machine Group&rdquo; page will be displayed
+	in a new window</P>
+	<LI><P>Click on one of the [select all], [deselect all],
+	[select/de-select individual] links and follow the on-screen
+	instructions</P>
+	<LI><P>Click on the &ldquo;OK&rdquo; button, and close the &ldquo;Wizard
+	- Edit Machine Group&rdquo; page.</P>
+	<LI><P>Close the &ldquo;Machine Group Details&rdquo; page</P>
+</UL>
+<P>b) Approve the installation of additional updates for the selected
+&ldquo;Approve updates&rdquo; action</P>
+<UL>
+	<LI><P>Click on the &ldquo;approve&rdquo; link in the &ldquo;Updates&rdquo;
+	column. The &ldquo;Wizard - Approve Updates&rdquo; page will be
+	displayed in a new window.</P>
+	<LI><P>Follow the on-screen instructions, selecting the Microsoft
+	software updates whose installation you want to approve either
+	manually by clicking in the respective check box in the &ldquo;Approve&rdquo;
+	column, or by selecting one of the following automated approval
+	actions:</P>
+</UL>
+<P STYLE="margin-left: 0.51in">Update</P>
+<P STYLE="margin-left: 0.51in">Service Pack</P>
+<P STYLE="margin-left: 0.51in">Rollup</P>
+<P STYLE="margin-left: 0.51in">Security</P>
+<P STYLE="margin-left: 0.51in">Critical</P>
+<P STYLE="margin-left: 0.51in">Mandatory</P>
+<UL>
+	<LI><P>Click on the &ldquo;OK&rdquo; button in the &ldquo;Wizard -
+	Approve Updates&rdquo; page</P>
+	<LI><P>Close the window.</P>
+</UL>
+<P>c) Change the Microsoft software update installation schedule, for
+the selected &ldquo;Approve updates&rdquo; action</P>
+<UL>
+	<LI><P>Click on the entry in the &ldquo;Schedule&rdquo; column for
+	the &ldquo;Approve updates&rdquo; action you want to change. The
+	&ldquo;Wizard - Edit Machine Schedule&rdquo; page will be displayed
+	in a new window.</P>
+	<LI><P>Change the Microsoft software update installation schedule as
+	desired by changing the values of one or more of the following
+	parameters:</P>
+</UL>
+<P STYLE="margin-left: 0.5in">Schedule to use for scheduled
+operations:</P>
+<P STYLE="margin-left: 0.99in">Delay operation by &lt;&gt; days.</P>
+<P STYLE="margin-left: 0.99in">Month:</P>
+<P STYLE="margin-left: 0.99in">Day:</P>
+<P STYLE="margin-left: 0.99in">Hour:</P>
+<P STYLE="margin-left: 0.99in">Minute:</P>
+<P STYLE="margin-left: 0.99in">Weekday</P>
+<P STYLE="margin-left: 0.99in">Random delay in minutes 
+</P>
+<P STYLE="margin-left: 0.51in">Action on missed schedule:</P>
+<P STYLE="margin-left: 0.99in">run as soon as possible</P>
+<P STYLE="margin-left: 0.99in">run at next scheduled time 
+</P>
+<UL>
+	<LI><P>Click on the OK button.</P>
+	<LI><P>Close the window.</P>
+</UL>
+<P>d) Change the user notification for the selected &ldquo;Approve
+updates&rdquo; action. For example::</P>
+<UL>
+	<LI><P>Click on the &quot;remind user&quot; link in the
+	&quot;Notification&quot; column. The &quot;Wizard - Edit Machine
+	Schedule&quot; page will be displayed in a new window</P>
+	<LI><P>On the &quot;Wizard - Edit Machine Schedule&quot; page, in
+	the &quot;Notification options&quot; section, disable the &quot;Remind
+	user to leave system on.&quot; option.</P>
+	<LI><P>Click on the OK button.</P>
+	<LI><P>Close the window.</P>
+</UL>
+<H4><A NAME="mumretrievestatus"></A><A NAME="How to retrieve Microsoft update status &aacute;top |outline"></A>
+How to retrieve Microsoft update status <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>In order to review the status of MS software updates at your
+sites:</P>
+<P>1) Log onto the ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) Go to the MUM status page by clicking on the &quot;satus&quot;
+link in the &quot;microsoft updates&quot; navigation bar 
+</P>
+<P>(https://asiservername/main/patch/wu-stats.php)</P>
+<P>4) In the &quot;Search Options&quot; panel, select &quot;installed&quot;
+from the &quot;Status&quot; search parameter pull-down list</P>
+<P>5) Click on the &quot;Search&quot; button. Please note that, if
+necessary, you can adjust the number of items displayed on the page
+by changing the value of the &quot;Page Size&quot; display parameter.</P>
+<P>6) When the results are displayed look at the dates in the
+&quot;Install Date&quot; column to determine when an update was
+installed on a system.</P>
+<P>If you want to find out the status of a specific update at all
+sites, e.g. Security Update for Windows 2000 (KB912919) ( en 0.0.0
+SP0.0):</P>
+<P>a) Click on the &quot;Reset&quot; button,</P>
+<P>b) In the &quot;Search Options&quot; panel, select the update
+whose status you want to reviewe, from the &quot;Update&quot; search
+parameter pull-down list.</P>
+<P>c) Click on the &quot;Search&quot; button. Please note that, if
+necessary, you can adjust the number of items displayed on the page
+by changing the value of the &quot;Page Size&quot; display parameter.</P>
+<P>Once you have the information you are looking for, if you want to
+determine why a certain update may not have been installed, or
+downloaded as you expected it to be, you should retrieve Scrip 237
+(Microsoft Update Management) event logs for the date on which the
+last action was reported on the status page.</P>
+<H4><A NAME="mummachinecfgchange"></A><A NAME="How to change a Microsoft Update Management (MUM) machine configuration &aacute;top |outline"></A>
+How to change a Microsoft Update Management (MUM) machine
+configuration <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Do not make changes to the machine configuration for a group of
+machines (one or more machines, including built-in groups such as
+single machines and sites) unless you are confident about the change.
+If in doubt, please contact HandsFree Networks support.</P>
+<P>1) Log onto the ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) Click on the &quot;advanced&quot; link in the &quot;microsoft
+update&quot; navigation bar</P>
+<P>4) Click on the &quot;config&quot; link in the second-level
+navigation bar (the one with the sites, updates, and config links)</P>
+<P>5) Click on the &quot;Machine configuration&quot; link in the body
+of the page (second paragraph)</P>
+<P>6) Click on the &quot;edit&quot; link for the machine group whose
+configuration you want to edit.</P>
+<P>7) Change the machine configuration parameters as desired. For
+example, scroll down to the section titled &quot;Restart policy&quot;,
+click on the desired configuration setting radio button</P>
+<P>8) Click on the OK button.</P>
+<P>Please note that for systems that belong to more than one group
+(e.g. All and Site), the machine configuration of the higher priority
+group takes precedence.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

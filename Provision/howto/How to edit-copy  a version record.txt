@@ -1,0 +1,27 @@
+Hot to edit-copy an ASI client update version record
+=====================================================
+
+1) Log onto the ASI server (https://asiservername/main)
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+3) Go to the Updates module (https://asiservername/main/updates/index.php). The "Set Site Version" page will be displayed.
+(Click on the "updates" link in the "sites" navigation bar displayed in the top right-hand corner area of every page in the ASI extended interface.)
+
+4) In the second-level navigation bar labeled "updates" found on the right side of the page at the same level as the page title, click on the "versions" link. The "Available Versions" page will be displayed.
+
+5) Click on the "edit" link for the version record you want to edit. The "Edit a Version Record" page will be displayed.
+
+If you did not create the version record (i.e. you cannot edit it) you want to modify, or want to copy an existing version record, just click on the "copy" link. The "Copy a Version Record" page will be displayed. Change the version record name, and proceed with steps 6)-11) below.
+
+6) In the "Download URL" field enter the URL pointing to the installation executable for the latest point release of the ASI client (e.g. hfn-inst-2.004.024.0312.BM.exe).
+
+7) From the name of the installation executable for the point release of the ASI client in the "Download URL" field (e.g. hfn-inst-2.004.024.0312.BM.exe) select and copy (Ctrl+c) the version number (e.g. 2.004.024.0312.BM). Paste the version number (e.g. 2.004.024.0312.BM) in the "Version number" number field (replacing the existing entry).
+
+8) Verify that the value of the "Username" field is the one required to access the location specified in the "Download URL" field.
+
+9) If the the entry in the "Username" field is correct you do not need to modify the value of the "Password" parameter (although it would not hurt to re-enter it). Otherwise, enter the password for the user name entered in the "Username" field.
+
+10) Check and make sure that the value of the "Command Line" parameter is "/VERYSILENT" (without quotes). If you wish, you can add other installation executable command line parameters separating each command line parameter with a single space.
+
+11) Click on the "Update" button (if you are copying a version record, click on the "Copy" button).

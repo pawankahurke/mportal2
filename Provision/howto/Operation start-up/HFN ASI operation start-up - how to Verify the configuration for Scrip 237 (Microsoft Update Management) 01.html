@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Verifying the configuration for Scrip 237 (Microsoft Update Management)</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20061214;20422588">
+	<META NAME="CHANGED" CONTENT="20071121;17390506">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana", "H4" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		P.list-number-2-western { font-family: "verdana"; font-size: 10pt }
+		P.list-number-2-cjk { font-family: "verdana"; font-size: 10pt }
+		P.list-number-2-ctl { font-family: "Tahoma"; font-size: 10pt }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Verifying the Configuration for Scrip 237 (Microsoft Update
+Management) 
+</H3>
+<P>You can use this procedure to verify that on all ASI clients at
+your sites Scrip 237 (Microsoft Update Management) is configured to
+minimize any potential CPU related performance issues caused by the
+Microsoft automated update software. 
+</P>
+<H4>All systems</H4>
+<OL>
+	<LI><P CLASS="list-number-2-western">Log onto the ASI server
+	(https://asiservername/main ). The ASI dashboard will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/welcome.php" TARGET="_blank"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Use
+	extended interface</U></FONT></FONT></A> link on the right side of
+	the ASI Dashboard upper pane, below user login and date. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Welcome</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">At the upper right-hand corner
+	of any page on the ASI server extended interface, click on the
+	<A HREF="https://192.168.1.248/main/config/index.php?act=wiz"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>wizard</U></FONT></FONT></A>
+	link in the <B>sites</B> navigation bar
+	(<A HREF="https://asiservername/main/config/index.php?act=wiz"><FONT COLOR="#333399"><U>https://asiservername/main/config/index.php?act=wiz</U></FONT></A>).</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/config/scrpconf.php?custom=8"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Scrip
+	configuration</U></FONT></FONT></A> link
+	(https://asiservername/main/config/scrpconf.php?custom=8). The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select a Group</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">All
+	machines</FONT></FONT> radio button. Then click on the <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Next</FONT></FONT>
+	button. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select Scrip</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Scroll down the page, locate
+	the entry for Scrip 237 (Microsoft Update Management), and click on
+	its name. The Scrip 237 configuration page will be displayed. 
+	</P>
+	<LI><P CLASS="list-number-2-western">Locate the schedule
+	configuration parameter In the <B>Name</B> column, find the row that
+	contains schedule configuration parameters (Minute, Hour, etc.) 
+	</P>
+	<LI><P CLASS="list-number-2-western">In that row, look at the <B>Value</B>
+	column. Either a <B>Configure</B> button will appear, or the current
+	values will be listed. These are the correct values: 
+	</P>
+</OL>
+<DL>
+	<DD>
+	<TABLE CELLPADDING=2 CELLSPACING=2>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Minute (0-59):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>0</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Hour (0-23):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>22</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Day (1-31):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>*</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Month (1-12):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>*</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Weekday (0-6):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>*</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Random minute:</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>60</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Type (1 or 2):</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>2</CODE></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<P ALIGN=RIGHT><CODE>Fail limit:</CODE></P>
+			</TD>
+			<TD>
+				<P ALIGN=LEFT><CODE>0</CODE></P>
+			</TD>
+		</TR>
+	</TABLE>
+</DL>
+<UL>
+	<P STYLE="margin-top: 0.2in; margin-bottom: 0.2in">If the above
+	values are displayed the settings are correct. If the <B>Configure</B>
+	button appears, click on it and compare the values displayed with
+	the above values. If they are the same, the settings are correct.</P>
+</UL>
+<P STYLE="margin-left: 0.52in">If different values are displayed,
+proceed to the next step.</P>
+<OL START=9>
+	<LI><P>Check the <B>Disable client startup offline scan</B>
+	configuration parameter. If you see a <B>Configure</B> button click
+	on it. Once a check-box is visible, if it is not checked, click on
+	it to enable the configuration parameter. Otherwise, the settings
+	are correct. 
+	</P>
+	<LI><P>If the values of the schedule parameter do not match the ones
+	displayed in step 8) above, change them so that they do.</P>
+	<LI><P><B>If you have made any changes,</B> click the <B>Next</B>
+	button and stop here. You will need to allow some time for machines
+	to receive the updated configuration, depending on your settings for
+	Scrip 177 (Scrip Configuration Update) and the number of machines to
+	be configured. 
+	</P>
+</OL>
+<H5>Note</H5>
+<P STYLE="margin-left: 0.52in"><I>Please note that depending on the
+Internet browser you use on its configuration, and on the total
+number of ASI clients at your sites, after you execute a
+configuration change (by clicking on the &ldquo;Next&rdquo; button)
+affecting all systems (or a very large number of systems) at your
+sites, the browser may time out. If this happens, close the window,
+and wait for up to one hour before making any other Scrip
+configuration changes on all systems at your site. The Scrip
+configuration change you made will be processed correctly. The fact
+that the Internet browser timed out has no effect on the correct
+completion of the Scrip configuration change.</I></P>
+<P STYLE="margin-left: 0.52in"><BR><BR>
+</P>
+<P><B>If you have not made changes,</B> proceed with the following
+steps. 
+</P>
+<OL TYPE=a>
+	<LI><P>On the Scrip 237 configuration page, click on the &quot;Assigned
+	values&quot; link for the schedule configuration parameter. A new
+	window will open displaying the schedule assigned to all systems at
+	your sites. 
+	</P>
+	<LI><P>Check the schedule entries in the <B>Value</B> column. If
+	they are like this:</P>
+</OL>
+<P STYLE="margin-left: 0.99in"><CODE><B>0 22 * * * 60 2 0</B></CODE></P>
+<P STYLE="margin-left: 0.52in">then the schedule is correct for all
+machines, and you can close the window. If any entries are different,
+make a note of the sites and machines where the schedule values are
+different. 
+</P>
+<OL TYPE=a START=3>
+	<LI><P>Go back to the Scrip 237 configuration page. Click on the
+	&quot;Assigned values&quot; link for the <B>Disable client startup
+	offline scan</B> configuration parameter. A new window will open.
+	The entries in the <B>Value</B> column should be &quot;Enabled&quot;
+	in all cases. Make note of any sites and machines where this is not
+	the case. 
+	</P>
+</OL>
+<P>If you need to change the Scrip 237 configuration for a site, or
+for a single machine: 
+</P>
+<H4>Site</H4>
+<OL>
+	<LI><P CLASS="list-number-2-western">Log onto the ASI server
+	(https://asiservername/main ). The ASI dashboard will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/welcome.php" TARGET="_blank"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Use
+	extended interface</U></FONT></FONT></A> link on the right side of
+	the ASI Dashboard upper pane, below user login and date. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Welcome</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">At the upper right-hand corner
+	of any page on the ASI server extended interface, click on the
+	<A HREF="https://192.168.1.248/main/config/index.php?act=site"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>configuration</U></FONT></FONT></A>
+	link in the <FONT FACE="Verdana, sans-serif"><B>sites</B></FONT>
+	navigation bar (https://asiservername/main/config/index.php?act=site
+	). The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Select
+	a Site</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Locate the entry for the site
+	where you want to configure Scrip 237, and click on its <A HREF="https://192.168.1.249/main/config/scrpconf.php?act=scop&amp;cid=3&amp;custom=8&amp;scop=3&amp;mgroupid=4&amp;group_name=Corporate%20Ink&amp;hid=0&amp;pscop=3&amp;site=&amp;censusid=&amp;snum=&amp;level=1"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>[configure
+	site]</U></FONT></FONT></A> link. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select Scrip - Site &lt;site name&gt;</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Scroll down the page, locate
+	the entry for Scrip 237 (Microsoft Update Management), and click on
+	its name. The Scrip 237 configuration page will be displayed. 
+	</P>
+	<LI><P>Change the values for the schedule and the <B>Disable client
+	startup offline scan</B> configuration parameters as necessary,
+	following steps 7)-11) in section &ldquo;All systems&rdquo; of this
+	document.</P>
+</OL>
+<H4>System</H4>
+<OL>
+	<LI><P CLASS="list-number-2-western">Log onto the ASI server
+	(https://asiservername/main ). The ASI dashboard will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Click on the <A HREF="https://192.168.1.248/main/welcome.php" TARGET="_blank"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Use
+	extended interface</U></FONT></FONT></A> link on the right side of
+	the ASI Dashboard upper pane, below user login and date. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Welcome</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">At the upper right-hand corner
+	of any page on the ASI server extended interface, click on the
+	<A HREF="https://192.168.1.248/main/config/index.php?act=site"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>configuration</U></FONT></FONT></A>
+	link in the <FONT FACE="Verdana, sans-serif"><B>sites</B></FONT>
+	navigation bar (https://asiservername/main/config/index.php?act=site
+	). The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Select
+	a Site</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Locate the entry for the site
+	where the system whose Scrip 237 you want to configure is located,
+	and click on its <A HREF="https://192.168.1.248/main/config/index.php?cid=778&amp;act=host"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>[view
+	machines]</U></FONT></FONT></A> link. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Configuration
+	- &lt;site name&gt; Machines</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Locate the entry for the system
+	whose Scrip 237 you want to configure, and click on its <A HREF="https://192.168.1.248/main/config/config.php?hid=2003"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>[configure
+	Scrips]</U></FONT></FONT></A> link. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configurator - Select Scrip - Site &lt;site name&gt; - Machine
+	&lt;machine name&gt;</FONT></FONT> page will be displayed.</P>
+	<LI><P CLASS="list-number-2-western">Scroll down the page, locate
+	the entry for Scrip 237 (Microsoft Update Management), and click on
+	its name. The Scrip 237 configuration page will be displayed. 
+	</P>
+	<LI><P CLASS="list-number-2-western">If you are changing the
+	system's Scrip 237 configuration after you performed the steps in
+	section &ldquo;All systems&rdquo; above, select &ldquo;all machines&rdquo;
+	from the Group pull-down list for the schedule and the <B>Disable
+	client startup offline scan</B> configuration parameters.</P>
+</OL>
+<P CLASS="list-number-2-western" STYLE="margin-left: 0.51in">If you
+are changing the system's Scrip 237 configuration after you performed
+the steps in section &ldquo;Site&rdquo; above, select &ldquo;site
+&lt;site name&gt;&rdquo; from the Group pull-down list for the
+schedule and the <B>Disable client startup offline scan</B>
+configuration parameters.</P>
+<P CLASS="list-number-2-western" STYLE="margin-left: 0.51in">If you
+are changing the system's Scrip 237 configuration before
+independently of the site it belongs to, or any other group:</P>
+<UL>
+	<LI><P CLASS="list-number-2-western">Check the values of the
+	schedule and the <B>Disable client startup offline scan</B>
+	configuration parameters. If they match the values for these
+	configuration parameters in section &ldquo;All systems&rdquo; of
+	this document, stop here, and close the window.</P>
+	<LI><P CLASS="list-number-2-western">If the values of the schedule
+	and the <B>Disable client startup offline scan</B> configuration
+	parameters do not match the values for these configuration
+	parameters in section &ldquo;All systems&rdquo; of this document:</P>
+</UL>
+<UL>
+	<LI><P CLASS="list-number-2-western">Select &ldquo;machine &lt;machine
+	name&gt;&rdquo; from the Group pull-down list for the schedule and
+	the <B>Disable client startup offline scan</B> configuration
+	parameters.</P>
+	<LI><P CLASS="list-number-2-western">Change the schedule to match
+	the one listed in step 8) in section &ldquo;All systems&rdquo; of
+	this document.</P>
+	<LI><P CLASS="list-number-2-western">Enable the <B>Disable client
+	startup offline scan</B> configuration parameter by clicking in its
+	box</P>
+</UL>
+<OL START=8>
+	<LI><P>Click on the &ldquo;Submit Changes&rdquo; button.</P>
+</OL>
+<H5>Note</H5>
+<P STYLE="margin-left: 0.52in"><I>Please note that you could use the
+Scrip configuration wizard to change the Scrip 237 configuration for
+a site or a system. If you wanted to use the Scrip configuration
+wizard, you would follow the procedure described in the &ldquo;All
+systems&rdquo; section of this document with one change. In step 5),
+instead of clicking on the &ldquo;All machines&rdquo; radio button,
+you would click either on the &ldquo;A single site&rdquo;, or the &ldquo;A
+single machine&rdquo; radio button.</I></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

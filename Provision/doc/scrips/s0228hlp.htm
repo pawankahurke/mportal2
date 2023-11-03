@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 228 - Network Packet Filtering</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20031126;9063156">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20031231;17501817">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 228 &ndash; <FONT FACE="verdana, helvetica"><FONT COLOR="#333399">Network
+Packet Filtering</FONT></FONT> 
+</H3>
+<H4>Overview</H4>
+<P>Scrip 228 performs an &ldquo;in-depth&rdquo; firewall function
+that is a last line of defense, rather than being an alternative to a
+corporate firewall, or to &ldquo;personal&rdquo; firewall products.
+It:</P>
+<UL>
+	<LI><P>Protects mobile machines, such as laptops, that sometimes
+	operate outside the corporate firewall. These machines are usually
+	unprotected when connected to a dial-up connection or a wireless
+	connection in an airport or coffee shop. 
+	</P>
+	<LI><P>Limits the internal spread of a worm that gets inside the
+	firewall. This can happen by physically bringing an infected machine
+	into the network, or downloading and installing an infected
+	executable. 
+	</P>
+	<LI><P>Reports an increase in firewall denials, which is an
+	indicator that something is going on that merits investigation. 
+	</P>
+	<LI><P>We don't intend to provide all the features of a &ldquo;personal&rdquo;
+	firewall product. It would not add tangible values to the ASI
+	client. The major advantages that network packet filtering via Scrip
+	228 and the ASI client have over those kinds of products include: 
+	</P>
+	<LI><P>Centralized configuration: the firewall configuration is
+	controlled in one place, including any &quot;exceptions&quot;. The
+	entire facility is not open to a threat that exploits an
+	unintentional weakness on a single machine. 
+	</P>
+	<LI><P>No configuration changes by end-users &ndash; Decisions on
+	firewall policy are made by an informed system administrator who has
+	a professional understanding of the security ramifications of the
+	decisions, rather than being made by each end-user who just wants to
+	complete a specific task. 
+	</P>
+	<LI><P>Centralized reporting: All actions and events detected by
+	Scrip 228 are logged on the ASI server, including statistics on
+	firewall deny operations that would alert a system administrator
+	that the facility is under some kind of systematic attack. 
+	</P>
+</UL>
+<H4>How it works</H4>
+<P>Scrip 228 works by applying sequences of rules, which we call
+chains, to a system&rsquo;s networking connections, which we call
+adapter classes.</P>
+<P>Rules specify deny traffic or allow traffic actions for source and
+destination IP addresses or ports. Please refer to Scrip 228&rsquo;s
+configuration help file for detailed information on rules.</P>
+<P>Once you have defined a set of rules that you want to apply to
+your site(s), you are ready to assemble them into chains. Chains are
+simply comma-separated lists of rules. Scrip 228 applies the rules in
+a chain sequentially. It takes the action specified by the first rule
+in a chain that is matched by the packet. If no action is specified
+in the matching rule, or no rules match, then the default action (a
+configurable parameter), which is to deny a packet, is taken. Please
+refer to Scrip 228&rsquo;s configuration help file for detailed
+information on chains.</P>
+<P>At this point, you are ready tell Scrip 228 how to enforce the
+network packet filtering rules you have defined, i.e. how to apply
+chains of rules to a system&rsquo;s network connections as specified
+in its adapter classes. Scrip 228 supports the following adapter
+classes:</P>
+<UL>
+	<LI><P>Hardwired &ndash; An adapter that has a physical connection
+	to a LAN</P>
+	<LI><P>Wireless &ndash; A wireless network adapter</P>
+	<LI><P>Dial-up &ndash; A dial-up connection through a modem</P>
+	<LI><P>Default &ndash; All of a system&rsquo;s networking
+	connections</P>
+</UL>
+<P>Scrip 228 logs network packet filtering statistics by adapter
+class. Within each adapter class, network packet filtering counts are
+given for each rule in the chain applied to the adapter class.</P>
+<P>If you enable Scrip 228 and configure no adapter classes, or make
+a syntactical mistake in specifying rules, chains, and/or configuring
+adapter classes, the Scrip will log the configuration error, and will
+not fitler any packets.</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Log of Scrip configuration changes and of network packet
+			filtering rule application statistics</P>
+			<P>Example 1</P>
+			<P>The string 'Adapter classes' has changed from &quot;&quot; to
+			&quot;wireless,trustsend,notrustrecv dialup,trustsend,notrustrecv
+			default,trustsend,trustrecv&quot; The string 'Rule chains' has
+			changed from &quot;&quot; to
+			&quot;trustrecv,self,localsmb,localhfn,dnsresp,localping,allicmp,deny
+			trustsend,allow notrustrecv,self,dnsresp,noping,allicmp,deny&quot;
+			The string 'Rules' has changed from &quot;&quot; to
+			&quot;self,srcadr=127.0.0.1,dstadr=127.0.0.1,act=allow
+			localsmb,srcnet=local,dstprt=137+138+139,act=allow
+			localhfn,srcnet=local,dstprt=2721,act=allow
+			dnsresp,proto=udp,dstprt=53,act=allow allicmp,proto=icmp,act=allow
+			localping,srcnet=remote,proto=icmp,icmp=8,act=deny
+			noping,proto=icmp,icmp=8,act=deny deny,act=deny allow,act=allow&quot;
+						</P>
+			<P>Example 2</P>
+			<P>Adapter Class &quot;wireless&quot; receive rule
+			statistics:<BR>Rule: deny, action: deny, packets dropped: 0<BR>Rule:
+			allicmp, action: allow, packets allowed: 0<BR>Rule: noping,
+			action: deny, packets dropped: 0<BR>Rule: passiveftp, action:
+			allow, packets allowed: 0<BR>Rule: builtin_hfn, action: allow,
+			packets allowed: 0<BR>Rule: builtin_dns, action: allow, packets
+			allowed: 0<BR>Adapter Class &quot;wireless&quot; send rule
+			statistics:<BR>Rule: allow, action: allow, packets allowed:
+			0<BR>Rule: builtin_hfn, action: allow, packets allowed: 0<BR>Rule:
+			builtin_dns, action: allow, packets allowed: 0<BR>Rule:
+			builtin_hfn_server, action: allow, packets allowed: 0<BR><BR>Adapter
+			Class &quot;dialup&quot; receive rule statistics:<BR>Rule: deny,
+			action: deny, packets dropped: 0<BR>Rule: allicmp, action: allow,
+			packets allowed: 0<BR>Rule: noping, action: deny, packets dropped:
+			0<BR>Rule: passiveftp, action: allow, packets allowed: 0<BR>Rule:
+			builtin_hfn, action: allow, packets allowed: 0<BR>Rule:
+			builtin_dns, action: allow, packets allowed: 0<BR>Adapter Class
+			&quot;dialup&quot; send rule statistics:<BR>Rule: allow, action:
+			allow, packets allowed: 0<BR>Rule: builtin_hfn, action: allow,
+			packets allowed: 0<BR>Rule: builtin_dns, action: allow, packets
+			allowed: 0<BR>Rule: builtin_hfn_server, action: allow, packets
+			allowed: 0<BR><BR>Adapter Class &quot;wired&quot; receive rule
+			statistics:<BR>Rule: deny, action: deny, packets dropped:
+			1292<BR>Rule: allicmp, action: allow, packets allowed: 280<BR>Rule:
+			noremoteping, action: deny, packets dropped: 0<BR>Rule:
+			passiveftp, action: allow, packets allowed: 0<BR>Rule: smb,
+			action: allow, packets allowed: 156<BR>Rule: builtin_hfn, action:
+			allow, packets allowed: 0<BR>Rule: builtin_dns, action: allow,
+			packets allowed: 288<BR>Adapter Class &quot;wired&quot; send rule
+			statistics:<BR>Rule: allow, action: allow, packets allowed:
+			724<BR>Rule: builtin_hfn, action: allow, packets allowed: 0<BR>Rule:
+			builtin_dns, action: allow, packets allowed: 381<BR>Rule:
+			builtin_hfn_server, action: allow, packets allowed: 150<BR><BR>Adapter
+			Class &quot;default&quot; receive rule statistics:<BR>Rule: deny,
+			action: deny, packets dropped: 0<BR>Rule: allicmp, action: allow,
+			packets allowed: 0<BR>Rule: noping, action: deny, packets dropped:
+			0<BR>Rule: passiveftp, action: allow, packets allowed: 0<BR>Rule:
+			builtin_hfn, action: allow, packets allowed: 0<BR>Rule:
+			builtin_dns, action: allow, packets allowed: 0<BR>Adapter Class
+			&quot;default&quot; send rule statistics:<BR>Rule: allow, action:
+			allow, packets allowed: 0<BR>Rule: builtin_hfn, action: allow,
+			packets allowed: 0<BR>Rule: builtin_dns, action: allow, packets
+			allowed: 0<BR>Rule: builtin_hfn_server, action: allow, packets
+			allowed: 0<BR><BR>Default action: deny, packets dropped: 0 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Scrip 228 configuration settings.</P>
+			<P>E.g.:</P>
+			<P>Rules:<BR>smb,srcnet=local,dstprt=137+138+139,act=allow<BR>passiveftp,proto=tcp,srcprt=20,act=allow<BR>allicmp,proto=icmp,act=allow<BR>noremoteping,srcnet=remote,proto=icmp,icmp=8,act=deny<BR>noping,proto=icmp,icmp=8,act=deny<BR><BR>Chains:<BR>trustrecv,smb,passiveftp,noremoteping,allicmp,deny<BR>trustsend,allow<BR>notrustrecv,passiveftp,noping,allicmp,deny<BR><BR>Adapter
+			Classes:<BR>wireless,trustsend,notrustrecv<BR>dialup,trustsend,notrustrecv<BR>wired,trustsend,trustrecv<BR>default,trustsend,notrustrecv<BR><BR>Default
+			Action: deny<BR>Static Driver: Installed and running<BR>Allow
+			Threshold:1<BR>Deny Threshold:1 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

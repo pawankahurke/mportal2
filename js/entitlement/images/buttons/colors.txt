@@ -1,0 +1,2 @@
+button_idle : #009999
+button_hover : #009999 70% opacity

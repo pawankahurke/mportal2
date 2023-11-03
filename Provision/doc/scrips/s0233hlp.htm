@@ -1,0 +1,1191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 233 &ndash; System Start-up Environment Management</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20031126;9054487">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20041104;8374141">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 233 &ndash; System Start-up Environment<FONT COLOR="#333399">
+<FONT FACE="verdana, helvetica">Management</FONT></FONT></H3>
+<H4>Overview</H4>
+<P>Managing and controlling system start-up ensures that: 
+</P>
+<UL>
+	<LI><P>Slower system boot-up 
+	</P>
+	<LI><P>Ongoing startup performance problems 
+	</P>
+	<LI><P>Unwanted intrusion, and potentially even harm to the system 
+	</P>
+	<LI><P>Slower system performance</P>
+</UL>
+<P>are prevented.</P>
+<P>ASI features complete system start-up environment management and
+control. We have two Scrips that perform these functions:</P>
+<UL>
+	<LI><P>Scrip 27 to control the content of a system&rsquo;s start-up
+	environment. Depending on its configuration, it accepts, reject, or
+	disable any attempt to add a new item to a system&rsquo;s start-up
+	environment. If so configured, it performs all actions
+	automatically.</P>
+	<LI><P>Scrip 233 to manage a system&rsquo;s start-up environment.
+	Scrip 233 reports the content of a system&rsquo;s start-up
+	environment, and disabled start-up items. It also lets you easily
+	enable and disable start-up items on one, some, or all systems at a
+	site.</P>
+</UL>
+<H4>How it works</H4>
+<P>Scrip 233 runs when one of the following events occurs:</P>
+<UL>
+	<LI><P>When you click on the execute button to the right of the
+	<I><FONT FACE="Verdana, sans-serif">Update startup</FONT></I><EM>
+	<I><FONT FACE="Verdana, sans-serif">items now</FONT></I></EM> label</P>
+	<LI><P>When a user logs on. Having Scrip 233 run when a user logs on
+	has the side effect of having it run on ASI client start-up. This is
+	because the user that is currently active is seen as a <I>new user</I>
+	when the ASI client starts up.</P>
+	<LI><P>When it is enabled. When this happens it updates the
+	configuration. 
+	</P>
+	<LI><P>At its scheduled time</P>
+</UL>
+<P>When Scrip 233 runs the <EM><FONT FACE="Verdana, sans-serif">Startup
+items to enable </FONT>and <FONT FACE="Verdana, sans-serif">Startup
+items to disable</FONT></EM> parameters are processed first. After
+the appropriate start-up items are enabled or disabled as per the
+configuration, then the content of the <EM><FONT FACE="Verdana, sans-serif">Currently
+enabled startup items on this machine </FONT>and <FONT FACE="Verdana, sans-serif">Currently
+disabled startup items on this machine parameters is</FONT></EM>
+updated.</P>
+<H4>Enabling and disabling start-up items</H4>
+<P><FONT FACE="Verdana, sans-serif">The easiest way to disable a
+start-up item is to copy it from the <I>Currently enabled startup
+items</I> parameter, and paste it into the <I>Startup items to
+disable</I> parameter. To re-enable an item you can move it from the
+<I>Startup items to disable</I> parameter to the <I>Startup items to
+enable</I> parameter.</FONT></P>
+<P><FONT FACE="Verdana, sans-serif">While this method of enabling and
+disabling start-up items is certainly not the most elegant, it is
+straightforward and efficient. </FONT>
+</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client location on system that reported the event 
+			</P>
+			<P>(e.g. C:\PROGRAM FILES\...\CLIENT\CUST.EXE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Start-up item disable and/or enable actions taken by Scrip 233</P>
+			<P>(E.g.</P>
+			<P>No items were enabled.<BR><BR>1 item was disabled:
+			<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,qvewlwmwx,C:\WINDOWS\System32\ieyrhbk.exe&nbsp;&nbsp;<BR><BR><BR><BR>
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Scrip 233 configuration settings and event that triggered its
+			execution.</P>
+			<P>(E.g.</P>
+			<P>Type of run: On-Demand<BR><BR>Items to enable: none<BR><BR>Items
+			to disable:
+			<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,WebRebates0,&quot;C:\Program
+			Files\Web_Rebates\WebRebates0.exe&quot;<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,uwmvcchqw,C:\WINDOWS\System32\ieyrhbk.exe<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,EbatesMoeMoneyMaker0,&quot;C:\Program
+			Files\Ebates_MoeMoneyMaker\EbatesMoeMoneyMaker0.exe&quot;<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,SMA1.0.9,c:\SvcTools\1.0.9\bin\lnchr.exe
+			--context=user
+			--control-dir=c:\SvcTools\1.0.9\ctrl<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,STOOL32M,C:\WINDOWS\System32\STOOL32M.exe<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\spkrmon,spkrmon,C:\Program
+			Files\Analog
+			Devices\SoundMAX\spkrmon.exe<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,SunJavaUpdateSched,C:\Program
+			Files\Java\j2re1.4.2_05\bin\jusched.exe<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\SMA1.0.9,Software
+			Management Agent 1.0.9,c:\SvcTools\1.0.9\bin\lnchr.exe --service
+			--context=system
+			--control-dir=c:\SvcTools\1.0.9\ctrl<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsnboio,tfsnboio,system32\dla\tfsnboio.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsncofs,tfsncofs,system32\dla\tfsncofs.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsndrct,tfsndrct,system32\dla\tfsndrct.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsndres,tfsndres,system32\dla\tfsndres.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsnifs,tfsnifs,system32\dla\tfsnifs.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsnopio,tfsnopio,system32\dla\tfsnopio.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsnpool,tfsnpool,system32\dla\tfsnpool.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsnudf,tfsnudf,system32\dla\tfsnudf.sys<BR>Service,HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tfsnudfa,tfsnudfa,system32\dla\tfsnudfa.sys<BR>StartFolder,Alessandro
+			Donnini,C:\Documents and Settings\Alessandro Donnini\Start
+			Menu\Programs\Startup,Virtual Bouncer.lnk<BR>StartFolder,Alessandro
+			Donnini,C:\Documents and Settings\Alessandro Donnini\Start
+			Menu\Programs\Startup,AdDestroyer.lnk<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,qvewlwmwx,C:\WINDOWS\System32\ieyrhbk.exe<BR>RegKey,,HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run,sinetM,C:\WINDOWS\System32\sinetM.exe<BR><BR><BR><BR>
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Listing of the enabled and disabled start-up items on the
+			system whose ASI client produced the event log you are viewing.</P>
+			<P>(E.g.</P>
+			<P>Item: ATIModeChange<BR>Item data: Ati2mdxx.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\system32\Ati2mdxx.exe<BR>CompanyName: ATI Technologies,
+			Inc.<BR>FileDescription: ATI 2D Mode component<BR>FileVersion:
+			4.13.3<BR>LegalCopyright: Copyright (c) ATI Technologies Inc.
+			2000<BR>ProductName: ATI 2D Component<BR>ProductVersion:
+			4.13.3<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			ATIPTA<BR>Item data: C:\Program Files\ATI Technologies\ATI Control
+			Panel\atiptaxx.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\Program Files\ATI
+			Technologies\ATI Control Panel\atiptaxx.exe<BR>CompanyName: ATI
+			Technologies, Inc.<BR>FileDescription: ATI Desktop Control
+			Panel<BR>FileVersion: 6.14.10.4032<BR>LegalCopyright: Copyright
+			(C) 1998-2002 ATI Technologies Inc.<BR>ProductName: ATI Desktop
+			Component<BR>ProductVersion: 6.14.10.4032<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item: dla<BR>Item data:
+			C:\WINDOWS\system32\dla\tfswctrl.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfswctrl.exe<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			UpdateManager<BR>Item data: &quot;C:\Program Files\Common
+			Files\Sonic\Update Manager\sgtray.exe&quot; /r<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\Program
+			Files\Common Files\Sonic\Update Manager\sgtray.exe<BR>CompanyName:
+			Sonic Solutions<BR>FileDescription: Sonic Update
+			Manager<BR>FileVersion: 1.01.32a<BR>LegalCopyright: Copyright &copy;
+			2002 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			PCCareCApp<BR>Item data: C:\Program Files\PCCare\Client\capp.exe
+			-r<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\Program
+			Files\PCCare\Client\capp.exe<BR>CompanyName: HandsFree Networks,
+			Inc.<BR>FileDescription: CApp program<BR>FileVersion:
+			1.007.0022.A<BR>LegalCopyright: Copyright &copy; HandsFree
+			Networks. 1999 - 2003<BR>ProductName: Cust<BR>ProductVersion:
+			1.007.0022.A<BR>Comments: HandsFree Networks CApp program<BR>Status:
+			enabled<BR><BR>Item: AFD<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: AFD Networking Support
+			Environment<BR>Service description: not available<BR>Executable
+			file: C:\WINDOWS\System32\drivers\afd.sys<BR>CompanyName:
+			Microsoft Corporation<BR>FileDescription: Ancillary Function
+			Driver for WinSock<BR>FileVersion: 5.1.2600.1106
+			(xpsp1.020828-1920)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.1106<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Ati HotKey Poller<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\System32\Ati2evxx.exe<BR>CompanyName: ATI Technologies
+			Inc.<BR>FileDescription: ATI External Event Utility EXE
+			Module<BR>FileVersion: 6.14.4065<BR>LegalCopyright: Copyright &copy;
+			1999-2002 ATI Technologies Inc.<BR>ProductName: ATI External Event
+			Utility for WindowsNT and Windows9X<BR>ProductVersion:
+			6.14.4065<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			AudioSrv<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Windows Audio<BR>Service
+			description: Manages audio devices for Windows-based programs. If
+			this service is stopped, audio devices and effects will not
+			function properly. If this service is disabled, any services that
+			explicitly depend on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Browser<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Computer Browser<BR>Service
+			description: Maintains an updated list of computers on the network
+			and supplies this list to computers designated as browsers. If
+			this service is stopped, this list will not be updated or
+			maintained. If this service is disabled, any services that
+			explicitly depend on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			CryptSvc<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Cryptographic
+			Services<BR>Service description: Provides three management
+			services: Catalog Database Service, which confirms the signatures
+			of Windows files; Protected Root Service, which adds and removes
+			Trusted Root Certification Authority certificates from this
+			computer; and Key Service, which helps enroll this computer for
+			certificates. If this service is stopped, these management
+			services will not function properly. If this service is disabled,
+			any services that explicitly depend on it will fail to
+			start.<BR>Executable file:
+			C:\WINDOWS\system32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Dhcp<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: DHCP Client<BR>Service
+			description: Manages network configuration by registering and
+			updating IP addresses and DNS names.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			dmserver<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Logical Disk
+			Manager<BR>Service description: Detects and monitors new hard disk
+			drives and sends disk volume information to Logical Disk Manager
+			Administrative Service for configuration. If this service is
+			stopped, dynamic disk status and configuration information may
+			become out of date. If this service is disabled, any services that
+			explicitly depend on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Dnscache<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: DNS Client<BR>Service
+			description: Resolves and caches Domain Name System (DNS) names
+			for this computer. If this service is stopped, this computer will
+			not be able to resolve DNS names and locate Active Directory
+			domain controllers. If this service is disabled, any services that
+			explicitly depend on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			drvnddm<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\drivers\drvnddm.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Device Driver Manager<BR>FileVersion:
+			2.56.38a<BR>LegalCopyright: Copyright &copy; Sonic
+			Solutions<BR>ProductName: not available<BR>ProductVersion: not
+			available<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			ERSvc<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Error Reporting
+			Service<BR>Service description: Allows error reporting for
+			services and applictions running in non-standard
+			environments.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Eventlog<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Event Log<BR>Service
+			description: Enables event log messages issued by Windows-based
+			programs and components to be viewed in Event Viewer. This service
+			cannot be stopped.<BR>Executable file:
+			C:\WINDOWS\system32\services.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Services and Controller
+			app<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			helpsvc<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Help and Support<BR>Service
+			description: Enables Help and Support Center to run on this
+			computer. If this service is stopped, Help and Support Center will
+			be unavailable. If this service is disabled, any services that
+			explicitly depend on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			jsdaemon<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file: C:\Program
+			Files\jetsuite\jsdaemon.exe<BR>CompanyName: JetFax,
+			Inc.<BR>FileDescription: JetFax NT MFP Daemon Service<BR>FileVersion:
+			2.0.179.0<BR>LegalCopyright: Copyright &copy; JetFax, Inc.
+			1998<BR>ProductName: JetSuite<BR>ProductVersion:
+			2.0.179.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			jsfax<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\drivers\jsfax.sys<BR>CompanyName: JetFax,
+			Inc.<BR>FileDescription: JetFax NT Fax Client<BR>FileVersion:
+			2.0.179.0<BR>LegalCopyright: Copyright &copy; JetFax, Inc.
+			1998<BR>ProductName: JetSuite<BR>ProductVersion:
+			2.0.179.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			jspclcap<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\drivers\jspclcap.sys<BR>CompanyName: JetFax,
+			Inc.<BR>FileDescription: JetFax NT PCL Capture<BR>FileVersion:
+			2.0.179.0<BR>LegalCopyright: Copyright &copy; JetFax, Inc.
+			1998<BR>ProductName: JetSuite<BR>ProductVersion:
+			2.0.179.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			lanmanserver<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Server<BR>Service
+			description: Supports file, print, and named-pipe sharing over the
+			network for this computer. If this service is stopped, these
+			functions will be unavailable. If this service is disabled, any
+			services that explicitly depend on it will fail to
+			start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			lanmanworkstation<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Workstation<BR>Service
+			description: Creates and maintains client network connections to
+			remote servers. If this service is stopped, these connections will
+			be unavailable. If this service is disabled, any services that
+			explicitly depend on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			LmHosts<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: TCP/IP NetBIOS
+			Helper<BR>Service description: Enables support for NetBIOS over
+			TCP/IP (NetBT) service and NetBIOS name resolution.<BR>Executable
+			file: C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			MDM<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Machine Debug
+			Manager<BR>Service description: Manages local and remote debugging
+			for Visual Studio debuggers<BR>Executable file: C:\Program
+			Files\Common Files\Microsoft Shared\VS7Debug\mdm.exe<BR>CompanyName:
+			Microsoft Corporation<BR>FileDescription: Machine Debug
+			Manager<BR>FileVersion: 7.00.9064.9150<BR>LegalCopyright:
+			Copyright (C) Microsoft Corp. 1997-2000<BR>ProductName: Microsoft
+			Development Environment<BR>ProductVersion:
+			7.00.9064.9150<BR>Comments: not available<BR>Status:
+			enabled<BR><BR>Item: Messenger<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Messenger<BR>Service
+			description: Transmits net send and Alerter service messages
+			between clients and servers. This service is not related to
+			Windows Messenger. If this service is stopped, Alerter messages
+			will not be transmitted. If this service is disabled, any services
+			that explicitly depend on it will fail to start.<BR>Executable
+			file: C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			PCCare Client<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: PCCare Client<BR>Service
+			description: not available<BR>Executable file: C:\Program
+			Files\PCCare\Client\srvc.exe<BR>CompanyName: HandsFree Networks,
+			Inc.<BR>FileDescription: NT service<BR>FileVersion:
+			1.001.1600.AM<BR>LegalCopyright: Copyright &copy; HandsFree
+			Networks. 1999 - 2001<BR>ProductName: Cust<BR>ProductVersion:
+			1.001.1600.AM<BR>Comments: HandsFree Networks NT service<BR>Status:
+			enabled<BR><BR>Item: PlugPlay<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Plug and Play<BR>Service
+			description: Enables a computer to recognize and adapt to hardware
+			changes with little or no user input. Stopping or disabling this
+			service will result in system instability.<BR>Executable file:
+			C:\WINDOWS\system32\services.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Services and Controller
+			app<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			PolicyAgent<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: IPSEC Services<BR>Service
+			description: Manages IP security policy and starts the
+			ISAKMP/Oakley (IKE) and the IP security driver.<BR>Executable
+			file: C:\WINDOWS\System32\lsass.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: LSA Shell (Export
+			Version)<BR>FileVersion: 5.1.2600.1106
+			(xpsp1.020828-1920)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.1106<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			ProtectedStorage<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Protected Storage<BR>Service
+			description: Provides protected storage for sensitive data, such
+			as private keys, to prevent access by unauthorized services,
+			processes, or users.<BR>Executable file:
+			C:\WINDOWS\system32\lsass.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: LSA Shell (Export
+			Version)<BR>FileVersion: 5.1.2600.1106
+			(xpsp1.020828-1920)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.1106<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			RemoteRegistry<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Remote Registry<BR>Service
+			description: Enables remote users to modify registry settings on
+			this computer. If this service is stopped, the registry can be
+			modified only by users on this computer. If this service is
+			disabled, any services that explicitly depend on it will fail to
+			start.<BR>Executable file:
+			C:\WINDOWS\system32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			RpcSs<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Remote Procedure Call
+			(RPC)<BR>Service description: Provides the endpoint mapper and
+			other miscellaneous RPC services.<BR>Executable file:
+			C:\WINDOWS\system32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			SamSs<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Security Accounts
+			Manager<BR>Service description: Stores security information for
+			local user accounts.<BR>Executable file:
+			C:\WINDOWS\system32\lsass.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: LSA Shell (Export
+			Version)<BR>FileVersion: 5.1.2600.1106
+			(xpsp1.020828-1920)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.1106<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Schedule<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Task Scheduler<BR>Service
+			description: Enables a user to configure and schedule automated
+			tasks on this computer. If this service is stopped, these tasks
+			will not be run at their scheduled times. If this service is
+			disabled, any services that explicitly depend on it will fail to
+			start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Secdrv<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Secdrv<BR>Service
+			description: SafeDisc driver<BR>Executable file:
+			C:\WINDOWS\System32\DRIVERS\secdrv.sys<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item: seclogon<BR>Item data:
+			n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Secondary Logon<BR>Service
+			description: Enables starting processes under alternate
+			credentials. If this service is stopped, this type of logon access
+			will be unavailable. If this service is disabled, any services
+			that explicitly depend on it will fail to start.<BR>Executable
+			file: C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			SENS<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: System Event
+			Notification<BR>Service description: Tracks system events such as
+			Windows logon, network, and power events. Notifies COM+ Event
+			System subscribers of these events.<BR>Executable file:
+			C:\WINDOWS\system32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			ShellHWDetection<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Shell Hardware
+			Detection<BR>Service description: not available<BR>Executable
+			file: C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Spooler<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Print Spooler<BR>Service
+			description: Loads files to memory for later printing.<BR>Executable
+			file: C:\WINDOWS\system32\spoolsv.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Spooler SubSystem App<BR>FileVersion:
+			5.1.2600.0 (XPClient.010817-1148)<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			srservice<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: System Restore
+			Service<BR>Service description: Performs system restore functions.
+			To stop service, turn off System Restore from the System Restore
+			tab in My Computer-&gt;Properties<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			Themes<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Themes<BR>Service
+			description: Provides user experience theme management.<BR>Executable
+			file: C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			TrkWks<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Distributed Link Tracking
+			Client<BR>Service description: Maintains links between NTFS files
+			within a computer or across computers in a network
+			domain.<BR>Executable file:
+			C:\WINDOWS\system32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			uploadmgr<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Upload Manager<BR>Service
+			description: Manages synchronous and asynchronous file transfers
+			between clients and servers on the network. If this service is
+			stopped, synchronous and asynchronous file transfers between
+			clients and servers on the network will not occur. If this service
+			is disabled, any services that explicitly depend on it will fail
+			to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			W32Time<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Windows Time<BR>Service
+			description: Maintains date and time synchronization on all
+			clients and servers in the network. If this service is stopped,
+			date and time synchronization will be unavailable. If this service
+			is disabled, any services that explicitly depend on it will fail
+			to start.<BR><BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			WebClient<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: WebClient<BR>Service
+			description: Enables Windows-based programs to create, access, and
+			modify Internet-based files. If this service is stopped, these
+			functions will not be available. If this service is disabled, any
+			services that explicitly depend on it will fail to
+			start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			winmgmt<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Windows Management
+			Instrumentation<BR>Service description: Provides a common
+			interface and object model to access management information about
+			operating system, devices, applications and services. If this
+			service is stopped, most Windows-based software will not function
+			properly. If this service is disabled, any services that
+			explicitly depend on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\system32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			WmdmPmSp<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Portable Media Serial
+			Number<BR>Service description: Retrieves the serial number of any
+			portable music player connected to your computer<BR>Executable
+			file: C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			wuauserv<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Automatic Updates<BR>Service
+			description: Enables the download and installation of Windows
+			updates. If this service is disabled, this computer will not be
+			able to use the Automatic Updates feature or the Windows Update
+			Web site.<BR>Executable file:
+			C:\WINDOWS\system32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			WZCSVC<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Wireless Zero
+			Configuration<BR>Service description: Provides automatic
+			configuration for the 802.11 adapters<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			WebRebates0<BR>Item data: &quot;C:\Program
+			Files\Web_Rebates\WebRebates0.exe&quot;<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\Program
+			Files\Web_Rebates\WebRebates0.exe<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item: uwmvcchqw<BR>Item data:
+			C:\WINDOWS\System32\ieyrhbk.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\System32\ieyrhbk.exe<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item:
+			EbatesMoeMoneyMaker0<BR>Item data: &quot;C:\Program
+			Files\Ebates_MoeMoneyMaker\EbatesMoeMoneyMaker0.exe&quot;<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\Program
+			Files\Ebates_MoeMoneyMaker\EbatesMoeMoneyMaker0.exe<BR>CompanyName:
+			not available<BR>FileDescription: not available<BR>FileVersion:
+			not available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item: SMA1.0.9<BR>Item data:
+			c:\SvcTools\1.0.9\bin\lnchr.exe --context=user
+			--control-dir=c:\SvcTools\1.0.9\ctrl<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			c:\SvcTools\1.0.9\bin\lnchr.exe<BR>CompanyName:
+			Everdream<BR>FileDescription: launcher Application<BR>FileVersion:
+			0, 24, 0, 0<BR>LegalCopyright: Copyright 2004 by
+			Everdream<BR>ProductName: launcher Application<BR>ProductVersion:
+			0, 24, 0, 0<BR>Comments: not available<BR>Status: disabled<BR><BR>Item:
+			SunJavaUpdateSched<BR>Item data: C:\Program
+			Files\Java\j2re1.4.2_05\bin\jusched.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: C:\Program
+			Files\Java\j2re1.4.2_05\bin\jusched.exe<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item: sinetM<BR>Item data:
+			C:\WINDOWS\System32\sinetM.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\System32\sinetM.exe<BR>CompanyName:
+			totempole<BR>FileDescription: not available<BR>FileVersion:
+			1.00.0005<BR>LegalCopyright: not available<BR>ProductName:
+			werule<BR>ProductVersion: 1.00.0005<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item: Win Server Updt<BR>Item
+			data: C:\WINDOWS\wupdt.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\wupdt.exe<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item: qvewlwmwx<BR>Item data:
+			C:\WINDOWS\System32\ieyrhbk.exe<BR>Location:
+			HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file:
+			C:\WINDOWS\System32\ieyrhbk.exe<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: disabled<BR><BR>Item: HidServ<BR>Item data:
+			n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Human Interface Device
+			Access<BR>Service description: Enables generic input access to
+			Human Interface Devices (HID), which activates and maintains the
+			use of predefined hot buttons on keyboards, remote controls, and
+			other multimedia devices. If this service is stopped, hot buttons
+			controlled by this service will no longer function. If this
+			service is disabled, any services that explicitly depend on it
+			will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: disabled<BR><BR>Item:
+			jsdbg<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\drivers\jsdbg.sys<BR>CompanyName: JetFax,
+			Inc.<BR>FileDescription: JetFax NT Driver Debug Log<BR>FileVersion:
+			2.0.179.0<BR>LegalCopyright: Copyright &copy; JetFax, Inc.
+			1998<BR>ProductName: JetSuite<BR>ProductVersion:
+			2.0.179.0<BR>Comments: not available<BR>Status: disabled<BR><BR>Item:
+			RemoteAccess<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Routing and Remote
+			Access<BR>Service description: Offers routing services to
+			businesses in local area and wide area network
+			environments.<BR>Executable file:
+			C:\WINDOWS\System32\svchost.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Generic Host Process for Win32
+			Services<BR>FileVersion: 5.1.2600.0
+			(xpclient.010817-1148)<BR>LegalCopyright: &copy; Microsoft
+			Corporation. All rights reserved.<BR>ProductName: Microsoft&reg;
+			Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.0<BR>Comments: not available<BR>Status: disabled<BR><BR>Item:
+			SMA1.0.9<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Software Management Agent
+			1.0.9<BR>Service description: not available<BR>Executable file:
+			c:\SvcTools\1.0.9\bin\lnchr.exe<BR>CompanyName:
+			Everdream<BR>FileDescription: launcher Application<BR>FileVersion:
+			0, 24, 0, 0<BR>LegalCopyright: Copyright 2004 by
+			Everdream<BR>ProductName: launcher Application<BR>ProductVersion:
+			0, 24, 0, 0<BR>Comments: not available<BR>Status: disabled<BR><BR>Item:
+			spkrmon<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: spkrmon<BR>Service
+			description: not available<BR>Executable file: C:\Program
+			Files\Analog Devices\SoundMAX\spkrmon.exe<BR>CompanyName: not
+			available<BR>FileDescription: SoundMAX SpeakerMonitor
+			service<BR>FileVersion: 1, 0, 0, 4<BR>LegalCopyright: Copyright
+			2003<BR>ProductName: spkrmon Module<BR>ProductVersion: 1, 0, 0,
+			4<BR>Comments: not available<BR>Status: disabled<BR><BR>Item:
+			tfsnboio<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsnboio.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsncofs<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsncofs.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsndrct<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsndrct.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsndres<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsndres.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsnifs<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsnifs.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsnopio<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsnopio.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsnpool<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsnpool.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsnudf<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsnudf.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: tfsnudfa<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: not available<BR>Service
+			description: not available<BR>Executable file:
+			C:\WINDOWS\system32\dla\tfsnudfa.sys<BR>CompanyName: Sonic
+			Solutions<BR>FileDescription: Drive Letter Access
+			Component<BR>FileVersion: 1.04.05b<BR>LegalCopyright: Copyright &copy;
+			2003 Sonic Solutions<BR>ProductName: not available<BR>ProductVersion:
+			not available<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: TlntSvr<BR>Item data: n/a<BR>Location:
+			HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services<BR>Item type:
+			Startup service<BR>Service display name: Telnet<BR>Service
+			description: Enables a remote user to log on to this computer and
+			run programs, and supports various TCP/IP Telnet clients,
+			including UNIX-based and Windows-based computers. If this service
+			is stopped, remote user access to programs might be unavailable.
+			If this service is disabled, any services that explicitly depend
+			on it will fail to start.<BR>Executable file:
+			C:\WINDOWS\System32\tlntsvr.exe<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Telnet<BR>FileVersion:
+			5.1.2600.1106 (xpsp1.020828-1920)<BR>LegalCopyright: &copy;
+			Microsoft Corporation. All rights reserved.<BR>ProductName:
+			Microsoft&reg; Windows&reg; Operating System<BR>ProductVersion:
+			5.1.2600.1106<BR>Comments: not available<BR>Status:
+			disabled<BR><BR>Item: Microsoft Office.lnk<BR>Item data:
+			n/a<BR>Location: C:\Documents and Settings\All Users\Start
+			Menu\Programs\Startup<BR>Item type: Startup application<BR>Executable
+			file: F:\Program Files\Microsoft
+			Office\Office\OSA9.EXE<BR>CompanyName: Microsoft
+			Corporation<BR>FileDescription: Microsoft Office 2000
+			component<BR>FileVersion: 9.0.3720<BR>LegalCopyright: Copyright&copy;
+			Microsoft Corporation 1994-1999. All rights reserved.<BR>ProductName:
+			Microsoft Office 2000<BR>ProductVersion: 9.0.3720<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item: HP LaserJet 3100
+			Status.lnk<BR>Item data: n/a<BR>Location: C:\Documents and
+			Settings\All Users\Start Menu\Programs\Startup<BR>Item type:
+			Startup application<BR>Executable file: C:\Program
+			Files\jetsuite\JETSTAT.EXE<BR>CompanyName: JetFax
+			Inc.<BR>FileDescription: JetStat Application<BR>FileVersion:
+			2.00.0179<BR>LegalCopyright: Copyright &copy; 1996-1998, JetFax
+			Inc.<BR>ProductName: JetSuite&reg;<BR>ProductVersion:
+			2.00.0000<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			DllCmd32.lnk<BR>Item data: n/a<BR>Location: C:\Documents and
+			Settings\All Users\Start Menu\Programs\Startup<BR>Item type:
+			Startup application<BR>Executable file: C:\Program
+			Files\jetsuite\DLLCMD32.EXE<BR>CompanyName: JetFax
+			Inc.<BR>FileDescription: Dynamic Link Library Command
+			Utility<BR>FileVersion: 2.00.0179<BR>LegalCopyright: Copyright &copy;
+			1996-1998, JetFax Inc.<BR>ProductName: JetSuite<BR>ProductVersion:
+			2.00.0000<BR>Comments: not available<BR>Status: enabled<BR><BR>Item:
+			desktop.ini<BR>Item data: n/a<BR>Location: C:\Documents and
+			Settings\All Users\Start Menu\Programs\Startup<BR>Item type:
+			Startup application<BR>Executable file: C:\Documents and
+			Settings\All Users\Start
+			Menu\Programs\Startup\desktop.ini<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item: Acrobat
+			Assistant.lnk<BR>Item data: n/a<BR>Location: C:\Documents and
+			Settings\All Users\Start Menu\Programs\Startup<BR>Item type:
+			Startup application<BR>Executable file: F:\Program
+			Files\Adobe\Acrobat 5.0\Distillr\AcroTray.exe<BR>CompanyName:
+			Adobe Systems Inc.<BR>FileDescription: AcroTray<BR>FileVersion: 5,
+			0, 0, 0<BR>LegalCopyright: Copyright &copy; 2001<BR>ProductName:
+			AcroTray - Adobe Acrobat Distiller helper
+			application.<BR>ProductVersion: 5, 0, 0, 0<BR>Comments: not
+			available<BR>Status: enabled<BR><BR>Item: Sonic RecordNow!<BR>Item
+			data: <BR>Location:
+			HKEY_USERS\S-1-5-21-117609710-1715567821-839522115-1003\Software\Microsoft\Windows\CurrentVersion\Run<BR>Item
+			type: Startup application<BR>Executable file: could not be
+			determined or does not exist<BR><BR>Item: desktop.ini<BR>Item
+			data: n/a<BR>Location: C:\Documents and Settings\Alessandro
+			Donnini\Start Menu\Programs\Startup<BR>Item type: Startup
+			application<BR>Executable file: C:\Documents and
+			Settings\Alessandro Donnini\Start
+			Menu\Programs\Startup\desktop.ini<BR>CompanyName: not
+			available<BR>FileDescription: not available<BR>FileVersion: not
+			available<BR>LegalCopyright: not available<BR>ProductName: not
+			available<BR>ProductVersion: not available<BR>Comments: not
+			available<BR>Status: enabled</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

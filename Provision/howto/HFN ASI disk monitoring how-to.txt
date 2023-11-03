@@ -1,0 +1,126 @@
+Disk related event notification activation
+===========================================
+
+Event notifications that report disk problem related event logs
+----------------------------------------------------------------
+
+In order to retrieve disk problem related event notifications, please perform the following steps:
+
+I) Log onto the ASI server (https://asiservername/main). The ASI dashboard will be displayed
+
+II) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+III) Go to the "Event Notifications" page. Click on the "notifications" link in the "events" navigation bar (https://asiservername/main/event/notify.php)
+
+IV) In the "Search Options" panel, enter:
+disk    in the "Name contains" search options parameter
+disk    in the "Filter contains" search options parameter,
+
+and click on the "Search" button
+
+A number of notifications will be retrieved. Among these, the following disk problem related event notifications:
+- DellOM - Disk array errors - AspiPro
+- DellOM - Disk array errors - Mylex
+- DellOM - Disk array errors - Perc2Pro
+- DellOM - Disk array errors - PercPro
+- disk - DELL raid controller errors
+- disk - Device slot returned an invalid status
+- disk - Driver detect an internal error
+- disk - driver detected a controller error
+- disk - ft set cannot be used
+- disk - ftdisk failed
+- disk - not ready for access
+- disk - parity error
+- disk - port timeout due to prolonged inactivity
+- disk array status change
+- disk controller error
+- disk did not respond
+- mass storage device has bad block - disk
+
+V) In the "Search Options" panel, enter:
+mass   in the "Name contains" search options parameter,
+
+and click on the "Search" button
+
+The following event notification will be retrieved:
+- mass storage device has bad block
+- mass storage device has bad block - cdrom
+- mass storage device has bad block - disk
+- mass storage device has bad block - tape 
+
+VI) In the "Search Options" panel, enter:
+compaq	in the "Name contains" search options parameter,
+
+and click on the "Search" button
+
+The following event notification will be retrieved:
+- Compaq physical drive failure
+
+
+You should enable the notifications retrieved performing steps I)-VI) above editing their configurations (using the group management function) to suit your needs.
+
+All of the event filters that retrieve event logs reporting disk problems (you can view these event filters by performing steps a)-f) below) search Scrip 77 (MS Windows event log errors) event logs, and use the value in the ID field in Scrip 77 event logs, where the MS Windows event id is reported.
+
+The currently available disk problem event notifications do not by any means cover all potential disk failures. If you know of other disk/controller related MS Windows event log errors, please let me know. It will be very easy to add filters to retrieve these other errors. 
+
+Additionally, you could use Scrip 89 (or one of Scrips 151-157, or 212-215) to periodically run a disk/mass storage sub-system diagnostic utility, then use Scrip 100 to retrieve the log files produced by the disk/mass storage sub-system diagnostic utility, define event filters that scan the log files for errors, and define notifications that use these filters. If you already have a disk/mass storage sub-system diagnostic utility which runs periodically, you do not need to use Scrip 89 to run it.
+
+
+Event filters that retrieve disk problem related event logs
+------------------------------------------------------------
+In order to view the event filters currently available for retrieving event logs reporting disk problems that could lead to disk failures, please perform the following steps:
+
+a) Log onto the ASI server (https://asiservername/main)
+
+b) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+c) Go to the "Event Filters" page. Click on the "filters" link in the "events" navigation bar. (https://asiservername/main/event/search.php). 
+
+d) In the "Search Options" panel, enter:
+disk     in the "Name contains" search options parameter
+id =     in the "Filter contains" search options parameter,
+
+and click on the "Search" button. 
+
+The following event filters will be retrieved:
+- DellOM - Disk array errors - AspiPro
+- DellOM - Disk array errors - Mylex
+- DellOM - Disk array errors - Perc2Pro
+- DellOM - Disk array errors - PercPro
+- disk - DELL raid controller errors
+- disk - Device slot returned an invalid status
+- disk - Driver detect an internal error
+- disk - driver detected a controller error
+- disk - ft set cannot be used
+- disk - ftdisk failed
+- disk - not ready for access
+- disk - parity error
+- disk - port timeout due to prolonged inactivity
+- disk array status change
+- disk controller error
+- disk did not respond
+- mass storage device has bad block - disk
+
+e) In the "Search Options" panel, enter:
+mass	in the "Name contains" search options parameter
+id =    in the "Filter contains" search options parameter,
+
+and click on the "Search" button. 
+
+The following event filter will be retrieved:
+- mass storage device has bad block
+- mass storage device has bad block - cdrom
+- mass storage device has bad block - disk
+- mass storage device has bad block - tape
+
+f) In the "Search Options" panel, enter:
+compaq	in the "Name contains" search options parameter,
+
+and click on the "Search" button. 
+
+The following event filter will be retrieved:
+- Compaq physical drive failure
+
+Please note that there are more than 100 event filters designed to retrieve event logs reporting disk related problems. The ones listed above retrieve the most frequently occurring disk related problems. For each of these, there is a pre-built event notification, as described above. You can easily define event notifications using those event filters which are currently not used by any event notification.
+
+

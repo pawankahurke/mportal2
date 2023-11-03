@@ -1,0 +1,809 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Automated Support Infrastructure (ASI) Resource Availability Monitoring </TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20050116;22494453">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20060814;9175546">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		H6 { color: #333399; font-family: "verdana" }
+		P.text-body-indent { margin-left: 1in; font-family: "verdana"; font-size: 10pt }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>Automated Support Infrastructure (ASI) Resource
+Availability Monitoring 
+</H3>
+<UL>
+	<LI><P><A HREF="#devmonstrategies">Device monitoring strategies</A></P>
+	<LI><P><A HREF="#configuringScrip88">Configuring Scrip 88 (Network
+	Devices and Services Availability)</A></P>
+	<LI><P><A HREF="#monitoringwebappsScrip100">Monitoring Web based
+	applications with Scrip 100</A></P>
+	<LI><P><A HREF="#monitoringmswindowsservicesScrip176">Monitoring MS
+	Windows services with Scrip 176 (Services Restart)</A></P>
+	<LI><P><A HREF="#eventnotificationscfg">Event notification
+	configuration</A></P>
+</UL>
+<P><BR><BR>
+</P>
+<P>This document outlines the use of the Automated Support
+Infrastructure (ASI) to monitor device availability. 
+</P>
+<P>A system running the ASI client software can use Scrip 88 (<I>Network
+Devices and Services Availability</I>) to test the availability of
+any device that will respond to ping, or to a TCP packet sent to a
+specified port. A notification can be emailed when any device fails
+to respond. 
+</P>
+<P>You can also use Scrip 231 (<I>Client Heartbeat</I>) to monitor
+the availability of any device running the ASI client. The advantages
+of using Scrip 231 to monitor device availability are</P>
+<UL>
+	<LI><P>No configuration is required, except optionally to increase
+	the Scrip's execution frequency. 
+	</P>
+	<LI><P>No IP ports need to be open for incoming communication at
+	your customer sites</P>
+	<LI><P>No device at your customer sites needs to have a fixed IP
+	address, or resolvable URL</P>
+</UL>
+<P>The disadvantage of using Scrip 231 is that it may generate false
+alarms when the ASI client on a device you want to monitor using
+Scrip 231 is down but the device itself is not down. This is possible
+because Scrip 231 monitors the availability of the ASI client, and in
+some cases, the ASI client may be down while the device it runs on
+may not.</P>
+<H4><A NAME="devmonstrategies"></A>Device monitoring strategies<A HREF="#top">
+<FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top </FONT></A>
+</H4>
+<P>In the simplest case, the ASI ASI client is configured on one
+machine which tests the availability of other devices. It is not
+required that the devices to be tested run the ASI ASI client. The
+only requirement is that they can be reached from the system where
+the ASI ASI client runs (by NetBIOS name, URL, or by IP address) and
+will respond to ping or to a TCP packet. Monitoring can be made more
+robust by implementing a redundancy scheme. For example, suppose the
+ASI ASI client is running on Machine1, Machine2 and Machine3.
+Machine1 could test Machine2 and Machine3; Machine2 could test
+Machine1 and Machine3; and Machine3 would be set up to test Machine1
+and Machine2. Each of these machines could also test the availability
+of other machines, whether or not those machines are running the ASI
+ASI client. 
+</P>
+<P>In general, you should have at least two, bot no more than three
+devices monitor the availability of an IP device or IP service.</P>
+<P>Typically, you will be able to use ping (ICMP) to test the
+availability of devices inside a private network. When testing the
+availability of devices outside a private network, in all likelihood
+you will have to test the availability of a TCP service (a port). For
+example, if you want to test the availability of the gateways and
+firewalls at a number of sites from your location, you will need to
+configure Scrip 88 on the ASI client on one ore more systems at your
+location to test the availability of TCP services such as HTTP (port
+80) or SMTP (port 25) on gateways, and a port such as 3389 (Microsoft
+Remote Display Protocol (Terminal Server)) on the firewalls.</P>
+<P>It is unlikely that the same ports will be open for incoming
+traffic on all gateways and firewalls at your customer sites. You
+will have to determine which ports are open on a case-by-case basis.
+In some cases, you may have to open one port for incoming traffic if
+you want to use Scrip 88 on systems at your location to test the
+availability of gateways and firewalls at your customer sites. If
+this is not possible, or if the gateways and/or firewalls at some
+sites do not have a static IP address of dynamic DNS URL, you will
+need to use Scrip 231 (Client Heartbeat) as the sole way to alert you
+about the loss of connectivity at your customer sites.</P>
+<P>Whenever possible, you should avoid using IP addresses to identify
+devices to be tested devices that test the availability of other
+devices (testers). This is for two main reasons:</P>
+<UL>
+	<LI><P>Most environments are configured to use DHCP. If you used IP
+	addresses to identify tester devices or devices to be tested, you
+	will need to update the configuration of Scrip 88 whenever IP
+	addresses change.</P>
+	<LI><P>Identifying devices to be tested and tester devices by their
+	URL or NetBIOS name makes them more easily recognizable.</P>
+</UL>
+<P>Depending on the criticality of the device being monitored, The
+frequency of execution of Scrip 88 should be increased from its
+default of one and 31 minutes past the hour, every hour. However,
+typically it should not be necessary to run the Scrip more frequently
+than three minutes per hour.</P>
+<H4><A NAME="configuringScrip88"></A>Configuring Scrip 88 (Network
+Devices and Services Availability)<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>You will need to configure Scrip 88 on each ASI client machine
+that will be performing availability testing. To access the Scrip
+configuration page, browse to: 
+</P>
+<PRE STYLE="margin-bottom: 0.2in"><A HREF="https://asiservername/main/config/index.php">https://asiservername/main/config/index.php</A> </PRE><P>
+substituting the actual fully-qualified domain name of the ASI Server
+for <I>asiservername</I>. The<FONT COLOR="#666699"> Select a Site
+</FONT>page will be displayed. 
+</P>
+<P>Find the site name corresponding to the machine you wish to
+configure. Click the <B>view machines</B> link to the left of the
+site name. The<FONT COLOR="#666699">  Configuration - &lt;site name&gt;
+Machines </FONT>page will be displayed. 
+</P>
+<P>Find the name of the machine whose Scrip 88 you want to configure,
+then click the <B>configure Scrips</B> link to the left of the
+machine name. The <FONT COLOR="#666699">Scrip Configurator </FONT>page
+will be displayed. 
+</P>
+<P>Scroll down the page to find the link for Scrip 88, <I>Network
+Devices and Services Availability</I>. Click on the name of the
+Scrip. 
+</P>
+<P><B>Important:</B> The <I>Group</I> parameter allows you to select
+<SPAN STYLE="font-weight: medium">the system(s) which you want the
+configuration parameter setting to apply to, or the operation to be
+performed on</SPAN>. In the <I>Group</I> parameter pull-down list for
+the <I>Machines to perform tests</I>, and <I>Machines to be tested</I>
+configuration parameters <SPAN STYLE="font-weight: medium">select the
+system whose Scrip 88 configuration page you are viewing</SPAN>. Do
+not click the <B>Submit Changes</B> button yet; do this when the
+configuration is completed. 
+</P>
+<P>Configure Scrip 88 as follows:</P>
+<P><I>Scrip enabled</I>: By default, the Scrip is not enabled. Leave
+it disabled until we're finished with the Scrip configuration. 
+</P>
+<P><I>Schedule</I>: The default values should provide a good initial
+configuration. If you wish to make changes, here are some guidelines.
+Fields 1 through 5 (Minute, Hour, Day, Month, Weekday) specify when
+the tests will be performed. The Scrip configuration screen shows the
+acceptable range of values for each field. For example, in the Minute
+field: 
+</P>
+<TABLE BORDER=1 CELLPADDING=2 CELLSPACING=2>
+	<TR>
+		<TD>
+			<P>(Single value) 
+			</P>
+		</TD>
+		<TD>
+			<P><CODE>10</CODE> 
+			</P>
+		</TD>
+		<TD>
+			<P>Perform the test at 10 minutes after the hour 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P>(Series of values) 
+			</P>
+		</TD>
+		<TD>
+			<P><CODE>1,16,31,46</CODE> 
+			</P>
+		</TD>
+		<TD>
+			<P>Perform the test at 1, 16, 31 and 46 minutes after the hour 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P>(Range of values) 
+			</P>
+		</TD>
+		<TD>
+			<P><CODE>1-4</CODE> 
+			</P>
+		</TD>
+		<TD>
+			<P>Perform the test at 1, 2, 3 and 4 minutes after the hour 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P>(Combination) 
+			</P>
+		</TD>
+		<TD>
+			<P><CODE>10,40,55-57</CODE> 
+			</P>
+		</TD>
+		<TD>
+			<P>Perform the test at 10, 40, 55, 56 and 57 minutes after the
+			hour 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P>(Wildcard) 
+			</P>
+		</TD>
+		<TD>
+			<P><CODE>*</CODE> 
+			</P>
+		</TD>
+		<TD>
+			<P>Perform the test every minute of the hour 
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P>The remaining fields in this column (Random minute, Type, and Fail
+limit) typically should not need to be changed from their default
+values. (For more information on these fields, click the <B>help</B>
+link at the top right of the Scrip 88 configuration page.) 
+</P>
+<P><I>Machines to perform tests</I>: Enter the name of the machine
+being configured. The machine name is displayed near the top at the
+right of the configuration page, just below the ASI client software
+version number. 
+</P>
+<P><I>Machines to be tested</I>: Enter one line for each test to be
+performed. Each line will have six fields, separated by commas: 
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0in">0 = disable, 1 = enable. Useful
+	for testing or for temporarily disabling an entry. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Name or IP address of the system
+	being tested. Must be reachable from the machine performing the
+	test. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Protocol to Test. TCP or ICMP
+	(ping). 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Port Number. If the protocol is
+	TCP, enter the port number; if ICMP, enter 0. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Number of Retries. The test fails
+	if the system being tested does not respond for this number of
+	consecutive attempts. Try 4 as an initial setting. 
+	</P>
+	<LI><P>Timeout delay. Number of milliseconds allowed for a response.
+	Try 1000 as an initial setting. 
+	</P>
+</OL>
+<P>Examples: 
+</P>
+<P><CODE>0,server5.handsfreenetworks.com,TCP,443,4,1000</CODE><BR><CODE>1,192.168.0.5,ICMP,0,4,1000</CODE>
+</P>
+<P>Enter one line for each machine to be monitored. 
+</P>
+<P>When you have made all entries in the <I>Machines to be tested</I>
+configuration parameter, check one more time the content of the
+<I>Machines to perform tests</I> configuration parameter, and check
+the <I>Scrip enabled</I> box. Then, click on the <B>Submit Changes</B>
+button at the bottom (or top) of the Scrip Configurator page. The
+next time Scrip 177 runs on a system at the site where you configured
+Scrip 88, it will retrieve the Scrip 88 configuration changes. 
+</P>
+<P><B>Please keep in mind that if you have not changed the Scrip 177
+execution schedule, by default it runs at 0 minutes past the hour
+with a 50-minute random interval. This means that you might have to
+wait as long as 1 hour and 50 minutes before the Scrip 88
+configuration change you made is retrieved by the ASI clients at the
+site. </B>
+</P>
+<P>If you are using one machine to do all the monitoring, you're done
+with Scrip configuration and you should proceed to the next section
+on configuring the event notification. To configure an additional
+machine to perform monitoring tests, click the <B>Sites:
+Configuration</B> link which appears near the top of the page. This
+brings you back to the page where sites are listed, and you can
+repeat the Scrip configuration process for another machine. To
+increase reliability by building redundancy into the monitoring
+scheme, you can set up the machines to be tested on each ASI client's
+Scrip 88 configuration, as in this example: 
+</P>
+<P>Machines to be tested by server1: 
+</P>
+<PRE>1,server2.handsfreenetworks.com,ICMP,0,4,1000
+1,server3.handsfreenetworks.com,ICMP,0,4,1000
+1,192.168.0.26,ICMP,0,4,1000
+1,192.168.0.100,ICMP,0,4,1000</PRE><P>
+Machines to be tested by server2: 
+</P>
+<PRE>1,server1.handsfreenetworks.com,ICMP,0,4,1000
+1,server3.handsfreenetworks.com,ICMP,0,4,1000
+1,192.168.0.26,ICMP,0,4,1000
+1,192.168.0.100,ICMP,0,4,1000</PRE><P>
+Machines to be tested by server3: 
+</P>
+<PRE>1,server1.handsfreenetworks.com,ICMP,0,4,1000
+1,server2.handsfreenetworks.com,ICMP,0,4,1000
+1,192.168.0.26,ICMP,0,4,1000
+1,192.168.0.100,ICMP,0,4,1000</PRE><H4>
+<A NAME="monitoringwebappsScrip100"></A>Monitoring Web based
+applications with Scrip 100<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>Because Scrip 100 (<I>File Distribution and Retrieval</I>)
+executes an FTP/HTTP/HTTPS command line, and can be configured to
+include the results in its event log, it can be used to report on the
+status of Web based applications.</P>
+<P>For example, in order to monitor the availability of the ASI
+server applications on all ASI servers, we selected a system at one
+of our internal sites, and followed the steps described below. 
+</P>
+<P>In order to use Scrip 100 to monitor Web based applications at
+your and your customer sites, you can follow the same steps
+substituting the corresponding FTP/HTTP/HTTPS command line, and using
+a system at your site. 
+</P>
+<H5>Scrip 100 Web application monitoring configuration (monitoring
+ASI server applications example)</H5>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>3) Click on the <I>view machines</I> link for the site of the
+system to be used to monitor the ASI server applications</P>
+<P>4) Click on the <I>configure Scrips</I> link for the system to be
+used to monitor the ASI server applications making sure it is a
+system that is always turned on and has constant access to the
+Internet</P>
+<P>5) Scroll down to the entry for Scrip 100 (<I>File Distribution
+and Retrieval</I>), and click on the Scrip name 
+</P>
+<P>6) For the <I>Scrip enabled</I> configuration parameter, select
+the system whose Scrip 100 configuration page you are viewing from
+the Group pull-down list . 
+</P>
+<P>7) Click in the <I>Scrip enabled</I> box</P>
+<P>8) Scroll down to the <I>File distribution and retrieval command
+line(s)</I> configuration parameter, and enter the following command
+line:</P>
+<P STYLE="margin-left: 0.79in"><B>1,https://mysqltest:none@asiservername/main/acct/files.php,LogServer,0,0</B></P>
+<P>Please note that:</P>
+<P STYLE="margin-left: 0.79in">a) In order for the above HTTPS
+command line to work, on each ASI server we set up a restricted user
+account with user id mysqltest, and password none 
+</P>
+<P STYLE="margin-left: 0.79in">b) As constructed, the command line is
+enabled (starts with a <B>1</B>), executes the
+<B>https://mysqltest:none@asiservername/main/acct/files.php</B>
+command line, and sends the results to <B>LogServer</B> (the ASI
+server used by the ASI client Scrip 100 was run from. In our case,
+the HandsFree Networks ASI server at nanoheal.org). Please refer to
+the Scrip 100 configuration help file for detailed information about
+the file distribution and retrieval command line syntax.</P>
+<P>9) Configure Scrip 100 to run three times per hour (we entered
+<B>5,25,45</B> in the minute field in the <I>Schedule</I>
+configuration parameter), change the <I>Weekday</I> field to <B>*</B>,
+and set the <I>Random minute</I> interval to <B>0</B>.</P>
+<P>10) Click on the <I>Submit Changes</I> button. The <FONT FACE="Verdana, sans-serif"><FONT COLOR="#666699">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P><B>Please note that if you want to use Scrip 100 to monitor
+multiple Web applications, you need to simply enter a command line
+for each Web application in the the <I>File distribution and
+retrieval command line(s)</I> configuration parameter in the Scrip
+100 configuration page</B></P>
+<H4><A NAME="monitoringmswindowsservicesScrip176"></A>Monitoring MS
+Windows services with Scrip 176 (Services Restart)<A HREF="#top">
+<FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top </FONT></A>
+</H4>
+<P>In addition to monitoring IP devices and services, and Web
+applications, with ASI you can automate MS Windows services
+monitoring and, optionally, have Scrip 176 (<I>Services Restart</I>)
+automatically attempt to re-start services which stopped running</P>
+<P>Before configuring Scrip 176, you should collect the display names
+of all MS Windows services you want to monitor on all systems, at all
+sites. Because Scrip 176 will ignore services that it may be
+configured to monitor but which may not be present on any one systems
+where Scrip 176 is enabled, you can use a single list including all
+MS Windows services for all systems, regardless of whether any one
+specific service is enabled on all systems. This makes the
+configuration of Scrip 176 significantly faster, simpler, and easier.</P>
+<P>To configure Scrip 176 please perform the following steps:</P>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) At the upper right-hand corner of any page on the ASI server,
+click on the <I>configuration</I> link in the <I>sites</I> navigation
+bar (<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+)</P>
+<P>3) Click on the <I>view machines</I> link for a site where you
+want to activate MS Windows services monitoring</P>
+<P>4) Click on the <I>configure Scrips</I> link for any system at the
+site where you want to activate MS Windows services monitoring.</P>
+<P>5) Scroll down to the entry for Scrip 176 (<I>Services Restart</I>),
+and click on the Scrip name 
+</P>
+<P>7) Click in the <I>Scrip enabled</I> box. Please note that you
+need ensure that the <I>Group</I> setting for the <I>Scrip enabled</I>
+configuration parameter is set to the site.</P>
+<P>8) Click in the <I>Report (rather than restart) stopped service(s)</I>
+box. Please note that if you want Scrip 176 to attempt to re-start MS
+Windows services that stop running, you should leave the <I>Report
+(rather than restart) stopped service(s)</I> box unchecked.</P>
+<P>9) In the <I>Services to be monitored</I> configuration parameter,
+enter the display name of each MS Windows service you want Scrip 176
+to monitor. Each name has to be on a separate line. You can use any
+text editor to create the list, then copy it, and paste it into the
+<I>Services to be monitored</I> configuration parameter.</P>
+<P>10) Adjust the Scrip 176 execution schedule to match your need for
+service monitoring frequency. For example, if you want MS Windows
+services to be checked every 5 minutes, you would change the Scrip
+176 execution schedule as follows:</P>
+<P CLASS="text-body-indent">In the Schedule parameter, change the
+value of the <I>Minute</I> field from the default value of <B>10</B>
+to:</P>
+<OL TYPE=I>
+	<P CLASS="text-body-indent"><B>0,5,10,15,20,25,30,35,40,45,50,55</B></P>
+	<P CLASS="text-body-indent">(You can cut and paste the above string
+	into the <I><FONT FACE="Verdana, sans-serif">Minute</FONT></I> field
+	in the of the Schedule parameter in Scrip 231)</P>
+	<P CLASS="text-body-indent">Next, change the value of the <I>Random
+	minute</I> field in the <I>Schedule</I> parameter from <B>0</B> to <B>1</B>
+	(this is not strictly necessary).</P>
+</OL>
+<P>11) Click on the <I>Submit Changes</I> button. The <FONT FACE="Verdana, sans-serif"><FONT COLOR="#666699">Changes
+Recorded</FONT></FONT> page will be displayed.</P>
+<P>Please note that once you have configured Scrip 176 on one system
+at one site, as described above, you can export the Scrip 176
+configuration to any and all other sites using the export function
+accessible either by:</P>
+<P>a) Clicking on the export link for the system where you configured
+Scrip 176, or</P>
+<P>b) Clicking on the export link for the site of the system where
+you configured Scrip 176.  The <FONT FACE="Verdana, sans-serif"><FONT COLOR="#666699">Export
+Global Scrip Configurations</FONT></FONT> page will be displayed.</P>
+<P>c) Click on the <I>Export to existing site(s)</I> link. The <FONT FACE="Verdana, sans-serif"><FONT COLOR="#666699">Export
+to Specified Sites</FONT></FONT> page will be displayed.</P>
+<P>d) Follow the instructions on the <FONT FACE="Verdana, sans-serif"><FONT COLOR="#666699">Export
+to Specified Sites</FONT></FONT> page.</P>
+<H4><A NAME="eventnotificationscfg"></A>Event notification
+configuration<A HREF="#top"> <FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<H5>Device status notification configuration</H5>
+<P>When you have finished configuring Scrip 88, you will need to set
+up the corresponding event notification on the ASI server. To start
+with, you can use the pre-defined global event notification called
+<CODE><I><FONT FACE="Verdana, sans-serif">device status</FONT></I></CODE>.
+Browse to: 
+</P>
+<PRE STYLE="margin-bottom: 0.2in"><A HREF="https://asiservername/main/event/notify.php">https://asiservername/main/event/notify.php</A> </PRE><P>
+substituting the actual fully-qualified domain name of the ASI Server
+for <B>asiservername</B>. 
+</P>
+<P>Find the <CODE><I><FONT FACE="Verdana, sans-serif">device status</FONT></I></CODE>
+notification, and click the <B>edit</B> link to the left of the
+notification name. The <I>Edit a Notification</I> page for this
+notification will be displayed. 
+</P>
+<P>Find the <CODE><FONT FACE="Verdana, sans-serif"><I>Default email
+recipients</I> configuration parameter</FONT></CODE>. Use the
+pull-down to make your selection. Choose <B>yes</B> if you want the
+notification sent to the default address(es) for notifications. (If
+you don't know which address(es) are set as the default, right-click
+the <B>tools: admin</B> link at the right upper-hand corner of the
+page, and open the <FONT COLOR="#666699">Admin</FONT> page in a new
+window. Find your user login name in the left column, and look to the
+right for the default email address(es) for notifications.) Choose <B>no</B>
+if you do not want the notification sent to the default address(es). 
+</P>
+<P>Find the <CODE><FONT FACE="Verdana, sans-serif"><I>Email
+recipients</I> configuration parameter</FONT></CODE><FONT FACE="Verdana, sans-serif">.</FONT>
+In the box, type in the email addresses where notifications will be
+sent in the event a machine to be tested does not respond. Separate
+addresses with commas and no spaces. If you have chosen to have the
+notification sent to the default address(es), you may not need to
+enter those addresses here, and any addresses you enter in the <CODE><I><FONT FACE="Verdana, sans-serif">Email
+recipients</FONT></I></CODE> configuration parameter will receive the
+notification along with the default recipients. 
+</P>
+<P>Find the <CODE><I><FONT FACE="Verdana, sans-serif">Enabled</FONT></I></CODE>
+configuration parameter. Use the pull-down to select <B>Yes</B>. 
+</P>
+<P><CODE><FONT FACE="Verdana, sans-serif">Find the <I>Email</I></FONT></CODE>
+configuration parameter, and use the pull-down to select <B>Yes</B>. 
+</P>
+<P>Click on the <I>Update</I> button to save the changes. 
+</P>
+<H5>Scrip 231 (Client Heartbeat) and ASI client not reporting
+notification configuration</H5>
+<P>If you use Scrip 231 (<I>Client Heartbeat</I>) instead of, or in
+conjunction with Scrip 88 to monitor the availability of devices at
+your sites, once you have configured Scrip 231 as you want, you
+should enable the <I>ASI client not reporting</I> notification
+following the same instructions as for the <I>Device status</I>
+notification in the <I>Device status notification configuration</I>
+sub-section of this section. This notification is triggered by the
+non-occurrence of the Scrip 231 event. In other words, if Scrip 231
+on a system covered by the notification does not post an event log,
+the notification will be triggered. By default, the <I>ASI client not
+reporting</I> notification is scheduled to run twice per hour. 
+</P>
+<P>In order to use the <I>ASI client not reporting</I> notification
+effectively and minimize the likelihood of &ldquo;false positive
+notifications&rdquo;: 
+</P>
+<OL>
+	<LI><P>You should include all the systems that you want the
+	notification cover using the <I>Include</I> parameter in the
+	notification configuration page. Alternatively, you can use the
+	<I>Exclude</I> parameter to exclude the systems you don't want the
+	notification to cover.</P>
+	<LI><P>Scrip 231 should be enabled globally on all systems at all
+	sites (it is by default). There is no downside to doing that, and it
+	minimizes false positives if, when you configure the notification,
+	you include a system by mistake, or forget to exclude a system that
+	you do not want covered by the notification.</P>
+	<LI><P>On the systems you want covered by the <I>ASI client not
+	reporting</I> notification, the Scrip 231 execution cycle (the
+	Scrip's execution schedule) should be <B>shorter</B> than the
+	execution cycle of the <I>ASI client not reporting</I> notification
+	(i.e. Scrip 231 should run <B>MORE</B> frequently than the
+	notification). This minimizes the probability of false positives.</P>
+</OL>
+<P STYLE="margin-left: 0.79in">For example, if you want the <I>ASI
+client not reporting</I> notification to run every 20 minutes, you
+might change the Scrip 231 execution schedule as follows:</P>
+<OL TYPE=I>
+	<LI><P CLASS="text-body-indent">Log onto the ASI server
+	(<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+	)</P>
+	<LI><P CLASS="text-body-indent">At the upper right-hand corner of
+	any page on the ASI server, click on the <I>configuration</I> link
+	in the <I>sites</I> navigation bar
+	(<A HREF="https://asiserverurl/main/config/index.php?act=site">https://asiservername/main/config/index.php?act=site</A>
+	)</P>
+	<LI><P CLASS="text-body-indent">Click on the <I>view machines</I>
+	link for the site of the system where you want to modify the Scrip
+	231 (<I>Client Heartbeat</I>) execution schedule 
+	</P>
+	<LI><P CLASS="text-body-indent">Click on the <I>configure Scrips</I>
+	link for the system where you want to change the Scrip 231 execution
+	schedule</P>
+	<LI><P CLASS="text-body-indent">Scroll down to the entry for Scrip
+	231, and click on the Scrip name 
+	</P>
+	<LI><P CLASS="text-body-indent">In the Schedule parameter, change
+	the value of the <I>Minute</I> field from the default value of <B>0</B>
+	to whichever frequency you prefer. For example, if you wanted Scrip
+	231 to run once very eight minutes, you would enter</P>
+	<P CLASS="text-body-indent"><B>0,8,16,24,32,40,48,56</B></P>
+	<P CLASS="text-body-indent">(You can cut and paste the above string
+	into the <I><FONT FACE="Verdana, sans-serif">Minute</FONT></I> field
+	in the of the Schedule parameter in Scrip 231)</P>
+	<P CLASS="text-body-indent">Next, change the value of the <I>Random
+	minute</I> field in the <I>Schedule</I> parameter from <B>50</B> to
+	<B>3</B>.</P>
+	<LI><P CLASS="text-body-indent">Click on the <I>Submit</I> button.
+	The <FONT FACE="Verdana, sans-serif"><FONT COLOR="#666699">Changes
+	Recorded</FONT></FONT> page will be displayed.</P>
+</OL>
+<OL START=4>
+	<LI><P>Once you have followed the guidelines in 1)-3), please keep
+	in mind that when the ASI client on a system is not reporting it
+	does NOT mean that the system itself has a problem (although in many
+	cases it does). Please refer to the other section in this document
+	or detailed step-by-step instructions for configuring device
+	monitoring using ASI. 
+	</P>
+</OL>
+<P>In order to enable the <I>ASI client not reporting</I>
+notification, please follow the steps described in the <I>Device
+status notification</I> section of this document applying them to the
+<I>ASI client not reporting</I> notification. 
+</P>
+<H5>Web application not reporting notification configuration</H5>
+<P>After you configure Scrip 100 to monitor a Web application, you
+will want to set up a notification to alert you when the Web
+application being monitored is not available.</P>
+<P>First, you need to define an event filter to retrieve the Scrip
+100 events reporting that the Web application being monitored is not
+available, then you can set up a notification that uses that event
+filter.</P>
+<H6><FONT SIZE=2 STYLE="font-size: 9pt">Event filter definition</FONT></H6>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) At the upper right-hand corner of any page on the ASI server,
+click on the <I>filters</I> link in the <I>events</I> navigation bar
+(<A HREF="https://asiserverurl/main/event/search.php">https://asiservername/main/event/search.php</A>
+)</P>
+<P>3) Click on the <I>add</I> link right above the <I>Search Options</I>
+panel</P>
+<P>In the <FONT COLOR="#666699">Add a Query Filter</FONT> page:</P>
+<P>4) Type the name of the filter (e.g. Web application not
+available) in the <I>Name</I> box</P>
+<P>5) In the <I>Query filter</I> box enter the SQL clause for
+selecting the Scrip 100 events reporting that the Web application you
+configured the Scrip to monitor is not available. For example, we use
+the following SQL clause we use to retrieve event logs reporting that
+ASI server applications are not available:</P>
+<P STYLE="margin-left: 0.79in"><B>((scrip=100) AND (text3 LIKE
+'%Cannot access MySQL database.%')) OR ((scrip=88) AND (text2 NOT
+LIKE '%Unknown host%')) OR ((scrip=1000) AND (machine='burner') AND
+(text1 LIKE '%ASI client not reporting%'))</B></P>
+<P STYLE="margin-left: 0.79in">The relevant SQL clause for retrieving
+Scrip 100 events reporting that the Web application you configured
+the Scrip to monitor is not available, is <B>((scrip=100) AND (text3
+LIKE '%Cannot access MySQL database.%'))</B>. You should replace
+<B>Cannot access MySQL database.</B> With the corresponding message
+for the Web application you want to monitor.</P>
+<P STYLE="margin-left: 0.79in">The other two SQL clauses, <B>OR
+((scrip=88) AND (text2 NOT LIKE '%Unknown host%')) OR ((scrip=1000)
+AND (machine='burner') AND (text1 LIKE '%ASI client not
+reporting%'))</B>, are not strictly necessary. They ensure that you
+would be notified if:</P>
+<UL>
+	<LI><P>The system being used to monitor the Web application is not
+	able to access the Internet or the systems housing the Web
+	application (assuming that you have configured Scrip 88 on this
+	system to monitor the availability of the system where the Web
+	application runs. See section <I>Configuring Scrip 88 (Network
+	Devices and Services Availability)</I> of this document for detailed
+	information on how to do this.</P>
+	<LI><P>The ASI client on the system you are using to monitor the Web
+	application is not running. See section <I>Scrip 231 (Client
+	Heartbeat) and ASI client not reporting notification configuration</I>
+	of this document for detailed information on how to do this.</P>
+</UL>
+<P>6) Check the <I>Global</I> box if you want this event filter to be
+available to all users on your ASI server</P>
+<P>7) Click on the <I>Add</I> button</P>
+<H6><FONT SIZE=2 STYLE="font-size: 9pt">Event notification definition</FONT></H6>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) At the upper right-hand corner of any page on the ASI server,
+click on the <I>notifications</I> link in the <I>events</I>
+navigation bar (<A HREF="https://asiserverurl/main/event/notify.php">https://asiservername/main/event/notify.php</A>
+)</P>
+<P>3) Click on the <I>add</I> link right above the <I>Search Options</I>
+panel</P>
+<P>In the <FONT COLOR="#666699">Add an Event Notification</FONT>
+page:</P>
+<P>4) Type the name of the notification (e.g. Web application not
+available) in the <I>Name</I> box</P>
+<P>5) From the pull-down list in the <I>Saved Search</I>
+configuration parameter, select the event filter you defined
+following the instructions in the <I>Event filter definition</I>
+sub-section of this section.</P>
+<P>6) If you do not want the default e-mail recipients to receive the
+notification, select <B>No</B> from the pull-down list in the <I>Default
+E-mail Recipients</I> configuration parameter (If you don't know
+which address(es) are set as the default, right-click the <B>tools:
+admin</B> link at the right upper-hand corner of the page, and open
+the <FONT COLOR="#666699">Admin</FONT> page in a new window. Find
+your user login name in the left column, and look to the right for
+the default email address(es) for notifications.)</P>
+<P>7) If you want to add recipients other than the default
+recipients, enter their e-mail addresses (comma separated with no
+spaces) in the <I>E-mail Recipients</I> configuration parameter.</P>
+<P>8) Make sure that the <I>Enabled</I> configuration parameter is
+set to <B>Yes</B>.</P>
+<P>9) In the E-mail configuration parameter, select Yes from the
+pull-down list.</P>
+<P>10) Scroll down to the <FONT SIZE=2 STYLE="font-size: 9pt"><FONT COLOR="#666699">Schedule</FONT></FONT>
+section of the <FONT COLOR="#666699">Add an Event Notification</FONT>
+page. Click on the radio button to the left of the Periodic schedule
+type.</P>
+<P>11) In the Periodic schedule type pull-down list, select a period
+of time longer than the Scrip 100 execution frequency you defined
+following the instructions in the <I>Monitoring Web based
+applications with Scrip 100</I> section of this document, by at least
+a 50% margin.</P>
+<P>12) Click on the <I>Add</I> button.</P>
+<P>At this point, having enabled and configured Scrip 100 to test the
+Web application, having defined an event filter to retrieve Scrip 100
+event logs reporting problems accessing the Web application, and an
+event notification to alert you when the Web application is not
+accessible, you have completed the activation of the Web application
+monitoring function using ASI.</P>
+<P><B>Please note that if you are using Scrip 100 to monitor multiple
+Web applications, you will need to define an event filter, and
+corresponding event notification for each Web application following
+the instructions in the <I>Event filter definition</I>, and <I>Event
+notification definition</I> sub-sections of this section.</B></P>
+<H5>MS Windows services monitoring notification configuration</H5>
+<P>Scrip 176 posts event logs only when an MS Windows service it is
+configured to monitor is not running. This minimizes the volume of
+Scrip 176 event logs posted on the ASI server, and makes the task of
+configuring related event notifications easier. 
+</P>
+<P>Event filters and notifications for the most popular MS Windows
+services have been pre-defined on your ASI server. If the MS Windows
+services you want to monitor are among those covered by existing
+event filters and notifications, all you need to do is enable the
+corresponding event notification.</P>
+<P>To find out for which MS Windows services we have already defined
+event filters and notifications, perform the following searches:</P>
+<P>In the Event Filters page
+(<A HREF="https://asiserverurl/main/event/search.php">https://asiservername/main/event/search.php</A>
+):</P>
+<OL>
+	<LI><P>Type <B>scrip = 176</B> in the <I>Filter Contains</I>
+	parameter in the Search Options panel</P>
+	<LI><P>Click on the <I>Search</I> button</P>
+</OL>
+<P>In the Event Notifications page
+(<A HREF="https://asiserverurl/main/event/notify.php">https://asiservername/main/event/notify.php</A>
+):</P>
+<OL>
+	<LI><P>Type <B>stopped</B> in the <I>Name Contains</I> parameter in
+	the Search Options panel</P>
+	<LI><P>Click on the <I>Search</I> button</P>
+</OL>
+<P>If an MS Windows service you configured Scrip 176 to monitor is
+not covered by any existing event filter and notification, then you
+can use an existing event filter as the template for the event filter
+for the service by using the copy function, and replacing the
+keywords used in the event filter you are copying with those matching
+the MS Windows services you want the new event filter to cover. Once
+you have defined the new event filter, you can define the
+corresponding event notification by copying an existing MS Windows
+service monitoring notification, change its name and the event filter
+it uses. 
+</P>
+<P>For example, after configuring Scrip 176 to monitor the <I>Windows
+Management Instrumentation</I> MS Windows service, you would need to
+define an event filter and notification for the service because it is
+not covered by any existing event filter and notification. To do
+this, you would:</P>
+<P>1) Log onto the ASI server (<A HREF="https://asiserverurl/main">https://asiservername/main</A>
+)</P>
+<P>2) At the upper right-hand corner of any page on the ASI server,
+click on the <I>filters</I> link in the <I>events</I> navigation bar
+(<A HREF="https://asiserverurl/main/event/search.php">https://asiservername/main/event/search.php</A>
+)</P>
+<P>3) Type <B>scrip = 176</B> in the <I>Filter Contains</I> parameter
+in the Search Options panel</P>
+<P>4) Click on the <I>Search</I> button</P>
+<P>5) Right-click on the <I>copy</I> link for the <I>DHCP service
+monitoring events</I> event filter (for example), and open the page
+in a new window</P>
+<P>6) Change the name of the event filter to <B>WMI service
+monitoring events</B></P>
+<P>7) In the <I>Search String</I> box, change <B>DHCPServer</B> to
+<B>WinMgmt</B> (this is the WMI service internal name)</P>
+<P>8) Click on the <I>Submit</I> button</P>
+<P>9) Close the window</P>
+<P>10) At the upper right-hand corner of any page on the ASI server,
+click on the <I>notifications</I> link in the <I>events</I>
+navigation bar (<A HREF="https://asiserverurl/main/event/notify.php">https://asiservername/main/event/notify.php</A>
+)</P>
+<P>11) Type <B>stopped</B> in the <I>Name Contains</I> parameter in
+the Search Options panel</P>
+<P>12) Click on the <I>Search</I> button</P>
+<P>13) Right-click on the <I>copy</I> link for the <I>APC PowerChute
+service stopped</I> event notification, and open the page in a new
+window</P>
+<P>14) Change the name of the event notification to <B>WMI service
+stopped</B></P>
+<P>15) In the <I>Saved Search</I> configuration parameter, select <B>WMI
+service monitoring events</B> from the pull-down list</P>
+<P>16) Click on the <I>Add</I> button</P>
+<P>17) Close the window.</P>
+<P>At this point, you would have completed the activation of <I>Windows
+Management Instrumentation</I> MS Windows service monitoring.</P>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

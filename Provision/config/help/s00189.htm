@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<TITLE>Scrip 189 Configuration</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<body>
+
+<h3>Scrip 189 Configuration</h3>
+
+<h4>Default Configuration Parameters</h4>
+
+<ul>
+<li>Scrip disabled</li>
+<li><em>File types to block and files to substitute</em> list empty</li>
+</ul>
+
+<h4>File types to block and files to substitute</h4>
+
+<p>On systems it is enabled on, Scrip 189 detects and removes the specific files and types of files
+entered in the <em>File types to block and files to substitute</em> list
+when a user attempts to download them.</p>
+
+<p>Entries in the <em>File types to block and files to substitute</em> list
+have the follwing format:</p>
+
+<ul>
+<li>Name of file or file mask whose download you want Scrip 189 to block followed by a comma</li>
+<li>Name of file you want Scrip 189 to substitute blocked file with</li>
+</ul>
+
+<p>Specific files are identified by their complete name including extension.
+MS-DOS wild card characters (?, *) are used to define the files masks for the types of files whose download you want to
+block. For example, *.vbs, *.com, pref?????.*.</p>
+
+<p>When you want the Scrip to detect and block the downloading of more than one type of file,
+or more than one specific
+file, each file type or specific file's name should be entered on a separate line in
+the <em>File types to block and files to substitute</em> list.</p>
+
+
+
+<p>Files that are removed are replaced with the file whose name is entered (without path) on the same line as
+the name of the
+specific file or file type whose download is prevented. Scrip 189 looks for this file in the Automated Support
+Infrastructure (ASI) client directory (<drive>:\Program Files\HandsFree\Client).</p>
+
+<p>If no such file name is entered, the file whose download was prevented is replaced with a file whose content
+is zeros.</p>
+
+<p><strong>It's important to note that Scrip 189 only replaces the content of the file whose download was blocked,
+not its name. Unless the end-user is informed on a timely basis that the file download filtering is enabled,
+this can lead to repeated attempts to download a file, and
+consequent frustration on the part of the end-user.</strong></p>
+
+<p>To minimize the potential for this to happen, we have included in the ASI client directory a
+small program called block.exe (also in zipped form, block.zip) that when executed informs the end user
+about the file download blocking policy in effect with the following statement:<br><br>
+<em>"Sorry, per company policy download of this file type is not allowed.
+Please contact your system administrator with any questions. Thank you."</em><br><br>
+<p>You can use block.exe, or block.zip as the files that replace blocked files when
+blocking files of types .exe, or .zip, respectively.</p>
+
+<p>You should also be aware that depending on the browser used by the end-user to attempt to download a file, and
+the type of replacement file you selected (e.g. .gif), a blocked file download attempt may result in
+the display of the replacement file's content on the end-user system's screen.</p>
+
+<p>Browser caching affects use of Scrip 189 in another way. If you disable the Scrip and a user attempts to download
+a file whose download had been previously blocked by Scrip 189, the download operation will fail again until
+the browser cache is cleared either explicitly by the user, or it's recycled.</p>
+
+<p>This happens because Scrip 189 gives the file it uses to substitute a file being blocked the same name.
+During the first attempt to download the file, when Scrip 189 was enabled, the browser
+cached the file used by Scrip 189 to substitute the file whose download was blocked.
+Even if the Scrip is disabled, subsequent attempts will fail until the browser cache is cleared.</p>
+
+
+
+<p><br><br><br><hr color="#333399" noShade SIZE="1"></p>
+<div align="right">
+  <table border="0" cellPadding="0" cellSpacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td width="50%" valign="top">
+	  <p><font size="0" face="verdana,helvetica">© 2000-2003 HandsFree Networks
+          </font></p>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<BODY>
+</HTML>
+

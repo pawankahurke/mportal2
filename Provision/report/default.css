@@ -1,0 +1,140 @@
+/* HFN Default CSS definitions
+
+Contains the CSS definitions for l-head2.php and all "new" reports.
+
+Revision history:
+
+Date        Who     What
+----        ---     ----
+09-May-07   BTE     Original creation.
+04-Jun-07   BTE     Added new classes for event sections.
+20-Jun-07   BTE     Bug 4151: Event sections: use MUM specific formatting,
+                    need to generalize.
+24-Jun-07   BTE     Added some new classes.
+31-Jul-07   BTE     Added summary section classes.
+17-Aug-07   BTE     Changes for summary sections phase 1.
+28-Sep-07   BTE     Changed data value alignment and component header padding.
+04-Oct-07   BTE     Minor style changes.
+
+*/
+
+BODY, TD, TH, P  {font-family: Verdana, Helvetica, sans-serif;
+                    font-size: 10pt;}
+.blue         {font-family: Verdana, Helvetica, sans-serif;
+                color:333399;}
+.red          {font-family: Verdana, Helvetica, sans-serif;
+                color:FF0000;}
+.heading      {font-family: Verdana, Helvetica, sans-serif;
+                font-size: medium;
+                color:333399;}
+.subheading   {font-family: Verdana, Helvetica, sans-serif;
+                color:333399; font-weight:bold;}
+.footnote     {font-family: Verdana, Helvetica, sans-serif;
+                font-size: xx-small}
+.faded        {font-family: Verdana, Helvetica, sans-serif;
+                color: #666666}
+.hide         {position:absolute; top:200; left:250; visibility:hidden}
+.bold         {font-weight:bold}
+a.hidelink:link     {color: #000000; text-decoration: none;}
+a.hidelink:visited  {color: #000000; text-decoration: none;}
+a.hidelink:hover    {color: #0000ff; text-decoration: underline;}
+a.hidelink:active   {color: #000000; text-decoration: none;}
+.MUMSummaryValue, .ExecSummaryValue, .EventSummaryValue   {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 10pt;
+    text-align: right;
+}
+.MUMSummaryGroupValue, .EventSummaryGroupValue    {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+.MUMSummaryHeader, .EventSummaryHeader  {
+    font-family: "Arial Narrow", Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: bottom;
+}
+.MUMHighestGroup, .EventHighestGroup, .ExecSumGroupText {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 10pt; font-weight:bold;
+}
+.MUMDetailLowestGroup, .MUMDetailLowestHeader, .EventDetailLowestGroup,
+.EventDetailLowestHeader {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+.MUMDetailLowestGrpValue    {font-family: Verdana, Helvetica, sans-serif;
+                                font-size: 8pt; font-weight:bold;}
+.MUMDetailLowestGrpHeader, .EventLowestGroup   {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt; font-weight:bold;
+}
+.MUMMiddleGroup     {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt; font-weight:bold;
+}
+.MUMSummaryTable, .EventTitlesTable, .EventDetailTable, .ExecSummaryTable    {
+    border: 1px dotted #6d6dff;
+    border-collapse: collapse;
+}
+TABLE.MUMSummaryTable TBODY TD, TABLE.EventTitlesTable TBODY TD,
+    TABLE.EventDetailTable TBODY TD, TABLE.ExecSummaryTable TBODY TD {
+    border: 1px dotted #6d6dff;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.MUMSectionHeader, .EventSectionHeader, .ExecSumSectionHeader   {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight:bold;
+}
+
+.MUMComponentHeader, .EventComponentHeader, .ExecSumComponentHeader   {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 12pt;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.TopLink {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+
+.MiniTopLink {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+}
+
+.MiniTopLinkCell {
+    text-align: right;
+    background-color: #eeeeff;
+}
+
+.EventSectionHeaderLabel {
+    font-family: Verdana, Helvetica, sans-serif;
+    color:#333399;
+    font-size: 12pt;
+}
+
+.EventSectionHeaderValue {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 12pt;
+}
+
+.ExecSumHeaderLabel {
+    background-color: #eeeeff;
+    font-family: "Arial Narrow", Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.ExecSumItemName {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+}
+

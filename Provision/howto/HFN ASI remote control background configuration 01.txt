@@ -1,0 +1,81 @@
+Configuration Choices You should Make Before Using the ASI Remote Control Function
+===================================================================================
+
+There are a number of configuration settings you should review before you start using the ASI remote control function. These settings can be changed only by directly accessing the configuration page for Scrip 236 (On-demand Remote Control). See the "How to access the Scrip 236 configuration page" section at the end of this document for instructions for doing that.
+
+By making these configuration choices before you start using the ASI remote control function, it will work for you as you expect it to, minimizing your frustration and optimizing your productivity.
+
+--------------------------------------------------------------------------------------------------
+
+1) Do you want to have the UltraVNC server running on target systems (the ones you want to control remotely) at all times?
+
+If you enable the Scrip 236 "Maintain connection with intermediate server:" configuration option, the Scrip will ensure that the UltraVNC server is always running on the system where you enable the configuration option.
+
+Pros: Instant connection. Unless there is a malfunction, you should not have to run the ASI remote control wizard any more after you enable the Scrip 236 "Maintain connection with intermediate server:" configuration option. Whenever you want to take remote control of a system were Scrip 236 is configured to keep the UltraVNC server at all times, all you would need to do is:
+a) Retrieve the system's connection id (https://asiservername/main/config/listuvnc.php), 
+b) Start the UltraVNC viewer on any system connected to the Internet,
+c) Make sure that the "Proxy/Repeater" box is checked
+d) Enter the connection id for the target system in the "VNC Server" box preceding it by "ID:" (without quotes)
+e) Enter the name of your ASI server in the Proxy/Repeater box
+
+Cons: Security. A motivated intruder could figure out the connection id of the target system, and take remote control of the system.
+
+Our advice is to not enable the Scrip 236 "Maintain connection with intermediate server:", unless necessary for a limited period of time.
+
+If you do not enable the "Maintain connection with intermediate server:", whenever you initiate a remote control session from the ASI server either by using the "remote control" link in the "tools" navigation bar (https://asiservername/main/config/remote.php?scop=4&act=scop&pcn=cwiz&rcon=1), or by clicking on the "Connect" button for a system in its census page (https://asiservername/main/acct/census.php), there will be a time lag between the completion of the action on the ASI server, and the start of the remote control session.
+
+Before the remote control session can start, the ASI client on the system you want to control remotely, needs to retrieve your command to begin the remote control session. Scrip 177 (Scrip Configuration Updates) retrieves the actions you configure on the ASI server. 
+
+In order to reduce the time lag between the execution of the commmand to start a remote control session on the ASI server, and the start of the remote control session, you will need to configure Scrip 177 on a few systems on each sub-net at each customer site to run frequently. We suggest that you configure Scrip 177 on 1-3 systems per sub-net (depending on the number of systems on each sub-net) to run every three minutes.
+
+In order to change the Scrip 177 execution frequency as suggested, you should use the "Scrip execution frequency" wizard:
+i) Click on the "wizard" link in the "sites" navigation bar at the top right-hand corner of any ASI server extended interface page (https://asiservername/main/config/index.php?act=wiz). The "Configuration Wizard" page will be displayed.
+ii) Click on the "Scrip execution frequency" link, and follow the on-screen instructions.
+
+--------------------------------------------------------------------------------------------------
+
+2) Do you want to have the UltraVNC server run as a service on target systems?
+
+By default, the Scrip 236 "Run UltraVNC as a service" configuration option is enabled.
+
+Pros: Reliability and transparency. When configured to run as a service UltraVNC does not propmpt (unnnecessary) user intervention when used on systems that are logged off.
+
+Cons: None we are aware of.
+
+--------------------------------------------------------------------------------------------------
+
+3) Do you want to pre-install UltraVNC on target systems?
+
+Once the ASI client is installed at a site, you can run the "Install Now" Action in Scrip 236 (by clicking on its "Execute" button) to install UltraVNC on one, some, or all systems at customer sites.
+
+There is little downside to this activity. The installation of UltraVNC takes place silently. By using the Scrip 236 (On-demand Remote Control) UltraVNC installation function you would also ensure that all systems at your sites are running the version of UltraVNC supported by ASI, ensuring that the ASI remote control function will work as expected.
+
+--------------------------------------------------------------------------------------------------
+
+4) Do you want users at your customer sites to be able to give you remote control of their systems from their desktop?
+
+If you want to give users at your customer sites the ability to pro-actively give you remote control of their systems, you should enable the Scrip 236 "Place remote support activation icon on desktop" configuration option.
+
+You can enable this configuration option on a system-by-system basis as needed, or on all systems at a site.
+
+The decision to enable the "Place remote support activation icon on desktop" configuration option should be driven exclusively by your customer support processes and policies. 
+
+Please note that When users initiate a remote control session from their desktop, the session will start immediately, as the command to start the session is local to the copy of Scrip 236 which is supposed to trigger the execution of the UltraVNC server on the target system.
+
+--------------------------------------------------------------------------------------------------
+
+How to access the Scrip 236 configuration page
+===============================================
+1) Open a browser window.
+
+2) Log onto the ASI server (https://asiservername/main )
+
+3) Click on the "Use extended interface" link at the lower right-side of the ASI Dashboard upper pane.
+
+4) At the upper right-hand corner of any page on the ASI server extended interface, click on the "configuration" link in the "sites" navigation bar (https://asiservername/main/config/index.php?act=site ). The "Select a Site" page will be displayed.
+
+5) Click on the "view machines" link for the site where you want to change the Scrip 236 configuration. A page listing all systems at the site will be displayed.
+
+6) If you want to make site wide Scrip 236 configuration changes, click on the "configure Scrips" link for any system, otherwise click on the "configure Scrips" link for the system whose Scrip 236 configuration you want to change. The "Scrip Configurator" page will be displayed.
+
+7) Scroll down to the entry for Scrip 236 (On-demand Remote Control), and click on the Scrip name. The Scrip 236 configuration page will be displayed.

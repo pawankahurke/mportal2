@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Monitoring ASI Clients on critical devices</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20061214;20422588">
+	<META NAME="CHANGED" CONTENT="20071121;23560134">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana", "H4" }
+		P.text-body-indent { margin-left: 1in; font-family: "verdana"; font-size: 10pt }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Monitoring ASI Clients on Critical Devices 
+</H3>
+<P>You may want to be notified when the ASI client on critical
+systems (either because of the functions they perform, or other
+reasons) stops reporting to the ASI server. In this example, we will
+activate a pre-defined notification to monitor ASI client
+availability on systems in the <B>Servers - All</B> group (see the
+document titled <A HREF="HFN%20ASI%20operation%20start-up%20-%20how%20to%20Identify%20and%20group%20server%20systems%2001.html" TARGET="_blank">Identifying
+and Grouping Server Systems</A>).</P>
+<P>We will use the <SPAN STYLE="font-style: normal"><B>ASI client not
+reporting</B></SPAN> notification. This notification is triggered by
+the non-occurrence of the &ldquo;Client heartbeat&rdquo; event (event
+log posted by Scrip 231). In other words, if Scrip 231 on a system
+covered by the notification does not post an event log, the
+notification will be triggered. By default, the <I>ASI client not
+reporting</I> notification is scheduled to run every two hours.
+Please note that Scrip 231 is enabled by default.</P>
+<P>In order to use the <SPAN STYLE="font-style: normal"><B>ASI client
+not reporting</B></SPAN> notification effectively and minimize the
+likelihood of &ldquo;false positive notifications&rdquo;: 
+</P>
+<P>On the systems you want covered by the <I>ASI client not reporting</I>
+notification, the Scrip 231 execution cycle (the Scrip's execution
+schedule) should be <B>shorter</B> than the execution cycle of the
+<I>ASI client not reporting</I> notification (i.e. Scrip 231 should
+run <B>MORE</B> frequently than the notification). This minimizes the
+probability of false positives.</P>
+<P>In this example, we will configure the <I>ASI client not reporting</I>
+notification to run every 20 minutes, therefore we will change the
+Scrip 231 execution schedule on all systems in the <B>Servers - All</B>
+group as follows:</P>
+<OL>
+	<LI><P>Log onto the ASI server (https://asiservername/main ). The
+	ASI dashboard will be displayed.</P>
+	<LI><P>Click on the <A HREF="https://192.168.1.248/main/welcome.php" TARGET="_blank"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Use
+	extended interface</U></FONT></FONT></A> link on the right side of
+	the ASI Dashboard upper pane, below user login and date. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Welcome</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P>At the upper right-hand corner of any page on the ASI server
+	extended interface, click on the <A HREF="https://192.168.1.248/main/config/index.php?act=wiz"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>wizard</U></FONT></FONT></A>
+	link in the sites navigation bar
+	(<A HREF="https://asiservername/main/config/index.php?act=wiz"><FONT COLOR="#333399"><U>https://asiservername/main/config/index.php?act=wiz</U></FONT></A>).</P>
+	<LI><P>Click on the <A HREF="https://192.168.1.248/main/config/scrpconf.php?custom=8"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>Scrip
+	configuration</U></FONT></FONT></A> link
+	(https://asiservername/main/config/scrpconf.php?custom=8). The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select a Group</FONT></FONT> page will be displayed.</P>
+	<LI><P>Click on the <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">A
+	group of machines</FONT></FONT> radio button. Then click on the <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Next</FONT></FONT>
+	button. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select A Group</FONT></FONT> page will be displayed.</P>
+	<LI><P>Locate the entry for the <B>Servers - All</B> group, and
+	click on its <A HREF="https://192.168.1.249/main/config/scrpconf.php?act=wapp&amp;scop=5&amp;dtc=0&amp;int=0&amp;custom=8&amp;notification_id=0&amp;notification_act=&amp;report_id=0&amp;report_act=&amp;asset_id=0&amp;asset_act=&amp;gid=34&amp;act=machine_selected&amp;mgroupid=34&amp;scop=2"><FONT COLOR="#333399"><FONT FACE="Verdana, sans-serif"><U>[use]</U></FONT></FONT></A>
+	link. The <FONT FACE="Verdana, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Scrip
+	Configuration - Select Scrip &ndash; Group &lt;group name&gt;</FONT></FONT>
+	page will be displayed.</P>
+	<LI><P>Scroll down to the entry for Scrip 231, and click on the
+	Scrip name 
+	</P>
+	<LI><P>In the Schedule parameter, change the value of the <I>Minute</I>
+	field from the default value of <B>0</B> to whichever frequency you
+	prefer. For example, if you wanted Scrip 231 to run once very eight
+	minutes, you would enter</P>
+</OL>
+<OL TYPE=I>
+	<P CLASS="text-body-indent"><B>0,8,16,24,32,40,48,56</B></P>
+	<P CLASS="text-body-indent">(You can cut and paste the above string
+	into the <FONT FACE="Verdana, sans-serif"><I>Minute</I></FONT> field
+	in the of the Schedule parameter in Scrip 231)</P>
+</OL>
+<OL START=9>
+	<LI><P>Next, change the value of the <I>Random minute</I> field in
+	the <I>Schedule</I> parameter from <B>50</B> to <B>3</B>.</P>
+	<LI><P>Click on the <I>Submit</I> button. The <FONT COLOR="#666699"><FONT FACE="Verdana, sans-serif">Changes
+	Recorded</FONT></FONT> page will be displayed.</P>
+</OL>
+<P>Please keep in mind that when the ASI client on a system is not
+reporting it does NOT mean that the system itself has a problem
+(although in many cases it does). 
+</P>
+<P>Next, we will enable and configure the <I>ASI client not reporting</I>
+notification:</P>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>)
+	as the master user. The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The Welcome page will be displayed.</P>
+	<LI><P>At the upper right-hand corner of any page on the ASI server,
+	click on the &ldquo;notifications&rdquo; link in the &ldquo;events&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The &ldquo;Event Notifications&rdquo;
+	page will be displayed.</P>
+	<LI><P>To retrieve the <SPAN STYLE="font-style: normal"><B>ASI
+	client not reporting</B></SPAN> notification, in the &quot;Name
+	Contains&quot; parameter in the &quot;Search Options&quot; panel,
+	enter &ldquo;asi client&rdquo; (without the quotes). 
+	</P>
+	<LI><P>Click on the Search button. The <SPAN STYLE="font-style: normal"><B>ASI
+	client not reporting</B></SPAN> notification will be listed in the
+	&ldquo;Event Notifications&rdquo; page.</P>
+	<LI><P>Click on the &ldquo;edit&rdquo; action link found in the
+	&ldquo;Action&rdquo; column to the left of the name of the
+	notification. The &ldquo;Edit a Notification&rdquo; page will be
+	displayed.</P>
+	<LI><P>Ensure that the &ldquo;Default E-mail Recipients&rdquo; is
+	checked (make sure that the master user has a default notification
+	recipient entry)</P>
+	<LI><P>Select &ldquo;Yes&rdquo; for the &ldquo;Enabled&rdquo;
+	configuration parameter</P>
+	<LI><P>Select &ldquo;Yes&rdquo; for the &ldquo;E-mail&rdquo;
+	configuration parameter 
+	</P>
+	<LI><P>Select &ldquo;No&rdquo; for the &ldquo;Console&rdquo;
+	configuration parameter</P>
+	<LI><P>In this example, in the &ldquo;Include&rdquo; configuration
+	parameters, select the <B>Servers - All</B> group.</P>
+	<LI><P>If you do not want all users defined on your ASI server to
+	receive the &ldquo;ASI client not reporting&rdquo; notification for
+	the systems belonging to the &ldquo;Servers &ndash; All&rdquo; group
+	which are in sites they have access to, de-select the &ldquo;Global&rdquo;
+	configuration parameter.</P>
+	<LI><P>Scroll down to the &ldquo;Schedule&rdquo; area, about 80%
+	down the &ldquo;Edit a Notification&rdquo; page, ensure that the
+	&ldquo;Periodic, run every&rdquo; radio button is selected, and
+	select <B>20 minutes</B> from the &ldquo;Periodic, run every&rdquo;
+	pull-down list.</P>
+	<LI><P>Click on the &ldquo;Update&rdquo; button found at the top and
+	bottom of the &ldquo;Edit a Notification&rdquo; page.</P>
+</OL>
+<H5>Note</H5>
+<P STYLE="margin-left: 0.52in"><I>Please note that if you do not want
+to modify the default &ldquo;ASI client not reporting&rdquo;
+configuration, instead of editing it you could copy it and define a
+new notification just for the &ldquo;Servers &ndash; All&rdquo;
+group. To do this, in step 6) above, instead of clicking on the
+&ldquo;edit&rdquo; action link, you would click on the &ldquo;copy&rdquo;
+action link, then you would change the name of the notification (e.g.
+You could name it &ldquo;ASI client not reporting &ndash; server&rdquo;),
+and then you would proceed with the remaining steps unchanged.</I></P>
+<P><BR><BR>
+</P>
+<P>Once the &ldquo;ASI client not reporting&rdquo; notification is
+configured and enabled as described above, you will receive an e-mail
+message every time the notification runs and finds that the ASI
+client on one of the systems in the &ldquo;Servers &ndash; All&rdquo;
+group has not reported to your ASI server within 20 minutes from the
+last time the &ldquo;ASI client notification ran&rdquo;.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

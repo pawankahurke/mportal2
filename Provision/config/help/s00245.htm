@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 245 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20040405;8401487">
+	<META NAME="CHANGED" CONTENT="20070328;16514249">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 245 Configuration</H3>
+<H4>Configuration parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Close feedback page?</EM> is
+	enabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Name: (Blank defaults to
+	system user)</EM> is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Company: (Blank defaults to
+	site name)</EM> is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Start session URL</EM> is
+	empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Name of agent or
+	representative:</EM> is empty</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Run now </EM>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM><I>Shutdown chatlink</I> </EM>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Send Ctrl-Alt-Del</EM> 
+	</P>
+</UL>
+<H4>Notes</H4>
+<P>Please note that you can configure Scrip 245 in two ways:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Accessing its configuration page
+	either on your ASI server, or directly at a site, or</P>
+	<LI><P>Using the remote control configuration wizard on the ASI
+	server (<A HREF="https://asiserverdomain/main/config/remote.php">https://asiserverdomain/main/config/remote.php</A>)</P>
+</UL>
+<P>Before using Scrip 245, you should increase the frequency of
+execution of Scrip 177 (Scrip Configuration Update) to ensure that
+execution of Scrip 245 will occur quickly after you trigger its
+execution from the ASI server. We suggest that Scrip 177 be
+configured to run once every three minutes. While it's not necessary,
+you may want to revert the Scrip 177 schedule to the settings you
+normally use after the remote control sessions are over.</P>
+<H4>Close feedback page? (optional)</H4>
+<P STYLE="font-weight: medium">At the end of a session, Goto Assist,
+opens a browser window and loads a user response page. When enabled,
+the <I>Close feedback page</I> configuration parameter causes Scrip
+245 to automatically close the user response browser window. By
+default, <I>Close feedback page</I> is enabled. 
+</P>
+<H4>Name: (Blank defaults to system user) (optional)</H4>
+<P>The <I>Name: (Blank defaults to system user)</I> configuration
+parameter contains the name of the user you are having a remote
+support session with. Please note that this configuration parameter
+is optional. Typically, leaving this configuration parameter blank
+should work as when this is the case Scrip 245 automatically uses the
+name of the user currently logged in.</P>
+<H4>Company: (Blank defaults to site name) (optional)</H4>
+<P STYLE="font-weight: medium">The <I>Company: (Blank defaults to
+site name)</I> configuration parameter contains the name of the user
+you are having a remote support session with. Please note that this
+configuration parameter is optional. Typically, leaving this
+configuration parameter blank should work as when this is the case
+Scrip 245 automatically uses the name of the site the system where
+Scrip 245 runs belongs to. 
+</P>
+<H4>Start session URL (mandatory)</H4>
+<P STYLE="font-weight: medium">You need to fill in the <I>Start
+session URL</I> configuration parameter as it is required by Goto
+Assist. Scrip 245 will not work unless you enter the correct
+information in this configuration parameter.</P>
+<P STYLE="font-weight: medium"><I>Start session URL</I> is the URL of
+the page users are directed to in order to start a GTA session.
+Citrix supplies that information to licensees. 
+</P>
+<H4>Name of agent or representative: (mandatory)</H4>
+<P STYLE="font-weight: medium">You need to fill in the <I>Name of
+agent or representative:</I> configuration parameter as it is
+required by Goto Assist. This configuration parameter contains the
+identifier of the support engineer managing the remote support
+session. For example, if your organization has support engineers
+identified as:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in; font-weight: medium">Help Desk1</P>
+	<LI><P STYLE="margin-bottom: 0in">Help Desk2</P>
+	<LI><P>Help Desk3</P>
+</UL>
+<P STYLE="font-weight: medium">In the <I>Name of agent or
+representative:</I> configuration parameter , you would need to enter
+the identifier of the support engineer managing the remote support
+session.</P>
+<P STYLE="font-weight: medium">Please note that Scrip 245 will not
+work unless you enter the correct information in this configuration
+parameter.</P>
+<H4>Run now</H4>
+<P>Clicking on the <B>Execute</B> button in the <I>Run now</I>
+configuration parameter will cause Scrip 245 to open a remote support
+session using the information entered in the Scrip's configuration
+parameters.</P>
+<H4>Shutdown chatlink</H4>
+<P>Clicking on the <B>Execute</B> button in the <I>Shutdown chatlink</I>
+configuration parameter will cause Scrip 245 to shut down the chat
+link used by GoToAssist.</P>
+<H4>Send Ctrl-Alt-Del</H4>
+<P>Clicking on the <B>Execute</B> button in the <I>Send Ctrl-Alt-Del</I>
+parameter will cause Scrip 245 to execute a <B>ctrl+alt+del</B>
+command on the system where it is running, bringing up on the
+system's screen the login dialogue box. In this way, you can use
+GoToAssist on unattended systems. This is not possible with
+GoToAssist on its own.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

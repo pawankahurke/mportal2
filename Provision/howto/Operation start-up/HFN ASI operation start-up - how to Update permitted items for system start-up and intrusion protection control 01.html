@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Updating permitted items for system start-up and intrusion protection control</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20061214;20422588">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20071023;22553960">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Updating Permitted Items for System Start-up and Intrusion
+Protection Control</H3>
+<P>You can use the spreadsheet &quot;<A HREF="HFN%20ASI%20permitted%20items%20list%20master.xls" TARGET="_blank">HFN
+ASI permitted items list master.xls</A>&quot; to update the
+&ldquo;permitted items&rdquo; configuration parameter in Scrip 27
+(System Start-up Environment Control), and Scrip 232 (Intrusion
+Protection Control). To do this for all machines: 
+</P>
+<OL>
+	<LI><P>Open the Excel spreadsheet &quot;<A HREF="HFN%20ASI%20permitted%20items%20list%20master.xls" TARGET="_blank">HFN
+	ASI permitted items list master.xls</A>&quot;. 
+	</P>
+	<LI><P>Log onto your ASI server (https://asiservername/main). 
+	</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below &quot;user login&quot;
+	and date. 
+	</P>
+	<LI><P>In the &quot;sites&quot; navigation bar, click on the
+	&quot;wizard&quot; link
+	(https://asiservername/main/config/index.php?act=wiz). 
+	</P>
+	<LI><P>Click on the &quot;Scrip configuration&quot; wizard entry. 
+	</P>
+	<LI><P>Click the <B>All machines</B> link. 
+	</P>
+	<LI><P>Click the link for Scrip 27 (System Start-up Environment
+	Control). 
+	</P>
+	<LI><P>Select and delete the entire contents of the <B>Permitted
+	items</B> configuration parameter. Leave the browser window open. 
+	</P>
+	<LI><P>In Excel, click the column header of the first (&quot;A&quot;)
+	column to select the entire column. 
+	</P>
+	<LI><P>In the Excel window, go to the <B>Edit</B> menu and choose
+	<B>Copy</B>. 
+	</P>
+	<LI><P>Return to the browser window and click in the empty <B>Permitted
+	items</B> configuration parameter. 
+	</P>
+	<LI><P>Paste the new data in the box by going to the <B>Edit</B>
+	menu and choosing <B>Paste</B>. 
+	</P>
+	<LI><P>Click the <B>Next</B> button. 
+	</P>
+	<LI><P>The new configuration changes will be displayed. Click the
+	link to configure other Scrips for the same group. 
+	</P>
+	<LI><P>Click the link for Scrip 232 (Intrusion Protection Control)
+	and follow the same procedure for this Scrip. 
+	</P>
+</OL>
+<P>When you add a new site, you should repeat steps 1)-13) above for
+both Scrips, except for step 4) where you should select <B>A single
+site</B> instead of <B>All machines</B>. 
+</P>
+<P>When you install the ASI client on an additional system at a site
+where you already updated the <B>Permitted items</B> configuration
+parameter, you should update the <B>Permitted items</B> configuration
+parameter in Scrips 27 and 232 on the system where you just installed
+the ASI client as follows:</P>
+<OL TYPE=a>
+	<LI><P>Log onto the ASI server (https://asiservername/main ).</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date.</P>
+	<LI><P>At the upper right-hand corner of any page on the ASI server,
+	click on the <B>configuration</B> link in the <B>sites</B>
+	navigation bar (https://asiservername/main/config/index.php?act=site
+	).</P>
+	<LI><P>Click on the <B>view machines</B> link for the site where the
+	system you want to update the <B>Permitted items</B> configuration
+	parameter is located.</P>
+	<LI><P>Click on the <B>configure Scrips</B> link for the system you
+	want to update the <B>Permitted items</B> configuration parameter.</P>
+	<LI><P>Click on the link for Scrip 27 (System Start-up Environment
+	Control). 
+	</P>
+	<LI><P>From the <B>Group</B> the pull-down to the left of the
+	<B>Permitted items</B> box select <B>all machines</B>. 
+	</P>
+	<LI><P>Click on the <B>Submit Changes</B> button. 
+	</P>
+	<LI><P>Click on the <B>&lt;(machine name)&gt; </B><B>Select another
+	Scrip</B> link below the &ldquo;What do you want to do&rdquo;
+	question, and repeat steps f)-h) for Scrip 232 (Intrusion Protection
+	Control). 
+	</P>
+</OL>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>ASI Connectwise PSA Support Configuration and Use Guide</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20040405;8401487">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20051017;9090415">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>ASI Connectwise PSA Support Configuration and Use Guide</H3>
+<H4>Introduction</H4>
+<P>When you configure and enable Connectwise PSA support in event
+notifications, every time a notification which you configured to be
+sent via e-mail is produced, it will be sent automatically to your
+Connectwise PSA server where a trouble ticket will be automatically
+generated.</P>
+<P>To support integration with Connectwise PSA, we have added the
+following parameters to the <FONT COLOR="#000080">Add an Event
+Notification</FONT>, <FONT COLOR="#000080">Edit an Event
+Notification</FONT>, and copy an <FONT COLOR="#000080">Event
+Notifications</FONT> pages:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>Per-site e-mail notifications</I></P>
+</UL>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in">Enabling this
+event notification configuration parameter will generate an e-mail
+notification message for each site event logs have been retrieved
+from.</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>Use site e-mail address as
+	sender address</I></P>
+</UL>
+<P STYLE="margin-left: 0.79in">When you enable this event
+notification configuration parameter, the sender e-mail address used
+by an event notification will be the one you entered for a site in
+the admin module on your ASI server
+(<A HREF="https://ASIserverURL/main/acct/admin.php">https://ASIserverURL/main/acct/admin.php</A>).</P>
+<P>Before you start enabling Connectwise PSA support in existing
+event notifications on your ASI server, please read the <I>Enabling
+Connectwise PSA support in existing notifications</I> section of this
+document. It will save you a lot of tedious work.</P>
+<H4>Connectwise PSA support configuration</H4>
+<P>You can configure existing event notification with Connectwise PSA
+support in the <FONT COLOR="#000080">Edit an Event Notification</FONT>
+page (e.g.
+<A HREF="https://ASIserverURL/main/event/notify.php?nid=256&amp;act=edit">https://ASIserverURL/main/event/notify.php?nid=256&amp;act=edit</A>).
+You can configure new event notifications with Connectwise PSA
+support in the <FONT COLOR="#000080">Add an Event Notification</FONT>
+page (<A HREF="https://ASIserverURL/main/event/notify.php?act=addn">https://ASIserverURL/main/event/notify.php?act=addn</A>),
+or you can add Connectwise PSA support when you copy an event
+notification via the <FONT COLOR="#000080">Copy an Event Notification</FONT>
+page (e.g.,
+<A HREF="https://ASIserverURL/main/event/notify.php?nid=256&amp;act=copy">https://ASIserverURL/main/event/notify.php?nid=256&amp;act=copy</A>).</P>
+<P>In all three pages, you will need to configure the same two event
+notification configuration parameters:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>Per-site e-mail notifications</I></P>
+	<LI><P><I>Use site e-mail address as sender address</I></P>
+</UL>
+<P>The <I>Per-site e-mail notifications</I>, and <I>Use site e-mail
+address as sender address</I> event notification configuration
+parameters are boxes that you simply need to check whenever you want
+to enable Connectwise PSA support. This is all you need to do in
+order to enable Connectwise PSA support in your event notifications.</P>
+<H5>Site e-mail address</H5>
+<P>You can add an e-mail address for an existing site on your ASI
+server as follows:</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0in">Access the <FONT COLOR="#000080">Admin</FONT>
+	page on your ASI server at <A HREF="https://ASIserverURL/main/acct/admin.php">https://ASIserverURL/main/acct/admin.php</A></P>
+	<LI><P STYLE="margin-bottom: 0in">Click on the <A HREF="#sites"><FONT FACE="verdana, helvetica">sites</FONT></A>
+	link at the top of the <FONT COLOR="#000080">Admin</FONT> page</P>
+	<LI><P STYLE="margin-bottom: 0in">Scroll down to the entry for the
+	site whose record you want to add an e-mail address to, and click on
+	the <A HREF="https://192.168.1.249/main/acct/adm-act.php?id=5&amp;action=sso">[edit]</A>
+	link for that site 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Enter the desired site e-mail
+	address in the <I>Site Email Address</I> configuration parameter</P>
+	<LI><P>When ready, click on the Assign button at the bottom of the
+	page.</P>
+</OL>
+<P>In the unlikely event that you need or want to add a record for a
+site, you should follow the fives steps listed above except for step
+2 when instead of clicking on the <A HREF="#sites"><FONT FACE="verdana, helvetica">sites</FONT></A>
+link, you would click on the <A HREF="https://192.168.1.249/main/acct/adm-act.php?action=ccc"><FONT FACE="verdana, helvetica">new
+site</FONT></A> link, at the top of the <FONT COLOR="#000080">Admin</FONT>
+page.</P>
+<H4>Enabling Connectwise PSA support in existing notifications</H4>
+<P>You can enable Connectwise PSA support in multiple event
+notifications with one editing action, as follows:</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0in">Access the <FONT COLOR="#000080">Event
+	Notifications</FONT> page on your ASI server at
+	<A HREF="https://ASIserverURL/main/event/notify.php">https://ASIserverURL/main/event/notify.php</A></P>
+	<LI><P STYLE="margin-bottom: 0in">Select the notifications you want
+	to add Connectwise PSA support to using the selection parameters in
+	the <I>Search Options</I> panel. For example, if you want to select
+	all enabled event notifications, simply select enabled from the
+	<I>State</I> search parameter pull-down list. 
+	</P>
+</OL>
+<P STYLE="margin-left: 0.51in; margin-bottom: 0in"><B>Make sure that
+the Page Size parameter in the <I>Display Options</I> panel is large
+enough to display ALL selected event notifications.</B></P>
+<OL START=3>
+	<LI><P STYLE="margin-bottom: 0in">Click on the <FONT FACE="verdana, helvetica"><A HREF="https://ASIserverURL/main/event/notify.php?act=mnge&amp;o=0&amp;p=0&amp;l=20&amp;enb=1">manage</A>&nbsp;</FONT>link
+	at the top of the <FONT COLOR="#000080">Event Notifications</FONT>
+	page</P>
+	<LI><P STYLE="margin-bottom: 0in">Click on the <A HREF="https://ASIserverURL/main/event/notify.php?act=gang&amp;o=0&amp;p=0&amp;l=20&amp;enb=1">Edit
+	Multiple Notifications</A> link in the <FONT COLOR="#000080">Manage
+	Event Notifications</FONT> page</P>
+	<LI><P STYLE="margin-bottom: 0in">Click on the <I>Check all</I>
+	button, or click in the box next to the name of each notification
+	you want to apply the change to.</P>
+	<LI><P STYLE="margin-bottom: 0in">Select <B>Yes</B> from the <I>E-mail
+	per site</I> pull-down list</P>
+	<LI><P STYLE="margin-bottom: 0in">Select <B>Yes</B> from the <I>Use
+	site e-mail</I> pull-down list</P>
+	<LI><P>When ready, click on the <I>OK</I> button at the bottom of
+	the page.</P>
+</OL>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

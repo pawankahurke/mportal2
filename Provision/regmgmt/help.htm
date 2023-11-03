@@ -1,0 +1,173 @@
+<html>
+<head>
+    <title>ASI Site and System Status Dashboard</title>
+    
+    <style type="text/css">
+        BODY, TD, TH, P  {font-family: Arial, Helvetica, sans-serif;
+                          font-size: 8pt;}
+        .blue         {font-family: Arial, Helvetica, sans-serif;
+                       color:333399;}
+        .red          {font-family: Arial, Helvetica, sans-serif;
+                       color:FF0000;}
+        .heading      {font-family: Arial, Helvetica, sans-serif;
+                       font-size: larger;
+                       color:333399;}
+        .subheading   {font-family: Arial, Helvetica, sans-serif;
+                       color:333399; font-weight:bold;}
+        .footnote     {font-family: Arial, Helvetica, sans-serif;
+                       font-size: x-small;}
+        .faded        {font-family: Arial, Helvetica, sans-serif;
+                       color: #666666}
+        .hide         {position:absolute; top:200; left:250; visibility:hidden}
+        .bold         {font-weight:bold}
+        a.hidelink:link     {color: #000000; text-decoration: none;}
+        a.hidelink:visited  {color: #000000; text-decoration: none;}
+        a.hidelink:hover    {color: #0000ff; text-decoration: underline;}
+        a.hidelink:active   {color: #000000; text-decoration: none;}
+ 
+    </style>
+</head>
+<body>
+
+<img border="0" src="viewinfo.gif" height="40" width="45">&nbsp;<font
+color=blue size=6><b>Registry Management</b></font><br><br>
+
+<img border="0" src="img/keys.gif" height="18" width="17">&nbsp;&nbsp;A
+<b>BaseKey</b> contains the beginning portion of the Key name.<br><br>
+
+<ol>
+
+<li>&nbsp;&nbsp; <b>Root Key</b> is the first part of the key name.
+These are defined in Windows and can be selected from a pulldown
+menu in the "Base keys" wizard.
+
+<li>&nbsp;&nbsp; <b>Sub Key</b> is the second part of the key name.
+This is a key name that the user can edit, and determines the scope
+of this base key.
+
+</ol><br><br>
+
+<img border="0" id=4 src="img/filter.gif" height="18"
+width="17">&nbsp;&nbsp;A <b>Filter</b> selects a registry key for
+taking action.<br><br>
+
+<ol>
+
+<li>&nbsp;&nbsp;The <b>Filter Type</b> controls which registry types
+are affected by an action.  The user may choose to only affect
+registry keys or to affect both keys and values.
+
+<li>&nbsp;&nbsp; <b>Base Key</b> indicates which base key is used as
+the starting point for the affected key name.
+
+<li>&nbsp;&nbsp; <b>Key</b> is appended to the base key to give the
+key name.  The entire key name is therefore composed of the root key
+(from the base key), followed by the sub key (from the base key),
+followed by the key.  The key must start with a backslash ("\").
+
+<li>&nbsp;&nbsp; <b>Key Wild</b> indicates that the key name is treated
+as a wildcard, so a question mark ("?") matches a single character and an
+asterisk ("*") matches any number of characters.  For example, with:<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Root key = HKEY_LOCAL_MACHINE<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub key = Software<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key = \Microsoft\Windows\CurrentVersion\<b>U*</b><br>
+
+&nbsp;&nbsp;&nbsp;both these keys would be affected:<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\<b>U</b>RL<br>
+
+&nbsp;&nbsp;&nbsp;AND<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\<b>U</b>ninstall<br>
+
+<li>&nbsp;&nbsp; <b>Value Name</b> selects affected values based on
+their name.
+
+<li>&nbsp;&nbsp; <b>Value Name Wild</b> works like "Key Wild" but
+applies to the value name.
+
+<li>&nbsp;&nbsp; <b>Value Type</b> selects affected values based on
+their data type.  The available data types are selected from a list
+in a pulldown menu.
+
+<li>&nbsp;&nbsp; <b>Value Data</b> selects affected values based on
+the data they contain.
+
+<li>&nbsp;&nbsp; <b>Value Data Wild</b> works like "Key Wild" but
+applies to the value data.
+
+<li>&nbsp;&nbsp; <b>Global</b> indicates that all users have access
+to a filter.  This option is only available to administrative users
+and can only be changed by the user that created the filter.
+
+<li>&nbsp;&nbsp; <b>Recursive</b> indicates that the filter applies
+to all keys under the selected keys as well as the selected keys
+themselves.
+
+</ol><br><br>
+
+<img border="0" src="img/arrow.gif" height="18"
+width="17">&nbsp;&nbsp;<b>Action</b> allows the user to take action
+on the selected attribute.  For example:<br><br>
+
+<ol>
+
+<li>&nbsp;&nbsp;selecting the action button next to a base key shows
+all the actions that apply to that base key.
+
+<li>&nbsp;&nbsp;selecting the action button next to a machine shows
+all the actions that apply to that machine.  For example, if a user
+selects <b>List Action</b>, then they would be prompted with:
+
+<ol type="a">
+
+<li>&nbsp;&nbsp;A pull down box of filters to choose from.  A list of
+keys is generated using those that are selected by the chosen filter.
+
+<li>&nbsp;&nbsp;<b>Max Affected</b> specifies a limit on the
+number of registry keys that will be affected by this action.
+
+<li>&nbsp;&nbsp;<b>Clear</b> indicates that any existing values for
+this registry key will be cleared and replaced with the data from the
+registry; otherwise, the data from the registry is cumulative.
+
+</ol>
+</ol><br><br>
+
+<img border="0" id=2 src="img/option.gif" height="18"
+width="17">&nbsp;&nbsp;<b>Settings</b> control visual settings
+of the left pane.<br><br>
+
+<ol>
+
+<li>&nbsp;&nbsp;Selecting <b>Restore Factory Settings</b> deletes the
+contents of the left pane and restores the display to its initial
+condition.
+
+</ol><br><br>
+
+<img border="0" src="img/list.gif" height="18"
+width="17">&nbsp;&nbsp;<b>List Action</b> displays all relevant
+properties of the selected action in the right pane and allows
+modifying that action.<br><br>
+
+<img border="0" src="img/machine.gif" height="18"
+width="17">&nbsp;&nbsp;<b>Machine</b> displays all actions that have
+run on the selected machine in the right pane.  Note that actions that
+have been deleted are not displayed.<br><br>
+
+<img border="0" src="img/site.gif" height="18"
+width="17">&nbsp;&nbsp;<b>Site</b> displays all actions that have run
+at the selected site in the right pane.  Note that actions that have
+been deleted are not displayed.<br><br>
+
+<img border="0" src="img/fclosed.gif" height="18"
+width="17">&nbsp;&nbsp;<b>Registry Key</b> displays all the values
+in the selected key in the right pane.  Note that the machine from which
+registry values are taken is shown in the left pane hierarchy.<br><br>
+
+</body>
+</html>

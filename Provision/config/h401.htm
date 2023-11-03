@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Advanced Scrip Configuration Action Status Page</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20040321;8150381">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20060504;8035914">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		P.list-bullet-2-western { font-family: "verdana"; font-size: 10pt; page-break-inside: avoid }
+		P.list-bullet-2-cjk { font-family: "verdana"; font-size: 10pt; page-break-inside: avoid }
+		P.list-bullet-2-ctl { font-family: "Tahoma"; font-size: 10pt; page-break-inside: avoid }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Advanced Scrip Configuration Action Status Page</H3>
+<P>In the <I>Scrip Configuration Action Status</I> page you can
+access the latest Scrip configuration changes made on your ASI
+server. By <I>latest Scrip configuration changes</I> we mean, for
+example, that if you change the configuration of Scrip 96 on system
+A, call it change X, then 10 minutes later you change it again, call
+it change Y, the Scrip Configuration Action Status page will display
+first change X, then 10 minutes later, will display change Y and
+remove change X from the page, only if change X and change Y are the
+same change. If Scrip configuration changes X and Y did not change
+the same Scrip configuration variable(s), they would generate two
+entries in the Scrip Configuration Action Status page, even if both
+are changes to the same Scrip on the same system.</P>
+<P>In the advanced Scrip Configuration Action Status page, <FONT COLOR="#000000">Scrip
+configuration change actions are broken down into individual
+machine/Scrip configuration variable combinations. For example, if
+you made a change to three configuration variables in one Scrip on a
+group of ten machines, this would result into 30 entries in the
+advanced Scrip Configuration Action Status page. </FONT>
+</P>
+<P>On each Scrip configuration change entry listed in the <I>Scrip
+Configuration Action Status</I> page, you can perform a number of
+actions. 
+</P>
+<H5>[modify expiration] 
+</H5>
+<UL>
+	<LI><P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2>You
+	can set an expiration date for one Scrip configuration change
+	(<I>individual change option</I>). Once the expiration date passes,
+	the ASI server software automatically reverts the Scrip
+	configuration change in the entry assigning to the Scrip
+	configuration variable for the machine in the entry the value
+	attached to that variable in the group in the <I>Original Group</I>
+	column.</FONT></FONT></P>
+	<LI><P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2>You
+	can set the expiration date for all Scrip configuration changes
+	performed on a variable (<I>variable change option</I>). When the
+	expiration date for all Scrip configuration changed performed on a
+	variable passes, the Scrip configuration change in the entry on all
+	machines that took the value for the variable in the entry from the
+	group in the <I>Change Group</I> column, will be reverted to the
+	value of that variable attached to the group(s) in the <I>Original
+	Group</I> column. </FONT></FONT>
+	</P>
+</UL>
+<P STYLE="margin-left: 0.51in">For example, if the <I>Advanced Scrip
+Configuration Action Status</I> page contains ten Scrip configuration
+changes where the value of the <I>Percent processor usage above which
+to report</I> configuration variable attached to group A was assigned
+to ten different machines at different points in time, if you set an
+expiration date for all of these changes, when the expiration date
+passes the value of the <I>Percent processor usage above which to
+report</I> configuration variable for the ten machines will be
+reverted to the value attached to the groups it had been assigned
+from before the Scrip configuration changes took place.</P>
+<UL>
+	<LI><P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2>You
+	can also set an expiration date for the Scrip configuration changes
+	that used variable values attached to the group listed in the <I>Change
+	Group</I> column (<I>group assignment option</I>). When you do this,
+	once the expiration date passes, the ASI server software will
+	automatically revert all configuration changes that assigned to
+	Scrip configuration variables values attached to the <I>Change
+	Group</I>, assigning to them values attached to the group(s) in the
+	<I>Original Group</I> column. Please note that once a group
+	expiration date passes Scrip configuration variables in the affected
+	entries can take values from multiple <I>Original Group</I> entries.
+	</FONT></FONT>
+	</P>
+</UL>
+<H5>[revert change] 
+</H5>
+<UL>
+	<LI><P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2>Selecting
+	the <I>individual change</I> option, you can revert one Scrip
+	configuration change assigning to the Scrip configuration variable
+	for the machine listed in the entry the value of that variable
+	attached to the group in the <I>Original Group</I> column.</FONT></FONT></P>
+	<LI><P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2>You
+	can perform a revert variable action (<I>variable change option</I>).
+	Doing this will result in reverting the Scrip configuration change
+	in the entry on all machines that took the value for the variable in
+	the entry from the group in the <I>Change Group</I> column, to the
+	value of that variable attached to the group(s) in the <I>Original
+	Group</I> column. </FONT></FONT>
+	</P>
+</UL>
+<P STYLE="margin-left: 0.51in"><FONT COLOR="#000000"><FONT SIZE=2>For
+example, if the <I>Advanced Scrip Configuration Action Status</I>
+page contains ten Scrip configuration changes where the value of the
+<I>Percent processor usage above which to report</I> configuration
+variable attached to group A was assigned to ten different machines
+at different points in time, if you perform a revert variable action,
+the value of the <I>Percent processor usage above which to report</I>
+configuration variable for the ten machines will be reverted to the
+value attached to the groups it had been assigned from before the
+Scrip configuration changes took place.</FONT></FONT></P>
+<UL>
+	<LI><P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2>Selecting
+	the <I>group change</I> option, you can perform a <I>revert group
+	change</I> action reverting all configuration changes that assigned
+	to Scrip configuration variables values attached to the <I>Change
+	Group</I>, reverting them to the values attached to the group(s) in
+	the <I>Original Group</I> column. Please note that a <I>revert group
+	change</I> action can assign to variables values from multiple
+	<I>Original Group</I> entries. </FONT></FONT>
+	</P>
+</UL>
+<P STYLE="margin-left: 0.51in">For example, if the Scrip
+Configuration Action Status page contains three changes where the
+value of Scrip configuration variable X attached to group A was
+assigned to three different machines, if you perform a group revert
+action, all three changes will be reversed assigning to the three
+machines the value of configuration variable X from the group(s) it
+had been assigned from prior to the change, i.e. the group(s) in the
+Original Group column for the three Scrip configuration changes.</P>
+<H5>[delete group] 
+</H5>
+<UL>
+	<LI><P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2>When
+	you perform a <I>delete group</I> action, the ASI server software
+	performs a <I>revert group change action</I> on the group in the
+	<I>Change Group</I> column, and deletes the group. All configuration
+	variables with values assigned from the <I>Change Group</I>, will
+	take the value currently attached to the group(s) listed in the
+	<I>Original Group</I> column. Please note that you cannot delete
+	built-in groups (<I>All</I>, <I>Sites</I>, <I>User:X</I>, and
+	<I>Machines</I>) but you can revert Scrip configuration changes
+	involving built-in groups.</FONT></FONT></P>
+</UL>
+<H4>Important note</H4>
+<P CLASS="list-bullet-2-western"><FONT COLOR="#000000"><FONT SIZE=2><B>Please
+note that when an expiration date passes, or you revert a change, the
+value of the Scrip configuration variable whose value is reverted
+will not necessarily take on the value it had before you made the
+Scrip configuration change. This is because since the Scrip
+configuration change took place, the value of that Scrip
+configuration variable attached to the group(s) in the Original Group
+column, the one(s) they are being reverted to, may have changed.</B></FONT></FONT></P>
+<H4>Legend</H4>
+<P><STRONG>Site</STRONG> &ndash; The name of the site the system
+where the Scrip configuration change was made belongs to</P>
+<P><STRONG>Machine</STRONG> &ndash; The name of the system where the
+Scrip configuration change was made</P>
+<P><STRONG>Configuration date</STRONG> &ndash; The date and time on
+which the Scrip configuration change was made</P>
+<P><STRONG>Expiration date</STRONG> &ndash; The date on which the
+Scrip configuration change will be reverted. The default value is
+<B><FONT FACE="Courier New, monospace">Never</FONT></B>.</P>
+<P><STRONG>Scrip</STRONG> &ndash; The number of the Scrip whose
+variable was changed by the Scrip configuration change</P>
+<P><STRONG>Scrip configuration variable changed</STRONG> &ndash; The
+Scrip configuration variable whose value changed when the Scrip
+configuration took place, i.e. it was assigned from the group in the
+<I>Change Group</I> column</P>
+<P><STRONG>Original Group</STRONG> &ndash; The group(s) that the
+variable in the <I>Scrip Configuration Variable Changed</I> column
+took its value from before Scrip the configuration change took place</P>
+<P><STRONG>Original Value</STRONG> &ndash; The value(s) that were
+attached to the group(s) in the <I>Original Group</I> column, and
+assigned to the variable in the <I>Scrip Configuration Variable
+Changed</I> column before the Scrip configuration change took place</P>
+<P><STRONG>Change Group</STRONG> - the group that the variable listed
+in the <I>Scrip Configuration Variable Changed</I> column took its
+value from when the configuration change took place</P>
+<P><STRONG>Change Value</STRONG> &ndash; The value that was attached
+to the group in the <I>Change Group</I> column, and assigned to the
+variable in the <I>Scrip Configuration Variable Changed</I> column
+when the Scrip configuration change took place</P>
+<P><STRONG>Source</STRONG> &ndash; The ASI module which was used to
+make the Scrip configuration change. The possible values of the
+<I>Source</I> field are: 
+</P>
+<UL>
+	<LI><P><FONT FACE="Courier New, monospace"><B>Machine Scrip
+	configurator</B></FONT></P>
+	<LI><P><FONT FACE="Courier New, monospace"><B>Scrip configuration
+	wizard</B></FONT></P>
+	<LI><P><FONT FACE="Courier New, monospace"><B>Advanced Scrip
+	configuration wizard</B></FONT></P>
+	<LI><P><FONT FACE="Courier New, monospace"><B>Remote control wizard</B></FONT></P>
+	<LI><P><FONT FACE="Courier New, monospace"><B>Enable-disable malware
+	protection wizard</B></FONT></P>
+	<LI><P><FONT FACE="Courier New, monospace"><B>Enable-disable
+	Microsoft updates wizard</B></FONT></P>
+	<LI><P><FONT FACE="Courier New, monospace"><B>Scrip execution
+	frequency wizard</B></FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

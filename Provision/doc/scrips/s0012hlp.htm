@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 12 - Symantec Virus Definition Management</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20040502;20372169">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050811;15243596">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 12 - Symantec Virus Definition Management</H3>
+<P>Scrip 12 manages the Norton Anti Virus virus definitions on all
+systems where it is enabled and configured accordingly. It ensures
+that at all times, all systems where it is enabled and configured
+accordingly ,at the very least, will have the newest virus
+definitions available on each sub-net.</P>
+<P>Scrip 12 accomplishes this goal by looking for the newest possible
+virus definitions in the following locations:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Other systems on the same sub-net 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">The location(s) of Norton Anti
+	Virus on-site server(s) 
+	</P>
+	<LI><P>Symantec's site, using the LiveUpdate program 
+	</P>
+</UL>
+<P>The above options for updating a system's Norton Anti Virus virus
+definitions can be used independently, or in conjunction with each
+other. If they are used together, Scrip 12 executes each option in
+the order listed above.</P>
+<P>Scrip 12 also automatically notifies you when The Norton Anti
+Virus virus definitions are out of date for a period of time longer
+than the value of the <EM>Maximum age of virus definitions in days</EM>
+Scrip configuration parameter.</P>
+<P>The table below describes the information contained in the logs
+produced by this Scrip.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P><STRONG>Client time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event was detected by the Client on the
+			end-user system (e.g. 2001-03-02 19:21:36)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Server time:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Date and time at which event log was received and stored in the
+			SQL database on the Web log server (e.g. 2001-03-02 19:21:53)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Scrip number:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Number of Scrip (no particular relevance) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Customer:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of supported customer, individual department or site 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Machine:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of system as assigned at the time of Windows configuration
+						</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Username:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Name of user when event occurred 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Client version number (e.g. 0.700.2048.LE) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Client size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Size of Client in bytes 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Priority:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Priority of event ranging between 1 (lowest) and 9 (highest) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Description:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Description of event that took place (e.g. symptom detected,
+			problem resolved or automated procedure executed) 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Type:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Path:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Executable:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Version:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Size:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>ID:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Completion code corresponding to completion status in field
+			string1</P>
+			<P>0 &quot;Virus definitions updated successfully.&quot;</P>
+			<P>1 &quot;Virus definitions not updated. They may be current.&quot;</P>
+			<P>2 &quot;No update path was specified.&quot;</P>
+			<P>3 &quot;No on-site server was specified.&quot;</P>
+			<P>4 &quot;No 3rd party support for silent vendor updates.&quot;</P>
+			<P>5 &quot;Vendor update executable failed to run.&quot;</P>
+			<P>6 &quot;Unable to retrieve latest local virus definitions.&quot;</P>
+			<P>7 &quot;Scheduler error encountered.&quot;</P>
+			<P>8 &quot;Version no longer supported by vendor.&quot;</P>
+			<P>9 &quot;Version supported by this Scrip not detected.&quot;</P>
+			<P>10 &quot;Virus definition update status code not set.&quot;</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Window title:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Completion status</P>
+			<P>(e.g. Virus definitions updated successfully. )</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>String 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>n/a</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 1:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Scrip execution completion message</P>
+			<P>(E.g.</P>
+			<P>Virus definitions were updated from node7. <BR>Date of current
+			definitions on this machine: Saturday, May 1, 2004 00:00:00<BR>Date
+			of latest definitions at this site: Saturday, May 1, 2004 00:00:00
+						</P>
+			<P>Skipping locked machine gabe. <BR>Virus definitions were
+			updated from node12. <BR>Date of current definitions on this
+			machine: Saturday, May 1, 2004 00:00:00<BR>Date of latest
+			definitions at this site: Saturday, May 1, 2004 00:00:00 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 2:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Scrip configuration and anti virus product name and version at
+			the time the event log was posted</P>
+			<P>(E.g.</P>
+			<P>Type of run: Other <BR>Product: Norton AntiVirus 4 <BR>Version:
+			5.0.0.26 <BR>Accessible machine update enabled. <BR>Vendor update
+			enabled.</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 3:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Virus definitions dates on systems where the ASI client was
+			running at the time the event log was posted</P>
+			<P>(E.g.</P>
+			<P>Machine name and date of virus definitions: <BR>notebook2 :
+			Thursday, September 4, 2003 00:00:00 <BR>node8 : Thursday,
+			September 4, 2003 00:00:00 <BR>gabe : Thursday, September 4, 2003
+			00:00:00 <BR>node3 : Thursday, September 4, 2003 00:00:00 <BR>node7
+			: Thursday, September 4, 2003 00:00:00 <BR>node5 : Thursday,
+			September 4, 2003 00:00:00 <BR>node12 : Thursday, September 4,
+			2003 00:00:00 <BR>node9 : Wednesday, August 13, 2003 00:00:00
+			<BR>telecommuter1 : Thursday, September 4, 2003 00:00:00 <BR>node11
+			: Thursday, September 4, 2003 00:00:00 <BR>node10 : Wednesday,
+			August 13, 2003 00:00:00 <BR>node6 : Thursday, September 4, 2003
+			00:00:00 <BR>node14 : Monday, August 18, 2003 00:00:00
+			<BR>telecommuter2 : Wednesday, July 30, 2003 00:00:00 <BR>Number
+			of active copies: 14</P>
+			<P>)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>Text 4:</STRONG></P>
+		</TD>
+		<TD>
+			<P>Detailed information on date of virus database files and time
+			of update</P>
+			<P>(E.g.</P>
+			<P>Data: Time of previous update: None yet recorded <BR>Data:
+			Execution Time: 5 Minutes, 40 Seconds <BR>Data: Date of previous
+			definitions: Monday, August 18, 2003 00:00:00 <BR>Data: Date of
+			new definitions: Thursday, September 4, 2003 00:00:00 
+			</P>
+			<P>)</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

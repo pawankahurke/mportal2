@@ -1,0 +1,21 @@
+You can create advanced searches by
+writing conditional statements like
+this:
+
+    (#text# LIKE '%access%') AND (#text# NOT LIKE '%microsoft access%')
+
+Where:
+
+    #text# -- represents the text in the database
+
+Operators:
+
+    AND  -- logical AND
+    OR   -- logical OR
+    NOT  -- negation operator used with LIKE
+    LIKE -- similar to '=' but you can use the wildcard character
+    =    -- equal to (exact match--no wildcards!)
+    !=   -- not equal to (exact match--no wildcards!)
+
+The wildcard character is '%'
+

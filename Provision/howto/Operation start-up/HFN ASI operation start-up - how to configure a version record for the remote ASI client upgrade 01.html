@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Configuring a Version Record the Remote ASI Client Upgrade</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20071116;14213814">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Configuring a Version Record the Remote ASI Client Upgrade</H3>
+<P>To set up a new version record for the ASI Client update, the most
+convenient method is to edit or copy an existing record, making any
+necessary changes. 
+</P>
+<OL>
+	<LI><P>Log onto your ASI server (https://asiservername/main). 
+	</P>
+	<LI><P>Click on the <B>Use extended interface</B> link on the right
+	side of the ASI Dashboard upper pane, below &quot;user login&quot;
+	and date. 
+	</P>
+	<LI><P>In the <B>sites</B> navigation bar, click on the <B>updates</B>
+	link (https://asiservername/main/updates/index.php). The <B>Set Site
+	Version</B> page will be displayed. 
+	</P>
+	<LI><P>At the right of the page, below the &quot;How to&quot;
+	button, the <B>updates</B> navigation bar is displayed. Click the
+	<B>versions</B> link in this navigation bar. The <B>Available
+	Versions</B> page will be displayed. 
+	</P>
+	<LI><P>If you have not defined any version records, click on the
+	&ldquo;add&rdquo; link in the row of links displayed below the page
+	title. The <B>Add a Version Record</B> page will be displayed.</P>
+</OL>
+<P STYLE="margin-left: 0.53in">If you created a version record
+previously, and you want to edit it, click the <B>edit</B> link for
+that version record, and the <B>Edit a Version Record</B> page will
+be displayed. To copy an existing version record instead of editing
+it (for example, in case you cannot edit the version record because
+it was created by a different user), click the <B>copy</B> link
+instead, and the <B>Copy a Version Record</B> page will be displayed.
+If you are copying rather than editing, you will need to change the
+version record name. 
+</P>
+<P>Please note that the <B>Add a Version Record</B>, <B>Edit a
+Version Record</B>, and <B>Copy a Version Record</B> pages are
+identical.</P>
+<OL START=6>
+	<LI><P>In the <B>Download URL</B> field, enter the URL pointing to
+	the installation executable for the latest point release of the ASI
+	client (for example, hfn-inst-2.004.029.0095.00.exe). 
+	</P>
+	<LI><P>From the name of the installation executable in the <B>Download
+	URL</B> field (e.g. hfn-inst-2.004.029.0095.00.exe), select and copy
+	(Ctrl+c) the version number (e.g. 2.004.029.0095.00). Paste this
+	version number into the <B>Version number</B> number field,
+	replacing the existing entry. 
+	</P>
+	<LI><P>Verify that the value of the <B>Username</B> field is the one
+	required to access the location specified in the <B>Download URL</B>
+	field. 
+	</P>
+	<LI><P>If the the entry in the <B>Username</B> field is correct, you
+	do not need to modify the value of the <B>Password</B> parameter
+	(although it would not hurt to re-enter it). Otherwise, enter the
+	password for the user name that you have entered in the <B>Username</B>
+	field. 
+	</P>
+	<LI><P>Make sure that the value of the <B>Command Line</B> parameter
+	is <CODE>&quot;/VERYSILENT&quot;</CODE> (without quotes). If you
+	wish, you can add other installation executable command line
+	parameters, separating each command line parameter with a single
+	space. 
+	</P>
+	<LI><P>When finished, if you are editing an existing record, click
+	the <B>Update</B> button, or if you are copying a version record,
+	click the <B>Copy</B> button. 
+	</P>
+</OL>
+<H4>Note</H4>
+<P><I>If you are downloading the ASI client installation executable
+from handsfreenetworks.com, entries for the fields in the <B>Add a
+Version Record</B>, <B>Edit a Version Record</B>, and <B>Copy a
+Version Record</B> pages would be like the following:</I></P>
+<P><I>Version Name: &lt;Any name you choose&gt;</I></P>
+<P><I>Version Number: Version number extracted from the name of the
+ASI client installation executable file as described in step 7) above</I></P>
+<P><I>Global: &lt;At your choice&gt;</I></P>
+<P><I>Download URL: <A HREF="http://handsfreenetworks.com/download/">http://handsfreenetworks.com/download/</A>&lt;name
+of ASI client installation executable, e.g.
+<A HREF="http://handsfreenetworks.com/download/">http://handsfreenetworks.com/download/
+hfn-inst-2.004.029.0095.00.exe</A></I></P>
+<P><I>Username: dnload</I></P>
+<P><I>Password: dnload</I></P>
+<P><I>Command Line: /VERYSILENT</I></P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

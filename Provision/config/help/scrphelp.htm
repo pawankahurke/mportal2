@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Automated Support Infrastructure Scrip Configuration Navigation</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.0.1  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Alessandro Donnini">
+	<META NAME="CREATED" CONTENT="20030619;8090000">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20030804;18283663">
+	<STYLE>
+	<!--
+		@page { size: 21.59cm 27.94cm; margin-left: 2cm; margin-right: 3.18cm; margin-top: 2.54cm; margin-bottom: 1.25cm }
+		H1 { margin-left: 1.91cm; margin-top: 0cm; margin-bottom: 0.42cm; background: #000000; border-top: 5.00pt solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.11cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm; color: #ffffff; letter-spacing: -0.5pt; line-height: 0.42cm; page-break-inside: avoid; widows: 2; orphans: 2 }
+		H1.western { font-family: "Arial", sans-serif; font-size: 12pt; so-language: en-US; font-weight: medium }
+		H1.cjk { font-family: "Times New Roman", serif; font-size: 12pt; font-weight: medium }
+		H1.ctl { font-size: 12pt; font-weight: medium }
+		P { margin-left: 1.91cm; margin-bottom: 0.42cm; color: #000000; letter-spacing: -0.3pt; line-height: 0.42cm; text-align: justify; widows: 2; orphans: 2 }
+		P.western { font-family: "Arial", sans-serif; font-size: 10pt; so-language: en-US }
+		P.cjk { font-family: "Times New Roman", serif; font-size: 10pt }
+		H2 { margin-left: 1.91cm; margin-top: 0cm; margin-bottom: 0.42cm; color: #000000; letter-spacing: -0.8pt; line-height: 0.42cm; page-break-inside: avoid; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial Black", sans-serif; font-size: 11pt; so-language: en-US; font-style: italic; font-weight: medium }
+		H2.cjk { font-family: "Times New Roman", serif; font-size: 11pt; font-style: italic; font-weight: medium }
+		H2.ctl { font-size: 12pt; font-style: italic; font-weight: medium }
+		P.text-body-indent-western { margin-left: 2.54cm; font-family: "Arial", sans-serif; font-size: 10pt; so-language: en-US }
+		P.text-body-indent-cjk { margin-left: 2.54cm; font-family: "Times New Roman", serif; font-size: 10pt }
+		P.text-body-indent-ctl { margin-left: 2.54cm }
+		H1.heading-1---no-label-western { font-family: "Arial", sans-serif; font-size: 12pt; so-language: en-US; font-weight: medium }
+		H1.heading-1---no-label-cjk { font-family: "Times New Roman", serif; font-size: 12pt; font-weight: medium }
+		H1.heading-1---no-label-ctl { font-size: 12pt; font-weight: medium }
+		P.ww-list-bullet1-western { margin-left: 2.54cm; text-indent: -0.64cm; font-family: "Arial", sans-serif; font-size: 10pt; so-language: en-US }
+		P.ww-list-bullet1-cjk { margin-left: 2.54cm; text-indent: -0.64cm; font-family: "Times New Roman", serif; font-size: 10pt }
+		P.ww-list-bullet1-ctl { margin-left: 2.54cm; text-indent: -0.64cm }
+		A:link { color: #0000ff }
+		EM { font-variant: normal; letter-spacing: -0.2pt }
+		EM.western { font-family: "Arial Black", sans-serif; font-size: 10pt; font-style: normal }
+		EM.cjk { font-size: 10pt; font-style: normal }
+		EM.ctl { font-style: normal }
+		A:visited { color: #800080 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#800080">
+<H1 CLASS="heading-1---no-label-western">Automated Support
+Infrastructure Scrip Configuration Navigation and General Operation</H1>
+<P CLASS="western">The entry for a Scrip on the <FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#808080">Scrip
+Configurator</FONT></FONT> page consists of the Scrip number
+accompanied by a one-line description of the Scrip. Clicking on a
+Scrip's description will take you to that Scrip's configuration page.</P>
+<P CLASS="western">For any Scrip, the configuration page has the same
+basic structure. A table with four columns:</P>
+<UL STYLE="margin-left: 2.54cm">
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	<EM CLASS="western">Local?</EM> - Should the configuration parameter
+	value be applied only to the currently accessed device (Local) or to
+	all the devices on the local network (Global)?</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	<EM CLASS="western">Description</EM> - The name of the configuration
+	parameter</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	<EM CLASS="western">Value</EM> - Checked/unchecked or text depending
+	on the configuration parameter</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	<EM CLASS="western">List all</EM> - For each Scrip configuration
+	parameter provides a link to a table listing the value of that
+	parameter for each system where the Automated Support Infrastructure
+	client is installed and running, and whether that value is local to
+	that system or global, for all systems.</P>
+</UL>
+<P CLASS="western">Clicking on the  <U><FONT FACE="Verdana, sans-serif"><FONT COLOR="#0000ff">help</FONT></FONT></U>
+link on second level navigation bar of a Scrip's configuration page
+will take you to its configuration help file where you will find
+details about each configuration parameter, and information
+instructions on how to configure the Scrip.</P>
+<P CLASS="western">Please note that when you change a variable from
+local to global its value will automatically change to the global
+value. For example, suppose a Scrip is enabled on <FONT FACE="Verdana, sans-serif">system
+A</FONT> on a sub-net and disabled on all others. If you change the
+enable/disable variable on <FONT FACE="Verdana, sans-serif">system A</FONT>
+from local to global, the Scrip will be disabled on <FONT FACE="Verdana, sans-serif">system
+A</FONT> although you did not explicitly changed the value of the
+enable/disable variable to &ldquo;disable&rdquo;.</P>
+<P CLASS="western">Once you have made all the necessary changes,
+clicking on the 
+<IMG SRC="scrphelpsvr_html_m7fb8986a.gif" NAME="Graphic1" ALIGN=ABSMIDDLE WIDTH=95 HEIGHT=30 BORDER=0>
+button at the top or bottom left-hand corner of each Scrip's
+configuration page will process the configuration change and take you
+to the <FONT SIZE=2 STYLE="font-size: 11pt"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#808080">Changes
+recorded</FONT></FONT></FONT> page (see below).</P>
+<P CLASS="western" STYLE="margin-left: 3.02cm"><IMG SRC="scrphelpsvr_html_451b76d8.png" NAME="Graphic2" ALIGN=BOTTOM WIDTH=605 HEIGHT=45 BORDER=0></P>
+<P CLASS="western"><IMG SRC="scrphelpsvr_html_m2db449db.png" NAME="Graphic3" ALIGN=BOTTOM WIDTH=575 HEIGHT=154 BORDER=0></P>
+<P CLASS="western">At this point clicking on the <U><FONT COLOR="#0000ff"><FONT FACE="Verdana, sans-serif">continue</FONT></FONT></U><FONT FACE="Arial, sans-serif"><SPAN STYLE="text-decoration: none"><FONT COLOR="#0000ff">
+</FONT></SPAN></FONT><FONT FACE="Arial, sans-serif"><SPAN STYLE="text-decoration: none"><FONT COLOR="#000000">l</FONT></SPAN></FONT><SPAN STYLE="text-decoration: none">i</SPAN>nk,
+will take you back to the Scrip&rsquo;s configuration page. 
+</P>
+<H2 CLASS="western">ASI Client Shutdown Procedure</H2>
+<P CLASS="western">On all systems, regardless of operating system
+version, to shut down the ASI client access Scrip 18&rsquo;s
+configuration page and click on the 
+<IMG SRC="scrphelpsvr_html_123081c4.gif" NAME="Graphic4" ALIGN=ABSMIDDLE WIDTH=56 HEIGHT=30 BORDER=0>
+button next to the <FONT FACE="Verdana, sans-serif">Shutdown this
+client</FONT> label. Please note that Scrip 18 also lets you restart
+an ASI client (i.e. shut down and re-start), shut down all ASI
+clients that can be reached from the system you are executing the
+shut down command from, and re-start all ASI clients (i.e. shut down
+and re-start) that can be reached from the system you are executing
+the re-start command from.</P>
+<P CLASS="western">Scrip 190 gives you the option to run the ASI
+client either as an application or as a service. Shutting down the
+client requires two different procedures depending on whether it is
+running as an application, or as a service.</P>
+<P CLASS="western" STYLE="page-break-after: avoid">In addition to
+using Scrip 18, to shut down the ASI client you can execute the
+following command line:</P>
+<UL STYLE="margin-left: 2.54cm">
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	<FONT FACE="Courier New, monospace">&lt;drive letter&gt;:\Program
+	Files\&lt;ASI main folder, e.g. HandsFree&gt;\Client\cutil &ndash;s</FONT></P>
+</UL>
+<P CLASS="western">You should note that you could use Scrip 89 /
+212-215 (Program Execution) to execute the above command line</P>
+<H2 CLASS="western">ASI client uninstall procedure</H2>
+<P CLASS="western" STYLE="page-break-after: avoid">In addition to
+using Scrip 43, to uninstall the ASI client you can execute the
+following command line:</P>
+<UL STYLE="margin-left: 2.54cm">
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	<FONT FACE="Courier New, monospace">&lt;drive letter&gt;:\Program
+	Files\&lt;ASI main folder, e.g. HandsFree&gt;\Client\cutil &ndash;u</FONT></P>
+</UL>
+<P CLASS="text-body-indent-western">(uninstall with user
+notification)</P>
+<UL STYLE="margin-left: 2.54cm">
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	<FONT FACE="Courier New, monospace">&lt;drive letter&gt;:\Program
+	Files\&lt;ASI main folder, e.g. HandsFree&gt;\Client\cutil &ndash;l</FONT></P>
+</UL>
+<P CLASS="text-body-indent-western">(silent uninstall)</P>
+<P CLASS="western">You should note that you could use Scrip 89 /
+212-215 (Program Execution) to execute the above command line,
+although there is no point in doing this as Scrip 43 performs the
+same function using cutil.</P>
+<H2 CLASS="western">Scrip Configuration Notes</H2>
+<P CLASS="western">When you change a Scrip's configuration from <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">local</FONT></FONT></EM>
+to <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">global</FONT></FONT></EM>,
+the new <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">global</FONT></FONT></EM>
+configuration will be propagated to all devices on the local network.</P>
+<P CLASS="western">The only separators allowed for multiple values in
+a configuration entry, e.g. file locations, file masks, list of
+executables whose execution is to be logged, and the schedule entry,
+are the <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">carriage
+return</FONT></FONT></EM> and <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">line
+feed</FONT></FONT></EM>.</P>
+<P CLASS="western">Unless otherwise stated, in comma separated lists
+no spaces are allowed between commas.</P>
+<P CLASS="western">Masks used in Scrips configuration entries work
+like Unix-style masks, not Windows-style ones. This only difference
+arises in the case of file names that have no extension. For example,
+for a file that has the name &quot;foo&quot; and no extension, the
+Unix-like filename would be &quot;foo&quot; and the Windows-like file
+name would be &quot;foo.&quot; (with the <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">dot</FONT></FONT></EM>).
+So, the wildcard &quot;foo.*&quot; will actually not match this file,
+because it's using the Unix-like filename, and there is no <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">dot</FONT></FONT></EM>
+to match the <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">dot</FONT></FONT></EM>
+in the wildcard. It all boils down to the fact that we're treating
+the <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">dot</FONT></FONT></EM>
+like any other character, rather than a magical separator. It
+actually makes more sense that way, because Windows will let you have
+a file named &quot;foo.bar.tmp&quot; &ndash; so would this match a
+wildcard &quot;*.ba*&quot; or not? It would in our wildcards, but it
+wouldn't if the <EM CLASS="western"><FONT FACE="Verdana, sans-serif"><FONT COLOR="#000000">dot</FONT></FONT></EM>
+were the &quot;extension separator&quot;.</P>
+<H2 CLASS="western">Ports</H2>
+<P CLASS="western" STYLE="page-break-after: avoid">The ASI client
+uses TCP/IP ports to perform a number of actions, including:</P>
+<UL STYLE="margin-left: 2.54cm">
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	2721 (smart-diagnose) - the default communication port between
+	clients. This port is registered for exclusive use by the Automated
+	Support Infrastructure.</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	443 (https) &ndash; the default port used for sending logs to the
+	ASI server</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	80 (http) &ndash; an alternate port for sending logs to the ASI
+	server</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	25 (smtp) - the default port used for email logging</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	37 (time) &ndash; optionally used by Scrips 86 and 87</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	53 (domain) - used for DNS lookup, e.g. during e-mail logging</P>
+</UL>
+<P CLASS="western">It is necessary to enable outbound communication
+via ports 443 otherwise the ASI client will not be able to send logs
+to the ASI server. Outbound communication via ports 25, 37, and 53 is
+not mandatory. However, if it is not enabled the activities that use
+them will fail.</P>
+<P CLASS="western">In addition, the following ports may be used while
+diagnosing a failure:</P>
+<UL STYLE="margin-left: 2.54cm">
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	80 (http)</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	23 (telnet)</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	53 (domain)</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	21 (ftp)</P>
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	443 (https)</P>
+</UL>
+<P CLASS="western">If HTTP proxying is enabled, the Client logs to
+the proxy port specified in parameter <FONT FACE="Verdana, sans-serif">Proxy
+URL</FONT> of Scrip 43. If your proxy server requires authentication,
+you should add a working user id and password to the proxy URL. The
+syntax of an entry in <FONT FACE="Verdana, sans-serif">Proxy URL</FONT>
+is:</P>
+<UL STYLE="margin-left: 2.54cm">
+	<LI><P CLASS="ww-list-bullet1-western" STYLE="margin-left: 0cm; text-indent: 0cm">
+	http://&lt;user name&gt;:&lt;user password&gt;@&lt;proxy server
+	name&gt;:&lt;proxy port&gt; 
+	</P>
+</UL>
+<P CLASS="western">We have also registered port 6072 (diagnose-proc),
+but we aren't currently using it.</P>
+<DIV TYPE=FOOTER>
+	<P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.78cm; margin-bottom: 0cm; line-height: 0.34cm; page-break-inside: avoid">
+	<FONT SIZE=1>&copy; 2000-2003 HandsFree Networks</FONT></P>
+</DIV>
+</BODY>
+</HTML>

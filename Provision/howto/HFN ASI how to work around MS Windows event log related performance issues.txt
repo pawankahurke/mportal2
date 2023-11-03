@@ -1,0 +1,67 @@
+How to work around MS Windows event log related performance problems
+=====================================================================
+
+IMPORTANT NOTES
+----------------
+You should make the configuration changes described in this note ONLY if Scrip 96 (Processor Statistics) reports high processor usage by services.exe. If Scrip 96 event logs report high processor usage review other ASI client performance notes, or please contact HandsFree Networks.
+
+The configuration changes described in this note represent a work around for Microsoft Windows event log related performance problems.
+
+In some fairly rare cases, Microsoft Windows event log related performance problems may be caused by a very large, and potentially corrupt event log. In these cases, using "Clear all events" in the Event Viewer to delete the MS Windows event log should resolve the problem, and allow you to undo the configuration changes described below.
+
+In other cases, the Microsoft Windows event log related performance problems may be caused by a very high event log production rate, for example security event logs (many tens of thousands per day). In such cases, in order to resolve the performance problem, you should consider changing system configuration settings, or identify and resolve the problem causing the high rate of event log production (to do this you can use the ASI client, don't hesitate to contact HandsFree Networks for assistance).
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In order to resolve performance problems caused by Microsoft Windows event log related issues, you will need to modify the Scrip 77 (Windows Event Log Change Detected) configuration.
+
+The instructions below are for changing the Scrip 77 configuration on one system at a site.
+
+1) Log onto the ASI server (https://asiservername/main ). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) At the upper right-hand corner of any page on the ASI server, click on the configuration link in the sites navigation bar (https://asiservername/main/config/index.php?act=site ). The "Select a Site" page will be displayed.
+
+4) Click on the "view machines" link for the site where the system whose Scrip 77 configuration you want to change is located. The "Configuration - <site name> Machines" page will be displayed.
+
+5) Click on the "configure Scrips" link for the system whose Scrip 77 configuration you want to change.
+
+6) Scroll down to the entry for Scrips 77 (Windows Event Log Change Detected), and click on the Scrip name. The Scrip 77 configuration page will be displayed.
+
+7) Change the "Group setting of the "Event logs to monitor for changes" configuration parameter to "machine <machine name>". In the "Event logs to monitor for changes" configuration parameter box, delete the "Security" entry making sure there is no blank line at the end (i.e. you cannot click your mouse on at the beginning of an empty line at the bottom of the list).
+
+8) Click on the "Submit Changes" button.
+
+9) Monitor Scrip 96 event logs posted by the ASI client from the system where the services.exe performance problem is occurring for abouot 30-60 minutes after the Scrip 77 configuration change has taken effect on the system where the performance problem is occurring. If the amount of CPU consumed by services.exe decreases to less than 10% (preferably 0) the problem has been resolved. If it has not, please proceed to step 9)
+
+10) Repeat steps 1)-6) above.
+
+11) Change the "Group" setting of the "Scrip enabled" configuration parameter to "machine <machine name>". Disable the Scrip.
+
+12) Ensure that the "Group" setting of the "Event logs to monitor for changes" configuration parameter is set to "machine <machine name>". In the "Event logs to monitor for changes" configuration parameter box, delete all entries making sure there is no blank line at the end (i.e. you cannot click your mouse on at the beginning of an empty line at the bottom of the list).
+
+13) Click on the "Submit Changes" button.
+
+14)  Monitor Scrip 96 event logs posted by the ASI client from the system where the services.exe performance problem is occurring for abouot 30-60 minutes after the Scrip 77 configuration change has taken effect on the system where the performance problem is occurring. If the amount of CPU consumed by services.exe decreases to less than 10% (preferably 0) the problem has been resolved. If it has not, please contact HandsFree Networks.
+
+
+The Scrip 77 configuration change described above applies to a single system. If you want to make the change on a group of systems, you should use the "Scrip configuration" wizard as follows:
+
+a) Log onto the ASI server (https://asiservername/main).
+
+b) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+c) At the upper right-hand corner of any page on the ASI server, click on the configuration link in the sites navigation bar (https://asiservername/main/config/index.php?act=wiz).
+
+d) Click on the "Scrip configuration" link (https://asiservername/main/config/scrpconf.php?custom=8). The "Scrip Configuration - Select a Group" page will be displayed.
+
+e) Select the group type you want to make the MUM configuration change on. The wizard will lead you through a series of steps to select the systems you want to make the change on (note that if you select a group of systems, you will need to click on the "use" link for the group where you want to make the MUM configuration change).
+
+f) After you select the group of systems where you want to make the MUM configuration change, the "Scrip Configuration - Select Scrip" page for that group of systems will be displayed.
+
+g) Follow steps 6)-14) above with two exceptions:
+i) There will be no Group pull-down lists
+ii) Instead of clicking on the "Submit Changes" button, you will need to click on the "Next" button.
+
+

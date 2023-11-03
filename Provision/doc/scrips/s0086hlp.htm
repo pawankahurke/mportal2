@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 86 - Synchronization of System Clock with Time Server </TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 86 - Synchronization of System Clock with Time Server </H3>
+
+<P>Scrip 86 synchronizes a system's clock in one of two ways:</p>
+
+<ul>
+
+<li>Using HCP from the system where the ASI log server is located (this is the default option)</li>
+
+<li>Accessing a certified time server on the Internet.
+It uses port 37 to access the following time servers to adjust a system's clock:</li>
+
+<ul>
+<li>time.nist.gov</li>
+<li>time-a.nist.gov</li>
+<li>time-nw.nist.gov</li>
+<li>ntp2.usno.navy.mil</li>
+</ul>
+
+<p>In case of failure to reach the first time server on the list above, it will attempt to
+reach the others in sequential order (i.e. 2<SUP>nd</SUP>, 3<SUP>rd</SUP>, etc., etc.)
+If none of the time servers is available, the synchronization operation will be attempted again
+the next time Scrip 86 is scheduled to run.</p>
+
+<p>You can modify the list of time servers used by Scrip 86,
+adding or deleting time servers.</p>
+
+</ul>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Time server with which synchronization
+succeeded </P>
+
+<P>(e.g. The system time has been synced with
+time-nw.nist.gov) </TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>List of time servers Scrip 86 attempted but
+failed to reach</P>
+
+<P>(e.g.</P>
+
+<P>Error: Failed to sync with time.nist.gov<BR>
+Error: Failed to sync with time-a.nist.gov</P>
+
+<P>)</TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

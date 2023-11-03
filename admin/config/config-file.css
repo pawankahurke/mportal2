@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'f-bold';
+    src: url("../fonts/Roboto-Bold.eot");
+    src: url("../fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'f-light';
+    src: url("../fonts/Roboto-Light.eot");
+    src: url("../fonts/Roboto-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto-Light.woff") format("woff"), url("../fonts/Roboto-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'f-medium';
+    src: url("../fonts/Roboto-Medium.eot");
+    src: url("../fonts/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto-Medium.woff") format("woff"), url("../fonts/Roboto-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'f-regular';
+    src: url("../fonts/Roboto-Regular.eot");
+    src: url("../fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff"), url("../fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'f-thin';
+    src: url("../fonts/Roboto-Thin.eot");
+    src: url("../fonts/Roboto-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Thin.woff2") format("woff2"), url("../fonts/Roboto-Thin.woff") format("woff"), url("../fonts/Roboto-Thin.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+
+/* ------------------ Body Image -------------*/
+
+.bg-trans-img {
+    background: url(../images/homescreen_bg.png) no-repeat top right;
+    background-color: #eee;
+}
+.bg-trans-opacity {
+    background: none;
+    background-color: #eee;
+}
+
+/*--------------------- breadcrumb --------------------*/
+
+.breadcrumb-visibility {
+    /*visibility: hideen;*/
+}
+.breadcrumbs {
+    background-color: #fff;
+    /*background: transparent;*/
+}
+.breadcrumbs .breadcrumb {
+    background-color: #fff;
+    /*background: transparent;*/
+}
+.breadcrumbs .breadcrumb > li {
+/*    padding: 0px 7px;
+    border-radius: 4px;*/
+}
+
+/* Extra Logos / Images */
+.header-wrap .header ul li.right-top-logo {
+    display: none;
+}

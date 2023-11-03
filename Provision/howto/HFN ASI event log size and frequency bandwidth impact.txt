@@ -1,0 +1,79 @@
+Event Log Size and Frequency Impact on Bandwidth
+==================================================
+
+Event log frequency
+====================
+Most event detection performed by the ASI client is event driven. Under normal circumstances, event logs resulting from event driven detection are produced and uploaded to the ASI server via port 443 (HTTPS) at the time detected events occur.
+
+ASI also includes a few Scrips that perform polling based event detection and reporting. They are:
+- Scrip 6 (Memory Statistics)
+- Scrip 95 (Logical Disk Statistics
+- Scrip 96 (Processor Statistics)
+- Scrip 97 (Physical Disk Performance Statistics)
+- Scrip 98 (Network Statistics)
+
+Except for Scrip 97 which by default is disabled, all of the above Scrips are enabled by default and scheduled to run once per minute with triggering thresholds that are not very high (please refer to the ASI Dashboard Overview - Appendix B for detailed information on resource monitoring Scrip event log triggering thresholds). Please note that Scrips 6, 95, 96, and 98 will post an event log only when the triggering thresholds are met or exceeded.
+
+The other polling based Scrips are:
+- Scrip 88 (Devices and Services Availability)
+
+- Scrip 176 (Service Restart)
+
+Some Scrips can operate both in event driven and polling mode. They are:
+- Scrip 77 (Windows Event Log Change Detected)
+- Scrip 246 (Network Device Discovery)
+
+Based on our experience to date, even in situations where tens of thousands of event detection event logs per day are generated from a single system (e.g. a system where detection of Microsoft Windows successful audits event logs is enabled), there is no noticeable bandwidth impact either at the customer site, or on the ASI server.
+
+All Scrips that perform a management or maintenance action (e.g. system start-up environment management) run, with few exceptions, based on the configured schedule, or on-demand. They will post event logs only when they run. Event log production by these Scrips is under your control.
+
+Problem management and resolution Scrips (e.g. TCP/IP problem management, malware protection, and print queue problem resolution) are event driven. They run, and post event logs only when events that trigger their execution occur.
+
+
+Event log size
+===============
+
+In theory, an event log could be as large as 300+ KBytes. In practice, this does not happen because there are no Scrips where  all text fields in their event logs can reach their maximum size.
+
+The vast majority of event logs posted by ASI scrips are small, a few KBytes in size (mostly under 5 KBytes). There are some exceptions:
+
+- Asset logs posted when the System Survey Scrip (Scrip 61) runs. Asset logs can be very large (> 1 MByes). However, asset logs are produced infrequently. By default Scrip 61 runs once per month.
+
+- Resource monitoring Scrips (Scrips 6, 95, 96, 98) can produce fairly large event logs depending on the number of processes ruunning on the system they report from. A resource monitoring Scrip event log can be as large as 50 KByes but most resource monitoring Scrips should be in the range of about 15 KBytes. By default, Scrips 6, 95, 96, and 98 are configured to report running processes. However, this configuration option can be easily disabled.
+
+- The Microsoft update management Scrip (Scrip 237) on average produces in the range of 3-10 event logs per day depending on the level of software update download and installation activity. These event logs range between 5 and 25 KBytes in size. Both the number of event logs and their size should not cause excessive bandwidth use even on the largest sub-nets, considering also that default Scrip 237 execution has a 120-minute random-minute interval. 
+
+However, with regard to Scrip 237 please be aware that because its operation does involve file download operations (mostly from Microsoft) and, in some cases exchange of complete Microsoft Update Management configuration information between the ASI server and ASI clients, it may cause indirectly high bandwidth consumption.
+
+- Intrusion protection management Scrips (233 and 240) produce event logs that are approximately in the range of 100-130 KBytes. These Scrips run:
+- When the ASI client starts-up
+- When you click on the "Update items now" Execute button, or on the "Update local variables only" Execute button
+- When a user logs on
+- When it is enabled
+- At its scheduled time (once per week on Thursdays at 5 AM)
+
+Typically, because the frequency of execution of the intrusion management Scrips is fairly low, the relatively large size of their event logs should not be a concern. The only exception might be systems running Microsoft Terminal Services where there usually is relatively frequent user logon activity.
+
+- The fault detected Scrip (Scrip 38) produces event logs ranging between 15-20 KBytes and more than 100 KBytes with the majority clustered at the low-end of the size range. Typically, the frequency of Scrip 38 event logs is low (one would hope), and unpredictable. They should have little, or no impact on bandwidth usage.
+
+- The network device discovery Scrip (Scrip 246) can produce event logs in the 100 KByte range depending on the number of IP devices connected to a sub-net. However, the vast majority of Scrip 246 event logs should be 10 KBytes, or less.
+
+- If configured to send files to the ASI server, the file retrieval Scrip (Scrip 100) can produce large event logs, depending on the size of the files being retrieved. This is completely under your control both in terms of the frequency of execution of Scrip 100, the selection of the files being retrieved, the Scrip 100 execution schedule, and the configuration of Scrip 100 with regard to file deletion.
+
+- Just like the resource monitoring Scrips, the Scrip reporting processes running on a system (Scrip 93) can produce event logs as large as 50+ KBytes. However, execution of this Scrip, on demand or on a schedule, is completely under your control.
+
+- The Scrip reporting file properties (Scrip 222) can produce event logs in excess of 120+ KBytes, depending on your selection of files whose properties you want reported. The size and frequency of the event logs posted by Scrip 222 is completely under your control.
+
+- The Scrip reporting registry changes (Scrip 199) can produce event logs in excess of 120+ KBytes, depending on your selection of registry area whose changes you want the Scrip to track. The size and frequency of the event logs posted by Scrip 199 is completely under your control.
+
+
+Note about Scrip configuration synchronization
+===============================================
+
+Scrip configuration synchronization actions occur when Scrip 177 (Scrip configuration update) runs. Like any other Scrip with a schedule, Scrip 177 can run as frequently as once per minute. If Scrip 177 on every system at every site were configured to run once per minute, the number of event logs posted on the ASI server would increase significantly. Although the size of Scrip 177 event logs is small, in the range of 10 KBytes, in this case impact on bandwidth consumption at the ASI serrver location would be noticeable.
+
+For this reason, we advise customers to configure Scrip 177 to run frequently (every 2-3 minutes) on a subset of systemson each sub-net at each site (2-4 depending on the total number of systems on each sub-net). In this way, all Scrip configuration changes (applied to either one or multiple systems) will be processed by the targeted ASI clients within minutes of their execution on the ASI server.
+
+Starting with version 2.4 of the ASI client Scrip configuration synchronization operations do no involve large data transfers because only the values of Scrip configuration variables that change are transferred. The overhead for each Scrip configuration synchronization transaction is in the range of 10 KBytes. In the majority of cases the bandwidth cost of a Scrip configuration synchronization transaction is only the overhead as no Scrip configuration variable values have changed.
+
+In certain rare cases a problem causing frequent occurrence of Scrip configuration synchronization actions involving the transfert of a large number of Scrip configuration variable values may take place. We have set up an e-mail notification to alert us about the occurrence of these problems. In this way, we can quickly resolve them minimizing the impact on bandwidth consumption.

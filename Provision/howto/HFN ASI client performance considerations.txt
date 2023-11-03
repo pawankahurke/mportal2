@@ -1,0 +1,84 @@
+ASI client performance related problems and considerations
+===========================================================
+
+The goal of this document is to describe, and explain, as clearly as possible situations where the ASI client may cause, directly or indirectly, degraded system performance. These situations are few, well understood and, typically, have straightforward work arounds. 
+
+Resolution of performance problems potentially caused by the ASI client is one of our highest priority activities. We strongly encourage you to contact us immediately at the first sign of a performance problem potentially caused, directly or indirectly, by the ASI client.
+
+Please note that, in general, placing the ASI client in safe mode (see 7c) below) is the "best", quick and easy way to temporarily work around performance issues. Doing this quickly addresses users' complaints, and gives us the opportunity to diagnose and resolve the potential problem in a controlled and timely fashion.
+
+While disabling the ASI client may work around a performance problem, it does not resolve it, unless removing the ASI client from a system, without determining whether it is the real cause of degraded system performance, is the goal.
+
+------------------------------------------------------------------
+
+1) ASI client first-time start-up after installation.
+When the ASI client first starts running after installation, it has to set up all of the local ASI databases, run the comprehensive hardware and software system survey, and perform other Scrip related set-up work (e.g. produce back-up of files monitored by the malware protection Scrips). All of these operations take processing capacity and generate disk activity. If you monitor system activity during initial ASI client start up you will draw the inevitable, and correct conclusion that the ASI client is consuming a large amount of computing resources.
+
+However, this is a an event that occurs rarely:
+
+a) When you first install (or re-install after removing it) the ASI client on a system.
+
+b) After a major client upgrade (e.g. 2.1 to 2.4), where the same set-up operation is required. This type of upgrade has taken place twice in eight years of deployment
+
+------------------------------------------------------------------
+
+2) ASI client start-up.
+When the ASI client starts up it consumes a significant amount of CPU capacity for a brief period of time. Over time, we have reduced the load and start-up time by about 50%. We are doing more work to reduce the ASI client start-up time and load even further by adding load distribution and processing throttling functions.
+
+------------------------------------------------------------------
+
+3) MS Windows software update management.
+Although Microsoft has fixed a mjor bug in in svchost.exe triggered by the Microsoft AU client's update scan operations that caused svchost.exe to consume an excessive amount of CPU capacity (as much as 90-100%). However, the problem has not been resolved completely. As long as the frequency of update scan operations is not high, the impact of the svchost.exe bug is minor. Otherwise, it can very high, especially on slower systems.
+
+Regardless of the svchost.exe bug, Microsoft Windows Update operations tend to consume a significant amount of system resources. 
+
+ASI Microsoft Update Management (MUM) performs Microsoft software update related operations when Scrip 237 (Microsoft Update  Management) runs (detect and download operations), and when a software update installation cycle takes place. We minimize the impact of the svchost.exe bug by minimizing MS software update scan operations, and scheduling them at times of low system usage.
+
+------------------------------------------------------------------
+
+4) Anti virus software interference.
+We have found that if anti virus software is configured to scan on access, it may cause a significant performance problem on systems where the ASI client is running because the ASI client accesses a number of files in the ASI client directory very frequently (e.g. the database files, *.db). For this reason, we advise you to exclude \Program Files\HandsFree\Client from on-access scanning.
+
+------------------------------------------------------------------
+
+5) MS Windows error event log processing.
+In some fairly rare cases, on systems where a) the rate at which Ms Windows event logs are produced is very high, and/or b) The MS Windows event log is very large (and may be corrupt), the ASI client may use a significant amount of CPU capacity when processing MS Windows event log changes. 
+
+Work arounds for this issue include using "Clear all events" in the Event Viewer to delete the MS Windows event log, disabling the MS Windows event log changes Scrip or changing its configuration. The longer term solution is to re-write the MS Windows event log changes Scrip triggering mechanism to incorporate workarounds for the bugs in Microsoft's event log implementation. However this problem, to date, has occurred so infrequently, and the available work arounds are simple enough that re-writing the Scrip's triggering mechanism so far has not been a high priority.
+
+------------------------------------------------------------------
+
+6) TCP/IP problem management event logs.
+
+Certain applications, e.g. MS Exchange, open and close TCP/IP ports at a very high rate, often causing transient IP port access failures, which are of no consequence. These transient failures cause corresponding ASI TCP/IP problem management activity (Scrip 191). When this happens, depending on overall system load, this may cause the ASI client to use excessive CPU capacity. 
+
+In cases, such as the one described above, where Scrip 191 activity is very high, as evidenced by the large number of Scrip 191 event logs, the Scrip should be disabled as the failures it reports on are by and large transient, and the failure detection and diagnosis activity may cause a performance problem.
+
+------------------------------------------------------------------
+
+7) ASI client re-starts.
+Given what we said in 2) above, if the ASI client falls into a re-start loop (very rare), it will consume an excessive amount of CPU capacity. Fortunately, we resolve this kind of problem very easily, in a number of ways:
+
+a) On systems running Microsoft Windows NT based operating systems, there is a hard-wired limit of five consecutive re-starts before the ASI client stops running.
+b) Identify the Scrip that is causing the per problem and disable it. This can be done by reviewing the event logas posted by the ASI client around the time of the ASI client re-starts.
+c) Use scrip 223 (Client Installation and Deployment) to place the ASI client in "safe mode", i.e. with only the following Scrips activated:
+- 3,22,23,65,93,96,208,231
+
+Please note that the ASI client includes one-click safe mode activation via the ASI client system tray interface.
+
+------------------------------------------------------------------
+
+8) Systems that perform well before the ASI client installed but are operating near capacity.
+A system can be performing well but operating close to full capacity in terms of processor utilization, memory utilization, and disk capacity. A more subtle situation where a system may be operating close to capacity is one where the number of processes running at start-up is very high causing the total number of processes running on a system at any one time to exceed 50 processes at all times.
+
+When the ASI client is installed on systems running at or near capacity, as described above, it is inevitable that it will cause at best intermittent performance problems and, at worst, cause system performance to be sub-par at all times. 
+
+For example, on systems with a high number of processes running at all times, every time it starts the ASI client has to set up event triggers for all of those processes. Although the set-up operation does not consume a lot of computing resources, when it has to be done for 80 processes, for example, it has an effect on system performance at system start-up. The slower the system, the greater the  negative impact on performance.
+
+-------------------------------------------------------------------
+
+9) Asset logging.
+If the ASI client fails to send an asset log (e.g. because of connectivity problems on the system, or at the site), it will keep re-trying the operation fairly frequently (a configurable parameter).  If the system where the repeated attempts to send asset logs is heavily loaded, the process of creating the asset log repeatedly have a noticable negative impact on overall system performance.  A temporary work aorund is to disable Scrip 22. The permanent fix is to adjust the configuration of the asset logging Scrip (#22) to avoid overloading the server and causing the log failures.
+
+A sign that this problem may be occurring is the recurrence of Scrip 22 (Asset logging) event logs.
+

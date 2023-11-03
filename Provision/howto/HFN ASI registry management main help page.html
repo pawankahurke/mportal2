@@ -1,0 +1,522 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>HFN ASI registry management main help page</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20070304;16565421">
+	<META NAME="CHANGED" CONTENT="20070304;17580550">
+	<STYLE>
+	<!--
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>ASI Registry Management</H3>
+<H4>Quick Start</H4>
+<P>By following the instructions in this section, you can quickly,
+and easily retrieve portions of the system registry you are
+insterested in from one or more systems, and then add or change
+registry keys as you wish.</P>
+<P>The ASI registry management user interface is modeled after the
+familiar Microsoft regedit user interface. you navigate the portions
+of the registry retrieved from a system via the left pane. You access
+and change specific registry key value names and data via the right
+pane.</P>
+<H5>Accessing the registry management function on your ASI server</H5>
+<P>i) Log onto the ASI server (https://asiservername/main).</P>
+<P>ii) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>iii) At the upper right-hand corner of any extended ASI server
+interface page, click on the &quot;wizard&quot; link in the &quot;sites&quot;
+navigation bar. The &quot;Configuration Wizard&quot; page will be
+displayed.</P>
+<P>iv) Click on the &quot;Registry management&quot; wizard entry. The
+&quot;ASI Site and System Registry Management&quot; dashboard will be
+displayed.</P>
+<H5>Retrieving and changing system registry entries</H5>
+<P>1) Scroll to the bottom of the the left pane of the ASI registry
+management control panel
+(https://asiservername/main/regmgmt/rmgt.php), and click on the &quot;Base
+Keys&quot; entry. The &quot;Base keys&quot; page will be displayed in
+the right pane.</P>
+<P>2) Click on the &quot;new&quot; link in the right pane. A form for
+the entry of a new base key definition will be displayed.</P>
+<P>3) Enter a base key name in the &quot;Base Key Name&quot; field.</P>
+<P>4) Select a root key value from the &quot;Root Key&quot; pull-down
+list.</P>
+<P>5) Enter the path to the portion of the registry you want to
+retrieve when using the base key you are defining in the &quot;Subkey&quot;
+field. Here are some examples of &quot;Subkey&quot; filed entries:</P>
+<P>- Software\Microsoft\Windows\CurrentVersion\Internet Settings</P>
+<P>- Software\Microsoft\Internet Explorer</P>
+<P>Please note that &quot;Subkey&quot; filed entries do not start
+with a &quot;\&quot;.</P>
+<P>6) If you want the base key you are defining to be available to
+all users of your ASI server, check the &quot;Global&quot;
+configuration parameter box.</P>
+<P>7) Click on the &quot;Next&quot; button. The settings of the newly
+defined base key will be displayed.</P>
+<P>8) After reviewing the settings of the newly defined base key, and
+ensuring that they are as you want them to be, click on the &quot;Finish&quot;
+button. The &quot;update successful&quot; message will be displayed.</P>
+<P><BR><BR>
+</P>
+<HR>
+<P><BR><BR>
+</P>
+<P>After defining a base key, you need to define a filter to use for
+retrieval of the portion of the registry you are interested in. The
+filter you will create will be based on the base key you just
+defined.</P>
+<P>9) In the left pane of the ASI registry management control panel,
+immediately above the &quot;Base Keys&quot; entry, click on the
+&quot;Filters&quot; entry. The &quot;Filters&quot; page will be
+displayed in the right pane.</P>
+<P>10) Click on the &quot;new&quot; link in the right pane. A form
+for the entry of a new filter definition will be displayed.</P>
+<P>11) Enter a filter name in the &quot;Filter Name&quot; field.</P>
+<P>12) Select a base key value from the &quot;Base Key&quot;
+pull-down list.</P>
+<P>13) If you want the base key you are defining to be available to
+all users of your ASI server, check the &quot;Global&quot;
+configuration parameter box. Please note that if you want the filter
+you are defining to be &quot;global&quot; The base key it uses needs
+to be &quot;global&quot; too.</P>
+<P>14) Leave the &quot;Recursive&quot; configuration parameter box
+checked.</P>
+<P>15) Click on the &quot;Next&quot; button. The settings of the
+newly defined filter will be displayed.</P>
+<P>16) After reviewing the settings of the newly defined filter, and
+ensuring that they are as you want them to be, click on the &quot;Finish&quot;
+button. The &quot;update successful&quot; message will be displayed.</P>
+<P><BR><BR>
+</P>
+<HR>
+<P><BR><BR>
+</P>
+<P>After defining the filter, you are ready to define an action for
+the retrieval of the portion of the registry you are interested in.
+The action you will create will use the filter you just defined.</P>
+<P>The following steps can be used to define registry retrieval
+action for either a single system, a group of systems, or a site,
+depending on the left-pane entry (system, site, or user defined
+group) you click on. As an example we will use a site.</P>
+<P>17) In the left pane of the ASI registry management control panel,
+click on the entry for the site where you want to retrieve the
+portion of the registry using the filter defined in steps 9)-16)
+above. The &quot;Site &lt;site name&gt;&quot; page will be displayed
+in the right pane.</P>
+<P>18) Click on the &quot;list&quot; link in the right pane. A form
+for the entry of a new action definition will be displayed.</P>
+<P>19) Enter an action name in the &quot;Action Name&quot; field.</P>
+<P>20) Select a filter from the &quot;Filter Name&quot; pull-down
+list.</P>
+<P>21) Adjust the value of the &quot;Limit returned&quot;
+configuration parameter depending on the expected number of registry
+items retrieved using the filter you selected. Please be very careful
+about making the &quot;Limit returned&quot; configuration parameter
+too large. If you are not confident about the expected number of
+registry items retrieved using the filter you selected, you should
+start by giving the &ldquo;Limit returned&rdquo; configuration
+parameter to a relatively low value (e.g. 1000), and then repeat the
+retrieval operation increasing the value of the &ldquo;Limit
+returned&rdquo; configuration parameter, if necessary.</P>
+<P>22) Check the &quot;Clear all old data&quot; configuration
+parameter box.</P>
+<P>23) Click on the &quot;Next&quot; button. The settings of the
+newly defined action will be displayed.</P>
+<P>24) After reviewing the settings of the newly defined action, and
+ensuring that they are as you want them to be, click on the &quot;Finish&quot;
+button. The &quot;update successful&quot; message will be displayed.</P>
+<P>The next time Scrip 160 (Registry Management) runs, on the system,
+site, or group you ran the &quot;list&quot; action on, it will
+execute the action. Scrip 160 runs as defined by its schedule (by
+default Scrip 160 runs at 2 AM, once per hour on the hour between 6
+AM and 6 PM, and at 9 PM, on weekdays), or on-demand when you click
+on the &quot;Run Registry Managment now&quot; Execute button. Please
+keep in mind that the command to run Scrip 160 will be retrieved by
+the system, site, or group you ran the registry retrieval action on
+according to the Scrip 177 (Scrip Configuration Update) schedule on
+the systems you ran the registry retrieval action on.</P>
+<P><BR><BR>
+</P>
+<HR>
+<P><BR><BR>
+</P>
+<P>Next, we will list the steps you should follow to change a
+registry key value, or add a registry key to one system, a site, or a
+group of systems.</P>
+<P>The following steps can be used to change the value of a registry
+key on a single system.</P>
+<P>25) In the left pane of the ASI registry management control panel,
+if not already expanded, expand the entry for the system where you
+want to change a regsitry key value until the registry key value name
+whose value data you want to change is displayed in the right pane.</P>
+<P>26) Click on the &quot;Action&quot; box for each registry key
+value name whose value data you want to change in the right pane,
+then click on the &quot;Set&quot; button. A page with the registry
+key value names whose value data you want to change will be displayed
+in the right pane.</P>
+<P>27) Enter the new registry key value data. 
+</P>
+<P>28) Click on the &quot;Next&quot; button. A page with the changed
+registry key value data will be displayed.</P>
+<P>29) After reviewing the changed registry key value data, and
+ensuring that they are as you want them to be, click on the &quot;Finish&quot;
+button. The &quot;update successful&quot; message will be displayed.</P>
+<P><BR><BR>
+</P>
+<HR>
+<P><BR><BR>
+</P>
+<P>If you want to change the value of a registry key for an entire
+site, you will need to know the complete path for the registry key
+value names you want to change, and then follow these steps:</P>
+<P>a) Click on the site name in the left pane</P>
+<P>b) Click on &quot;Set&quot; in the right pane</P>
+<P>c) Enter a name for the registry keey value change in the &quot;Action
+Name&quot; field</P>
+<P>d) In the &quot;Subkey&quot; filed, enter the complete path for
+the registry key value name whose value you want to change, including
+the registry key name 
+</P>
+<P>e) In the &quot;Value Name&quot; field, enter the registry key
+value name whose value you want to change f) From &quot;Value Type&quot;
+pull-down list, select the value type for the registry key value name</P>
+<P>h) In the &quot;Value Data&quot; field, enter the new value for
+the registry key value name whose value you want to change</P>
+<P>i) click on the &quot;Next&quot; button. A page with the registry
+key, the value name, and value data you entered will be displayed.</P>
+<P>j) After reviewing the changed registry key value data, and
+ensuring that they are as you want them to be, click on the &quot;Finish&quot;
+button. The &quot;update successful&quot; message will be displayed.</P>
+<H4>Retrieving registry information</H4>
+<P>The ASI registry management function lets you retrieve any portion
+of the registry from one, some, or all systems. If you wanted to you
+could use it to retrieve a system's entire registry. However, we
+strongly advise you to think twice before doing that because of the
+size of the registry.</P>
+<P>The ASI registry management user interface is modeled after the
+familiar Microsoft regedit user interface. you navigate the portions
+of the registry retrieved from a system via the left pane. You access
+and change specific registry key value names and data via the right
+pane.</P>
+<P>In general, the registry retrieval process works as follows:</P>
+<P>1) You define registry branches, or keys you want to retrieve (we
+call these definitions Base Keys)</P>
+<P>2) You define filters using Basekeys to further specify registry
+key values you want to retrieve</P>
+<P>3) You execute actions consisting of a filter, the maximum number
+of records you want to retrieve (this is very important protection
+against indavertent mistakes in Basekey and filter definition), and
+the system(s) the filter applies to.</P>
+<H5>Definitions</H5>
+<P><U>Basekey</U></P>
+<P>BaseKey is an ASI term. Basekeys contain of any portion of a
+registry key, except for key value names and key value data. Basekey
+entries consist of a root key (see definition below), and a sub Key.
+A sub key is the path for the portion of the registry branch a
+Basekey is used to retrieve. it determines the scope of a Basekey. 
+</P>
+<P><U>Root key</U></P>
+<P>The Microsoft Windows registry is sub-divided into six sections
+called root keys.</P>
+<P><U>Registry key branch</U></P>
+<P>A registry key is the partial path for a registry entry starting
+from a root key, as displayed in the Microsoft regedit left pane.</P>
+<P><U>Registry key name</U></P>
+<P>This is the complete path for a registry entry as displayed in the
+left pane of Microsoft regedit. This is also referred to as a
+&quot;registry key&quot;</P>
+<P><U>Registry key value name</U></P>
+<P>This is the label of the value for a registry key found in the
+right pane of Microsoft regedit.</P>
+<P><U>Registry key value data</U></P>
+<P>This is the value assigned to a registry key value name displayed
+in the right pane of Microsoft regedit.</P>
+<H5>Basekeys</H5>
+<P>Basekey entries consist of the following components:</P>
+<P><U>Base Key Name</U></P>
+<P>This is the name of the base key entry</P>
+<P><U>RootKey</U></P>
+<P>A root key selected from a pull-down list containing the following
+values:</P>
+<UL>
+	<LI><P>HKEY_CLASSES_ROOT</P>
+	<LI><P>HKEY_CURRENT_USER</P>
+	<LI><P>HKEY_LOCAL_MACHINE</P>
+	<LI><P>HKEY_USERS</P>
+	<LI><P>HKEY_PERFORMANCE_DATA</P>
+	<LI><P>HKEY_PERFORMANCE_TEXT</P>
+	<LI><P>HKEY_PERFORMANCE_NLSTEXT</P>
+	<LI><P>HKEY_CURRENT_CONFIG</P>
+	<LI><P>HKEY_DYN_DATA</P>
+</UL>
+<P>Please note that you can skip this field, and enter the root key
+as part of the &quot;Subkey&quot; entry. 
+</P>
+<P><U>SubKey</U></P>
+<P>Here you enter the registry branch path including the root key, if
+not selected in the &quot;Rootkey&quot; field, covered by the base
+key you are defining. 
+</P>
+<P><BR><BR>
+</P>
+<P>Please note:</P>
+<P>a) The &quot;Subkey&quot; entry can consist of a complete registry
+key path (excluding key value name and key value data). However, in
+general, this would not be advisable, as Basekeys are meant to be
+used to retrieve registry branches, while filters should be used for
+the retrieval of specific registry keys (also called registry key
+names)</P>
+<P>b) &quot;Subkey&quot; entries cannot start with a \</P>
+<P><U>Global</U></P>
+<P>Enabling the &quot;Global&quot; configuration option gives all
+users access to the basekey being defined. This configuration option
+is only available to administrative users, and can only be changed by
+the user that created the baseky entry.</P>
+<H5>Filters</H5>
+<P>You use filters to retrieve portions of the registry you are
+interested in reviewing for potential further action. Filtering
+actions can use one or more of the following:</P>
+<P>1) Key name</P>
+<P>2) Key value name</P>
+<P>3) Key value type</P>
+<P>4) Key value data</P>
+<P>Your decision to use one or more of the above filtering elements
+is governed by the &quot;Enable&quot; check box associated with each
+of them.</P>
+<P>Filters consist of the following components, all of which are
+under your complete control:</P>
+<P><U>Filter Name</U></P>
+<P>This is the name you want to use for the filter.</P>
+<P><U>Base Key Name</U></P>
+<P>This is base key used for the retrieval action. It is selected via
+a pull-down from a list of Base keys you previously defined.</P>
+<P><U>Key</U></P>
+<P>This is the portion the path for the specific registry key you
+want to use the filter to retrieve. This entry is necessary if you
+want to retrieve a specific registry key, and the Basekey used
+defines a registry branch, not a complete registry key path. 
+</P>
+<P>The entire key name is therefore composed of the root key (from
+the Basekey), followed by the sub key (from the Basekey), followed by
+the key entered in this field. The key entry must start with a
+backslash (&quot;\&quot;). 
+</P>
+<P><U>Key Wild</U></P>
+<P>When &quot;Key Wild&quot; is enabled, this indicates that the key
+name is treated as a wil dcard. Standard MS-DOS wild card characters
+are supported. A question mark (&quot;?&quot;) matches a single
+character, and an asterisk (&quot;*&quot;) matches any number of
+characters. 
+</P>
+<P>For example:</P>
+<P STYLE="margin-left: 0.79in">Base key =
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\</P>
+<P STYLE="margin-left: 0.79in">Key = U*</P>
+<P>Both of the following keys would be retrieved when using the
+filter with the above key setting:</P>
+<P STYLE="margin-left: 0.79in">HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL</P>
+<P>and</P>
+<P STYLE="margin-left: 0.79in">HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall</P>
+<P><U>Value Name</U></P>
+<P>When you enter a value in the &quot;Value Name&quot; field, the
+filter will retrieve registry keys based on their matching the entry
+in the &quot;Value Name&quot; field.</P>
+<P><U>Value Name Wild</U></P>
+<P>If the &quot;Value Name Wild&quot; is enabled, the entry in the
+&quot;Value Name&quot; field is treated as a wild card. Standard
+MS-DOS wild card characters are supported. A question mark (&quot;?&quot;)
+matches a single character, and an asterisk (&quot;*&quot;) matches
+any number of characters. 
+</P>
+<P>For example:</P>
+<P STYLE="margin-left: 0.79in">Base key =
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet
+Settings\Zones\2</P>
+<P STYLE="margin-left: 0.79in">Key = &lt;no entry&gt;</P>
+<P STYLE="margin-left: 0.79in">Value Name = 1a*</P>
+<P>A filter with the above settings would let you retrieve all
+cookie, privacy and authentication related advanced settings for the
+&quot;Trusted Sites&quot; zone</P>
+<P><U>Value Type</U></P>
+<P>Here, you select from a pull-down list the type for the registry
+key value data entered in the &quot;Value Data&quot; field (see
+immediately below). The filter will retrieve only those registry keys
+whose value data type matches the one selected with this
+configuration parameter.</P>
+<P><U>Value Data</U></P>
+<P>When you enter a value in the &quot;Value Data&quot; field, the
+filter will retrieve registry keys based on their matching the entry
+in the &quot;Value Data&quot; field.</P>
+<P><U>Value Data Wild</U></P>
+<P>If the &quot;Value Data Wild&quot; is enabled, the entry in the
+&quot;Value Data&quot; field is treated as a wild card. Standard
+MS-DOS wild card characters are supported. A question mark (&quot;?&quot;)
+matches a single character, and an asterisk (&quot;*&quot;) matches
+any number of characters. 
+</P>
+<P>For example:</P>
+<P STYLE="margin-left: 0.79in">Base key =
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main</P>
+<P STYLE="margin-left: 0.79in">Key = &lt;no entry&gt;</P>
+<P STYLE="margin-left: 0.79in">Value Name = Start Page</P>
+<P STYLE="margin-left: 0.79in">Value Type = REG_SZ</P>
+<P STYLE="margin-left: 0.79in">Value Data = *cnn*</P>
+<P>A filter with the above settings would let you retrieve all MS IE
+start page registry keys where the start page is set to a CNN site.</P>
+<P><U>Global</U></P>
+<P>Enabling the &quot;Global&quot; configuration option gives all
+users access to the filter being defined. This configuration option
+is only available to administrative users, and can only be changed by
+the user that created the filter entry.</P>
+<P><U>Recursive</U></P>
+<P>This configuration parameter is enabled by default. It indicates
+that the filter applies to all keys under the selected keys as well
+as the selected keys themselves. 
+</P>
+<H4>ASI Registry Management Actions</H4>
+<P>With ASI registry management you can take one of three actions:</P>
+<P>- Retrieve all (we advise against doing this), or a portion of the
+system registry from one or more systems at your sites. We call this
+action &quot;list&quot;</P>
+<P>- Add one or more registry keys to one or more systems at your
+sites. We call this action &quot;set&quot;</P>
+<P>- Change the value of one or more existing registry keys retrieved
+using a &quot;list&quot; action</P>
+<P>There is no practical limit to the number or mix of actions you
+take on any one or group of systems.</P>
+<H5>List Actions</H5>
+<P>You can initiate &quot;List&quot; actions from one of the
+following points:</P>
+<P>1) Clicking on a filter name. A right-pane page titled &quot;Filter
+&lt;filter name&gt;&quot; listing the following actions will be
+displayed:</P>
+<P>- <I>list</I> - List keys using this filter 
+</P>
+<P>- <I>delete</I> - Delete this filter 
+</P>
+<P>- <I>edit</I> - Edit this filter</P>
+<P>Clicking on the &quot;list&quot; link, will generate the &quot;Select
+the specifications for this action:&quot; right-pane page.</P>
+<P>2) Clicking on a system name. A right-pane page titled &quot;Machine
+&lt;machine name&gt;&quot; listing the following actions will be
+displayed:</P>
+<P>- <I>set</I> - Set a registry value on a single machine 
+</P>
+<P>- <I>list</I> - List keys on this machine 
+</P>
+<P>- <I>delete</I> - Delete registry data for this machine 
+</P>
+<P>- <I>actions</I> - List actions for this machine 
+</P>
+<P>Clicking on the &quot;list&quot; link, will generate the &quot;Select
+the specifications for this action:&quot; right-pane page. This page
+differs from the one reached by clicking on the &quot;list&quot; link
+in a filter right-panel page in the fact that it does not have a
+machine/site selection parameter.</P>
+<P>3) Clicking on a site name. A right-pane page titled &quot;Site
+&lt;machine name&gt;&quot; listing the following actions will be
+displayed:</P>
+<P>- <I>set</I> - Set a registry value on all machines at the site</P>
+<P>- <I>list</I> - List keys on all machines at the site 
+</P>
+<P>- <I>delete</I> - Delete registry data for all machines at the
+site 
+</P>
+<P>- <I>actions</I> - List actions at site 
+</P>
+<P>Clicking on the &quot;list&quot; link, will generate the &quot;Select
+the specifications for this action:&quot; right-pane page. This page
+differs from the one reached by clicking on the &quot;list&quot; link
+in a filter right-panel page in the fact that it does not have a
+machine/site selection parameter.</P>
+<P>Please refer to the &quot;Quick Start&quot; section of this
+document for step-by-step instructions for using the ASI registry
+management &quot;list&quot; function.</P>
+<H5>Change Actions</H5>
+<P>With the ASI registry management function, you can change the
+value of one or more registry keys on one system with a single
+action. You can change the values of registry keys using the &quot;change&quot;
+function only after you have first retrieved them using the ASI
+registry management &quot;list&quot; function. 
+</P>
+<P>If you want to change registry key values without first retrieving
+them, or if you want to change registry key values on all systems at
+a site, you should use the ASI registry management &quot;set&quot;
+function. 
+</P>
+<P>As mentioned earlier, the ASI registry management user interface
+is modeled after the familiar Microsoft regedit user interface. you
+navigate the portions of the registry retrieved from a system via the
+left pane. You access and change specific registry key value names
+and data via the right pane.</P>
+<P>First you need to reach the registry key value names and data you
+want to change, as you would when using Microsoft regedit you
+&quot;expand&quot; the registry tree for the system where you want to
+change one or more registry keys by clicking on the &quot;+&quot;
+icons in the left pane until the registry key value names and data
+you want to change are displayed in the right pane.</P>
+<P>Once they are, you will be able to select the registry key value
+names whose value you want to change via selection check boxes. Once
+you do that, just as with Microsoft regedit, the ASI registry
+management right panel will display a registry key value name edit
+box. Unlike Microsoft regedit, with ASI registry management, you are
+able to change the value of multiple registry key value names with a
+single edit action.</P>
+<P>Please refer to the &quot;Quick Start&quot; section of this
+document for step-by-step instructions for using the ASI registry
+management &quot;change&quot; function.</P>
+<H5>Set Actions</H5>
+<P>With the &quot;set&quot; function, you can add registry keys, or
+change them without having to first retrieve them. In order to use
+this powerful function, you need to know the complete path for the
+registry key value names you want to change and their value data
+types.</P>
+<P>You can access the ASI registry management &quot;set&quot;
+function by:</P>
+<P>i) Clicking on a system name. A right-pane page titled &quot;Machine
+&lt;machine name&gt;&quot; listing the following actions will be 
+</P>
+<P>displayed:</P>
+<P>- <I>set</I> - Set a registry value on a single machine 
+</P>
+<P>- <I>list</I> - List keys on this machine 
+</P>
+<P>- <I>delete</I> - Delete registry data for this machine 
+</P>
+<P>- <I>actions</I> - List actions for this machine 
+</P>
+<P>Clicking on the &quot;set&quot; link, will generate the &quot;Set
+registry value on machine &lt;machine name&gt;&quot; right-pane page.
+</P>
+<P>ii) Clicking on a site name. A right-pane page titled &quot;Site
+&lt;machine name&gt;&quot; listing the following actions will be
+displayed:</P>
+<P>- <I>set</I> - Set a registry value on all machines at the site</P>
+<P>- <I>list</I> - List keys on all machines at the site 
+</P>
+<P>- <I>delete</I> - Delete registry data for all machines at the
+site 
+</P>
+<P>- <I>actions</I> - List actions at site 
+</P>
+<P>Clicking on the &quot;set&quot; link, will generate the &quot;Set
+registry value at site &lt;site name&gt;&quot; right-pane page.</P>
+<P>In both cases, you will be asked to give the &quot;set&quot;
+action a name, and then enter the complete registry key path, up to
+and including registry key value name, registry key value data and
+type, exactly as you want them to be.</P>
+<P>Please refer to the &quot;Quick Start&quot; section of this
+document for step-by-step instructions for using the ASI registry
+management &quot;set&quot; function.</P>
+</BODY>
+</HTML>

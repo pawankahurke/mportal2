@@ -1,0 +1,640 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 196 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20031031;7413162">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050531;13073450">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 196 Configuration</H3>
+<H4>Configuration Parameters</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Impersonation enabled</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Take dialog box default action</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Act on dialog boxes of all new
+	processess</EM> disabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Negative exception keyword -
+	do not take default action if combined with positive response
+	keyword in one phrase</EM> list populated with <STRONG>not</STRONG>,
+	<STRONG>don't</STRONG>, <B>do not</B>, and <STRONG>info</STRONG>. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Positive response keyword -
+	take default action if found</EM> list populated with: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>yes</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>ok</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>accept</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>next</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>setup</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>finish</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>exit</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>agree</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>create</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>enable</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>continue</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>ignore</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><STRONG>close</STRONG> 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in"><B>resume</B></P>
+		<LI><P STYLE="margin-bottom: 0in"><B>repair</B></P>
+		<LI><P STYLE="margin-bottom: 0in"><B>remove</B></P>
+		<LI><P STYLE="margin-bottom: 0in"><B>update</B></P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Names of processes to shutdown</EM>
+	list empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Max number of seconds to wait
+	for the process to close</EM> 30 seconds 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Max number of dialogs to close</EM>
+	five 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Patches to apply</EM> list
+	empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Stop on an error</EM> disabled
+		</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Max minutes of run time per
+	patch</EM> <STRONG>120</STRONG> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Patches installed</EM> list
+	empty 
+	</P>
+	<LI><P><EM>Apply patches now</EM> 
+	</P>
+</UL>
+<H4>Impersonation Support</H4>
+<P>On NT based systems (MS Windows NT4, 2000, XP, and Server 2003)
+the ASI client is logged in as local system administrator. This means
+that it cannot access shared resources on the local network.</P>
+<P>In order to enable ASI client's access to shared resources on the
+local network, we have implemented impersonation. Impersonation lets
+the ASI client log onto the system where the shared resource is
+located as a user known by that system enabling it to access that
+shared resource.</P>
+<P>You should enter the known user id and password in Scrip 43, as
+described below. With this information, the ASI client will be able
+to access shared resources on the local network as follows:</P>
+<H5>For Workgroups</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows 9x</STRONG> 
+			</P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows 9x</STRONG></P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+		<TD>
+			<P>Not supported</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on <EM>from</EM>
+			system</P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist both on <EM>from</EM>
+			and <EM>to</EM> systems</P>
+		</TD>
+	</TR>
+</TABLE>
+<H5>For Domains</H5>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD></TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>To MS Windows NT (NT4, 2000, XP, and
+			Server 2003)</STRONG> 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><STRONG>From MS Windows NT (NT4, 2000, XP, and Server 2003)</STRONG></P>
+		</TD>
+		<TD>
+			<P>Supported <BR>User account needs to exist on domain controller</P>
+		</TD>
+	</TR>
+</TABLE>
+<H4>Impersonation enabled</H4>
+<P>When the <EM>Impersonation enabled</EM> parameter is enabled, ,
+using the impersonation user id and password (and domain if
+necessary) you entered in <EM>Impersonation Username</EM>,
+<EM>Impersonation Password and Confirmation</EM>, and <EM>Impersonation
+Domain</EM> parameters in the Scrip 43 configuration page, Scrip 196
+can execute patches or software updates that reside on shared
+resources on other systems on the the network, accessed either as
+mapped drives(e.g. <STRONG>x:\shared folder</STRONG>), or using UNC
+(Universal Naming Convention) syntax (e.g. <STRONG>\\server\\shared
+folder</STRONG>).</P>
+<H4>How Scrip 196 works</H4>
+<P>First, Scrip 196 searches the dialog boxes that appear during
+installation of a patch or software update for buttons, including
+radio buttons, which makes it work for license agreements.</P>
+<P>If no buttons are found, or the Scrip can't read the text from any
+of the ones that are found, and the <EM>Take dialog box default
+action</EM> option is enabled, Scrip 196 sends an <STRONG>Enter</STRONG>
+command to the dialog box.</P>
+<P>If Scrip 196 finds buttons and can read the text that accompanies
+them, it takes one of the following actions:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">If something in the <EM>Positive
+	response keyword - take default action if found</EM> list is found
+	in the text of a button that is not grayed out, and that text
+	<EM>doesn't</EM> contain anything in the <EM>Negative exception
+	keyword - do not take default action if combined with positive
+	response keyword in one phrase</EM> list, Scrip 196 clicks on that
+	button, 
+	</P>
+	<LI><P>Otherwise, Scrip 196 does not take any action. 
+	</P>
+</UL>
+<P>The above process is repeated on a five-second cycle. If <EM>Max
+minutes of run time per patch</EM> passes, or the maximum number of
+dialogs is exceeded, Scrip 196 stops the installation process.</P>
+<H4>Take dialog box default action</H4>
+<P>If the <EM>Take dialog box default action</EM> option is enabled,
+Scrip 196 will always take the default dialog box action overriding
+any of the other options. While it may work in many cases, this
+option should be used with care.</P>
+<P>For example, If this option is enabled and the default action is
+<STRONG>Cancel</STRONG>, Scrip 196 will take this action. Obviously,
+this is not what you would like it to do.</P>
+<P><B>In general, we advise you to leave the </B><EM><B>Take dialog
+box default action</B></EM> <B>option disabled, and use the </B><EM><B>Negative
+exception keyword - do not take default action if combined with
+positive response keyword in one phrase</B></EM> <B>and </B><EM><B>Positive
+response keyword - take default action if found</B></EM> <B>parameters
+instead.</B></P>
+<H4>Act on dialog boxes of all new processes</H4>
+<P>If the <EM>Act on dialog boxes of all new processes</EM> option is
+enabled, Scrip 196 will take the action corresponding to the value of
+the <EM>Positive response keyword - take default action if found</EM>
+parameter for all dialog boxes.</P>
+<P>By default <EM>Act on dialog boxes of all new processes</EM> is
+disabled. Scrip 196 will act only on dialog boxes that are created by
+the patch / software update or subprocesses it creates. If <EM>Act on
+dialog boxes of all new processes</EM> is enabled, it will act on
+dialog boxes created by any process that started after the patch was
+started. On Microsoft Windows NT based systems (NT4, 2000, XP, and
+Server 2003), some installations create dialog boxes in the context
+of the <EM>Service Manager</EM> and therefore require that the <EM>Act
+on dialog boxes of all new processes</EM> option be enabled. If you
+have a patch or software update where dialog boxes just open and
+remain on the screen, enabling this option will probably make Scrip
+196 act on them.</P>
+<P>However, you should be aware that when <EM>Act on dialog boxes of
+all new processes</EM> is enabled, you should make sure that the
+patch or software update runs while the system is not in active use.
+Otherwise, Scrip 196 will start acting on dialog boxes generated by
+any programs after the patch or software update starts running.</P>
+<H4>Names of processes to shutdown</H4>
+<P>The <EM>Names of processes to shutdown</EM> parameter can be used
+to list all the processes you would like Scrip 196 to shut down in an
+orderly fashion before starting to run patches. The full name of each
+process to be terminated, including extension, should be entered on a
+separate line. Full location paths are not required.</P>
+<P>This configuration entry should be used with care. For example,
+you should not use either of the masks <STRONG>*</STRONG> or <STRONG>*.*</STRONG>
+because they would have the effect of terminating both the ASI Client
+and other processes (e.g. explorer.exe) that are necessary for
+executing Scrip 196 (the ASI Client), and keep the system running
+(explorer.exe).</P>
+<P>One or more of the processes running at the time Scrip 196 is
+scheduled to start that need to be shut down may require user action
+or response in order to be terminated. For example:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Open network connections that in
+	order to be closed require user approval 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Applications like Microsoft Word
+	that require a user to save or close without saving files that have
+	been changed and not saved at the time Word is terminated, or 
+	</P>
+	<LI><P>Information agents like Intuit Quickbooks' qbdagent.exe. 
+	</P>
+</UL>
+<P>Scrip 196 handles these situations automatically. You can control
+process shut-down with the <EM>Max number of seconds to wait for the
+process to close</EM> and <EM>Max number of dialogs to close</EM> 
+</P>
+<P>The Scrip will also check for processes to shutdown before each
+patch is installed, in case a process in the <EM>Names of processes
+to shutdown</EM> list starts up again.</P>
+<H4>Max number of seconds to wait for the process to close</H4>
+<P>This parameter lets you control how long Scrip 196 should wait
+before shutting down each process that was active at the time the
+Scrip is scheduled to run.</P>
+<H4>Max number of dialogs to close</H4>
+<P>In many instances, requests for user action communicated via
+dialog boxes are part of process shut down sequences. Scrip 196
+handles these requests automatically.</P>
+<P>Whenever a dialog box requesting user input appears during a
+process' shut down sequence, Scrip 196 closes it taking the default
+action. For example, if the dialog box requests whether a file should
+be saved or not, and the default response is <STRONG>Yes</STRONG>,
+Scrip 196 will automatically click on the <STRONG>Yes</STRONG>
+button.</P>
+<H4>Patches to apply</H4>
+<P>The <EM>Patches to apply</EM> list contains the patch command
+lines you would like Scrip 196 to run. You can have as many patch
+command lines defined as you want with each entered on a new line.
+Patch command lines have the following format, <STRONG>with each
+parameter in a command line separated by a comma with no spaces</STRONG>:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">blank, 0 or 1 - if 0 or blank,
+	Scrip 196 does not log dialog boxes produced by patches. If 1, Scrip
+	196 logs dialog boxes. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">9x , nt or blank - the value of
+	this command line parameter tells Scrip 196 which Microsoft Windows
+	operating system family, the patch applies to. It is not case
+	sensitive. If you leave it blank, Scrip 196 will attempt to apply
+	the patch to all systems regardless of operating system. Please note
+	that Microsoft Windows 95, 98, and Me belong to the 9x family while
+	Microsoft Windows NT4, 2000, and XP belong to the NT family. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">Full path, or URL (see below) of
+	an executable 
+	</P>
+	<LI><P>Optionally, command line arguments for the executable.
+	Command line arguments for the executable should be entered as you
+	would enter them in the command line for the executable, each
+	separated by a space. For example: <STRONG>-u -n -Z -Q</STRONG>. 
+	</P>
+</UL>
+<P>The path(s) of the executables you want Scrip 196 to run must be
+visible on all the machines you want to run the executable on. This
+means that if the executable(s) are on a networked drive then the
+drive must be accessible on all the machines through an appropriately
+configured drive letter mapping.</P>
+<P>For patches/updates residing on networked drives, you can enter
+either the UNC name of the location, e.g. <STRONG>\\[server
+name]\[shared resource name]\</STRONG>, or the mapped drive letter if
+one has been assigned to the networked drive.</P>
+<P>Patches/updates can reside on FTP or Web servers (HTTP or HTTPS).</P>
+<P>FTP servers can be accessed via a URL scheme that uses a common
+syntax for IP-based protocols. The syntax of a command line for
+having Scrip 196 retrieve a patch executable from a FTP server is:</P>
+<P><STRONG>ftp://user:password@host:port/url-path</STRONG>. 
+</P>
+<P>The <EM>user</EM>, <EM>password</EM>, or <EM>port</EM> can be
+omitted, and defaults will be applied. The default <EM>user</EM> is
+<STRONG>anonymous</STRONG>. The default <EM>password</EM> is a
+ficticious email address (most FTP servers that allow anonymous login
+either ignore the password or require an email address). The default
+<EM>port</EM> is <STRONG>21</STRONG>, which is the standard FTP port.
+</P>
+<P><EM>Url-path</EM> can merely be the name of the remote file
+(current working directory for the FTP server assumed), or it can
+denote a particular subdirectory path to the file, e.g.,
+dir/dir/dir/filename.</P>
+<P><EM>host</EM> is either the name or IP address of the FTP server.</P>
+<P>Scrip 196 captures all FTP commands executed when running a patch
+located on a FTP server. They will be logged automatically onto the
+ASI server if the patch download process fails.</P>
+<P>Web servers can be accessed using HTTP or secure HTTP (HTTPS) via
+a URL scheme that uses a common syntax for IP-based protocols. The
+syntax of a command line for having Scrip 196 retrieve a patch
+executable from a Web server is:</P>
+<P><STRONG>http://user:password@host/url-path</STRONG>, or
+<STRONG>https://user:password@host/url-path</STRONG></P>
+<P>For publicly accessible Web pages, the <EM>user</EM> and <EM>password</EM>
+are not necessary, and should be omitted.</P>
+<P><EM>Url-path</EM> can merely be the name of the remote file
+(current working directory for the Web server assumed), or it can
+denote a particular subdirectory path to the file, e.g.,
+dir/dir/dir/filename.</P>
+<P><EM>host</EM> is either the name or IP address of the Web server.</P>
+<P>Scrip 196 captures all HTTP commands executed when running a patch
+located on a Web server. They will be logged automatically onto the
+ASI server if the patch download process fails.</P>
+<P>Please note that capitalization of the name of the patch/software
+update executable in the path parameter of a Scrip 196 command line
+needs to match capitalization of the patch/software update name on
+the FTP or HTTP/HTTPS server. Otherwise, Scrip 196 will report a <STRONG>file
+not found</STRONG> error. Generally speaking, to minimize the
+probability of an error, it is advisable to use all-lower case names.</P>
+<P>Each ASI server includes a folder called <STRONG>patches</STRONG>
+located in the publicly accessible <STRONG>https://ASIserverURL/main/pub</STRONG>
+directory. You can use the <STRONG>patches</STRONG> folder as a
+convenient location from which patches and software update
+executables can be downloaded by Scrip 196 using HTTP/HTTPS, without
+requiring authentication. A sample Scrip 196 command line for
+installing a patch located in the folder <STRONG>patches</STRONG>
+would look something like this:</P>
+<P><STRONG>1,,https//ASIserverURL/main/pub/patches/patch.exe</STRONG></P>
+<P>On each ASI server we have also installed an FTP server and
+created a a user id and password with upload access to the <STRONG>patches</STRONG>
+folder to upload patches and installation executables to this folder.</P>
+<P>Below, you will find some examples of Scrip 196 command lines:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,9x,c:\windows\notepad.exe,c:\testfile.txt</STRONG>
+	- log dialog boxes produced by executable, run executable only on
+	systems with Microsoft Windows 9x operating system, executable to
+	run is notepad.exe with c:\testfile.txt as command line argument 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>0,9x,c:\windows\notepad.exe,c:\testfile.txt</STRONG>
+	- Don't log dialogs produced by executable, run executable only on
+	systems with Microsoft Windows 9x operating system, executable to
+	run is notepad.exe with c:\testfile.txt as command line argument 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>c:\windows\notepad.exe,c:\testfile.txt</STRONG>
+	or <STRONG>,,c:\windows\notepad.exe,c:\testfile.txt</STRONG> - Don't
+	log dialogs, run on all systems, regardless of operating system,
+	executable to run is notepad.exe with c:\testfile.txt as command
+	line argument 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,c:\windows\notepad.exe,c:\testfile.txt</STRONG>
+	- log dialog boxes produced by executable, run on all systems,
+	regardless of operating system, executable to run is notepad.exe
+	with c:\testfile.txt as command line argument 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>1,nt,http://handsfreenetworks.com/pub_download/softpatch.exe,/s
+	/u /Q</STRONG> - log dialog boxes produced by executable, run
+	executable only on systems with Microsoft Windows NT based operating
+	systems (NT4, 2000, XP, or Server 2003), download from
+	handsfreenetworks.com on port 80 , run patch with /s /u /Q command
+	line arguments. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>0,https://handsfreenetworks.com/pub_download/softpatch.exe</STRONG>
+	- Don't log dialogs produced by executable, run on all systems,
+	regardless of operating system, download from handsfreenetworks.com
+	on port 443, no command line arguments. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><STRONG>http://username:password@handsfreenetworks.com/prv_download/softpatch.exe</STRONG>
+	- Don't log dialogs produced by executable, run on all systems,
+	regardless of operating system, download from handsfreenetworks.com
+	on port 80 with athentication , no command line arguments. 
+	</P>
+	<LI><P><STRONG>9x,https://username:password@handsfreenetworks.com/prv_download/softpatch.exe</STRONG>
+	- Don't log dialogs produced by executable, run executable only on
+	systems with Microsoft Windows 9x operating system, download from
+	handsfreenetworks.com on port 443 with authentication , no command
+	line arguments. 
+	</P>
+</UL>
+<P><STRONG>Please note that you should not use batch files in the
+<EM>Patches to apply</EM> list. Scrip 196 operates on the dialog
+boxes associated with the executable listed in the <EM>Patches to
+apply</EM> list. If it were a batch file, then it would wait to close
+the MS-DOS window opened by the batch file, not act on the dialog
+boxes generated by the executables contained in the batch file.</STRONG></P>
+<P>If you make a mistake in entering the path for the executable you
+want Scrip 196 to install, the Scrip will report the error in an
+event log uploaded to the ASI server.</P>
+<P>Please keep in mind that the following characters cannot be used
+in an FTP or HTTP URL:</P>
+<P><STRONG>&lt; &gt; # % { } | ~ ^ [ ] ' \</STRONG></P>
+<H4>Stop on an error</H4>
+<P>If something goes wrong during the execution of Scrip 196, e.g.
+one of the executables in the list is not found, you can choose to
+continue with the execution of the other executables (this parameter
+would be disabled), or stop execution of the Scrip (this parameter
+would be enabled).</P>
+<H4>Max minutes of run time per patch</H4>
+<P>With the <EM>Max minutes of run time per patch</EM> parameter, you
+can control execution of an executable preventing it from running
+away and hanging the system. If the executable runs longer than the
+value in <EM>minutes</EM> you give to this parameter, the Automated
+Support Infrastructure (ASI) client will terminate its execution. A
+value of 0 means that the executable can run without a time limit. 
+</P>
+<P>Please note that the time spent downloading a patch from an FTP or
+Web server, is not included in the <EM>Max minutes of run time per
+patch</EM> parameter unless the software update or patch executable
+performs a donwload operation as part of the patch/software update
+process.</P>
+<H4>Patches installed</H4>
+<P>With the <EM>Patches installed</EM> list, Scrip 196 keeps track of
+patches it previously installed. As a result you don't have to remove
+patches/software updates from the <EM>Patches to apply</EM> list
+because the Scrip will not try to install a patch/softwatre update
+that is already installed. If you need to force an update, all you
+need to do is remove the entry for the patch/software update from the
+<EM>Patches installed</EM> list. Please note that the entire line
+needs to be removed not just the patch/software update name. 
+</P>
+<H4>Apply patches now</H4>
+<P>With the <EM>Execute</EM> button, you can run Scrip 196 on demand,
+even if it's not enabled. In Scrip 196, the <EM>Execute</EM> button
+can be used to execute the Scrip on the local system or on all
+supported systems.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2004
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Configuring Device Availability Monitoring</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20070621;17005137">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Configuring Device Availability Monitoring</H3>
+<P>Scrip 88 (Network Devices and Services Availability) can be used
+to monitor the availability of servers at a site. In the simplest
+case, the ASI client is configured on one machine which tests the
+availability of other devices. It is not required that the devices
+whose availability is to be tested run the ASI client. The only
+requirement is that they can be reached from the system where the ASI
+client runs (by NetBIOS name, URL, or by IP address), and will
+respond to ping or to a TCP packet. Device availability monitoring
+can be made more robust by implementing a redundancy scheme. For
+example, suppose the ASI client is running on Machine1, Machine2 and
+Machine3. Machine1 could test Machine2 and Machine3; Machine2 could
+test Machine1 and Machine3; and Machine3 would be set up to test
+Machine1 and Machine2. Each of these machines could also test the
+availability of other machines, whether or not those machines are
+running the ASI client. 
+</P>
+<P>In general, you should have at least two, but no more than three
+devices to monitor the availability of an IP device or IP service. 
+</P>
+<P>Typically, you will be able to use ping (ICMP) to test the
+availability of devices inside a private network. If necessary, it is
+also possible to monitor a device by testing its response to a TCP
+packet on a particular port. 
+</P>
+<P>Whenever possible, you should avoid using IP addresses to identify
+devices to be tested devices that test the availability of other
+devices (testers). This is for two main reasons: 
+</P>
+<UL>
+	<LI><P>Most environments are configured to use DHCP. If you used IP
+	addresses to identify tester devices or devices to be tested, you
+	will need to update the configuration of Scrip 88 whenever IP
+	addresses change. 
+	</P>
+	<LI><P>Identifying devices to be tested and tester devices by their
+	URL or NetBIOS name makes them more easily recognizable. 
+	</P>
+</UL>
+<H4>Scrip 88 configuration 
+</H4>
+<OL>
+	<LI><P>Log onto your ASI server (https://asiservername/main).</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below &quot;user login&quot;
+	and date.</P>
+	<LI><P>In the &quot;sites&quot; navigation bar, click on the
+	&quot;configuration&quot; link. The &ldquo;Select a Site&rdquo; page
+	will be displayed.</P>
+	<LI><P>Click the on &quot;view machines&quot; link for the site
+	where you want to configure device availability monitoring. 
+	</P>
+	<LI><P>Click on the &quot;configure Scrips&quot; link for the
+	machine where you want to configure Scrip 88. (The machines where
+	you want to configure Scrip 88 are those performing the device
+	availability testing.). The &ldquo;Scrip Configurator&rdquo; page
+	for the system will be displayed.</P>
+</OL>
+<P STYLE="margin-left: 0.52in"><B>Please note that the system you
+select in this step should be one which runs 24x7. Otherwise, you
+will not have 24x7 device availability monitoring.</B></P>
+<OL START=6>
+	<LI><P>Scroll down the page until you reach the entry for Scrip 88
+	(Network Devices and Services Availability), and click on the Scrip
+	name. The Scrip 88 configuration page will be displayed.</P>
+	<LI><P>Configure Scrip 88 as follows:</P>
+</OL>
+<P STYLE="margin-left: 0.52in"><I>Scrip enabled</I>: By default, the
+Scrip is not enabled. Leave it disabled until we're finished with the
+Scrip configuration. 
+</P>
+<P STYLE="margin-left: 0.52in"><I>Schedule</I>: The default values
+should provide a good initial configuration. For critical devices,
+the frequency of execution can be increased to run every three to
+five minutes, but it should not be necessary to run the Scrip more
+frequently than three times per hour. Whether you decide to change
+the Scrip 88 schedule, or not, make sure the Group pull-down list
+selection for the schedule configuration parameter is set to &ldquo;Site
+&lt;site name&gt;&rdquo;.</P>
+<P STYLE="margin-left: 0.52in"><I>Machines to perform tests</I>:
+Enter the name of the machine whose Scrip 88 you are configuring. The
+machine name is displayed at the right upper side of the
+configuration page, just below the ASI client software version
+number. In the &ldquo;Group&rdquo; pull-down list to the left of the
+the &ldquo;Machines to perform tests&rdquo; configuration parameter
+label select &ldquo;Machine &lt;&rdquo;machine name&rdquo;&gt;&rdquo;,
+so that the setting applies to this machine only and not to the
+entire site. 
+</P>
+<P STYLE="margin-left: 0.52in"><I>Machines to be tested</I>: Enter
+one line for each test to be performed. Each line will have six
+fields, separated by commas: 
+</P>
+<DL>
+	<DL>
+		<DL>
+			<DD STYLE="margin-left: 0.2in"><B>0 = disable, 1 = enable</B> &ndash;
+			Useful for testing or for temporarily disabling an entry. 
+			</DD><DD STYLE="margin-left: 0.2in">
+			<B>Name or IP address of the system being tested</B> &ndash; Must
+			be reachable from the machine performing the test. 
+			</DD><DD STYLE="margin-left: 0.2in">
+			<B>Protocol to Test</B> &ndash; TCP or ICMP (ping). 
+			</DD><DD STYLE="margin-left: 0.2in">
+			<B>Port Number</B> &ndash; If the protocol is TCP, enter the port
+			number; if ICMP, enter 0. 
+			</DD><DD STYLE="margin-left: 0.2in">
+			<B>Number of Retries</B> &ndash; The test fails if the system
+			being tested does not respond for this number of consecutive
+			attempts. Try 4 as an initial setting. 
+			</DD><DD STYLE="margin-left: 0.2in; margin-bottom: 0.2in">
+			<B>Timeout delay</B> &ndash; Number of milliseconds allowed for a
+			response. Try 1000 as an initial setting. 
+			</DD></DL>
+	</DL>
+</DL>
+<P STYLE="margin-left: 1in">
+For example, the following command line will cause Scrip 88 to
+monitor system <FONT FACE="Courier New, monospace"><B>mailsrv1</B></FONT>
+using ping, trying to reach the device a maximum four times with a
+maximum expected response time of one second:</P>
+<P STYLE="margin-left: 1.02in"><CODE><B>1,mailsrv1,ICMP,0,4,1000</B></CODE><B>
+</B>
+</P>
+<P STYLE="margin-left: 0.53in">Enter one line for each system whose
+availability you want to monitor. When finished, in the &ldquo;Group&rdquo;
+pull-down list to the left of the the &ldquo;Machines to be tested&rdquo;
+configuration parameter label select &ldquo;Machine &lt;&rdquo;machine
+name&rdquo;&gt;&rdquo;, so that the setting applies to this machine
+only and not to the entire site or group. 
+</P>
+<OL START=8>
+	<LI><P>Check the <I>Scrip enabled</I> box. In the &ldquo;Group&rdquo;
+	pull-down list to the left of the the &ldquo;Machines to perform
+	tests&rdquo; configuration parameter label select &ldquo;Machine
+	&lt;&rdquo;machine name&rdquo;&gt;&rdquo;, so that the Scrip is
+	enabled on this machine only and not on the entire site. 
+	</P>
+	<LI><P>Click on the <B>Submit Changes</B> button at the bottom (or
+	top) of the Scrip 88 configuration page. The next time Scrip 177
+	runs on a system at the site where you configured Scrip 88, it will
+	retrieve the Scrip 88 configuration changes you just made. 
+	</P>
+</OL>
+<P>If you plan on using one machine to do all the device availability
+monitoring, you have completed the Scrip configuration phase of the
+activity, and  should proceed to the next section on configuring the
+&ldquo;device status&rdquo; event notification. 
+</P>
+<P>However, for greater reliability of the device monitoring process
+(nothing to do with ASI software reliability), we advise that you
+configure device availability monitoring on an additional machine
+performing steps 1. to 9. above for this other machine.</P>
+<P>If the site where you want to monitor device availability has two
+or more systems whose availability you want to monitor, and the ASI
+client is installed on these systems, you can use Scrip 88 on each of
+these systems to configure a highly reliable redundant round-robin
+device availability monitoring scheme where Scrip 88 on the systems
+whose availability you want to monitor is used to monitor the other
+systems. For example, suppose you have a site with three servers,
+server1, server2, and server3, whose availability you want to
+monitor, and on which the ASI client is installed. In this case the
+entries for the Scrip 88 &ldquo;Machines to be tested&rdquo;
+configuration parameter would be:</P>
+<P>Machines to be tested by server1: 
+</P>
+<PRE>1,server2,ICMP,0,4,1000
+1,server3,ICMP,0,4,1000</PRE><P>
+Machines to be tested by server2: 
+</P>
+<PRE>1,server1,ICMP,0,4,1000
+1,server3,ICMP,0,4,1000</PRE><P>
+Machines to be tested by server3: 
+</P>
+<PRE>1,server1,ICMP,0,4,1000
+1,server2,ICMP,0,4,1000</PRE><P>
+If you had a site with two servers whose device availability you want
+to monitor, and the ASI client were installed on both systems, you
+could configure Scrip 88 on each server to monitor the other server,
+and then select another system at the site where you could configure
+Scrip 88 to monitor the availability of both servers.</P>
+<P>At sites where you have more than three servers, assuming that the
+ASI client is installed on all servers, you can select two servers
+where you would configure Scrip 88 to monitor the availability of all
+other servers, and then configure Scrip 88 on two of the other
+servers to monitor the two servers where Scrip 88 is configured to
+monitor the availability of all servers.</P>
+<H4>Configuring the &ldquo;device status&rdquo; event notification 
+</H4>
+<P>When you have finished configuring Scrip 88, you will need to set
+up the corresponding event notification on the ASI Server. To start
+with, you can use the pre-defined global event notification called
+<I>device status</I>. 
+</P>
+<OL TYPE=a>
+	<LI><P>Log onto your ASI server (https://asiservername/main).</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below &quot;user login&quot;
+	and date.</P>
+	<LI><P>In the &quot;events&quot; navigation bar, click on the
+	&quot;notifications&quot; link. The &ldquo;Event Notifications&rdquo;
+	page will be displayed.</P>
+	<LI><P>Click the <B>Reset</B> button (at right, just above the list
+	of notifications) to clear any old search parameters. 
+	</P>
+	<LI><P>In the <B>Search Options</B> panel, find the &quot;Name
+	contains&quot; box, and type in <B>device status</B>. Click the
+	<B>Search</B> button. 
+	</P>
+	<LI><P>Locate the entry for the &ldquo;device status&rdquo;
+	notification, and click the <B>edit</B> link to the left of the
+	notification name. The <B>Edit a Notification</B> page for this
+	notification will be displayed. 
+	</P>
+	<LI><P>Locate the <B>Default email recipients</B> configuration
+	parameter. Use the pull-down to make your selection. Choose yes if
+	you want the notification sent to the default address(es) for
+	notifications. (If you don't know which address(es) are set as the
+	default, right-click the <B>tools: admin</B> link at the right
+	upper-hand corner of the page, and open the Admin page in a new
+	window. Find your user login name in the left column, and look to
+	the right for the default email address(es) for notifications.)
+	Choose no if you do not want the notification sent to the default
+	address(es). 
+	</P>
+	<LI><P>Locate the <B>Email recipients</B> configuration parameter.
+	In the box, type in the email addresses where notifications will be
+	sent in the event a machine to be tested does not respond. Separate
+	addresses with commas and no spaces. If you have chosen to have the
+	notification sent to the default address(es), you may not need to
+	enter those addresses here, and any addresses you enter in the Email
+	recipients configuration parameter will receive the notification
+	along with the default recipients. 
+	</P>
+	<LI><P>Locate the <B>Enabled</B> configuration parameter. Use the
+	pull-down to select Yes. 
+	</P>
+	<LI><P>Locate the <B>Email</B> configuration parameter, and use the
+	pull-down to select Yes. 
+	</P>
+	<LI><P>Scroll down to the schedule area, about 80% down the <B>Edit
+	a Notification</B> page, ensure that the &ldquo;Periodic, run every
+	&rdquo; configuration parameter radio button is on. If you want to,
+	you can change the periodic execution from the default three-minute
+	cycle, but we would advise against doing that given the importance
+	of the device availability monitoring function. 
+	</P>
+	<LI><P>Click on the <B>Update</B> button to save the changes. 
+	</P>
+</OL>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

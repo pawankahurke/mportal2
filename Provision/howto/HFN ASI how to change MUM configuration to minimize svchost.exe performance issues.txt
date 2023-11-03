@@ -1,0 +1,53 @@
+How to modify the MUM (Microsoft Update Management) configuration to minimize svchost.exe related performance problems
+=======================================================================================================================
+
+IMPORTANT NOTE
+---------------
+You should make the configuration changes described in this note ONLY if you are confident that the systems where you are using MUM to manage the Microsoft software update process are left running after the end of the work day. Otherwise, please contact HandsFree Networks.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The changes described in this note apply to Scrip 237 (Microsoft Update Management), the ASI client side component of MUM. The instructions below are for making the MUM configuration change on all systems at a site.
+
+1) Log onto the ASI server (https://asiservername/main ).
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) At the upper right-hand corner of any page on the ASI server, click on the configuration link in the sites navigation bar (https://asiservername/main/config/index.php?act=site ). The "Select a Site" page will be displayed.
+
+4) Click on the "configure site" link for the site where you want to change the MUM configuration. The "Scrip Configuration - Select Scrip - Site <site name>" page will be displayed.
+
+5) Scroll down to the entry for Scrips 237 (Microsoft Update Management), and click on the Scrip name. The Scrip 237 configuration page will be displayed.
+
+6) Change the Scrip 237 schedule entry so that the Scrip will run after the end of the work day. For example, in order to have Scrip 237 run daily at 7 PM, you would enter the following schedule:
+0
+19
+*
+*
+*
+120
+2
+0
+
+7) Click in the "Disable client startup offline scan" configuration parameter box.
+
+8) Click on the "Next" button.
+
+
+The MUM configuration change described above applies to a site. If you want to make the change on a single system, or a group of systems, you should use the "Scrip configuration" wizard as follows:
+
+a) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+b) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date.
+
+c) At the upper right-hand corner of any page on the ASI server, click on the configuration link in the sites navigation bar (https://asiservername/main/config/index.php?act=wiz). The "Select a Site" page will be displayed.
+
+d) Click on the "Scrip configuration" link (https://asiservername/main/config/scrpconf.php?custom=8). The "Scrip Configuration - Select a Group" page will be displayed.
+
+e) Select the group type you want to make the MUM configuration change on. The wizard will lead you through a series of steps to select the systems you want to make the change on (note that if you select a group of systems, you will need to click on the "use" link for the group where you want to make the MUM configuration change).
+
+f) After you select the group of systems where you want to make the MUM configuration change, the "Scrip Configuration - Select Scrip" page for that group of systems will be displayed.
+
+g) Follow steps 5)-8) above.
+
+

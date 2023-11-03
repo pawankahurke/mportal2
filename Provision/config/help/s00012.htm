@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 12 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20040411;22393210">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20050729;15084923">
+	<STYLE>
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 12 Configuration</H3>
+<H4>Configuration parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Update from other accessible
+	machines</EM> disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Update from on-site server</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Update from vendor</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>On-site server locations</EM>
+	disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Date of latest definitions</EM>
+	empty 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Machines to report virus
+	definition dates</EM> set to the mask <STRONG>*</STRONG> indicating
+	that all systems should report virus definition dates 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Maximum age of virus
+	definitions in days</EM> by default set to <B>14</B> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Maximum random delay before
+	update (minutes)</EM> by default set to <B>5</B> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Maximum retries for obtaining
+	local updates</I> by default set to <B>3</B></P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Local update retry delay
+	(minutes)</I> by default set to <B>60</B></P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Report when anti-virus product
+	is not installed</I> disabled</P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, Scrip 12 runs at 3am
+	every Thursday 
+	</P>
+	<LI><P><EM>Run Symantec LiveUpdate now</EM> 
+	</P>
+</UL>
+<H4>Update from other accessible machines</H4>
+<P>When you enabled the <EM>Update from other accessible machines</EM>
+configuration parameter, Scrip 12 will replace the Norton Anti Virus
+virus definitions on each system where this option is enabled with
+the newest virus definitions found on the sub-net where the system is
+installed. If none of the other virus definition update functions are
+enabled, Scrip 12 ends execution after this operation is completed.</P>
+<H4>Update from on-site server</H4>
+<P>An <EM>on-site server</EM> is a system where Norton Anti Virus and
+Symantec LiveUpdate are installed, and that is known to consistently
+have up-to-date virus definitions. For example this could be one
+system (or more than one) where the virus definitions are updated
+manually to ensure that the update is successful.</P>
+<P>If the <EM>Update from on-site server</EM> configuration parameter
+is enabled, Scrip 12 will look for newer virus definitions at the
+location(s) specified in the <EM>On-site server locations</EM> list.
+If the <EM>Update from other accessible machines</EM> configuration
+parameter is enabled searching for newer virus definitions at
+location(s) specified in the <EM>On-site server locations</EM>
+configuration parameter occurs after Scrip 12 has completed the
+search for newer virus definitions on other accessible systems on the
+sub-net.</P>
+<H4>Update from vendor</H4>
+<P>When the <EM>Update from vendor</EM> configuration parameter is
+enabled, Scrip 12 will look for newer virus definitions from
+Symantec's site using Symantec's LiveUpdate software. If Scrip 12
+cannot find Symantec's LiveUpdate software, it logs this fact, and
+ends execution. If either <EM>Update from other accessible machines</EM>
+or <EM>Update from on-site server</EM>, configuration parameters, or
+both, are enabled, Scrip 12 will look for newer virus definitions
+from Symantec's site only if it was not successful finding newer
+virus definitions using the other two options.</P>
+<H4>On-site server locations</H4>
+<P>Each entry in the <EM>On-site server locations</EM> configuration
+parameter contains the full path for an on-site server. Each entry
+should be on a separate line.</P>
+<H4>Date of latest definitions</H4>
+<P><STRONG>The <EM>Date of latest definitions</EM> parameter is
+displayed for information only. It should not be modified under any
+circumstances. If it were to be modified, Scrip 12 would not function
+properly.</STRONG></P>
+<P>The purpose of the <EM>Date of latest definitions</EM>
+configuration parameter is to keep a running list of the virus
+definition dates for all systems running Norton Anti Virus. As a
+result, when a machine is searching for updates on other systems on
+the sub-net, it simply accesses this list. It does not have to
+contact every machine on the subnet. This minimizes local network
+traffic and bandwidth usage. From the list's entries a system finds
+out the dates of virus definitions available on the sub-net, and
+which system(s) has/have them.</P>
+<P>The format of <EM>Date of latest definitions</EM> configuration
+parameter entries is as follows: 
+</P>
+<UL>
+	<LI><P>Day, Month Day, Hour:Minute:Second, Seconds since 1970</P>
+</UL>
+<P>For example:</P>
+<UL>
+	<LI><P>Wednesday, November 17, 2004 00:00:00, 1100649600</P>
+</UL>
+<H4>Machines to report virus definition dates</H4>
+<P>You use the <EM>Machines to report virus definition dates</EM>
+configuration parameter to control which systems should report virus
+definition dates on the systems on the sub-net. If you want all
+systems on a sub-net to report virus definition dates, all you need
+to enter in the list is a *. An empty list is equivalent to this
+function being disabled.</P>
+<H4>Maximum age of virus definitions in days</H4>
+<P>When the date of the Norton Anti Virus virus definition database
+files is older than the current date by the number of days specified
+by the <EM>Maximum age of virus definitions in days</EM>
+configuration parameter, or more, Scrip 12 will post this information
+on the ASI server.</P>
+<H4>Maximum random delay before update (minutes)</H4>
+<P>The <EM>Maximum random delay before update (minutes)</EM>
+configuration parameter helps minimize the likelihood that if only
+one system has the latest (or newer) virus definitions, this system
+not be flooded with requests for the newer virus definitions from
+other systems. When the ASI client on a system successfully retrieves
+virus definitions from the vendor's site, the <EM>Maximum random
+delay before update (minutes)</EM> configuration parameter ensures
+that requests for the newer virus definitions from other systems do
+not occur simultaneously, maxmimizing the probability the the system
+be able to service at least one of the requests. Once that happens,
+the number of systems that can provide the newer virus definitions is
+automatically doubled (at least), ensuring that all requests will be
+fulfilled.</P>
+<H4 STYLE="font-style: normal">Maximum retries for obtaining local
+updates</H4>
+<P STYLE="font-style: normal">As its name suggests, the <I>Maximum
+retries for obtaining local updates</I> configuration parameter lets
+you set the number of times Scrip 12 will attempt to obtain the
+newest virus definitions available on the sub-net from other systems
+on the sub-net. By default, its value is set to <B>3</B>.</P>
+<H4 STYLE="font-style: normal">Local update retry delay (minutes)</H4>
+<P STYLE="font-style: normal">With the <I>Local update retry delay
+(minutes)</I> configuration parameter, you set the time interval
+between attempts Scrip 12 will make to obtain the newest virus
+definitions available on the sub-net from other systems on the
+sub-net. By default, its value is set to <B>60 </B>minutes.</P>
+<H4>Report when anti-virus product is not installed</H4>
+<P>If you enable the <I>Report when anti-virus product is not
+installed</I> configuration parameter, on systems where Norton Anti
+Virus is not installed Scrip 12 will post a log on the ASI server
+with this information. 
+</P>
+<P STYLE="font-style: normal">You might want to use this
+configuration parameter periodically to find out which systems at a
+site do not have anti virus software installed. In this way, you
+would be able to intervene pro-actively and add anti virus protection
+to unprotected systems before a virus infects them.</P>
+<H4>Command line parameters</H4>
+<P>Scrip 12 runs in silent mode with the -s parameter in the command
+line. The -s parameter cannot be deleted.</P>
+<H4>Run Symantec LiveUpdate now</H4>
+<P>With the <EM>Execute</EM> button, you can run Scrip 12 on demand,
+even if it's not enabled. In Scrip 12, the <EM>Execute</EM> button
+can be used to execute the Scrip on the local system or on all
+supported systems.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=47>
+	<COL WIDTH=98>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=47>
+			<P ALIGN=CENTER><STRONG>Field</STRONG></P>
+		</TD>
+		<TD WIDTH=98>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=47>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=98>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2005
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

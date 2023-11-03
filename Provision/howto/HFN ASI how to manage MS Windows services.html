@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>How-to Manage MS Windows Services Using the Automated Support Infrastructure Service Management Console</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20080408;15441207">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>How-to Manage MS Windows Services Using the Automated Support
+Infrastructure Service Management Console</H3>
+<H4>Overview</H4>
+<P>Automated Support Infrastructure (ASI) service management is the
+first and only remote service management facility that lets users
+manage MS Windows services on any number of systems, simultaneously,
+regardless of their location.</P>
+<P>The ASI service management function duplicates the Microsoft
+Windows service management function. It lets you start, stop,
+re-start, enable, disable, and change service type from manual to
+automatic, and vice versa.</P>
+<P>ASI service management includes two major functions not supported
+by the Microsoft Windows service management function:</P>
+<UL>
+	<LI><P>You can manage services on multiple systems at the same time,
+	remotely, regardless of their location. You can perform any action
+	on one or more services on any number of systems simultaneously.</P>
+	<LI><P>You can configure a service to always be kept running, or
+	never be allowed to run.</P>
+</UL>
+<P>In addition to being a powerful system management tool, the ASI
+service management function provides you with comprehensive
+information on all services defined on a system, not just those
+enabled or disabled, and updates this information in real-time.</P>
+<H4>Enabling the ASI service management function</H4>
+<P>Before you can start managing MS Windows services on systems at
+your sites, you need to enable Scrip 224 (MS Windows Service Manager)
+on the systems where you want to manage MS Windows services.</P>
+<P>Scrip 224 can run in polling or event driven mode.</P>
+<P>In polling mode, the Scrip runs at a scheduled time at which he
+surveys MS Windows services on a system, and reports all MS Windows
+service information to the ASI server.</P>
+<P>In event-driven mode, Scrip execution is triggered in real-time by
+any MS Windows service change.</P>
+<P>Please note that when running in event-driven mode, Scrip 224 will
+tend to run more frequently, accessing the ASI server more
+frequently.</P>
+<P>Scrip 224 performs actions you configured on the MS Windows
+services console on the ASI server when:</P>
+<UL>
+	<LI><P>An MS Windows service related change on the system causes the
+	Scrip to contact the ASI server</P>
+	<LI><P>Scrip 224 runs at its scheduled time</P>
+</UL>
+<H4>Accessing the ASI service management console</H4>
+<P>You can access all MS Windows services information collected by
+Scrip 224 (MS Windows Service Manager) via the ASI service management
+console. In order to access the ASI service management console,
+please perform the following steps:</P>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>If you want to manage MS Windows services, or access MS
+	Windows service information on one system:</P>
+	<OL>
+		<LI><P>If the &ldquo;Sites&rdquo; item in the left pane of the ASI
+		Dashboard is not expanded, click on the &quot;+&quot; icon to the
+		left of the &ldquo;Sites&rdquo; label to display entries for all
+		sites on your ASI server</P>
+		<LI><P>Scroll down the left pane to the site where the system whose
+		MS Windows services you want to manage or review</P>
+		<LI><P>Expand the entry for the site where the system is located
+		(click on the &quot;+&quot; icon to the left of the site name)</P>
+		<LI><P>Click on the name of the system where you want to manage or
+		review MS Windows services</P>
+		<LI><P>In the right pane, click on the &quot;services&quot; link in
+		the list of links at the top of the pane. The services management
+		console for the system will be displayed in the left pane.</P>
+	</OL>
+	<LI><P>If you want to manage MS Windows services, or access MS
+	Windows service information for a group of systems:</P>
+	<OL>
+		<LI><P>If the &ldquo;Groups&rdquo; item in the left pane of the ASI
+		Dashboard is not expanded, click on the &quot;+&quot; icon to the
+		left of the &ldquo;Groups&rdquo; label to display entries for all
+		groups defined on your ASI server</P>
+		<LI><P>Scroll down the left pane to the entry for the group of
+		systems where where you want to manage or review MS Windows
+		services</P>
+		<LI><P>Click on the name of the group.</P>
+		<LI><P>In the right pane, click on the &quot;services&quot; link in
+		the list of links at the top of the pane.</P>
+	</OL>
+</OL>
+<H4>Taking service management actions</H4>
+<P>At present, the ASI service management function supports the
+following service related actions:</P>
+<UL>
+	<LI><P>Start - Starts the service only if it's not running, does
+	nothing otherwise.</P>
+	<LI><P>Stop - Stops a service if it is running, does nothing
+	otherwise</P>
+	<LI><P>Restart - If a service is running, it stops and starts it. If
+	a service is stopped, it starts it.</P>
+</UL>
+<P>To take any of the above actions for a service on a system, a
+site, or a group of systems you defined, simply click on the link
+corresponding to the action you want to take. After you take an
+action, a message asking for confirmation of the action will be
+displayed in the right pane, followed by an action confirmation
+message also displayed in the right pane. Clicking on the &ldquo;Done&rdquo;
+button on the confirmation page will take you back to the &ldquo;Services&rdquo;
+page for the system or group you took the action on.</P>
+<H5>Advanced service management</H5>
+<P>If you want to configure settings for a service, you should click
+on the &ldquo;advanced&rdquo; link for a service. When you do that,
+the &ldquo;Service settings to be configured on machine &lt;machine
+name&gt; in group &lt;group or machine name&gt;&rdquo; page will be
+displayed in the right pane.</P>
+<P>You can make two types of service configuration setting changes:</P>
+<UL>
+	<LI><P>Service status</P>
+	<LI><P>Keep service running &ndash; If you choose this option, Scrip
+	224 (MS Windows Service Manager) will ensure that the service will
+	run at all times, automatically re-starting it if it stops.</P>
+	<LI><P>Keep service stopped &ndash; If you choose this option, Scrip
+	224 (MS Windows Service Manager) will ensure that the service will
+	not run, automatically stopping it if it attempts to start.</P>
+</UL>
+<UL>
+	<LI><P>Startup type</P>
+	<UL>
+		<UL>
+			<LI><P>Automatic &ndash; When you select this option, Scrip 224
+			(MS Windows Service Manager) will set the service type on the
+			system, or group of systems, to &ldquo;automatic&rdquo;</P>
+			<LI><P>Manual &ndash; When you select this option, Scrip 224 (MS
+			Windows Service Manager) will set the service type on the system,
+			or group of systems, to &ldquo;manual&rdquo;</P>
+			<LI><P>Disabled &ndash; When you select this option, Scrip 224 (MS
+			Windows Service Manager) will set the service type on the system,
+			or group of systems, to &ldquo;disabled&rdquo;</P>
+		</UL>
+	</UL>
+</UL>
+<P STYLE="margin-left: 0.51in">Please note that you can configure
+&ldquo;service status&rdquo; and &ldquo;startup type&rdquo; settings
+at the same time.</P>
+<P>To select a setting for a service on a system, a site, or a group
+of systems you defined, simply click on the radio button
+corresponding to the desired setting. Clicking on the &ldquo;Update&rdquo;
+button will cause the content of the &ldquo;Current Settings&rdquo;
+window to be updated with the changes you just made. Clicking on the
+&ldquo;Done&rdquo; button will take you back to the &ldquo;Services
+information&rdquo; page. Please note that you do not have to click on
+the &ldquo;Update&rdquo; button. Clicking on the &ldquo;Done&rdquo;
+button will both update the settings and take you back to the
+&ldquo;Services information&rdquo; page.</P>
+<P><BR><BR>
+</P>
+<P>After you access the ASI service management console as described
+in the &ldquo;Accessing the ASI service management console&rdquo;
+section of this document, you can take any of the actions described
+above by clicking on the corresponding action link the MS Windows
+service you want to take the action on. In order to access &ldquo;Advanced&rdquo;
+functions, you need to click on the &ldquo;advanced&rdquo; action
+link.</P>
+<H4><I>Notes</I></H4>
+<P><I>When taking a service management action on a group of systems,
+the service management software running on the ASI server doesn't
+determine which systems in the group the action applies to. Scrip 224
+(MS Windows Service Manager) on the systems in the group retrieves
+the action, and attempts to perform the action. The Scrip doesn't
+check the status of the service before it attempts to perform the
+action. If the action does not apply, nothing will happen.</I></P>
+<P><I>The ASI MS Windows service management function does not replace
+Scrip 227 (Process and Service Shutdown-restart). Scrip 227 can run
+periodically to take a shut-down or re-start action on one or more MS
+Windows services while the ASI MS Windows service management function
+lets you take one-time actions.</I></P>
+<P><I>Until we integrate the ASI event notification function with the
+ASI dashboard, you should continue to use Scrip 176 (Services
+Restart) to monitor MS Windows services otherwise you won't receive
+e-mail notifications when monitored services stop running. However,
+you can stop using the &quot;restart&quot; option in Scrip 176 and,
+instead, use the &quot;Services Status&quot; setting in the new MS
+Windows service management function. </I>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2008
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

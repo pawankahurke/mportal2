@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20070607;7572550">
+	<META NAME="CHANGED" CONTENT="20070626;17381699">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>How to Perform Schedule Related Activities</H3>
+<UL>
+	<LI><P><A HREF="#Adding a schedule &aacute;top |outline">Adding a
+	schedule</A>  
+	</P>
+	<LI><P><A HREF="#Copying, or editing a schedule &aacute;top |outline">Copying,
+	or editing a schedule</A>  
+	</P>
+	<LI><P><A HREF="#Deleting a schedule &aacute;top |outline">Deleting
+	a Schedule</A>  
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="Adding a schedule &aacute;top |outline"></A>Adding a
+schedule <A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1>&aacute;</FONT></FONT><FONT SIZE=1>top
+</FONT></A>
+</H4>
+<OL>
+	<LI><P>Log onto your ASI server (<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>Click on the &ldquo;schedules&rdquo; link in the &ldquo;reports&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The &ldquo;Schedules&rdquo; page
+	will be displayed.</P>
+	<LI><P>Click on the &ldquo;add schedule&rdquo; link found above the
+	&ldquo;Search Options&rdquo; panel. The &ldquo;Add a Schedule&rdquo;
+	page will be displayed.</P>
+	<LI><P>Follow the on-screen instructions carefully.</P>
+</OL>
+<P STYLE="margin-left: 0.52in">To select an item (e.g. a month, or
+day), click on it. To de-select it, click on it again.</P>
+<P STYLE="margin-left: 0.52in">&ldquo;Month days&rdquo; refers to the
+day of the month you want the schedule to be. For example if you want
+a schedule for the first day of the month, you would enter 1 in the
+&ldquo;Start on day&rdquo; box. You can have a schedule for multiple
+days of a month by entering the interval between days of the month in
+the &ldquo;repeat every day(s)&rdquo; box.</P>
+<P STYLE="margin-left: 0.52in">When you activate the &ldquo;Notify me
+when this schedule fails after failed runs.&rdquo; options, failure
+notifications are mailed to the e-mail address specified in the ASI
+server &quot;support_email&quot; configuration parameter or, if that
+configuration parameter is empty or unavailable, to
+support@handsfreenetworks.com</P>
+<P STYLE="margin-left: 0.52in">Two type of one-time schedules
+(defined by entering schedule information in the panel displayed when
+you click on the &ldquo;One Time&rdquo; tab) are possible; ones that
+run on a date and time in the future which you specify, and ones that
+will cause a section they are assigned to, to run immediately upon
+assignment. In either case, you need to define the period of time
+over which the section you assign the one-time schedule to will
+retrieve events.</P>
+<P STYLE="margin-left: 0.52in">In some cases one-time schedules are
+not deleted after a report that uses them runs:</P>
+<UL>
+	<LI><P>The schedule is used for other reports, and those other
+	reports have not run yet as a result of that schedule (e.g. They are
+	disabled).</P>
+	<LI><P>The schedule exists but it has not been assigned to any
+	report.</P>
+	<LI><P>The report using the one-time schedule was disabled when the
+	schedule ran.</P>
+	<LI><P>The report using the one-time schedule was disabled when the
+	schedule ran, and the schedule was changed but it will not run again
+	since it has already run once. This can only occur if someone sets
+	up a run-once report, and leaves it disabled, sees the one-time
+	schedule expire, and then changes the schedule and enables the
+	report. In this case, the report will never run.</P>
+</UL>
+<OL START=6>
+	<LI><P>After you finish defining a schedule, click on the &ldquo;Add&rdquo;
+	button found at the top and bottom of the page.</P>
+</OL>
+<P>Please note that you can also access the &ldquo;Schedules&rdquo;
+page on the ASI server also via the &ldquo;manage schedules&rdquo;
+link found in the row of links at the top and bottom of the &ldquo;Reports&rdquo;
+page, or the &ldquo;Sections&rdquo; pages (main, asset, event, MUM,
+and summary section pages)
+(<A HREF="https://asiservername/main/report/sched.php">https://asiservername/main/report/sched.php</A>).</P>
+<H4><A NAME="Copying, or editing a schedule &aacute;top |outline"></A>
+Copying, or editing a schedule <A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1>&aacute;</FONT></FONT><FONT SIZE=1>top
+</FONT></A>
+</H4>
+<P>In order to edit or copy a schedule, please perform the following
+steps:</P>
+<OL>
+	<LI VALUE=1><P>Log onto your ASI server
+	(<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>Click on the &ldquo;schedules&rdquo; link in the &ldquo;reports&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The &ldquo;Schedules&rdquo; page
+	will be displayed. 
+	</P>
+	<LI><P>In order to access the schedule you want to edit or copy:</P>
+</OL>
+<UL>
+	<UL>
+		<UL>
+			<LI><P>Enter one or more character strings from the name of the
+			schedule you want to copy or edit in the &quot;Name Contains&quot;
+			parameter in the &quot;Search Options&quot; panel on the
+			&ldquo;Schedules&rdquo; page.</P>
+			<LI><P>If necessary, adjust the value of the &ldquo;Page Size&rdquo;
+			parameter in the &ldquo;Display Options&rdquo; panel, then 
+			</P>
+			<LI><P>Click on the &ldquo;Search&rdquo; button. 
+			</P>
+		</UL>
+	</UL>
+</UL>
+<OL START=5>
+	<LI><P>Click on the &ldquo;edit&rdquo; or &ldquo;copy&rdquo; link
+	found in the &ldquo;Action&rdquo; column for the schedule you want
+	to edit or copy. The &ldquo;Edit a Schedule&rdquo; or &ldquo;Copy a
+	Schedule&rdquo; page will be displayed 
+	</P>
+</OL>
+<OL START=5>
+	<LI><P>Follow the on-screen instructions carefully.</P>
+	<LI><P>Click on the &ldquo;Update&rdquo; (if you are editing a
+	report), or &ldquo;Copy&rdquo; (if you are copying a report)
+	buttons. Note that if you are editing a schedule you do not own, the
+	button label in the &ldquo;Edit a Schedule&rdquo; page will be &ldquo;Add&rdquo;
+	as you will be adding a copy of the schedule which you will own.</P>
+</OL>
+<P>Please note that you can also access the &ldquo;Schedules&rdquo;
+page on the ASI server also via the &ldquo;manage schedules&rdquo;
+link found in the row of links at the top and bottom of the &ldquo;Reports&rdquo;
+page, or the &ldquo;Sections&rdquo; pages (main, asset, event, MUM,
+and summary section pages)
+(<A HREF="https://asiservername/main/report/sched.php">https://asiservername/main/report/sched.php</A>).</P>
+<H4><A NAME="Deleting a schedule &aacute;top |outline"></A>Deleting a
+schedule <A HREF="#top"><FONT FACE="Wingdings"><FONT SIZE=1>&aacute;</FONT></FONT><FONT SIZE=1>top
+</FONT></A>
+</H4>
+<P>In order to delete a schedule, please perform the following steps:</P>
+<OL>
+	<LI VALUE=1><P>Log onto your ASI server
+	(<A HREF="https://asiservername/main">https://asiservername/main</A>).
+	The ASI dashboard will be displayed.</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below user login and
+	date. The &ldquo;Welcome&rdquo; page will be displayed.</P>
+	<LI><P>Click on the &ldquo;schedules&rdquo; link in the &ldquo;reports&rdquo;
+	navigation bar found the at upper right-hand corner of any page in
+	the ASI server extended interface. The main &ldquo;Schedules&rdquo;
+	page will be displayed. 
+	</P>
+	<LI><P>In order to access the schedule you want to delete:</P>
+</OL>
+<UL>
+	<UL>
+		<UL>
+			<LI><P>Enter one or more character strings from the name of the
+			schedule you want to delete in the &quot;Name Contains&quot;
+			parameter in the &quot;Search Options&quot; panel on the
+			&ldquo;Schedules&rdquo; page.</P>
+			<LI><P>If necessary, adjust the value of the &ldquo;Page Size&rdquo;
+			parameter in the &ldquo;Display Options&rdquo; panel, then 
+			</P>
+			<LI><P>Click on the &ldquo;Search&rdquo; button. 
+			</P>
+		</UL>
+	</UL>
+</UL>
+<OL START=5>
+	<LI><P>Click on the &ldquo;delete&rdquo; link found in the &ldquo;Action&rdquo;
+	column for the schedule you want to delete. The &ldquo;Schedule
+	&lt;schedule name&gt; Deletion&rdquo; page will be displayed.</P>
+	<LI><P>Click on the &ldquo;Yes&rdquo; link. The &ldquo;Schedule
+	&lt;schedule name&gt; Deletion&rdquo; confirmation page will be
+	displayed.</P>
+</OL>
+<P>Please note that you can also access the &ldquo;Schedules&rdquo;
+page on the ASI server also via the &ldquo;manage schedules&rdquo;
+link found in the row of links at the top and bottom of the &ldquo;Reports&rdquo;
+page, or the &ldquo;Sections&rdquo; pages (main, asset, event, MUM,
+and summary section pages)
+(<A HREF="https://asiservername/main/report/sched.php">https://asiservername/main/report/sched.php</A>).</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,32 @@
+How to define a group
+======================
+
+1) Log onto the ASI server (https://asiservername/main). The ASI Dashboard will be displayed.
+
+2) Click on the "Use extended interface" link on the right side of the ASI Dashboard upper pane, below user login and date. The "Welcome" page will be displayed.
+
+3) At the upper right-hand corner of any page on the ASI server, click on the "groups" link in the "tools" navigation bar (https://asiservername/main/config/groups.php?custom=3). The "Group Management - Select or Add a Group" page will be displayed.
+
+4) Click on the "Add new group" button at the top of the page.
+
+5) In the "Group name" box enter the name of the group you want to add. Group names cannot be longer than 50 characters.
+
+6) If you want other users with accounts on your ASI server to use (not change) the group you are defining, click in the "Allow other users to use this group?" box.
+
+7) Click on the "OK" button. The "Group Management - Add a Group" page will be displayed.
+
+On the "Group Management - Add a Group" a table listing all sites accessible by the current user will be displayed. For each site you can take one of two actions to add systems from that site to the group you are defining:
+- "select all"
+- "select/de-select individual" (for sites with more than one system
+
+Repeat steps 8) and 9) until you have selected all systems you want to include in the group you are defining.
+
+8) If you want to select all systems at a site, click on the "select all" action link for that site. 
+The "Group Management - Edit a Group - Group <group name>" page will be displayed updated by the "select all" action you just took. The systems from the site on which you took the "select all" action will be listed in the "Group Members from Site" column.
+
+9) If you want to select one or more systems from a site, click on the "select/de-select individual" action link for that site. The "Group Management - Edit a Group - Group <group name>" page will be displayed again, this time listing all systems in the site you want to select as members of the group you are defining. For each system you want to add to the group you are defining, click in the box in the "New" column. Once you have selected all systems you want to include in the group you are defining, click on the "OK" button. 
+The "Group Management - Edit a Group - Group <group name>" page will be displayed updated by the system selection action you just took. The systems you selected from the site on which you took the "select/de-select individual" action will be listed  in the "Group Members from Site" column.
+
+10) Once you have selected all systems you want included in the group you are defining, click on the "OK" button found both above and below the table listing all sites and group membership. The "Group Management - Add a Group" page will be displayed confirming addition of the new group with the following message "Updated group <group name>."
+
+11) Click on the "Return to Group Management" link. The "Group Management - Select or Add a Group" page will be displayed listing the group you just added. Verify group mmembership, and adjust it as desired by clicking on the "edit" action link for the group.

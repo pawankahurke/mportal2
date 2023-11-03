@@ -1,0 +1,627 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 228 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20031112;8102990">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGED" CONTENT="20040326;20320674">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		H5 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 228 Configuration</H3>
+<H4>Configuration parameters &ndash; default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip disabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Rules</EM> default rules as
+	described in section <I>Scrip 228 default configuration</I> section 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Rule chains</EM> default
+	chains as described in section <I>Scrip 228 default configuration</I>
+	section 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Adapter classes</EM> default
+	adapter classes as described in section <I>Scrip 228 default
+	configuration</I> section 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Default action</EM> <STRONG>deny</STRONG>
+		</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Logging enabled</I> enabled</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Allow threshold</EM> <STRONG>-1</STRONG>
+	(meaning never)</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Deny threshold</EM> <STRONG>1</STRONG>
+		</P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, by default Scrip 228
+	will log the number of times <STRONG>allow</STRONG> and <STRONG>deny</STRONG>
+	<EM>actions</EM> are applied, if they exceed the corresponding
+	thresholds, hourly at 0 minutes past the hour.</P>
+	<LI><P STYLE="margin-bottom: 0in">Log network packet filtering
+	statistics now</P>
+</UL>
+<H4>Rules 
+</H4>
+<P>The <EM>Rules</EM> parameter is a list of named network packet
+filtering rules, each on a separate line. The format of an entry in
+the <EM>Rules</EM> parameter is as follows:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The name of the rule, followed by
+	a comma with no spaces, 
+	</P>
+	<LI><P>The properties that define the rule, each separated by a
+	comma with no spaces. The format of a rule property is 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">&lt;property name&gt;=&lt;property value&gt;</PRE>
+</UL>
+<P>Rules use filters to accept or deny network packets. Scrip 228
+network packet filtering rules filter network packets based on:</P>
+<UL>
+	<LI><P>Address</P>
+	<LI><P>Protocol, and 
+	</P>
+	<LI><P>Interface</P>
+</UL>
+<P>The Scrip also includes some convenient extensions to interface
+classification, and implicitly includes connection state in TCP and
+UDP filtering.</P>
+<P>As described above, you assign each property in a rule a value
+that defines the match for that property. If a property is specified,
+then packets are tested against the value you specify for that
+property. A match will occur, and the action specified in the <I>Action</I>
+property taken, if the packet information matches the value specified
+for the property. If the property is not specified, then any packet
+will match that particular property. 
+</P>
+<P>Scrip 228 supports the following rule properties and corresponding
+values:</P>
+<OL>
+	<LI><P>Source address: the property name is <EM>srcadr</EM> and the
+	value is an address/mask using the dot-slash notation.
+	Alternatively, an address can be a domain name (see the notes below
+	on this). For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    srcadr=192.168.1.0/24</PRE>
+	<LI><P>Destination address: the property name is <EM>dstadr</EM> and
+	the value is an address/mask using the dot-slash notation.
+	Alternatively, an address can be a domain name (see the notes below
+	on this). For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    dstadr=nanoheal.org</PRE>
+	<LI><P>Source locality: the property name is <EM>srcnet</EM> and the
+	value is <STRONG>local</STRONG> or <STRONG>remote</STRONG>. See the
+	notes below on this. For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    srcnet=remote</PRE>
+	<LI><P>Destination locality: the property name is <EM>dstnet</EM>
+	and the value is <STRONG>local</STRONG> or <STRONG>remote</STRONG>.
+	See the notes below on this. For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    dstnet=local</PRE>
+	<LI><P>Protocol: the property name is <EM>proto</EM> and the value
+	can be:</P>
+	<UL>
+		<LI><P><STRONG>tcp</STRONG>, <STRONG>udp</STRONG>, or <STRONG>icmp</STRONG></P>
+		<LI><P><B>tcp+udp</B>, or <B>udp+tcp</B></P>
+		<LI><P><B>all </B>(tcp, udp, and icmp)</P>
+	</UL>
+	<P>For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    proto=tcp
+    proto=tcp+udp</PRE><P>
+	If you leave the protocol out of a rule specification, the rule
+	applies to both TCP and UDP (i.e. It's equivalent to specifying a
+	value of <B>tcp+udp</B>, or <B>udp+tcp</B>).</P>
+	<LI><P>Source port: the property name is <EM><EM>srcprt</EM></EM>
+	and the value is a list of decimal numbers, separated by plus signs,
+	that represent port numbers. For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    srcprt=25+80</PRE>
+	<LI><P>Destination port: the property name is <EM>dstprt</EM> and
+	the value is a list of decimal numbers, separated by plus signs,
+	that represent port numbers. For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    dstprt=37</PRE>
+	<LI><P STYLE="margin-bottom: 0in">ICMP packet type: the property
+	name is <EM>icmp</EM> and the value is a list of decimal numbers,
+	separated by plus signs, with no spaces in between, that represent
+	the <EM>message type</EM> field in the packet as described in RFC
+	792. The message types defined in the RFC are: 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">0: Echo Reply 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">3: Destination Unreachable 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">4: Source Quench 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">5: Redirect 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">8: Echo 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">11: Time Exceeded 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">12: Parameter Problem 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">13: Timestamp 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">14: Timestamp Reply 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">15: Information Request 
+		</P>
+		<LI><P>16: Information Reply 
+		</P>
+	</UL>
+	<P>For example: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">    icmp=0+8+13+14+15+16</PRE>
+	<LI><P>Action: the property name is <EM>act</EM> and the value is
+	either <STRONG>allow</STRONG> or <STRONG>deny</STRONG>. For example:
+		</P>
+	<PRE STYLE="margin-bottom: 0.2in">    act=allow</PRE><P>
+	The actual result of a <EM>deny</EM> action is simply to drop the
+	packet silently. 
+	</P>
+</OL>
+<P>A <EM>Rules</EM> parameter entry is then made up of a series of
+properties concatenated together, separated by commas with no spaces.
+For example: 
+</P>
+<PRE STYLE="margin-bottom: 0.2in">    srcadr=192.168.1.0/24,proto=tcp,act=allow</PRE><P>
+Please note that a rule does not have a value, or even a placeholder
+for all properties, as shown in the example above.</P>
+<H5>Built-in rules</H5>
+<P>The ASI client adds some <EM>built-in</EM> rules at the beginning
+of every chain so that even if you make a mistake in the rules, the
+ASI client will still be able to reach other ASI clients and also
+reach the ASI server. This allows you to correct your mistake without
+requiring physical access to the systems involved.</P>
+<P>The rules automatically added by the ASI client (built-in) are:</P>
+<UL>
+	<LI><P>builtin_hfn,proto=tcp+udp,dstprt=2721,act=allow</P>
+	<LI><P>builtin_hfn_server,proto=tcp,dstprt=443,act=allow</P>
+	<LI><P>builtin_dns,proto=udp,dstprt=53,act=allow</P>
+</UL>
+<P>The ASI client adds the following rules to the start of every rule
+chain used in a <EM>send</EM></P>
+<UL>
+	<LI><P>builtin_hfn,builtin_hfn_server,builtin_dns</P>
+</UL>
+<P>and adds the following rules to the start of every rule chain used
+in a <EM>receive</EM></P>
+<UL>
+	<LI><P>builtin_hfn</P>
+</UL>
+<P>The ASI client dynamically adjusts the port <EM>2721</EM> in the
+&quot;builtin_hfn&quot; rule and the port <EM>443</EM> in the
+<EM>builtin_hfn_server</EM> rule, based on the actual ports that are
+used.</P>
+<P>The inter-client port (2721) will always be correct since it only
+set once at ASI client startup. However, the server port (443) can be
+changed dynamically in the settings for Scrip 43, by either changing
+the server URL or by changing the proxy configuration information. If
+you change this port with the firewall running, then the built-in
+rules will be temporarily incorrect and the client may lose contact
+with the server. If you need to change the port number used by the
+server, you should either disable the firewall before the change and
+re-enable it after the change, or else add your own rule to allow
+contact on the new port before the change, then remove it after the
+change.</P>
+<P>Scrip 228 has two other built-in rules:</P>
+<UL>
+	<LI><P>allow,act=allow</P>
+	<LI><P>deny,act=deny</P>
+</UL>
+<P>Scrip 228 does not automatically add these rules to rule chains
+you define. You have to add them to any rule chain where you want to
+use them. <B>We strongly advise you to add either the allow, or deny
+rule, as appropriate, to the end of each chain of rules you define.
+In this way you will avoid the situation where when no rule in a
+chain applies, Scrip 228 will take the default action.</B></P>
+<H4>Rule chains</H4>
+<P>The <EM>Rule chains</EM> parameter is a list of named network
+packet filtering chains, each on a separate line. The format of an
+entry in the <EM>Rule chains</EM> parameter is as follows:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The name of the chain, followed by
+	a comma with no spaces</P>
+	<LI><P>The names of the network packet filtering rules that define
+	the chain, separated by commas with no spaces</P>
+</UL>
+<P>In evaluating a chain, Scrip 228 takes the action specified by the
+first rule in the chain that is matched by a packet. If no action is
+specified in the matching rule, or no rules match, then the action
+specified in the <EM>Default action</EM> parameter is taken.</P>
+<P>When filtering TCP packets, Scrip 228 maintains connection state
+and always allows packets (in either direction) that are part of an
+established connection. The network packet filtering rules only apply
+to TCP packets that are attempting to establish a new connection.</P>
+<P>When filtering UDP packets, Scrip 228 maintains information about
+UDP traffic and always allows packets (in either direction) that are
+going between the same endpoints (same address and port numbers) as a
+packet that was previously allowed. This &quot;UDP connection&quot;
+times out after a certain time period. The network packet filtering
+rules apply to any UDP packet that is not between the same endpoints
+as a previously allowed packet within the timeout period.</P>
+<H4>Adapter classes</H4>
+<P>The final step in configuring Scrip s228 is the matching of
+adapter classes with rule chains.</P>
+<P>Scrip 228 applies the network packet filtering rules in a chain to
+selected network adapters. This is done via the <EM>Adapter classes</EM>
+parameter by associating a chain of network packet filtering rules to
+one or more of the pre-defined adapter classes.</P>
+<P>The <EM>Adapter classes</EM> parameter consists of a list of
+adapter classes, each on a separate line. The format of an entry in
+the <EM>Adapter classes</EM> parameter is as follows:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The name of the adapter class,
+	followed by a comma with no spaces</P>
+	<LI><P STYLE="margin-bottom: 0in">The name of the rule chain to
+	apply for <EM>send operations</EM>, followed by a comma with no
+	spaces</P>
+	<LI><P>The name of the chain to apply for <EM>receive</EM>
+	operations</P>
+</UL>
+<P>Entries in the <EM>Adapter classes</EM> parameter should be
+organized by class from most general to most specific, so the last
+item in the list that applies to a particular adapter specify the
+chains used for filtering packets on that adapter.</P>
+<P>The exception to the above rule is the <EM>Default</EM> adapter
+class. It can be located anywhere in the list of adapter classes in
+the <EM>Adapter classes</EM> parameter. Scrip 228 will apply it last,
+after all other adapter classes defined in the parameter have been
+applied, regardless of its location in the list of adapter classes.</P>
+<P>The adapter classes you can use in the <EM>Adapter classes</EM>
+parameter are:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">wired: an adapter that has a
+	physical connection to a LAN.</P>
+	<LI><P STYLE="margin-bottom: 0in">wireless: a wireless network
+	adapter.</P>
+	<LI><P STYLE="margin-bottom: 0in">dialup: a dial-up connection
+	through a modem.</P>
+	<LI><P>default: any adapter not chosen by another class.</P>
+</UL>
+<H4>Default action</H4>
+<P>The <EM>Default action</EM> parameter specifies the default action
+for a network packet filtering rule if no action is specified. It
+also specifies the default action for a chain if no rule in the chain
+applies. <EM>Default action</EM> can have two values, either the word
+<STRONG>allow</STRONG> or the word <STRONG>deny</STRONG> The default
+value is <STRONG>deny</STRONG>.</P>
+<P><B>Please note that if Scrip 228 finds an error in rules, chains,
+or adapter classes, it will report the error, and will not filter any
+packets.</B></P>
+<H4>Logging</H4>
+<P>When enabled, Scrip 228 tracks the number of times each network
+packet filtering rule is applied on each adapter and logs these
+counts on the ASI server periodically, at the time indicated in the
+Schedule parameter. After Scrip 228 posts the counts on the ASI
+server, it resets each counter to zero.</P>
+<P>Logging is controlled by the value of the <EM>Allow threshold</EM>
+parameter and the <EM>Deny threshold</EM> parameter. Each network
+packet filtering rule performs either an <STRONG>allow</STRONG> or a
+<STRONG>deny</STRONG> <EM>action</EM>. The thresholds control whether
+application of a rule is reported. The number of times a rule is
+applied will be reported only if it is greater than the corresponding
+threshold at the time logs are scheduled to be posted. If no count
+meets the threshold requirement, then no log is generated.</P>
+<P>Scrip 228 also lets you trigger the logging function on demand by
+clicking on the Execute button to the right of the Log network packet
+filtering statistics now label. However, when a log is generated as a
+result of clicking on the Execute button, a log with all packet
+counts equal to zero will be generated even if no count meets the
+threshold requirement.</P>
+<P>Scrip 228 logs network packet filtering statistics by adapter
+class. Within each adapter class, network packet filtering counts are
+given for each rule in the chain applied to the adapter class.</P>
+<P>Note that Scrip 228 will log any configuration change, and will
+post a log with its initial configuration the first time it is
+enabled.</P>
+<H5>Logging enabled</H5>
+<P>The <EM>Logging enabled</EM> parameter lets you turn logging of
+network packet filtering statistics on one, some, or all systems at a
+site.</P>
+<H5>Allow threshold</H5>
+<P>The <EM>Allow threshold</EM> parameter lets you set the threshold
+above which application of rules with an <EM>action</EM> property
+having a value of <STRONG>allow</STRONG> is logged. The number of
+times a rule with an <STRONG>allow</STRONG> <EM>action</EM> property
+is applied has to be greater than or equal to the threshold in order
+for it to be logged. The default value of <EM>Allow threshold</EM> is
+<STRONG>-1</STRONG>, indicating that application of rules with an
+<STRONG>allow</STRONG> <EM>action</EM> property is never logged.</P>
+<H5>Deny threshold</H5>
+<P>The <EM>Deny threshold</EM> parameter lets you set the threshold
+above which application of rules with an <EM>action</EM> property
+having a value of <STRONG>deny</STRONG> is logged. The number of
+times a rule with a <STRONG>deny</STRONG> <EM>action</EM> property is
+applied has to be greater than or equal to the threshold in order for
+it to be logged. The default value of <EM>Deny threshold</EM> is <STRONG>1</STRONG>,
+indicating that any application of rules with a <STRONG>deny</STRONG>
+<EM>action</EM> property will be logged, but no log will be generated
+when there are no <STRONG>deny</STRONG> operations.</P>
+<H4>Log network packet filtering statistics now</H4>
+<P>With the <EM>Execute</EM> button, you can run the Scrip 228
+network packet filtering statistics reporting function on demand. The
+<EM>Execute</EM> button can be used to execute the Scrip on the local
+system or on all systems where the ASI client is running. When you
+click on the <EM>Execute</EM> button to the right of the Log network
+packet filtering statistics now label, the Scrip's network packet
+filtering statistics reporting function runs immediately.</P>
+<H4>Scrip 228 default configuration</H4>
+<P>Scrip 228 is configured with default rules, rule chains and
+adapter classes to make it possible for you to use it productively
+with a minimum of configuration changes (in fact none unless you want
+to make any changes). All you need to do is enable it. Below, you
+will find a listing of Scrip 228's default configuration:</P>
+<H5>Rules</H5>
+<PRE>smb,srcnet=local,dstprt=137+138+139,act=allow
+passiveftp,proto=tcp,srcprt=20,act=allow
+allicmp,proto=icmp,act=allow
+noremoteping,srcnet=remote,proto=icmp,icmp=8,act=deny
+noping,proto=icmp,icmp=8,act=deny
+dhcp,proto=udp,srcprt=67,dstprt=68,act=allow</PRE><H5>
+Rule chains</H5>
+<PRE>trustrecv,smb,passiveftp,noremoteping,allicmp,dhcp,deny
+trustsend,allow
+notrustrecv,passiveftp,noping,allicmp,dhcp,deny</PRE><H5>
+Adapter classes</H5>
+<PRE>wireless,trustsend,notrustrecv
+dialup,trustsend,notrustrecv
+wired,trustsend,trustrecv
+default,trustsend,notrustrecv</PRE><P>
+In the above default configuration, wireless and dial-up connections
+are <EM>untrusted</EM>, and other connections are <EM>trusted</EM>.</P>
+<P>Keep in mind that Scrip 228 inserts the built-in rules described
+in the <I>Built-in rules</I> section at the beginning of each of the
+rule chains in the default configuration.</P>
+<P>All adapter class connections allow any outgoing traffic.</P>
+<P>Trusted connections allow incoming traffic (both UDP and TCP) on
+the three ports that are used for NETBIOS; this allows Microsoft
+Windows Networking to operate. Trusted connections also allow
+incoming traffic (both UDP and TCP) on port 2721 which allows the ASI
+client to operate. Trusted connections allow ICMP <EM>ping</EM>
+requests from local addresses, so that <EM>ping</EM> will work
+locally.</P>
+<P>Untrusted connections do not allow NetBIOS traffic, ASI client
+traffic, or ICMP ping packets in. However, they do have to allow
+other ICMP traffic in. Also, any incoming traffic that is part of a
+TCP connection that was initiated from a system itself will be
+allowed.</P>
+<P>the <I>passiveftp</I> rule is only used in receive chains. It
+allows connections from anywhere when the source port is 20. This
+makes it possible for data connections from a passive FTP server to
+work correctly.</P>
+<P>Please note that you can delete the <I>dhcp</I> rule from the
+<I>trustrecv</I> and <I>notrustrecv</I> rule chains if you do not use
+DHCP.</P>
+<H4>Notes on specifying addresses</H4>
+<P>When no address size is specified in the value of the <EM>Source
+address</EM> and <EM>Destination address</EM>, properties, <STRONG>/32</STRONG>
+is assumed. This means that an address that is specified as an IP
+address only is treated as a fully-specified address, not a network
+address.</P>
+<P>Scrip 228 allows specifying addresses using domain names as a
+convenience. However, there are a few things to be aware of when
+using this feature:</P>
+<UL>
+	<LI><P>It opens up the possibility that the network packet filtering
+	function could be compromised by causing the name to resolve to an
+	incorrect address (DNS spoofing).</P>
+	<LI><P>It may not work well with dynamic IP addresses. Internally,
+	the address is maintained as an IP address, and is only updated when
+	the ASI client first starts, and thereafter when the schedule runs.</P>
+	<LI><P>An address that is specified with a domain name always
+	represents a fully specified address, not a network. In other words,
+	there is an implicit netmask of <STRONG>255.255.255.255</STRONG> for
+	addresses specified with a domain name.</P>
+</UL>
+<H4>Notes on locality of connections</H4>
+<P>In checking an address to see whether it is <STRONG>local</STRONG>
+or <STRONG>remote</STRONG>, Scrip 228 currently uses the ARP cache.
+It watches both outgoing and incoming ARP packets, and remembers all
+IP addresses with MAC address resolutions as being <STRONG>local</STRONG>.
+Every other IP address is classified as <STRONG>remote</STRONG>.</P>
+<P>This can fail in one circumstance: If the ARP resolution for a
+certain IP address happened at a time when the ASI network driver was
+not running. However, since there is no timeout in the ASI network
+driver cache, and the ARP timeout is relatively short for most
+networks, this shouldn't be a problem. The only time this event might
+occur is shortly after the ASI client restarts.</P>
+<P>Since there is no timeout in the ASI network driver cache, it does
+mean that we may have <EM>stale</EM> IP addresses recorded as <STRONG>local</STRONG>.
+However, since they were local at one time, this is unlikely to cause
+any kind of problem.</P>
+<P>You should be aware that this does make Scrip 228 more vulnerable
+to an attack by a spoofed ARP packet. However, this kind of attack is
+difficult to implement since ARP packets cannot be routed, so at this
+point in time we have decided not to address this issue.</P>
+<H4>Current limitations</H4>
+<P>The passiveftp rule allows an incoming TCP connection to any port,
+as long as the source port is 20. This means that an attacker could
+exploit any TCP vulnerability by always using a source port of 20.
+There is no convenient restriction for this, due to the way that
+passive FTP works. One way to protect against this vulnerability is
+to disallow passive mode FTP by removing the passiveftp rule from the
+chains, and require the use of active mode FTP only.</P>
+<P>On systems running the Microsoft Windows NT4 operating system,
+traffic through a dialup connection (i.e. via modem) is not currently
+filtered by the ASI network driver. Rules intended for modem traffic
+will not have any effect. We will address this situation in the
+future. In most circumstances, this should not be a major issue since
+NT4 is typically used on servers that are more likely to be connected
+to the network via hardwired LAN connections.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<TR>
+		<TD>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">1</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Minutes</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">0-60</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">2</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Hours</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">1-24</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">3</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Day of the Month</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">1-31, depending on the month; a
+			value of * means that the Scrip should be run every day.</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">4</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Month</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">1-12; a value of * means that the
+			Scrip should be run every month.</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">5</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Day of the Week</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">0, Sunday - 6, Saturday; a value of
+			* means that the Scrip should be run every day of the week.</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">6</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Minute Randomizer</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">N; the size of the time interval in
+			minutes over which the Scrip should be randomly executed. We
+			multiply N*60, then calculate a random number X between 1 and
+			N*60, and run the Scrip X seconds after its scheduled time.</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">7</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Conditional Execution</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">N; N=1 means that if the Scrip is
+			past due, it will be run immediately, N=2 means that If the Scrip
+			is past due, it will be run at the next scheduled execution time.
+			If the value is set to 2, the actual Scrip execution time will be
+			within 3 minutes (either way) of the scheduled time. This is
+			necessary to prevent the case where a process will not be executed
+			if it is a little slow to start, or if the scheduler starts it a
+			few seconds too early.</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="font-style: normal">8</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">Failed Run Limit</P>
+		</TD>
+		<TD>
+			<P STYLE="font-style: normal">N, where N is the number of times
+			that Scrip execution is allowed to fail before notification is
+			sent to the support provider; N=0, the Scrip will NEVER report a
+			failure, N=1, the Scrip will report EVERY failure, N=2, the Scrip
+			will report if it failed twice in a row, and so on.</P>
+		</TD>
+		<TD VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a <STRONG>1,3,5</STRONG> entry for the <EM>Minutes</EM>
+parameter would mean that a Scrip would be executed at minutes 1, 3,
+and 5.</P>
+<P>A <STRONG>10-14</STRONG> entry for the <EM>Hours</EM> parameter
+would mean that a Scrip would be executed hourly starting at 10 AM
+and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together, separated
+by commas. For example, you could have an entry for the <EM>Hours</EM>
+parameter as follows:</P>
+<P><B>3,8-18,23</B></P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P STYLE="font-style: normal"><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy;
+				2000-2003 HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

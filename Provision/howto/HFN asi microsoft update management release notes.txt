@@ -1,0 +1,240 @@
+Release Notes for The ASI Microsoft Update Management Facility
+===============================================================
+
+Until you are thoroughly familiar with the ASI Microsoft  Update Management facility (MUM) wizard based interface (https://asiserverurl/main/patch/wu-confg.php), and are satisfied that ASI MUM works as you expect, we strongly advise AGAINST using the ASI MUM advanced interface (https://asiserverurl/main/patch/wu-sites.php).
+
+If you would like to use the ASI MUM advanced interface, please contact HandsFree Networks for assistance.
+
+THE MOST IMPORTANT THINGS TO KNOW ABOUT
+=========================================
+
+1. The initial release of the ASI MUM only supports the "current versions" of the Microsoft Automatic Update Client (AU client), which are only on Microsoft Windows 2000 (W2k) and Microsoft Windows XP (XP).  This means that W2k must be at least SP2.  If it is SP2, then you must manually install the AU client available at:
+
+http://www.microsoft.com/downloads/details.aspx?FamilyID=799432fb-c196-4f01-8cce-4f9ea58d6177&DisplayLang=en
+
+The preferred configuration for W2k is SP3 or later.
+
+ASI MUM supports any version of XP.  However, the original release of XP will require the AU client to be updated. You can install update it manually using the above link. Please note that you can also just let the AU client update itself. XP with SP1 or later already includes a supported version of the AU client.  
+
+Please note that you can't stop a system running XP from updating to the latest AU client. As long as it is connected to the Internet, it will silently update itself.
+
+Periodically, Microsoft releases a new version of the AU client. During a detection, the AU client updates itself.  This will result in Scrip 237 reporting a failed detection once.  By default, Scrip 237 attempts to retry a detection 3 times.  The second detection should work, and Scrip 237 will continue normally.  When an update occurs, the DLL versions reported in Scrip 237's Text 4 field will be different from any previous logs.
+
+=================================================================================
+
+2. When ASI MUM takes over management of the AU client, it uses policy registry keys to disable the local control of the AU client. Disabling Scrip 237 or uninstalling the ASI client will restore local control of the AU client.
+
+If there were any policy keys in place before the ASI client was installed, enabling and disabling Scrip 237 will just delete them. We don't support the use of domain policies on the AU client in conjunction with our software (they aren't really necessary).
+
+=================================================================================
+
+3. You can use the ASI software with the Microsoft Windows Update Service (SUS).  However, right now, changing between SUS servers, or to/from an SUS server, can get the ASI server out of sync. The problem happens if the Microsoft Update server offers a patch that the AU client detects, but then the SUS server
+doesn't have that patch for download (or vice versa).  Apparently, Microsoft is now doing this on a regular basis, probably because the released version of SUS doesn't support some of the features used by their in-house update servers, and required by certain patches.
+
+=================================================================================
+
+4. For each machine group, both those built-in like "All" and those that you define, ASI MUM lets you select one of the following management policies
+      Disable
+      User controlled download and install
+      Automated download, user controlled install
+      Automated download and install
+      Manage from Server
+
+The "Disable", "User controlled download and install", "Automated download, user controlled install", and "Automated download and install" options have not been
+thoroughly tested to verify that activities performed by the Automatic Updates service are reported to the ASI MUM.  Scrip 237 sets up Automatic Updates policy
+keys for each of these options.  So, the "Disable" option is the equivalent of choosing "Turn off Automatic Updates" in the control panel, the "User controlled
+download and install" option is the equivalent of choosing "Notify me but don't automatically download or install them", the "Automated download, user controlled
+install" is equivalent to "Download updates for me, but let me choose when to install them" and "Automated download and install" is equal to "Automatically
+download recommended updates for my computer and install them...".
+
+Please note that the default option is "Manage from Server" and, initially, there should be no need to change the default settings
+
+=================================================================================
+
+5. You need to be careful with uninstalls, for several reasons:
+
+a. Quite often, they simply don't work.  This is an issue with the uninstall itself, and has nothing to do with ASI MUM.
+
+b. If a user manually uninstall an update, Microsoft does not keep a permanent record of this action, except for an MS Windows event log event. This means that at a later date the update that was uninstalled manually will be detected again. In turn, this means that eventually, that update may be re-installed again. We plan to add intelligence to Scrip 237 that will enable it to detect previously unininstalled updates and prevent their re-installation.
+
+c. When you install all critical updates on a machine, and then you uninstall certain updates, the updates you just uninstalled will show up as detected as well as some other updates that were previously installed.  Uninstalling certain updates seems to have a side-effect of uninstalling some other updates as well. This has nothing to do with ASI MUM, but with the way Microsoft uninstalls work.
+ 
+d. They often require user interaction, and don't have any silent mode.  In particular, they usually bring up dire warnings about how everything is going to stop working after the uninstall.  Once again, this has nothing to do with the ASI software.
+
+The ASI client attempts to run the uninstalls silently.  If an uninstall is not working as expected, Scrip 237 will probably log that it detected an unknown uninstall
+executable.  Please send us a copy of the log if this appears and we can add support for the particular uninstall executable.  The uninstall executables currently supported include: spuninst.exe, oeuninst.exe, and muninst.exe.
+
+e. Uninstalls have not yet been thoroughly tested with ASI MUM.  Initial testing indicate that they work, but there may be some problems.
+
+=================================================================================
+
+6. Scrip 237 knows about Scrips that could potentially interfere with the Microsoft update process. These include Scrips 27 (System Start-up Environment Management), 232 (Intrusion Protection Control, 189 (File Download Filtering), and Scrips 60, 217-221 (Clean Folders). When Scrip 237 detects a potential conflict with one or more of these Scrips, it posts an event log listing the conflicts and describing a set of actions you need to take, as well as specific software update actions Scrip 237 will not perform until the required Scrip configuration changes are made.
+
+Please note that Scrips 27 and 232 will not interfere with the Microsoft update process as long as the "Do not allow software update operations" configuration parameter is NOT enabled.
+
+=================================================================================
+
+OPERATIONAL NOTES
+==================
+
+1. The AU client on systems running W2k generates an "Install updates" dialog box before starting the installation of one or more software updates. If the system is unattended, this dialog box will be closed after 5 minutes, and the software update installation(s) will proceed.  However, if someone clicks on the "Cancel" button, the
+software update installation(s) won't happen, and Scrip 237 will simply wait for software update installation(s) to take place. Normally this will occur on the AU client's built-in installation schedule, which runs at 3 AM, and will install all pending updates. This behavior is consistent with the local user overriding the action of the ASI software.
+
+=================================================================================
+
+2. If a user right-clicks on the AU client taskbar icon on a system running W2k during a software update download, he/she can pause the download.  There is no way for the Scrip 237 to undo this. It will simply wait for the user to un-pause the download so that the software update can complete.  This behavior is consistent with the local user overriding the action of the ASI software.
+
+=================================================================================
+
+3. Apparently Microsoft has changed the very latest version of the XP AU client so that it no longer automatically reboots a system if upon completion a software update installation requires a system re-start.
+
+With ASI MUM, you can configure the software update process so that when required a system re-start will occur automatically.
+
+The default setting is "Automatically restart when a restart is necessary after an installation.". To change the re-start policy, you need to access the ASI MUM advanced machine configuration module. Please contact HandsFree Networks for instructions.
+
+=================================================================================
+
+4. When Scrip 237 is enabled, AU client bubble messages typically displayed just above and to the left of the system tray will not appear any longer.
+
+Please note the following limitations to the above:
+
+a. If Scrip 190's "Run as service" configurable boolean (by default is TRUE) is set to FALSE, Scrip 237 will not attempt to hide the bubble for any user accounts.
+b. If running in debug mode, Scrip 237 will not hide the bubble for any user.
+c. If impersonation is used to install an update, Scrip 237 will enable the bubble message function for all users while installing the update, and then will disable the bubble message function when it finishes.
+d. When Scrip 237 is enabled preventing the user from accessing any Windows Update features, it will prevent Device Manager from scanning Windows Update for drivers when the user wants to install or reinstall a driver.
+e. After an installation, a bubble message will pop up prompting the user to restart the computer if the installation requires a restart (along with Scrip 237's 5-minute warning dialog, if auto-restart is enabled). It appears that Microsoft allows this particular bubble message to be displayed no matter what policy is active.
+
+
+=================================================================================
+
+5.  When Scrip 237 is enabled, it disables the Microsoft Security Center notification service (MSC).
+
+Please note that MSC is purely a notification service to notify users when the Microsoft XP firewall is not enabled, Microsoft AU related services are not enabled, and anti virus software is not installed on a system. 
+
+In order to avoid needless alarm for end-users, we have chosen to disable MSC because Scrip 237 automatically disables Microsoft AU related services when they are not in use.
+
+We could have chosen to only disable the MSC component that tracks Microsoft AU related services. However, this does not always work because of a known issues caused by Symantec software interfering with actions that disable the MSC component that tracks Microsoft AU related services.
+
+
+=================================================================================
+
+6. Certain updates on a system running XP require user interaction to install. Recent changes Microsoft made to the software update installation process have significantly reduced the number of updates requiring user interaction. For example, MS XP SP2 installation no longer requires user interaction.
+
+ In order to properly install updates that require user interaction, you will need to take the following steps:
+
+a) Ensure that a user who has a password, and has full local administrative rights, is logged on (users with blank passwords will not work).
+
+b) Set up Scrip 43 with the username and password of the person logged on entered in the Impersonation username and password configuration parameters.
+
+Please note that the user id and password entered in the Scrip 43 Impersonation username and password configuration parameters can be the same on all systems at a site as long a user account with that user name and password is set up on all systems.
+ 
+As long as the user is logged on at the time Scrip 237 attempts to install a software update which requires user interaction, and impersonation is properly set up in Scrip 43, the ASI client will be able to manage the installation. Scrip 237 automatically takes the appropriate action whenever dialog boxes are displayed, and will automatically reboot the system if configured to do so after the update is applied.
+
+Please note that for Scrip 237 to install MS software update 
+"Microsoft Internet Explorer 6 Service Pack 1 (Windows 2000) ( en 0.0.0 SP0.0)", 
+some specific requirements must be met:
+1. Impersonation must be setup in Scrip 43.
+2. The user to be impersonated must be logged in.
+In addition, during the installation, there will be a (very brief) period of time when a dialog box will appear on the screen. Scrip 237 Will automatically (and correctly) process the dialog box.
+ 
+
+=================================================================================
+
+7. If the software update process isn't working the way you expect, you can use the "Reset configuration now" button in Scrip 237 to reset the ASI client back to its initial state.  This is a much better option than trying to restart the machine, restart services, kill processes, etc. etc.
+
+The other two commands of interest in the Scrip are:
+
+a. "Synchronize configuration with ASI server now", which forces the ASI client to get any software update management configuration updates from the ASI server that controls and manages software updates for the machine itself (such as how software updates are applied).
+
+b. "Configure software updates now", which forces the ASI client to retrieve from the ASI server any software update management configuration updates that control the configuration settings of individual software updates (e.g. installation schedules).
+
+=================================================================================
+
+8. Changing a microsoft update management configuration setting on the ASI server may not show up immediately in the ASI client and Scrip 237 event logs.  However, Scrip 237 will always check to see if a new configuration setting exists before it does something that would be affected by it, so it will seem like the changes show up "just in time".  For example, if you change the installation schedule for a software update, theScrip 237 event logs may continue to report the old installation
+schedule until just before the installation happens.
+
+This behavior is intentional, and reduces the load on the ASI server by limiting the amount of contact by Scrip 237.
+
+=================================================================================
+
+9. When a group of installations or downloads are taking place, Scrip 237 updates the ASI server only when they are all finished.  So, intermediate Scrip 237 event logs may still show that software updates are scheduled to be installed, even though they actually have been installed.  Note that this situation will correct itself once Scrip 237 updates the ASI server.
+
+Once again, this reduces the load on the ASI server by reducing the interaction with Scrip 237.
+
+=================================================================================
+
+10. Don't stop the AU service or the BITS service while Scrip 237 is trying to perform a software update operation.  In general, you should just leave those two services alone.  Scrip 237 needs to start and stop them in order to initiate and synchronize certain operations. If you are making changes to these services at the same
+time, results can be unpredictable.
+
+=================================================================================
+
+11. If you assign the same user notification to more than one software update, only one copy of the notification will be displayed. This is by design.
+
+=================================================================================
+
+12. If you omit the text for a user notification (leave it blank), then a dialog box with the following text will be displayed:
+
+"Microsoft software update operations are scheduled to start on your system at <date and time>. <number> installations are scheduled to occur."
+
+Both the default and custom notification dialog boxes include a "Details" button which, when selected, opens a browser window with a detailed listing of the software updates to which the notification refers.
+
+=================================================================================
+
+13. If you set up a user notification for a time that is already past, it won't be shown. This will be noted in a Scrip 237 event log.
+
+=================================================================================
+
+14. Don't configure the "When a software update detect fails retry in (minutes)" parameter in Scrip 237 to less than 10.  The AU client can't perform detect operations faster than once every 10 minutes. (This is a limitation of the Microsoft AU client, not the ASI software.)  Scrip 237 will report as an error any attempt to set this to less than 10 minutes, generating a number of event logs noting the error.
+
+For much the same reason, Scrip 237's schedule which is used to initiate detect operations should not be set to cause the Scrip to run more frequently than every 15 minutes.
+
+=================================================================================
+
+15. The propagation mechanism allows software updates to propagate from one ASI client to another, but it does not enable the "detection" information from one system to be applied to another. Therefore, in order for a system to be correctly updated, it needs access to either the Internet or an SUS server to complete the
+"detection" process.  Then it can get the actual update from a neighboring system.
+
+In addition, it is possible that a system will need an update that no neighboring system has downloaded.  If it cannot get the update from the Internet or an SUS server, then it will not be able to install it.  This situation is reported in the ASI server Microsoft update status page as an update that has been detected but not downloaded.
+
+=================================================================================
+
+IMPLEMENTATION NOTES
+=====================
+
+1. Propagation of software updates between systems running the ASI client on systems running XP requires version 2.0 of BITS.  This comes with XP SP2. 
+
+For prior versions of XP, this is a mandatory update that should be installed before other updates are applied. It is not possible to decline this update, so if Scrip 237 is configured to not install this particular update the system will not be updated entirely with other updates.  It is recommend to always permit WinHTTP and BITS updates to be installed.
+
+Please note that there is a little "chicken-and-egg" problem here in that propagation won't work until the BITS 2.0 update is applied which means that this update must come from either the Internet or an SUS server, rather than another system with the ASI client.
+
+=================================================================================
+
+2. Because of a limitation in Microsoft Windows NT4 (NT4), when a notification is set up to remind the user not to shut down the system, users need to go through two dialog boxes (instead of the usual one) if they really want to shut down or log off.
+
+=================================================================================
+
+3. Because of a bug in NT4, a notification to remind the user or prevent shutdown can only work if the following patch is applied:
+
+http://support.microsoft.com/default.aspx?scid=kb;en-us;245148
+
+=================================================================================
+
+4. On a system running W2k with no service packs and no updates, the AU client detects about 40 updates, and then tries to install them all at the same time.  Sometimes 1 or 2 of the installations will fail.  However, this situation corrects itself because those software updates are detected again, and installed at the next scheduled time.
+
+=================================================================================
+
+5. There is a performance issue on systems running W2k.  Scrip 237 will use 100% of the CPU for a few minutes at the time it detects software updates.  This only happens on slower machines when a large number of updates are detected, so it is an unusual case.
+
+=================================================================================
+
+OBSERVATIONS
+=============
+
+1. The Scrip 237 event logs have "too much" information in them, and are a little difficult to read. However, particularly in this first version of ASI MUM, this information provides detailed information about the software update process and is extremely helpful in diagnosing potential problems.
+
+=================================================================================
+
+2. Some Microsoft software updates require Web downloads in order to finish.  These software updates won't be able to propagate correctly from one ASI client to another machine without Internet connectivity, because the installation will run but never complete successfully. One example of this is the update for DirectX 9.0c.
+
+
+
+

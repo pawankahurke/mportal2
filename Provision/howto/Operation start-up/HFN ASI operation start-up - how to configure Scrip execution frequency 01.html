@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Configuring Scrip Execution Frequency</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20061214;20422588">
+	<META NAME="CHANGED" CONTENT="20071203;11025503">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<META NAME="CHANGEDBY" CONTENT="Alessandro Donnini">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Configuring Scrip Execution Frequency 
+</H3>
+<P>When you initiate a system management, maintenance, or problem
+management action on the ASI server, for the action to take effect on
+the target systems, it needs to be retrieved by the ASI clients on
+the target systems. We call this operation Scrip configuration
+synchronization. 
+</P>
+<P>Scrip 177 (Scrip Configuration Update) performs Scrip
+configuration synchronization operations. Scrip configuration
+synchronization actions occur when Scrip 177 (Scrip configuration
+update) runs. Like any other Scrip with a schedule, Scrip 177 can run
+as frequently as once per minute. By default, it is configured to run
+once per hour with a 50-minute random interval. 
+</P>
+<P>For more timely execution of remote operations, Scrip 177 should
+be configured to run more frequently.</P>
+<P>If Scrip 177 on every system at every site were configured to run
+once per minute, the number of event logs posted on the ASI server
+would increase significantly. Although the size of Scrip 177 event
+logs is small, in the range of 10 KBytes, in this case impact on
+bandwidth consumption at the ASI server location could be noticeable,
+depending on incoming and outgoing ASI server bandwidth. 
+</P>
+<P>For this reason, we advise customers to configure Scrip 177 to run
+frequently (every 2-3 minutes) on a subset of systems on each sub-net
+at each site (2-4 depending on the total number of systems on each
+sub-net). In this way, all Scrip configuration changes (applied to
+either one or multiple systems) will be processed by the targeted ASI
+clients within minutes of their execution on the ASI server. 
+</P>
+<OL>
+	<LI><P>Log onto your ASI server (https://asiservername/main). 
+	</P>
+	<LI><P>Click on the &quot;Use extended interface&quot; link on the
+	right side of the ASI Dashboard upper pane, below &quot;user login&quot;
+	and date. 
+	</P>
+	<LI><P>In the &quot;sites&quot; navigation bar, click on the
+	&quot;wizard&quot; link
+	(https://asiservername/main/config/index.php?act=wiz). 
+	</P>
+	<LI><P>Click on the &quot;Scrip execution frequency&quot; wizard
+	entry. 
+	</P>
+	<LI><P>Select the machine group type &quot;A single machine&quot;. 
+	</P>
+	<LI><P>Select the desired site. 
+	</P>
+	<LI><P>Select the desired machine. 
+	</P>
+	<LI><P>Click the option button next to the &quot;Minute&quot;
+	pulldown. Use the pulldown to choose the frequency (for example, 2
+	or 3). Click the <B>Next</B> button. 
+	</P>
+	<LI><P>To repeat the process for another machine, click &quot;Go to
+	the Scrip 177 Execution Frequency page&quot;. 
+	</P>
+</OL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

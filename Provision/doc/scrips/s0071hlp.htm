@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 71- Software Removal Detected</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 71- Software Removal Detected</H3>
+
+<P>Scrip 71 detects and reports the removal of software applications that when installed 
+were registered and appear in the window of the Install/Uninstall tab of the Add/Remove 
+Program Properties panel. This Scrip is triggered when the Client detects 
+the execution of software removal programs that match the following masks:</p>
+
+<ul>
+<li>isuninst.exe</li>
+<li>uninst*.exe</li>
+<li>unwise*.exe</li>
+<li>msiexec.exe</li>
+</ul>
+
+<p>Once triggered, Scrip 71 checks the Microsoft registry for changes before reporting 
+a successful software removal.</p>
+
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>Version of program used to remove the
+software application</P>
+
+<P>(e.g. 5, 51, 138, 0)</TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>Size of program used to remove the
+software application in bytes</P>
+
+<P>(e.g. 306688)</TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>Creation date of program used to remove
+the software application</P>
+
+<P>(e.g. Saturday, March 10, 2001 22:11:18)</TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event </P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE)</TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>Process id of program used to remove the
+software application</P>
+
+<P>(e.g. FFFCA1DF)</TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a</TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>Location of program used to remove the
+software application and name of program
+that was removed</P>
+
+<P>(e.g. </P>
+
+<P>Started uninstall: C:\WINDOWS\ISUNINST.EXE<BR>
+The following program has been
+uninstalled: Heroes of Might and Magic&reg; III</P>
+
+<P>)</TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 197 - Network Configuration Change Detected</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 197 - Network Configuration Change Detected</H3>
+
+<P>Scrip 197 detects and reports changes made to key components of a system's network configuration.</p>
+
+<p>Scrip 197 detects and reports changes in a system's network configuration by monitoring the 
+content of and reporting changes in a number of registry keys and all of their sub-keys.</p>
+
+
+<p>The registry keys monitored by Scrip 197 on Microsoft Windows 9x and Me based systems are:</p>
+
+<ul>
+<li>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\VxD\MSTCP</li>
+<li>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Class\Net</li>
+<li>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Class\NetClient</li>
+<li>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Class\NetService</li>
+<li>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Class\NetTrans</li>
+</ul>
+
+<p>The registry keys monitored by Scrip 197 on Microsoft Windows NT4, 2000, and XP based systems are:</p>
+
+<ul>
+<li>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TcpIp</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\NetworkCards</li>
+</ul>
+
+
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>Text contained in Window title field of
+dialog box</P>
+
+<P>(e.g. HotSync Manager) </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Log of network related configuration changes detected by Scrip 197</P>
+
+<P>(e.g. </p>
+<p>
+Changes to Protocols detected.
+<br>Value changed, Name:DefaultGateway, Key: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Class\NetTrans\0001,
+Type1:String, Type2:String, Value1:192.168.1.1, Value2:192.168.1.1,208.196.224.1
+</p>
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

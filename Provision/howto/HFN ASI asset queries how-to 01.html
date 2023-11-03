@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20061213;16023407">
+	<META NAME="CHANGED" CONTENT="20070104;7054947">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in }
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3><A NAME="top"></A>Asset Queries</H3>
+<UL>
+	<LI><P><A HREF="#How to export the list of currently defined asset queries &aacute;top |outline">How
+	to export the list of currently defined asset queries</A> 
+	</P>
+	<LI><P><A HREF="#How to duplicate an asset query &aacute;top |outline">How
+	to duplicate an asset query</A> 
+	</P>
+	<LI><P><A HREF="#How to export asset query results &aacute;top |outline">How
+	to export asset query results</A> 
+	</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4><A NAME="assetquerylistexport"></A><A NAME="How to export the list of currently defined asset queries &aacute;top |outline"></A>
+How to export the list of currently defined asset queries <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>1) Log onto your ASI server (https://asiservername/main)</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the &quot;sites&quot; navigation bar click on the &quot;wizard&quot;
+link (https://asiservername/main/config/index.php?act=wiz)</P>
+<P>4) In the &quot;Configuration Wizard&quot; page, click on the
+&quot;Export data&quot; entry
+(https://asiservername/main/acct/export.php)</P>
+<P>5) Click on the &quot;asset&quot; radio button, then click on the
+&quot;Next&quot; button</P>
+<P>6) Click on the &quot;AssetSearches&quot; radio button, then click
+on the &quot;Next&quot; button</P>
+<P>7) De-select the following fields in the AssetSearches table:</P>
+<UL>
+	<LI><P>id 
+	</P>
+	<LI><P>username 
+	</P>
+	<LI><P>rowsize 
+	</P>
+	<LI><P>modified 
+	</P>
+	<LI><P>global 
+	</P>
+	<LI><P>refresh 
+	</P>
+	<LI><P>translated 
+	</P>
+	<LI><P>date_code</P>
+	<LI><P>expires 
+	</P>
+	<LI><P>date_value</P>
+	<LI><P>created 
+	</P>
+</UL>
+<P>8) Select 0 from the &quot;Select a maximum number of records to
+export:&quot; pull-down list</P>
+<P>9) Select the desired date format from the &quot;Format time&quot;
+pull-down list</P>
+<P>10) Click on the &quot;Next&quot; button</P>
+<P>11) Enter the desired file name in the &quot;Filename&quot; data
+entry box</P>
+<P>12) Click on the &quot;Text&quot; button</P>
+<P>13) Save the file to the desired location.</P>
+<H4><A NAME="assetquerycopy"></A><A NAME="How to duplicate an asset query &aacute;top |outline"></A>
+How to duplicate an asset query <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>If you want to create your own variant of an asset query, for
+example, the &quot;Hardware IV&quot; asset query, you would:</P>
+<P>1) Log onto your ASI server, https://asiservername/main/index.php</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the &quot;assets&quot; navigation bar (at the upper
+right-hand corner of any ASI server page), click on the &quot;queries&quot;
+link</P>
+<P>4) In the &quot;Name Contains&quot; parameter in the &quot;Search
+Options&quot; panel, enter &quot;hardware&quot; (without quotes)</P>
+<P>5) Click on the &quot;Search&quot; button</P>
+<P>6) Click on the &quot;copy&quot; link to the right of the asset
+query name. In this case, you would click on the &quot;copy&quot;
+link for the &quot;Hardware IV&quot; query. Please note that
+depending on the CPU power of the system you are using it may take
+3-30 seconds for the &quot;Duplicate Asset Query&quot; page to be
+fully displayed. If a warning dialog box asking you &quot;Do you want
+to abort the script&quot; appears, click on the &quot;No&quot;
+button.</P>
+<P>7) Change the name of the asset query</P>
+<P>8) De-select the &quot;Global&quot; configuration parameter, or
+leave it unchanged</P>
+<P>9) Modify the selection in the &quot;Select fields to display&quot;
+panel on the left side of the page</P>
+<P>10) If you want to add or modify search criteria, make the changes
+in the &quot;Create search criteria&quot; panel on the right side of
+the page. For example, if you wanted to base the search criteria on
+the site name, you would click on the &quot;Site Name&quot; field
+label in the &quot;Properties&quot; asset item group in the &quot;Select
+fields to display&quot; panel on the left side of the page. If you
+wanted to add more search criteria, you would click on the &quot;AND&quot;,
+or &quot;OR&quot; buttons, and select another criteria.</P>
+<P>11) Once you have completed steps 8) and 9), you should review the
+configuration settings in the &quot;Select date&quot; and &quot;Select
+display options&quot; sections of the &quot;Duplicate Asset Query&quot;
+page</P>
+<P>12) Click on the &quot;Update&quot; button</P>
+<H4><A NAME="assetqueryresultsexport"></A><A NAME="How to export asset query results &aacute;top |outline"></A>
+How to export asset query results <A HREF="#top"><FONT SIZE=1><FONT FACE="Wingdings">&aacute;</FONT>top
+</FONT></A>
+</H4>
+<P>If you want to export the asset information retrieved by an asset
+query please perform these steps:</P>
+<P>1) Log onto your ASI server, https://asiservername/main/index.php</P>
+<P>2) Click on the &quot;Use extended interface&quot; link on the
+right side of the ASI Dashboard upper pane, below user login and
+date.</P>
+<P>3) In the &quot;assets&quot; navigation bar (at the upper
+right-hand corner of any ASI server page), click on the &quot;queries&quot;
+link</P>
+<P>4) Retrieve the entry for the asset query whose results you want
+to export either by scrolling down to the entry, or by retrieving the
+entry for the asset query using the search parameters in the &quot;Search
+Options Panel&quot;.</P>
+<P>5) Click on the &quot;export&quot; link to the left of the name of
+the asset query whose results you want to export. The export control
+panel will be displayed in a new window</P>
+<P>6) You have two options, export to a file in command delimited
+text file with headers (.csv), or to an SQL table. If you want to
+export to a .csv file, enter the name of the file name you want to
+export the asset information to, then click on the &quot;Excel&quot;
+button.</P>
+<P>7) The &quot;File Download&quot; dialog box will be displayed.
+Click on the &quot;Save&quot; button</P>
+<P>8) After you have browsed to the desired location, and made sure
+that the file name is as you want it, click on the &quot;Save&quot;
+button.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=256*>
+		<TR>
+			<TD WIDTH=100% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2006
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,283 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Scrip 96 Configuration</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Win32)">
+	<META NAME="CREATED" CONTENT="20041216;20361292">
+	<META NAME="CHANGED" CONTENT="20070701;16450226">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { font-family: "verdana"; font-size: 10pt }
+		P { font-family: "verdana"; font-size: 10pt }
+		H3 { color: #333399; font-family: "verdana" }
+		H4 { color: #333399; font-family: "verdana" }
+		A:link { color: #333399 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" LINK="#333399" DIR="LTR">
+<H3>Scrip 96 Configuration</H3>
+<H4>Configuration parameters and their default values</H4>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Scrip enabled 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Processor queue length above
+	which to report</EM> 10</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Processor interrupts per
+	second above which to report</EM> 3000</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Percent processor usage above
+	which to report</EM> 78</P>
+	<LI><P STYLE="margin-bottom: 0in"><EM>Sampling period in
+	milliseconds</EM> When Scrip 96 is enabled, the default value is
+	15000 milliseconds. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><I>Limit number of processes
+	logged to</I> 10</P>
+</UL>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><I>Report running processes</I> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">When enabled, Scrip 96 runs once
+	per minute.</P>
+</UL>
+<UL>
+	<LI><P><I>Report CPU usage now</I> 
+	</P>
+</UL>
+<H4>Reporting Thresholds</H4>
+<P>When configuring Scrip 96, users can set reporting thresholds for
+<EM>processor usage</EM>, <EM>Interrupts per second</EM>, and <EM>Queue
+length</EM>. They can be used to alert the support provider about a
+system with an under-powered processor, given the application mix run
+by the end-user, or a potentially problematic application. Threshold
+settings also have the effect to regulate the Scrip's logging
+activity. 
+</P>
+<P>The reporting threshold for <EM>Interrupts per second</EM> can be
+any number. When set to 0, Scrip 96 will log processor statistics
+every fifteen, the default logging period. When it is set to a very
+large number, typically more than , Scrip 96 will log processor
+utilization statistics very rarely.</P>
+<P>The reporting threshold for <EM>Queue length</EM> can be any
+number. When set to 0, Scrip 96 will log processor utilization
+statistics every fifteen minutes, the default logging period. When it
+is set to a very large number, that varies depending on the processor
+and operating system combination, Scrip 96 will log processor
+utilization statistics very rarely.</P>
+<P>Reporting threshold for <EM>processor usage</EM> can vary between
+100 and 0. When a reporting threshold is set to 0, in practice this
+means that Scrip 96 will log processor utilization statistics every
+15 minutes, the defaul logging period. When the reporting threshold
+is set to X, where X is between 0 and 100, this means that for that
+Scrip 96 will log processor utilization statistics every 15 minutes,
+if <EM>Usage percentage</EM> exceeds X. When <EM>processor usage</EM>
+reporting threshold is set to 100, in practice this means that for
+that Scrip 96 will log processor utilization statistics very rarely.</P>
+<P>Of the three metrics, experience shows that a high <EM>Queue
+length</EM> value typically represents the most reliable indicator of
+a potential processing capacity shortage as it tends to indicate that
+a large number of processes are waiting for processor capacity in
+order to execute. This, in turn, leads to degraded application
+performance.</P>
+<P>You should note that Scrip 96 will log the value of all processor
+metrics whenever the threshold value of any one metric is exceeded.</P>
+<H4>Limit number of processes logged to</H4>
+<P>When the <I>Report running processes</I> configuration parameter
+is enabled, Scrip 96 will report detailed information about a number
+of processes equal to the value of the <I>Limit number of processes
+logged to</I> configuration parameter in descending order by reported
+processor utilization. The default value of the <I>Limit number of
+processes logged to</I> configuration parameter is <B>10</B>. If the
+value of the <I>Limit number of processes logged to</I> configuration
+parameter is set to <B>0</B>, and the <I>Report running processes</I>
+configuration parameter is enabled, Scrip 96 will report detailed
+information about all processes running on the system at the time
+Scrip 6 posted its event log.</P>
+<H4>Report running processes</H4>
+<P>If you enable the <I>Report running processes</I> configuration
+parameter, when Scrip 96 runs the event log it posts on the ASI
+server will include the list of processes running at the time its
+execution. 
+</P>
+<P>Please be aware that event logs including the list of running
+processes can be fairly large (&gt;50 Kbytes). If Scrip 96 thresholds
+are set too low, the number of Scrip 96 logs generated can number in
+the thousands per system per day. If the <I>Report running processes</I>
+configuration parameter is enabled, the result can be high network
+connection and mass storage capacity utilization on the ASI server.</P>
+<H4>Report CPU usage now</H4>
+<P>With the <EM>Execute</EM> button, you can run Scrip 96 on demand,
+even if it's not enabled. In Scrip 96, the <EM>Execute</EM> button
+can be used to execute the Scrip on the local system or on all
+supported systems.</P>
+<H4>Schedule</H4>
+<P>The Schedule parameter has a command line with eight fields, each
+entered on a new line.</P>
+<P>The table below describes each field in detail.</P>
+<TABLE WIDTH=958 BORDER=1 BORDERCOLOR="#c0c0c0" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=64>
+	<COL WIDTH=81>
+	<COL WIDTH=784>
+	<COL WIDTH=3>
+	<TR>
+		<TD WIDTH=64>
+			<P ALIGN=CENTER><STRONG>Field Number</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=81>
+			<P ALIGN=CENTER><STRONG>Field Name</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=784>
+			<P ALIGN=CENTER><STRONG>Field Values and Description</STRONG> 
+			</P>
+		</TD>
+		<TD WIDTH=3></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minutes</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-59; a value of <B>*</B> means that the Scrip should run every
+			minute 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Hours</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0-23; a value of <B>*</B> means that the Scrip should run every
+			hour 
+			</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-31, depending on the month; a value of <B>*</B> means that
+			the Scrip should be run every day.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Month</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>1-12; a value of <B>*</B> means that the Scrip should be run
+			every month.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Day of the Week</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>0, Sunday - 6, Saturday; a value of <B>*</B> means that the
+			Scrip should be run every day of the week.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Minute Randomizer</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; the size of the time interval in minutes over which the
+			Scrip should be randomly executed. We multiply N*60, then
+			calculate a random number X between 1 and N*60, and run the Scrip
+			X seconds after its scheduled time.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Conditional Execution</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N; N=1 means that if the Scrip is past due, it will be run
+			immediately, N=2 means that If the Scrip is past due, it will be
+			run at the next scheduled execution time. If the value is set to
+			2, the actual Scrip execution time will be within 3 minutes
+			(either way) of the scheduled time. This is necessary to prevent
+			the case where a process will not be executed if it is a little
+			slow to start, or if the scheduler starts it a few seconds too
+			early.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=64>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=81>
+			<P>Failed Run Limit</P>
+		</TD>
+		<TD WIDTH=784>
+			<P>N, where N is the number of times that Scrip execution is
+			allowed to fail before notification is sent to the support
+			provider; N=0, the Scrip will NEVER report a failure, N=1, the
+			Scrip will report EVERY failure, N=2, the Scrip will report if it
+			failed twice in a row, and so on.</P>
+		</TD>
+		<TD WIDTH=3 VALIGN=TOP></TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>The <EM>Minutes</EM>, <EM>Hours</EM>, <EM>Day of the Month</EM>,
+<EM>Month</EM>, and <EM>Day of the Week</EM> fields can have multiple
+values and ranges of values separating them with commas.</P>
+<P>For example, a 1,3,5 entry for the <EM>Minutes</EM> parameter
+would mean that a Scrip would be executed at minutes 1, 3, and 5.</P>
+<P>A 10-14 entry for the <EM>Hours</EM> parameter would mean that a
+Scrip would be executed starting at 10 AM and ending at 2 PM.</P>
+<P>Multiple value and range entries can be used together separated by
+commas.</P>
+<HR SIZE=1 COLOR="#333399" NOSHADE>
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR>
+			<TD WIDTH=50% VALIGN=TOP>
+				<P><FONT FACE="verdana, helvetica"><FONT SIZE=1>&copy; 2000-2007
+				HandsFree Networks </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

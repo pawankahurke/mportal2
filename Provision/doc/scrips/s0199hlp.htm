@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="WordPerfect 9">
+<META NAME="Author" CONTENT="Alessandro Donnini">
+<TITLE>Scrip 199 - Registry Change Detected</TITLE>
+<LINK REL="STYLESHEET" HREF="scrphelp.css" TYPE="text/css" >
+</HEAD>
+
+<BODY>
+
+
+<H3>Scrip 199 - Registry Change Detected</H3>
+
+<P>Scrip 199 detects and reports changes made to the registry. It covers all keys listed in the 
+<em>Registry keys to monitor</em> parameter in the configuration entry for this Scrip, and their sub-keys.</p>
+
+<p>Most changes made to applications' and the system's configuration and environment result in registry changes. 
+This means that the registry changes frequently. To avoid generating a large volume of event logs, most of which are
+not very useful, it is important to be as specific as you possibly can when identifying the registry keys
+you would like Scrip 199 to monitor.</p>
+
+<p>For example, if you want to monitor changes in Outlook Express account settings, it is probably more advisable 
+to select the key for specific accounts 
+(e.g. HKEY_CURRENT_USER\Software\Microsoft\Internet Account Manager\Accounts\00000001), rather than the
+entire Internet Account Manager key (HKEY_CURRENT_USER\Software\Microsoft\Internet Account Manager).</p>
+
+<p>The table below describes the information contained in the logs produced by this Scrip.</p>
+<br>
+
+<table border=1 bordercolor="#COCOCO" cellpadding="3" cellspacing="0">
+
+<TR><TD><STRONG>Client time:</STRONG></TD>
+<TD>Date and time at which event was detected
+by the Client on the
+end-user system (e.g. 2001-03-02
+19:21:36)</TD></TR>
+<TR><TD><STRONG>Server time:</STRONG></TD>
+<TD>Date and time at which event log was
+received and stored in the SQL database on
+the Web log server (e.g. 2001-03-02
+19:21:53)</TD></TR>
+<TR><TD><STRONG>Scrip number:</STRONG></TD>
+<TD>Number of Scrip (no particular relevance) </TD></TR>
+<TR><TD><STRONG>Customer:</STRONG></TD>
+<TD>Name of supported customer, individual
+department or site </TD></TR>
+<TR><TD><STRONG>Machine:</STRONG></TD>
+<TD>Name of system as assigned at the time of
+Windows configuration </TD></TR>
+<TR><TD><STRONG>Username:</STRONG></TD>
+<TD>Name of user when event occurred </TD></TR>
+<TR><TD><STRONG>Client version:</STRONG></TD>
+<TD>Client version number
+(e.g. 0.700.2048.LE) </TD></TR>
+<TR><TD><STRONG>Client size:</STRONG></TD>
+<TD>Size of Client in bytes </TD></TR>
+<TR><TD><STRONG>Priority:</STRONG></TD>
+<TD>Priority of event ranging between 1 (lowest)
+and 9 (highest) </TD></TR>
+<TR><TD><STRONG>Description:</STRONG></TD>
+<TD>Description of event that took place (e.g.
+symptom detected, problem resolved or
+automated procedure executed) </TD></TR>
+<TR><TD><STRONG>Type:</STRONG></TD>
+<TD>Dialog box type (Error, Warning,
+Information, Question) </TD></TR>
+<TR><TD><STRONG>Path:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Executable:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Version:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Size:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>ID:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Window title:</STRONG></TD>
+<TD>Text contained in Window title field of
+dialog box</P>
+
+<P>(e.g. HotSync Manager) </TD></TR>
+<TR><TD><STRONG>String 1:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>String 2:</STRONG></TD>
+<TD>Client location on
+system that reported the event</P>
+
+<P>(e.g. C:\PROGRAM
+FILES\...\CLIENT\CUST.EXE) </TD></TR>
+<TR><TD><STRONG>Text 1:</STRONG></TD>
+<TD>Log of registry key changes detected by Scrip 199</P>
+
+<P>(e.g. </p>
+<p>
+Changes to key detected.
+<br>Value changed, Name:Cache, Key:HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\International\CpMRU, Old Type:Binary, New Type:Binary, Old Value:¯o, New Value:¯o
+Changes to key detected.
+<br>Key changed, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\OMI Account Manager\Accounts\00000006
+<br>Value added, Name:SMTP Reply To Email Address, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\OMI Account Manager\Accounts\00000006, Old Type:String, New Type:None, Old Value:alexdonnini@corporateink.com, New Value:
+Value added, Name:SMTP Organization Name, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\OMI Account Manager\Accounts\00000006, Old Type:String, New Type:None, Old Value:Corporate Ink, New Value:
+<br>Changes to key detected.
+<br>Key changed, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\OMI Account Manager\Accounts\00000006\
+Value added, Name:SMTP Reply To Email Address, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\OMI Account Manager\Accounts\00000006\, Old Type:String, New Type:None, Old Value:alexdonnini@corporateink.com, New Value:
+Value added, Name:SMTP Organization Name, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\OMI Account Manager\Accounts\00000006\, Old Type:String, New Type:None, Old Value:Corporate Ink, New Value:
+<br>Changes to key detected.
+<br>Value changed, Name:Frame, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\9.0\Outlook\Office Explorer, Old Type:Binary, New Type:Binary, Old Value:, New Value:
+Value changed, Name:Namespaces, Key:HKEY_CURRENT_USER\Software\Microsoft\Office\9.0\Outlook\Office Explorer, Old Type:Binary, New Type:Binary, Old Value:, New Value:
+</p>
+<p>)</p></TD></TR>
+<TR><TD><STRONG>Text 2:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 3:</STRONG></TD>
+<TD>n/a </TD></TR>
+<TR><TD><STRONG>Text 4:</STRONG></TD>
+<TD>n/a </TD></TR></TABLE>
+<BR>
+<BR>
+</P>
+
+
+</BODY>
+</HTML>

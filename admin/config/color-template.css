@@ -1,0 +1,295 @@
+/*  Templates   */
+
+body {
+    color: #050d30;
+}
+
+/* ------------------------- Header ------------------------- */
+
+
+/* Header Icons */
+.header-right-icon-color-font,
+.header-right-dropdown-size-color {
+    color: #050d30;
+}
+/* Landing Page Header Icons */
+.landing-screen .header-right-icon-color-font {
+    color: #fff;
+}
+/* Landing Page Menu text color */
+.landing-screen .header-right-dropdown-size-color {
+    color: #050d30;
+}
+
+.header-wrap {
+    /*border-bottom: solid 2px #cf1e2a;*/
+    /*background: #fff;*/
+}
+
+/*--------------------- breadcrumb --------------------*/
+/* With Stippred back button */
+.breadcrumbs {
+    background-color: #fff;
+}
+.breadcrumb-btn .breadcrumb > li {
+    background: none;
+    color: #364c67;
+}
+
+/* Without Stippred back button */
+/*.breadcrumbs {
+    background-color: #fff;
+    background: transparent;
+}
+.breadcrumbs .breadcrumb > li {
+    background: transparent;
+    border: solid 1px #415364;
+    color: #415364;
+}*/
+
+
+/* ------------------------- Footer ------------------------- */
+
+.footer-left {
+    background-color: #050d30;
+}
+
+.footer-right {
+    background-color: #050d30;
+}
+.footer-right .live-chat {
+    float: right;
+    margin-right: 30px;
+}
+
+/* Footer Text */
+
+.footer-wrap .left .flink ul li a,
+.footer-wrap .right .live-chat a {
+    color: #fff;
+}
+
+.footer-wrap {
+    /*border-top: solid 2px #cf1e2a;*/
+}
+/* ------------------------- Pages ------------------------- */
+
+
+/* progress bar */
+
+.progress .progress-bar-success {
+    background-color: #050d30;
+}
+
+
+/**************** Titles ****************/
+
+.signin-text .signin-title,
+.scanning-page .scanmsg,
+.purchase-page .purchase-page-title,
+.purchase-page-plan-title,
+.popup-title,
+.laplink-page-title {
+    color: #050d30;
+}
+
+
+/* left right header [ex: system info page and scan complete page] */
+.services-title,
+.service-right-title,
+.scan-complete-page .title,
+.systeminfo-title,
+.systeminfo-right-title,
+.setting-page-left-title,
+.setting-page-right-title,
+.freefix-page .title {
+    color: #050d30;
+}
+
+
+/* left right sub-header [ex: system info page] */
+
+.service-log-page .service-log-right .service-log-date-title .title,
+.scan-complete-page .critical-issue-title,
+.freefix-page .critical-issue-title,
+.purchase-plans-title {
+    color: #050d30;
+}
+
+
+/**************** Descriptions ****************/
+
+.signin-text,
+.purchase-page-plan-disc {
+    color: #050d30;
+}
+
+
+/**************** Loader ****************/
+
+.preloader {
+    color: #050d30;
+}
+
+
+/**************** Landing Page ****************/
+
+
+/* Title 1 */
+.landing-page-title {
+    color: #050d30;    
+    font-weight: 900;
+    font-family: "f-bold";
+}
+
+/* Title 2 */
+.landing-page-title2 {
+    color: #a7abb3;
+    font-weight: 900;
+}
+
+
+/*** troubleshooter ***/
+.form-control {
+    color: #050d30;
+}
+
+.troubleshooters-page-left .search .input-group-addon {
+    color: #050d30;
+}
+
+
+/** AV Scan **/
+.scanning-page .scan-text .completed {
+    color: #82a55f;
+}
+
+.scanning-page .scan-text .skipped {
+    color: #edb53e;
+}
+
+.scanning-page .scan-text .failed {
+    color: #f83d24;
+}
+
+
+/* Error Message */
+.signin-page .signin-form .signin-form-right .signin-form-box .form-group .error,
+.viewandfix-browser-issue-last-scan span,
+.viewandfix-left-list ul li i.fa-info-circle,
+.popups-body .authentication-popup .form-group .error-msg,
+.popups-body .upload-popup .form-group .error-msg {
+    color: red;
+}
+
+
+/* Success Message */
+.client-upd-msg {
+    color: #07C640;
+}
+
+
+/* Infected files page */
+.view-infected-page .scan-in-progress .fa-refresh {
+    color: #5cb85c !important;
+}
+
+
+/* chat wrap */
+.chat-top {
+    background: #fab228;
+    color: #c88e20;
+    font-size: 16px;
+}
+
+.chat-box {
+    background: #ffffff;
+}
+
+
+/* ------------------------- Buttons ------------------------- */
+
+.btn-color-font-bg,
+.signin-form-box .signin-submit,
+.purchase-plans-btn a,
+.troubleshooters-page-right .purchase-btn {
+    background-color: #050d30;
+    color: #fff;
+    /*border: solid 1px #415364;*/
+}
+
+.btn-color-font-bg:hover,
+.signin-form-box .signin-submit:hover,
+.purchase-plans-btn a:hover,
+.troubleshooters-page-right .purchase-btn:hover,
+.btn-color-font-bg:focus,
+.signin-form-box .signin-submit:focus,
+.purchase-plans-btn a:focus,
+.troubleshooters-page-right .purchase-btn:focus,
+.start-btn a.btn-color-font-bg:hover,
+.start-btn a.btn-color-font-bg:focus {
+    color: #fff;
+}
+
+.btn-color-font,
+.home-subscription .renew-now,
+.we-resolved-issue-view a,
+.viewandfix-browser-issue-last-scan .last-scan-again,
+.scanning-page .number-of-files-scanned .view-files {
+    color: #050d30;
+}
+
+/* buton focus or hover */
+.btn-color-font:hover,
+.home-subscription .renew-now:hover,
+.we-resolved-issue-view a:hover,
+.viewandfix-browser-issue-last-scan .last-scan-again:hover,
+.scanning-page .number-of-files-scanned .view-files:hover,
+.btn-color-font:focus,
+.home-subscription .renew-now:focus,
+.we-resolved-issue-view a:focus,
+.viewandfix-browser-issue-last-scan .last-scan-again:focus,
+.scanning-page .number-of-files-scanned .view-files:focus,
+.start-btn a.btn-color-font:hover,
+.start-btn a.btn-color-font:focus{
+    color: #050d30;
+}
+
+
+/*--------------------- checkbox color --------------------*/
+.checkbox label::before, .radio-btn label::before {
+    color: #050d30;
+}
+.check-applications-installed .checkbox input[type="checkbox"]:checked + label::after, .check-applications-installed .checkbox input[type="radio"]:checked + label::after{
+    border: 2px solid #050d30;
+    background-color: white;
+}
+.checkbox label::after, .radio-btn label::after {
+    background-color: white;
+}
+.check-applications-installed .checkbox input[type="checkbox"]:disabled + label::after {
+    border: 0;
+	color: #050d30;
+}
+
+/*--------------------- heading text color --------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*    color: red;*/
+}
+
+
+/*--------------------- input popup --------------------*/
+
+input {
+    color: #050d30;
+}
+
+.authentication-popup .form-control {
+    border-color: #081c2b;
+}
